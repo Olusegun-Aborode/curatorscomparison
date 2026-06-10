@@ -9,6 +9,12 @@
     /* Deterministic shell placement: topbar(row1) / sidebar+main(row2) / statusbar(row3) */
     .shell > .sidebar { grid-column: 1; grid-row: 2; }
     .shell > .main { grid-column: 2; grid-row: 2; }
+    /* Allow flex/grid panels to shrink below intrinsic content width (prevents overflow) */
+    .panel { min-width: 0; }
+    /* Make fixed-width chart SVGs (Treemap) scale to their panel instead of clipping at the border */
+    .fluid-svg svg { width: 100%; height: auto; display: block; }
+    .metric:last-child { border-right: none; }
+    .metric-footer { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   </style>
 </head>
 <body data-theme="dark" data-aesthetic="evolved" data-density="cozy">
@@ -105,36 +111,40 @@
             Asset managers allocating depositor capital on permissionless lending protocols, by AUM and collateral type. Ethereum-first, all chains.
           </p>
 
-          <div className="grid grid-4" style={{ marginTop: 22, gap: 16 }}>
-            {kpis.map(k => (
-              <div key={k.l} className="panel kpi-panel">
-                <div className="metric-label">{k.l}</div>
-                <div className="metric-value">{k.v}</div>
-                <div className="metric-delta" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{k.d}</div>
-              </div>
-            ))}
+          <div className="panel" style={{ marginTop: 22 }}>
+            <div className="grid grid-4" style={{ gap: 0 }}>
+              {kpis.map(k => (
+                <div key={k.l} className="metric" style={{ cursor: 'default' }}>
+                  <div className="metric-label">{k.l}</div>
+                  <div className="metric-value">{k.v}</div>
+                  <div className="metric-footer">{k.d}</div>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="grid" style={{ gridTemplateColumns: '1.4fr 1fr', gap: 16, marginTop: 16 }}>
-            <div className="panel" style={{ padding: 18 }}>
+            <div className="panel">
               <div className="panel-header"><div className="panel-title">Curators by AUM — colored by dominant asset type</div></div>
-              <Treemap items={treeItems} width={620} height={320} />
-              <Legend keys={ASSET_TYPES.filter(t => (D.agg.byAssetType[t]||0) > 0)} />
+              <div className="panel-body">
+                <div className="fluid-svg"><Treemap items={treeItems} width={620} height={320} /></div>
+                <Legend keys={ASSET_TYPES.filter(t => (D.agg.byAssetType[t]||0) > 0)} />
+              </div>
             </div>
-            <div className="panel" style={{ padding: 18, minWidth: 0 }}>
+            <div className="panel">
               <div className="panel-header"><div className="panel-title">AUM by Asset Type</div></div>
-              <Donut items={assetDonut} size={190} thickness={32} centerLabel={fmtUSD(D.meta.totalAumUsd)} />
+              <div className="panel-body"><Donut items={assetDonut} size={190} thickness={32} centerLabel={fmtUSD(D.meta.totalAumUsd)} /></div>
             </div>
           </div>
 
           <div className="grid" style={{ gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 16 }}>
-            <div className="panel" style={{ padding: 18 }}>
+            <div className="panel">
               <div className="panel-header"><div className="panel-title">AUM by Size Tier × Asset Type</div></div>
-              <StackedBarChart data={barData} keys={ASSET_TYPES} colors={ASSET_TYPES.map(t => AC[t])} labels width={560} height={240} />
+              <div className="panel-body"><StackedBarChart data={barData} keys={ASSET_TYPES} colors={ASSET_TYPES.map(t => AC[t])} labels width={560} height={240} /></div>
             </div>
-            <div className="panel" style={{ padding: 18, minWidth: 0 }}>
+            <div className="panel">
               <div className="panel-header"><div className="panel-title">AUM by Chain (Ethereum-first)</div></div>
-              <Donut items={chainDonut} size={190} thickness={32} centerLabel={String(Object.keys(D.agg.byChain).length) + ' chains'} />
+              <div className="panel-body"><Donut items={chainDonut} size={190} thickness={32} centerLabel={String(Object.keys(D.agg.byChain).length) + ' chains'} /></div>
             </div>
           </div>
         </section>
