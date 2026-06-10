@@ -96,10 +96,43 @@ const riskManagers = [
 }));
 records.push(...riskManagers);
 
-// ---- aggregate views (curators only, exclude risk managers) ----
-const curators = records.filter((r) => r.relationshipType === "curator")
-  .map((r) => ({ ...r, sizeTier: tier(r.aumUsd) }))
-  .sort((a, b) => b.aumUsd - a.aumUsd);
+// ---- per-protocol curator records (one row per curator-protocol) ----
+const perProtocol = records.filter((r) => r.relationshipType === "curator");
+
+// ---- merge same-name curators across protocols into a single entity ----
+// A curator like Clearstar or Hyperithm runs vaults on both Morpho and Euler;
+// we combine into one row carrying total AUM plus a per-protocol breakdown.
+const mergedMap = new Map();
+for (const r of perProtocol) {
+  if (!mergedMap.has(r.name)) {
+    mergedMap.set(r.name, {
+      name: r.name, relationshipType: "curator", verified: false,
+      aumUsd: 0, vaultCount: 0, byChain: {}, byAssetType: {}, protocols: [],
+    });
+  }
+  const m = mergedMap.get(r.name);
+  m.aumUsd += r.aumUsd;
+  m.vaultCount += r.vaultCount || 0;
+  m.verified = m.verified || r.verified;
+  for (const [k, v] of Object.entries(r.byChain || {})) m.byChain[k] = (m.byChain[k] || 0) + v;
+  for (const [k, v] of Object.entries(r.byAssetType || {})) m.byAssetType[k] = (m.byAssetType[k] || 0) + v;
+  m.protocols.push({ protocol: r.protocol, aumUsd: r.aumUsd, vaultCount: r.vaultCount || 0 });
+}
+
+const curators = [...mergedMap.values()].map((c) => {
+  const sorted = Object.entries(c.byAssetType).sort((a, b) => b[1] - a[1]);
+  const tot = sorted.reduce((s, [, v]) => s + v, 0) || 1;
+  c.protocols.sort((a, b) => b.aumUsd - a.aumUsd);
+  return {
+    ...c,
+    chains: Object.keys(c.byChain),
+    protocol: c.protocols.map((p) => p.protocol).join(" + "), // display summary
+    dominantAssetType: sorted[0]?.[0] ?? "Other / Long-tail",
+    assetProfile: sorted.map(([b, v]) => `${b} ${Math.round(v / tot * 100)}%`).join(", "),
+    ethShare: (c.byChain["Ethereum"] || 0) / (c.aumUsd || 1),
+    sizeTier: tier(c.aumUsd),
+  };
+}).sort((a, b) => b.aumUsd - a.aumUsd);
 
 const sum = (arr, f) => arr.reduce((s, x) => s + f(x), 0);
 const totalAum = sum(curators, (c) => c.aumUsd);
@@ -108,9 +141,10 @@ const byAssetType = {}, byChain = {}, byProtocol = {}, byTier = {};
 for (const c of curators) {
   for (const [k, v] of Object.entries(c.byAssetType)) byAssetType[k] = (byAssetType[k] || 0) + v;
   for (const [k, v] of Object.entries(c.byChain)) byChain[k] = (byChain[k] || 0) + v;
-  byProtocol[c.protocol] = (byProtocol[c.protocol] || 0) + c.aumUsd;
   byTier[c.sizeTier] = (byTier[c.sizeTier] || 0) + c.aumUsd;
 }
+// per-protocol AUM split comes from the un-merged records (keeps Morpho/Euler distinct)
+for (const r of perProtocol) byProtocol[r.protocol] = (byProtocol[r.protocol] || 0) + r.aumUsd;
 
 const ASSET_COLORS = {
   "BTC": "var(--orange)", "ETH / LST / LRT": "var(--blue)", "Stablecoin": "var(--green)",
