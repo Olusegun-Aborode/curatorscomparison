@@ -1,0 +1,3914 @@
+[
+  {
+    "address": "0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+    "name": "Gauntlet USDC Prime",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 442516319.4120951,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "cbETH",
+        "usd": 1951224.2636078577
+      },
+      {
+        "asset": "WETH",
+        "usd": 20728854.055331614
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 417545585.506407
+      },
+      {
+        "asset": "wstETH",
+        "usd": 430558.28664811945
+      },
+      {
+        "asset": "cbETH",
+        "usd": 633481.4040323428
+      },
+      {
+        "asset": "cbETH",
+        "usd": 1226615.896068203
+      }
+    ]
+  },
+  {
+    "address": "0xBEEFE94c8aD530842bfE7d8B397938fFc1cb83b2",
+    "name": "Steakhouse Prime USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 329011564.43606544,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 98669.91337952961
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 308650268.41821694
+      },
+      {
+        "asset": "WETH",
+        "usd": 19392623.67319447
+      },
+      {
+        "asset": "cbETH",
+        "usd": 489505.5091389626
+      },
+      {
+        "asset": "cbETH",
+        "usd": 380496.92213550163
+      }
+    ]
+  },
+  {
+    "address": "0x19b3cD7032B8C062E8d44EaCad661a0970DD8c55",
+    "name": "Sentora PYUSD",
+    "listed": true,
+    "depositAsset": "PYUSD",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 289852768.69217134,
+    "curators": [
+      "Sentora"
+    ],
+    "collateral": [
+      {
+        "asset": "kBTC",
+        "usd": 67467228.07633063
+      },
+      {
+        "asset": "weETH",
+        "usd": 49243272.50941496
+      },
+      {
+        "asset": "PT-sUSDE-7MAY2026",
+        "usd": 24.816773392740327
+      },
+      {
+        "asset": "WBTC",
+        "usd": 4258731.797653304
+      },
+      {
+        "asset": "LBTC",
+        "usd": 39826735.18343486
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 5709309.722730689
+      },
+      {
+        "asset": "wstETH",
+        "usd": 2149167.720626673
+      },
+      {
+        "asset": "sUSDe",
+        "usd": 41837786.545764096
+      },
+      {
+        "asset": "sUSDS",
+        "usd": 21142.671110243544
+      },
+      {
+        "asset": "syrupUSDC",
+        "usd": 75052328.64352858
+      }
+    ]
+  },
+  {
+    "address": "0xbeeF010f9cb27031ad51e3333f9aF9C6B1228183",
+    "name": "Steakhouse USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 286865900.9398472,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "cbETH",
+        "usd": 565755.5508511744
+      },
+      {
+        "asset": "wstETH",
+        "usd": 790100.1795861163
+      },
+      {
+        "asset": "cbETH",
+        "usd": 23532.89542846699
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 280676430.3538207
+      },
+      {
+        "asset": "WETH",
+        "usd": 4810081.9601607
+      }
+    ]
+  },
+  {
+    "address": "0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB",
+    "name": "Steakhouse USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 101877790.20109949,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "WBTC",
+        "usd": 72698500.58505508
+      },
+      {
+        "asset": "WETH",
+        "usd": 2144085.286820374
+      },
+      {
+        "asset": "wstETH",
+        "usd": 2554165.8265919
+      },
+      {
+        "asset": "WBTC",
+        "usd": 774314.3134706669
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 136621.087665364
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 14134680.993562011
+      },
+      {
+        "asset": "wstETH",
+        "usd": 7138894.937344789
+      },
+      {
+        "asset": "weETH",
+        "usd": 2296527.1705893027
+      }
+    ]
+  },
+  {
+    "address": "0xBeEFC1CDAfc5b4a649b54D07AFc6bF0f75C6F4E2",
+    "name": "Steakhouse Ethena USDtb",
+    "listed": true,
+    "depositAsset": "USDtb",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 100323505.54610574,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "sUSDe",
+        "usd": 100323492.6925503
+      },
+      {
+        "asset": "USDe",
+        "usd": 12.853555442327114
+      }
+    ]
+  },
+  {
+    "address": "0xbEef047a543E45807105E51A8BBEFCc5950fcfBa",
+    "name": "Steakhouse USDT",
+    "listed": true,
+    "depositAsset": "USDT",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 93605820.16823202,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 93601373.09289758
+      },
+      {
+        "asset": "WBTC",
+        "usd": 1.2057285113190936
+      },
+      {
+        "asset": "XAUt",
+        "usd": 4445.869605933486
+      }
+    ]
+  },
+  {
+    "address": "0x812B2C6Ab3f4471c0E43D4BB61098a9211017427",
+    "name": "Vault Bridge WBTC",
+    "listed": true,
+    "depositAsset": "WBTC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 46395797.87749405,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "LBTC",
+        "usd": 2234.8247441071185
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 520.6461105643637
+      }
+    ]
+  },
+  {
+    "address": "0xdd0f28e19C1780eb6396170735D45153D261490d",
+    "name": "Gauntlet USDC Prime",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 33454080.085754283,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "cbBTC",
+        "usd": 8264205.650920849
+      },
+      {
+        "asset": "WBTC",
+        "usd": 21656166.575650398
+      },
+      {
+        "asset": "wstETH",
+        "usd": 3533707.8591830367
+      }
+    ]
+  },
+  {
+    "address": "0x2900ABd73631b2f60747e687095537B673c06A76",
+    "name": "Felix HYPE",
+    "listed": true,
+    "depositAsset": "WHYPE",
+    "chainId": 999,
+    "chain": "HyperEVM",
+    "tvlUsd": 29520249.339763544,
+    "curators": [
+      "Felix"
+    ],
+    "collateral": [
+      {
+        "asset": "PT-kHYPE-24SEP2026",
+        "usd": 0.041463148705717906
+      },
+      {
+        "asset": "kHYPE",
+        "usd": 29129000.793511234
+      },
+      {
+        "asset": "wstHYPE",
+        "usd": 391248.5047891629
+      }
+    ]
+  },
+  {
+    "address": "0x1401d1271C47648AC70cBcdfA3776D4A87CE006B",
+    "name": "Pangolins USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 27927592.14911528,
+    "curators": [
+      "Pangolins"
+    ],
+    "collateral": [
+      {
+        "asset": "cbBTC",
+        "usd": 27927592.14911528
+      }
+    ]
+  },
+  {
+    "address": "0xA0804346780b4c2e3bE118ac957D1DB82F9d7484",
+    "name": "Smokehouse USDT",
+    "listed": true,
+    "depositAsset": "USDT",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 25416171.94084783,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "PT-cUSD-23JUL2026",
+        "usd": 246083.84189926728
+      },
+      {
+        "asset": "WBTC",
+        "usd": 872.8886805914526
+      },
+      {
+        "asset": "wstETH",
+        "usd": 1933250.6340129455
+      },
+      {
+        "asset": "WBTC",
+        "usd": 3031913.314058992
+      },
+      {
+        "asset": "stcUSD",
+        "usd": 8149315.919706144
+      },
+      {
+        "asset": "PT-reUSD-25JUN2026",
+        "usd": 6354058.897608294
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 774743.2713492867
+      },
+      {
+        "asset": "wsrUSD",
+        "usd": 4700175.18849973
+      },
+      {
+        "asset": "wstETH",
+        "usd": 24690.197812800707
+      },
+      {
+        "asset": "sUSDe",
+        "usd": 34575.031786739884
+      },
+      {
+        "asset": "WETH",
+        "usd": 23751.576996740576
+      },
+      {
+        "asset": "PT-srUSDe-25JUN2026",
+        "usd": 122838.82096005605
+      },
+      {
+        "asset": "syrupUSDT",
+        "usd": 7203.619745927923
+      },
+      {
+        "asset": "PT-stcUSD-23JUL2026",
+        "usd": 12680.367341403478
+      },
+      {
+        "asset": "reUSD",
+        "usd": 18.35390963962228
+      },
+      {
+        "asset": "weETH",
+        "usd": 0.002337194394423748
+      },
+      {
+        "asset": "wsrUSD",
+        "usd": 0.006963620237169346
+      },
+      {
+        "asset": "FLHYon",
+        "usd": 0.0071784542665840985
+      }
+    ]
+  },
+  {
+    "address": "0x61D4F9D3797BA4dA152238c53a6f93Fb665C3c1d",
+    "name": "Steakhouse Prime USDC",
+    "listed": true,
+    "depositAsset": "vbUSDC",
+    "chainId": 747474,
+    "chain": "Katana",
+    "tvlUsd": 24370728.754516155,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "vbETH",
+        "usd": 2620500.796656194
+      },
+      {
+        "asset": "vbWBTC",
+        "usd": 21750227.95785996
+      }
+    ]
+  },
+  {
+    "address": "0x31A5684983EeE865d943A696AAC155363bA024f9",
+    "name": "Vault Bridge WETH",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 23740017.9901335,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "cbBTC",
+        "usd": 15558.80514823195
+      },
+      {
+        "asset": "weETH",
+        "usd": 7606458.620088407
+      },
+      {
+        "asset": "wstETH",
+        "usd": 13298669.556230525
+      },
+      {
+        "asset": "WBTC",
+        "usd": 111.05807217001806
+      }
+    ]
+  },
+  {
+    "address": "0xBEefb9f61CC44895d8AEc381373555a64191A9c4",
+    "name": "Vault Bridge USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 21596108.16397578,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "cbBTC",
+        "usd": 20408994.818792783
+      },
+      {
+        "asset": "wstETH",
+        "usd": 1187112.7664302164
+      },
+      {
+        "asset": "WBTC",
+        "usd": 0.5787527828105288
+      }
+    ]
+  },
+  {
+    "address": "0x6859B34a9379122d25A9FA46f0882d434fee36c3",
+    "name": "Metronome msUSD Vault",
+    "listed": true,
+    "depositAsset": "msUSD",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 20826055.913354397,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "sUSDe",
+        "usd": 468604.4419847316
+      },
+      {
+        "asset": "siUSD",
+        "usd": 19942486.06049588
+      }
+    ]
+  },
+  {
+    "address": "0xBEEf050ecd6a16c4e7bfFbB52Ebba7846C4b8cD4",
+    "name": "Steakhouse ETH",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 19661345.383777093,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 4347387.393845719
+      },
+      {
+        "asset": "wstETH",
+        "usd": 15202399.945683515
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 110175.65813576755
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 27.360755680947705
+      },
+      {
+        "asset": "WBTC",
+        "usd": 1355.0253564071
+      }
+    ]
+  },
+  {
+    "address": "0xBEeFFF209270748ddd194831b3fa287a5386f5bC",
+    "name": "Smokehouse USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 18601853.572553694,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "reUSD",
+        "usd": 3857748.0461184788
+      },
+      {
+        "asset": "mF-ONE",
+        "usd": 1723505.8628008037
+      },
+      {
+        "asset": "stcUSD",
+        "usd": 4613881.545793468
+      },
+      {
+        "asset": "sUSDe",
+        "usd": 1852.580537440066
+      },
+      {
+        "asset": "PT-srUSDe-25JUN2026",
+        "usd": 0.005087811306716984
+      },
+      {
+        "asset": "weETH",
+        "usd": 34512.79873238847
+      },
+      {
+        "asset": "LBTC",
+        "usd": 92.20135249191627
+      },
+      {
+        "asset": "USCC",
+        "usd": 0.023688465533769347
+      },
+      {
+        "asset": "PT-reUSD-25JUN2026",
+        "usd": 4650470.517945065
+      },
+      {
+        "asset": "PT-cUSD-23JUL2026",
+        "usd": 16787.170170286914
+      },
+      {
+        "asset": "AA_FalconXUSDC",
+        "usd": 3703002.8203269904
+      }
+    ]
+  },
+  {
+    "address": "0x2371e134e3455e0593363cBF89d3b6cf53740618",
+    "name": "Gauntlet WETH Prime",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 16987735.844375852,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 7264332.432309376
+      },
+      {
+        "asset": "wstETH",
+        "usd": 3666601.333970426
+      },
+      {
+        "asset": "WBTC",
+        "usd": 787.7936314350258
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 5695.028781352102
+      },
+      {
+        "asset": "weETH",
+        "usd": 6050319.255683266
+      }
+    ]
+  },
+  {
+    "address": "0x974c8FBf4fd795F66B85B73ebC988A51F1A040a9",
+    "name": "Hakutora USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 15013487.320129093,
+    "curators": [
+      "Hakutora"
+    ],
+    "collateral": [
+      {
+        "asset": "cbBTC",
+        "usd": 15013487.320129093
+      }
+    ]
+  },
+  {
+    "address": "0xA8875aaeBc4f830524e35d57F9772FfAcbdD6C45",
+    "name": "Gauntlet USDC RWA",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 13174591.614246711,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "AA_FalconXUSDC",
+        "usd": 13172612.061494488
+      },
+      {
+        "asset": "SPYon",
+        "usd": 1600.3920446219274
+      },
+      {
+        "asset": "QQQon",
+        "usd": 379.16070660287113
+      }
+    ]
+  },
+  {
+    "address": "0xa71D08A159258553a5Ac190d60Fa919425Ff02EA",
+    "name": "Hakutora USDT",
+    "listed": true,
+    "depositAsset": "USDT",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 12590434.159974469,
+    "curators": [
+      "Hakutora"
+    ],
+    "collateral": [
+      {
+        "asset": "WBTC",
+        "usd": 5057917.004469245
+      },
+      {
+        "asset": "wstETH",
+        "usd": 7532517.155505223
+      }
+    ]
+  },
+  {
+    "address": "0xC5e7AB07030305fc925175b25B93b285d40dCdFf",
+    "name": "Gauntlet WETH",
+    "listed": true,
+    "depositAsset": "vbETH",
+    "chainId": 747474,
+    "chain": "Katana",
+    "tvlUsd": 11058201.0411285,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "weETH",
+        "usd": 11057670.698970849
+      },
+      {
+        "asset": "wstETH",
+        "usd": 32.12620183310175
+      }
+    ]
+  },
+  {
+    "address": "0x8A862fD6c12f9ad34C9c2ff45AB2b6712e8CEa27",
+    "name": "Felix USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 999,
+    "chain": "HyperEVM",
+    "tvlUsd": 10492085.745089853,
+    "curators": [
+      "Felix"
+    ],
+    "collateral": [
+      {
+        "asset": "PT-kHYPE-19MAR2026",
+        "usd": 8611.116176391204
+      },
+      {
+        "asset": "kHYPE",
+        "usd": 10118290.971769188
+      },
+      {
+        "asset": "UBTC",
+        "usd": 360176.24992286443
+      },
+      {
+        "asset": "WHYPE",
+        "usd": 5007.4072204101
+      }
+    ]
+  },
+  {
+    "address": "0x4Ff4186188f8406917293A9e01A1ca16d3cf9E59",
+    "name": "SwissBorg Morpho USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 10398026.668198857,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "WBTC",
+        "usd": 4009156.817253183
+      },
+      {
+        "asset": "wstETH",
+        "usd": 3269572.0726597058
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 2599540.7205673545
+      }
+    ]
+  },
+  {
+    "address": "0x79FD640000F8563A866322483524a4b48f1Ed702",
+    "name": "Gauntlet USDT Frontier",
+    "listed": true,
+    "depositAsset": "USDT",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 9131678.46815675,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "WBTC",
+        "usd": 2412170.2089622472
+      },
+      {
+        "asset": "wsrUSD",
+        "usd": 522719.44241137407
+      },
+      {
+        "asset": "PT-USDG-28MAY2026",
+        "usd": 0.4161105327313682
+      },
+      {
+        "asset": "stcUSD",
+        "usd": 2650663.463242618
+      },
+      {
+        "asset": "weETH",
+        "usd": 33373.173671336415
+      },
+      {
+        "asset": "WETH",
+        "usd": 101613.52612549505
+      },
+      {
+        "asset": "wstETH",
+        "usd": 3379419.60686341
+      },
+      {
+        "asset": "sUSDS",
+        "usd": 260.1620271528263
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 508.45271054299013
+      },
+      {
+        "asset": "sUSDD",
+        "usd": 15739.976771222584
+      },
+      {
+        "asset": "syrupUSDT",
+        "usd": 15210.039260817313
+      }
+    ]
+  },
+  {
+    "address": "0xc1256Ae5FF1cf2719D4937adb3bbCCab2E00A2Ca",
+    "name": "Moonwell Flagship USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 9116854.788718522,
+    "curators": [
+      "Anthias Labs"
+    ],
+    "collateral": [
+      {
+        "asset": "cbBTC",
+        "usd": 6393464.84393524
+      },
+      {
+        "asset": "WETH",
+        "usd": 2617222.4201628217
+      },
+      {
+        "asset": "cbETH",
+        "usd": 35.66743782072035
+      },
+      {
+        "asset": "wstETH",
+        "usd": 106131.85718263965
+      }
+    ]
+  },
+  {
+    "address": "0x8eB67A509616cd6A7c1B3c8C21D48FF57df3d458",
+    "name": "Gauntlet USDC Core",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 8564725.386778383,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "stcUSD",
+        "usd": 2143320.8404191826
+      },
+      {
+        "asset": "AA_FalconXUSDC",
+        "usd": 2143316.8859520867
+      },
+      {
+        "asset": "LBTC",
+        "usd": 2353895.670352802
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 168.41296075554564
+      },
+      {
+        "asset": "WBTC",
+        "usd": 872.4482981151687
+      },
+      {
+        "asset": "tBTC",
+        "usd": 723929.3820597596
+      },
+      {
+        "asset": "syrupUSDC",
+        "usd": 0.02329455756465037
+      },
+      {
+        "asset": "weETH",
+        "usd": 1199221.7234411226
+      }
+    ]
+  },
+  {
+    "address": "0xFc5126377F0efc0041C0969Ef9BA903Ce67d151e",
+    "name": "Felix USDT0",
+    "listed": true,
+    "depositAsset": "USD₮0",
+    "chainId": 999,
+    "chain": "HyperEVM",
+    "tvlUsd": 8293258.493877718,
+    "curators": [
+      "Felix"
+    ],
+    "collateral": [
+      {
+        "asset": "wstHYPE",
+        "usd": 45779.13801631079
+      },
+      {
+        "asset": "kHYPE",
+        "usd": 4566476.488446395
+      },
+      {
+        "asset": "WHYPE",
+        "usd": 3021781.4743621363
+      },
+      {
+        "asset": "UBTC",
+        "usd": 659221.3930528761
+      }
+    ]
+  },
+  {
+    "address": "0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+    "name": "Spark USDC Vault",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 7734097.691395241,
+    "curators": [
+      "SparkDAO"
+    ],
+    "collateral": [
+      {
+        "asset": "cbBTC",
+        "usd": 881.2461186320693
+      },
+      {
+        "asset": "WETH",
+        "usd": 7733216.44527661
+      }
+    ]
+  },
+  {
+    "address": "0xc54b4E08C1Dcc199fdd35c6b5Ab589ffD3428a8d",
+    "name": "Vault Bridge USDT",
+    "listed": true,
+    "depositAsset": "USDT",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 7622783.421848621,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 4827307.169513878
+      },
+      {
+        "asset": "WBTC",
+        "usd": 1995005.3858916084
+      },
+      {
+        "asset": "sUSDS",
+        "usd": 220.37766566422525
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 98.06341185745775
+      }
+    ]
+  },
+  {
+    "address": "0x62fE596d59fB077c2Df736dF212E0AFfb522dC78",
+    "name": "Clearstar USDC Reactor",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 7082262.26256346,
+    "curators": [
+      "Clearstar"
+    ],
+    "collateral": [
+      {
+        "asset": "n-st-liUSD4w",
+        "usd": 354127.1214637786
+      },
+      {
+        "asset": "mF-ONE",
+        "usd": 203608.93721837093
+      },
+      {
+        "asset": "AA_FalconXUSDC",
+        "usd": 49995.86646728569
+      },
+      {
+        "asset": "liUSD-1w",
+        "usd": 3885.004242133792
+      },
+      {
+        "asset": "fxSAVE",
+        "usd": 125033.69504850527
+      },
+      {
+        "asset": "sUSN",
+        "usd": 5150553.924143874
+      },
+      {
+        "asset": "srRoyUSDC",
+        "usd": 838641.1743180715
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 356416.5396574392
+      }
+    ]
+  },
+  {
+    "address": "0xCE2b8e464Fc7b5E58710C24b7e5EBFB6027f29D7",
+    "name": "Yearn OG USDC",
+    "listed": true,
+    "depositAsset": "vbUSDC",
+    "chainId": 747474,
+    "chain": "Katana",
+    "tvlUsd": 7033258.721944958,
+    "curators": [
+      "Yearn"
+    ],
+    "collateral": [
+      {
+        "asset": "vbETH",
+        "usd": 488744.44568979874
+      },
+      {
+        "asset": "vbWBTC",
+        "usd": 1174363.327114864
+      },
+      {
+        "asset": "LBTC",
+        "usd": 130898.1816962355
+      },
+      {
+        "asset": "weETH",
+        "usd": 454251.77135450236
+      },
+      {
+        "asset": "avKAT",
+        "usd": 35855.394733927664
+      },
+      {
+        "asset": "weETH",
+        "usd": 8378.615118057767
+      },
+      {
+        "asset": "yvAUSD",
+        "usd": 90117.00676153241
+      },
+      {
+        "asset": "KAT",
+        "usd": 713.1534441378245
+      },
+      {
+        "asset": "yvvbUSDT",
+        "usd": 1832176.697946447
+      },
+      {
+        "asset": "yvvbWBTC",
+        "usd": 103440.8903079225
+      },
+      {
+        "asset": "yvvbETH",
+        "usd": 2693318.864025006
+      },
+      {
+        "asset": "siUSD",
+        "usd": 21000.373752526746
+      }
+    ]
+  },
+  {
+    "address": "0xa0E430870c4604CcfC7B38Ca7845B1FF653D0ff1",
+    "name": "Moonwell Flagship ETH",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 6981804.67852948,
+    "curators": [
+      "Anthias Labs"
+    ],
+    "collateral": [
+      {
+        "asset": "rETH",
+        "usd": 64599.65028900418
+      },
+      {
+        "asset": "USDC",
+        "usd": 26824.708628157357
+      },
+      {
+        "asset": "weETH",
+        "usd": 800563.8957285669
+      },
+      {
+        "asset": "wstETH",
+        "usd": 5896102.961854705
+      }
+    ]
+  },
+  {
+    "address": "0xFaDe0C546f44e33C134c4036207B314AC643dc2E",
+    "name": "Yearn OG ETH",
+    "listed": true,
+    "depositAsset": "vbETH",
+    "chainId": 747474,
+    "chain": "Katana",
+    "tvlUsd": 5513948.494578175,
+    "curators": [
+      "Yearn"
+    ],
+    "collateral": [
+      {
+        "asset": "weETH",
+        "usd": 5428429.578132978
+      },
+      {
+        "asset": "wstETH",
+        "usd": 52.16298338635561
+      },
+      {
+        "asset": "yvvbUSDC",
+        "usd": 85466.7534618114
+      }
+    ]
+  },
+  {
+    "address": "0x43Cd00De63485618A5CEEBE0de364cD6cBeB26E7",
+    "name": "Metronome msETH Vault",
+    "listed": true,
+    "depositAsset": "msETH",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 5384767.091613382,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "wsuperOETHb",
+        "usd": 3867388.6267200517
+      },
+      {
+        "asset": "wstETH",
+        "usd": 1517378.4648933304
+      }
+    ]
+  },
+  {
+    "address": "0x8CB3649114051cA5119141a34C200D65dc0Faa73",
+    "name": "Gauntlet USDT Prime",
+    "listed": true,
+    "depositAsset": "USDT",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 5194273.831428792,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "sUSDS",
+        "usd": 398.01769240197484
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 147.53894540601064
+      },
+      {
+        "asset": "wstETH",
+        "usd": 3992816.4422642277
+      },
+      {
+        "asset": "WBTC",
+        "usd": 1200911.8325267562
+      }
+    ]
+  },
+  {
+    "address": "0x8ED68f91AfbE5871dCE31ae007a936ebE8511d47",
+    "name": "Yearn OG USDT",
+    "listed": true,
+    "depositAsset": "vbUSDT",
+    "chainId": 747474,
+    "chain": "Katana",
+    "tvlUsd": 4945633.637018433,
+    "curators": [
+      "Yearn"
+    ],
+    "collateral": [
+      {
+        "asset": "weETH",
+        "usd": 232245.1106292045
+      },
+      {
+        "asset": "avKAT",
+        "usd": 63.97781042216088
+      },
+      {
+        "asset": "vbETH",
+        "usd": 407027.6160126038
+      },
+      {
+        "asset": "vbWBTC",
+        "usd": 1451527.5149507606
+      },
+      {
+        "asset": "LBTC",
+        "usd": 1536.7212683417415
+      },
+      {
+        "asset": "weETH",
+        "usd": 76552.5166278253
+      },
+      {
+        "asset": "PT-yvvbUSDC(vbUSDC)-2026/08/02",
+        "usd": 7493.587933267847
+      },
+      {
+        "asset": "yvvbUSDC",
+        "usd": 1741850.643965154
+      },
+      {
+        "asset": "BTC.b",
+        "usd": 1128.623492838454
+      },
+      {
+        "asset": "KAT",
+        "usd": 929.5352267798473
+      }
+    ]
+  },
+  {
+    "address": "0x78B18E07dc43017fcEaabaD0751d6464c0F56b25",
+    "name": "Metronome msETH Vault",
+    "listed": true,
+    "depositAsset": "msETH",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 4780173.3179436745,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "ynETHx",
+        "usd": 2151597.5059405495
+      },
+      {
+        "asset": "rswETH",
+        "usd": 1159959.0992103592
+      },
+      {
+        "asset": "weETH",
+        "usd": 1465698.3346425158
+      }
+    ]
+  },
+  {
+    "address": "0xd63070114470f685b75B74D60EEc7c1113d33a3D",
+    "name": " Usual Boosted USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 4480693.63871128,
+    "curators": [
+      "MEV Capital"
+    ],
+    "collateral": [
+      {
+        "asset": "siUSD",
+        "usd": 795494.9376581757
+      },
+      {
+        "asset": "wstETH",
+        "usd": 727.4928888431094
+      },
+      {
+        "asset": "WBTC",
+        "usd": 784.1491179373153
+      },
+      {
+        "asset": "mF-ONE",
+        "usd": 1218487.775649592
+      },
+      {
+        "asset": "reUSD",
+        "usd": 1715768.5743399775
+      },
+      {
+        "asset": "mHYPER",
+        "usd": 63026.69081626574
+      },
+      {
+        "asset": "OETH",
+        "usd": 686404.0182404886
+      }
+    ]
+  },
+  {
+    "address": "0xE89371eAaAC6D46d4C3ED23453241987916224FC",
+    "name": "Yearn OG WETH",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 4409821.95408742,
+    "curators": [
+      "Yearn"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 2910239.3438817374
+      },
+      {
+        "asset": "weETH",
+        "usd": 939759.3278434044
+      },
+      {
+        "asset": "wstETH",
+        "usd": 559823.282362278
+      }
+    ]
+  },
+  {
+    "address": "0x443df5eEE3196e9b2Dd77CaBd3eA76C3dee8f9b2",
+    "name": "Gauntlet WBTC Core",
+    "listed": true,
+    "depositAsset": "WBTC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 4276425.91449521,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "SolvBTC",
+        "usd": 2097630.032939147
+      }
+    ]
+  },
+  {
+    "address": "0xC30ce6A5758786e0F640cC5f881Dd96e9a1C5C59",
+    "name": "Gauntlet USDC Prime",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 10,
+    "chain": "OP Mainnet",
+    "tvlUsd": 4210379.09340128,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "WETH",
+        "usd": 77423.07521095662
+      },
+      {
+        "asset": "WBTC",
+        "usd": 4040582.2284078784
+      },
+      {
+        "asset": "sUSDC",
+        "usd": 92371.63444900795
+      }
+    ]
+  },
+  {
+    "address": "0xF9bdDd4A9b3A45f980e11fDDE96e16364dDBEc49",
+    "name": "Yearn OG USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 4190319.113830419,
+    "curators": [
+      "Yearn"
+    ],
+    "collateral": [
+      {
+        "asset": "LBTC",
+        "usd": 156274.26654630408
+      },
+      {
+        "asset": "YFI",
+        "usd": 43519.50608891019
+      },
+      {
+        "asset": "siUSD",
+        "usd": 500026.5144027521
+      },
+      {
+        "asset": "tBTC",
+        "usd": 60928.072908886934
+      },
+      {
+        "asset": "PT-stcUSD-23JUL2026",
+        "usd": 86301.01523809633
+      },
+      {
+        "asset": "OETH",
+        "usd": 2559481.6960981283
+      },
+      {
+        "asset": "stcUSD",
+        "usd": 441539.71340710775
+      },
+      {
+        "asset": "PT-cUSD-23JUL2026",
+        "usd": 80928.80296753763
+      },
+      {
+        "asset": "WOUSD",
+        "usd": 33524.60791583321
+      },
+      {
+        "asset": "weETH",
+        "usd": 227794.91825686203
+      }
+    ]
+  },
+  {
+    "address": "0x833AdaeF212c5cD3f78906B44bBfb18258F238F0",
+    "name": "Smokehouse WSTETH",
+    "listed": true,
+    "depositAsset": "wstETH",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 4083824.4057033495,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "ynETHx",
+        "usd": 2914648.034040359
+      }
+    ]
+  },
+  {
+    "address": "0xE4248e2105508FcBad3fe95691551d1AF14015f7",
+    "name": "Gauntlet USDC",
+    "listed": true,
+    "depositAsset": "vbUSDC",
+    "chainId": 747474,
+    "chain": "Katana",
+    "tvlUsd": 4054987.4795553274,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "vbWBTC",
+        "usd": 2211690.559243686
+      },
+      {
+        "asset": "weETH",
+        "usd": 101583.32381682121
+      },
+      {
+        "asset": "vbETH",
+        "usd": 807166.3433740262
+      },
+      {
+        "asset": "LBTC",
+        "usd": 306116.8277266064
+      },
+      {
+        "asset": "LBTC",
+        "usd": 628430.1909750925
+      }
+    ]
+  },
+  {
+    "address": "0xBEEFA7B88064FeEF0cEe02AAeBBd95D30df3878F",
+    "name": "Steakhouse High Yield USDC v1.1",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 3810986.581408157,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "cbETH",
+        "usd": 133047.8890733646
+      },
+      {
+        "asset": "SOL",
+        "usd": 774858.6496464183
+      },
+      {
+        "asset": "cbDOGE",
+        "usd": 414114.27719031164
+      },
+      {
+        "asset": "cbADA",
+        "usd": 30856.059284497835
+      },
+      {
+        "asset": "PT-USDai-18JUN2026-(ARB)",
+        "usd": 444531.6032264665
+      },
+      {
+        "asset": "cbADA",
+        "usd": 99288.62210321435
+      },
+      {
+        "asset": "cbLTC",
+        "usd": 369325.5457014985
+      },
+      {
+        "asset": "AERO",
+        "usd": 24638.015977087114
+      },
+      {
+        "asset": "LBTC",
+        "usd": 404.30086097060973
+      },
+      {
+        "asset": "deSPXA",
+        "usd": 16289.042636556886
+      },
+      {
+        "asset": "cUSDO",
+        "usd": 166.4102036706767
+      },
+      {
+        "asset": "JitoSOL",
+        "usd": 1.097302631163094
+      },
+      {
+        "asset": "wsrUSD",
+        "usd": 0.05607589867998603
+      },
+      {
+        "asset": "cbXRP",
+        "usd": 143400.80695833114
+      },
+      {
+        "asset": "cbXRP",
+        "usd": 1360064.20516224
+      }
+    ]
+  },
+  {
+    "address": "0xBEeF1f5Bd88285E5B239B6AAcb991d38ccA23Ac9",
+    "name": "Steakhouse infiniFi USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 3662129.1046145516,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "siUSD",
+        "usd": 3662045.438225989
+      },
+      {
+        "asset": "iUSD",
+        "usd": 83.66264843621447
+      },
+      {
+        "asset": "PT-iUSD-25JUN2026",
+        "usd": 0.003740126173792147
+      }
+    ]
+  },
+  {
+    "address": "0x75741A12B36D181f44F389E0c6B1E0210311e3Ff",
+    "name": "Steakhouse EURCV",
+    "listed": true,
+    "depositAsset": "EURCV",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 3343933.260426389,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 239290.75898835156
+      },
+      {
+        "asset": "wstETH",
+        "usd": 318182.92005740735
+      },
+      {
+        "asset": "WBTC",
+        "usd": 15848.912501354824
+      },
+      {
+        "asset": "WBTC",
+        "usd": 53301.950479991065
+      },
+      {
+        "asset": "EUTBL",
+        "usd": 358167.4857576312
+      }
+    ]
+  },
+  {
+    "address": "0x7e97fa6893871A2751B5fE961978DCCb2c201E65",
+    "name": "Gauntlet USDC Core",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 42161,
+    "chain": "Arbitrum One",
+    "tvlUsd": 3230822.8000977784,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "WBTC",
+        "usd": 1794.6991107412784
+      },
+      {
+        "asset": "wstETH",
+        "usd": 19423.653497767413
+      },
+      {
+        "asset": "PT-USDai-18JUN2026",
+        "usd": 3209604.44748927
+      }
+    ]
+  },
+  {
+    "address": "0x9a8bC3B04b7f3D87cfC09ba407dCED575f2d61D8",
+    "name": "MEV Capital wETH",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 3226988.4381604213,
+    "curators": [
+      "MEV Capital"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 3226335.890083837
+      },
+      {
+        "asset": "WBTC",
+        "usd": 329.85598740298536
+      },
+      {
+        "asset": "wstETH",
+        "usd": 322.69208918104243
+      }
+    ]
+  },
+  {
+    "address": "0x4881Ef0BF6d2365D3dd6499ccd7532bcdBCE0658",
+    "name": "Gauntlet LRT Core",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 3053062.6539874785,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 1690057.0255315693
+      },
+      {
+        "asset": "weETH",
+        "usd": 1338582.0292454911
+      },
+      {
+        "asset": "WBTC",
+        "usd": 68.67043800399068
+      },
+      {
+        "asset": "wstETH",
+        "usd": 24289.188223830017
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 65.7405485846172
+      }
+    ]
+  },
+  {
+    "address": "0x777791C4d6DC2CE140D00D2828a7C93503c67777",
+    "name": "Hyperithm USDC Apex",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 2880232.0736547937,
+    "curators": [
+      "Hyperithm"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 0.9998074095068892
+      },
+      {
+        "asset": "mHyperBTC",
+        "usd": 1526991.4301943781
+      },
+      {
+        "asset": "PT-srNUSD-28MAY2026",
+        "usd": 52401.987912924946
+      },
+      {
+        "asset": "mHYPER",
+        "usd": 1299791.5482479166
+      }
+    ]
+  },
+  {
+    "address": "0x3F33F9f7e2D7cfBCBDf8ea8b870a6E3d449664c2",
+    "name": "Compound POL",
+    "listed": true,
+    "depositAsset": "WPOL",
+    "chainId": 137,
+    "chain": "Polygon",
+    "tvlUsd": 2710487.601384009,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "WBTC",
+        "usd": 7344.364021953629
+      },
+      {
+        "asset": "MaticX",
+        "usd": 19111.563784548183
+      },
+      {
+        "asset": "WETH",
+        "usd": 3.8583705305734943
+      }
+    ]
+  },
+  {
+    "address": "0x68Aea7b82Df6CcdF76235D46445Ed83f85F845A3",
+    "name": "Yearn USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 2633184.3608440035,
+    "curators": [
+      "Yearn"
+    ],
+    "collateral": [
+      {
+        "asset": "cbBTC",
+        "usd": 1342818.770136887
+      },
+      {
+        "asset": "wstETH",
+        "usd": 204884.02142944766
+      },
+      {
+        "asset": "wstETH",
+        "usd": 23747.313195867035
+      },
+      {
+        "asset": "WBTC",
+        "usd": 873965.3293778276
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 187768.92670397458
+      }
+    ]
+  },
+  {
+    "address": "0x32841A8511D5c2c5b253f45668780B99139e476D",
+    "name": "Grove x Steakhouse High Yield AUSD",
+    "listed": true,
+    "depositAsset": "AUSD",
+    "chainId": 143,
+    "chain": "Monad",
+    "tvlUsd": 2514324.693769227,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "WETH",
+        "usd": 180587.87276577402
+      },
+      {
+        "asset": "WMON",
+        "usd": 62835.697049462986
+      },
+      {
+        "asset": "WBTC",
+        "usd": 2200952.6990259793
+      },
+      {
+        "asset": "wstETH",
+        "usd": 69948.42492801057
+      }
+    ]
+  },
+  {
+    "address": "0xbeEF346d7099865208Ff331e4f648f4154DDAa05",
+    "name": "Steakhouse Reservoir USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 2484965.492040908,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "wsrUSD",
+        "usd": 2484965.4147689617
+      },
+      {
+        "asset": "wsrUSD",
+        "usd": 0.0772719465309797
+      }
+    ]
+  },
+  {
+    "address": "0x701907283a57FF77E255C3f1aAD790466B8CE4ef",
+    "name": "Index Coop hyETH",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 2474594.7092319275,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 2474594.7092319275
+      }
+    ]
+  },
+  {
+    "address": "0x1D3b1Cd0a0f242d598834b3F2d126dC6bd774657",
+    "name": "Clearstar USDC Reactor",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 2333107.1729795537,
+    "curators": [
+      "Clearstar"
+    ],
+    "collateral": [
+      {
+        "asset": "yoUSD",
+        "usd": 757221.3319487647
+      },
+      {
+        "asset": "WETH",
+        "usd": 168734.47296988222
+      },
+      {
+        "asset": "superOETHb",
+        "usd": 4013.3179454989504
+      },
+      {
+        "asset": "cbETH",
+        "usd": 165106.26356436117
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 1188753.5197560105
+      }
+    ]
+  },
+  {
+    "address": "0x5c0C306Aaa9F877de636f4d5822cA9F2E81563BA",
+    "name": "Steakhouse High Yield USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 42161,
+    "chain": "Arbitrum One",
+    "tvlUsd": 2328119.216609408,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "PT-USDai-18JUN2026",
+        "usd": 1151963.3339251257
+      },
+      {
+        "asset": "weETH",
+        "usd": 1175390.2907869518
+      },
+      {
+        "asset": "XAUt0",
+        "usd": 765.3578925879561
+      },
+      {
+        "asset": "wsrUSD",
+        "usd": 0.23399874359800493
+      }
+    ]
+  },
+  {
+    "address": "0x08C00F8279dFF5B0CB5a04d349E7d79708Ceadf3",
+    "name": "Gauntlet USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 999,
+    "chain": "HyperEVM",
+    "tvlUsd": 2173586.4703124687,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "UBTC",
+        "usd": 214063.13202228185
+      },
+      {
+        "asset": "WHYPE",
+        "usd": 92670.06595579555
+      },
+      {
+        "asset": "kHYPE",
+        "usd": 1866853.272334391
+      }
+    ]
+  },
+  {
+    "address": "0xef417a2512C5a41f69AE4e021648b69a7CdE5D03",
+    "name": "Yearn OG USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 2135495.9889721777,
+    "curators": [
+      "Yearn"
+    ],
+    "collateral": [
+      {
+        "asset": "YFI",
+        "usd": 4709.136616563422
+      },
+      {
+        "asset": "cbLTC",
+        "usd": 17790.927595929854
+      },
+      {
+        "asset": "cbXRP",
+        "usd": 1844361.5867796233
+      },
+      {
+        "asset": "superOETHb",
+        "usd": 9720.476577700632
+      },
+      {
+        "asset": "cbDOGE",
+        "usd": 117078.63749426765
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 123640.18556677457
+      },
+      {
+        "asset": "cbXRP",
+        "usd": 18195.03833931868
+      }
+    ]
+  },
+  {
+    "address": "0x1ecDC3F2B5E90bfB55fF45a7476FF98A8957388E",
+    "name": "Gauntlet USDT",
+    "listed": true,
+    "depositAsset": "vbUSDT",
+    "chainId": 747474,
+    "chain": "Katana",
+    "tvlUsd": 2071150.1431285616,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "vbWBTC",
+        "usd": 1259776.333981376
+      },
+      {
+        "asset": "vbETH",
+        "usd": 381.8819774266943
+      },
+      {
+        "asset": "weETH",
+        "usd": 92072.90942394816
+      },
+      {
+        "asset": "weETH",
+        "usd": 409764.8202913395
+      }
+    ]
+  },
+  {
+    "address": "0xb0f05E4De970A1aaf77f8C2F823953a367504BA9",
+    "name": "ALPHA USDC Core",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 2046504.5013759069,
+    "curators": [
+      "AlphaPing"
+    ],
+    "collateral": [
+      {
+        "asset": "savUSD",
+        "usd": 2046504.5013759069
+      }
+    ]
+  },
+  {
+    "address": "0xc0c5689e6f4D256E861F65465b691aeEcC0dEb12",
+    "name": "Gauntlet USDC Core",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 1920651.3954648592,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 0.3647907719295866
+      },
+      {
+        "asset": "wstETH",
+        "usd": 38207.25935727347
+      },
+      {
+        "asset": "cbETH",
+        "usd": 479730.93542127375
+      },
+      {
+        "asset": "WETH",
+        "usd": 34.17607725547541
+      },
+      {
+        "asset": "cbETH",
+        "usd": 23.257521217655412
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 1347727.3725181688
+      },
+      {
+        "asset": "weETH",
+        "usd": 13778.503898502815
+      },
+      {
+        "asset": "LBTC",
+        "usd": 41017.22325298439
+      },
+      {
+        "asset": "cbETH",
+        "usd": 132.30262741093765
+      }
+    ]
+  },
+  {
+    "address": "0x500331c9fF24D9d11aee6B07734Aa72343EA74a5",
+    "name": "Gauntlet DAI Core",
+    "listed": true,
+    "depositAsset": "DAI",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 1787790.3316540096,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "sUSDe",
+        "usd": 1472313.0211837946
+      },
+      {
+        "asset": "sUSDe",
+        "usd": 118328.03213341472
+      },
+      {
+        "asset": "USDe",
+        "usd": 72148.6428438413
+      },
+      {
+        "asset": "PT-USDe-31JUL2025",
+        "usd": 68208.28896028177
+      },
+      {
+        "asset": "PT-sUSDE-31JUL2025",
+        "usd": 25.85093185177121
+      },
+      {
+        "asset": "PT-USDS-14AUG2025",
+        "usd": 763.5278079880251
+      },
+      {
+        "asset": "PT-sUSDE-25SEP2025",
+        "usd": 2.3407886834139955
+      },
+      {
+        "asset": "sUSDe",
+        "usd": 56000.62700415408
+      }
+    ]
+  },
+  {
+    "address": "0x2ed10624315b74a78f11FAbedAa1A228c198aEfB",
+    "name": "Gauntlet EURC Core",
+    "listed": true,
+    "depositAsset": "EURC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 1708324.8912936286,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "WBTC",
+        "usd": 1708021.0434246715
+      },
+      {
+        "asset": "WETH",
+        "usd": 18.20446049756633
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 1.426451859297106
+      },
+      {
+        "asset": "wstETH",
+        "usd": 284.21695660020447
+      }
+    ]
+  },
+  {
+    "address": "0xbeEf96B330ef1Fe7Ebe41eCe0Bd4a41A94Bc03DC",
+    "name": "Cronos USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 1528032.7853218636,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 1528032.7853218636
+      }
+    ]
+  },
+  {
+    "address": "0xf24608E0CCb972b0b0f4A6446a0BBf58c701a026",
+    "name": "Moonwell Flagship EURC",
+    "listed": true,
+    "depositAsset": "EURC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 1382966.602071556,
+    "curators": [
+      "Anthias Labs"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 714617.4098633747
+      },
+      {
+        "asset": "cbETH",
+        "usd": 74546.52026224716
+      },
+      {
+        "asset": "rETH",
+        "usd": 124232.53290342915
+      },
+      {
+        "asset": "WETH",
+        "usd": 465414.72881487967
+      }
+    ]
+  },
+  {
+    "address": "0x781FB7F6d845E3bE129289833b04d43Aa8558c42",
+    "name": "Compound USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 137,
+    "chain": "Polygon",
+    "tvlUsd": 1255914.333409011,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "WETH",
+        "usd": 47683.54421599804
+      },
+      {
+        "asset": "compWETH",
+        "usd": 7576.970118246478
+      },
+      {
+        "asset": "WBTC",
+        "usd": 1200653.8190747665
+      }
+    ]
+  },
+  {
+    "address": "0x47fe8Ab9eE47DD65c24df52324181790b9F47EfC",
+    "name": "ALPHA wETH Core",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 1151672.0925279658,
+    "curators": [
+      "AlphaPing"
+    ],
+    "collateral": [
+      {
+        "asset": "savETH",
+        "usd": 1151672.0925279658
+      }
+    ]
+  },
+  {
+    "address": "0x543257eF2161176D7C8cD90BA65C2d4CaEF5a796",
+    "name": "Moonwell Frontier cbBTC",
+    "listed": true,
+    "depositAsset": "cbBTC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 1062453.0911956173,
+    "curators": [
+      "Anthias Labs"
+    ],
+    "collateral": [
+      {
+        "asset": "LBTC",
+        "usd": 931038.1454268527
+      }
+    ]
+  },
+  {
+    "address": "0x9896a8605763106e57A51aa0a97Fe8099E806bb3",
+    "name": "Felix USDT0 (Frontier)",
+    "listed": true,
+    "depositAsset": "USD₮0",
+    "chainId": 999,
+    "chain": "HyperEVM",
+    "tvlUsd": 1015208.0094598813,
+    "curators": [
+      "Felix"
+    ],
+    "collateral": [
+      {
+        "asset": "thBILL",
+        "usd": 416679.8139729942
+      },
+      {
+        "asset": "kHYPE",
+        "usd": 312698.77235928073
+      },
+      {
+        "asset": "hwHLP",
+        "usd": 52021.891578191215
+      },
+      {
+        "asset": "WHLP",
+        "usd": 9740.851383454148
+      },
+      {
+        "asset": "UETH",
+        "usd": 90597.04533705734
+      },
+      {
+        "asset": "WHYPE",
+        "usd": 12492.232286285967
+      },
+      {
+        "asset": "hbUSDT",
+        "usd": 12540.085934292965
+      },
+      {
+        "asset": "PT-kHYPE-24SEP2026",
+        "usd": 29971.526493501005
+      },
+      {
+        "asset": "UBTC",
+        "usd": 78133.75241843007
+      },
+      {
+        "asset": "PT-hbUSDT-18DEC2025",
+        "usd": 322.84652133249557
+      }
+    ]
+  },
+  {
+    "address": "0x7c574174DA4b2be3f705c6244B4BfA0815a8B3Ed",
+    "name": "Gauntlet USDC Prime",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 42161,
+    "chain": "Arbitrum One",
+    "tvlUsd": 1003028.3597229159,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "WBTC",
+        "usd": 639847.7971324422
+      },
+      {
+        "asset": "wstETH",
+        "usd": 181.76207452446343
+      },
+      {
+        "asset": "WETH",
+        "usd": 362998.8005159492
+      }
+    ]
+  },
+  {
+    "address": "0x56A76b428244a50513ec81e225a293d128fd581D",
+    "name": "Spark Blue Chip USDC Vault",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 999821.618612138,
+    "curators": [
+      "SparkDAO"
+    ],
+    "collateral": [
+      {
+        "asset": "cbBTC",
+        "usd": 499910.9671896818
+      },
+      {
+        "asset": "wstETH",
+        "usd": 499910.6514224562
+      }
+    ]
+  },
+  {
+    "address": "0x739d8a60ED4b14E4cB6DCAEAF79d2ec0Ca092237",
+    "name": "SingularV ETH",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 945167.1545869053,
+    "curators": [
+      "SingularV"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 904911.4709598988
+      },
+      {
+        "asset": "pufETH",
+        "usd": 854.3470955764409
+      },
+      {
+        "asset": "ynETHx",
+        "usd": 25581.75639287645
+      },
+      {
+        "asset": "WBTC",
+        "usd": 1229.0410651248712
+      }
+    ]
+  },
+  {
+    "address": "0xd19e3d00f8547f7d108abFD4bbb015486437B487",
+    "name": "MEV Capital HYPE",
+    "listed": true,
+    "depositAsset": "WHYPE",
+    "chainId": 999,
+    "chain": "HyperEVM",
+    "tvlUsd": 762906.7340933713,
+    "curators": [
+      "MEV Capital"
+    ],
+    "collateral": [
+      {
+        "asset": "lstHYPE",
+        "usd": 522182.97635329113
+      },
+      {
+        "asset": "hbHYPE",
+        "usd": 239247.88495103322
+      }
+    ]
+  },
+  {
+    "address": "0x4B6F1C9E5d470b97181786b26da0d0945A7cf027",
+    "name": "Hyperithm USDC Apex",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 42161,
+    "chain": "Arbitrum One",
+    "tvlUsd": 702896.6887804727,
+    "curators": [
+      "Hyperithm"
+    ],
+    "collateral": [
+      {
+        "asset": "weETH",
+        "usd": 59990.45989805855
+      },
+      {
+        "asset": "wstETH",
+        "usd": 149976.142958227
+      },
+      {
+        "asset": "WBTC",
+        "usd": 194978.88775005098
+      },
+      {
+        "asset": "WETH",
+        "usd": 89985.68099049793
+      },
+      {
+        "asset": "sUSDai",
+        "usd": 5040.02552504602
+      },
+      {
+        "asset": "PT-USDai-18JUN2026",
+        "usd": 119980.9982466265
+      },
+      {
+        "asset": "PT-sUSDai-18JUN2026",
+        "usd": 82944.49341196574
+      }
+    ]
+  },
+  {
+    "address": "0x5435BC53f2C61298167cdB11Cdf0Db2BFa259ca0",
+    "name": "UltraYield USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 643281.0715802223,
+    "curators": [
+      "UltraYield"
+    ],
+    "collateral": [
+      {
+        "asset": "cbBTC",
+        "usd": 63415.661824833915
+      },
+      {
+        "asset": "wstETH",
+        "usd": 79825.68042411258
+      },
+      {
+        "asset": "mBASIS",
+        "usd": 12660.567979008132
+      },
+      {
+        "asset": "uniBTC",
+        "usd": 487379.16135226766
+      }
+    ]
+  },
+  {
+    "address": "0x9540441C503D763094921dbE4f13268E6d1d3B56",
+    "name": "Gauntlet AUSD",
+    "listed": true,
+    "depositAsset": "AUSD",
+    "chainId": 747474,
+    "chain": "Katana",
+    "tvlUsd": 570335.2776495622,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "vbWBTC",
+        "usd": 562478.5020170882
+      },
+      {
+        "asset": "vbETH",
+        "usd": 7856.775632473888
+      }
+    ]
+  },
+  {
+    "address": "0x78Fc2c2eD1A4cDb5402365934aE5648aDAd094d0",
+    "name": "Re7 WETH",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 566690.942705599,
+    "curators": [
+      "RE7 Labs"
+    ],
+    "collateral": [
+      {
+        "asset": "ezETH",
+        "usd": 41854.88684927194
+      },
+      {
+        "asset": "wstETH",
+        "usd": 524836.0558563272
+      }
+    ]
+  },
+  {
+    "address": "0xc080f56504e0278828A403269DB945F6c6D6E014",
+    "name": "Gauntlet eUSD Core",
+    "listed": true,
+    "depositAsset": "eUSD",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 564587.1031855047,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "WBTC",
+        "usd": 562681.5824365505
+      },
+      {
+        "asset": "wstETH",
+        "usd": 1905.520748954145
+      }
+    ]
+  },
+  {
+    "address": "0x82c4C641CCc38719ae1f0FBd16A64808d838fDfD",
+    "name": "Steakhouse Prime AUSD",
+    "listed": true,
+    "depositAsset": "AUSD",
+    "chainId": 747474,
+    "chain": "Katana",
+    "tvlUsd": 543245.1734144498,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "vbWBTC",
+        "usd": 492609.3817039506
+      },
+      {
+        "asset": "BTC.b",
+        "usd": 31560.466231857084
+      }
+    ]
+  },
+  {
+    "address": "0xbeeFfF68CC520D68f82641EFF84330C631E2490E",
+    "name": "Smokehouse DAI",
+    "listed": true,
+    "depositAsset": "DAI",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 533865.9830911967,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "sUSDe",
+        "usd": 41394.18767896105
+      },
+      {
+        "asset": "sUSDe",
+        "usd": 427609.07923664735
+      },
+      {
+        "asset": "USDe",
+        "usd": 64369.27350878664
+      },
+      {
+        "asset": "sUSDe",
+        "usd": 493.44266680175804
+      }
+    ]
+  },
+  {
+    "address": "0x6b13c060F13Af1fdB319F52315BbbF3fb1D88844",
+    "name": "Gauntlet WETH Core",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 533343.105657398,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "cbETH",
+        "usd": 192902.49490299268
+      },
+      {
+        "asset": "wstETH",
+        "usd": 249191.1973938312
+      },
+      {
+        "asset": "wsuperOETHb",
+        "usd": 4.432594576483874
+      },
+      {
+        "asset": "cbETH",
+        "usd": 5777.6021205124425
+      },
+      {
+        "asset": "weETH",
+        "usd": 58.61968188077177
+      },
+      {
+        "asset": "wstETH",
+        "usd": 57260.75390020308
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 28148.005063401277
+      }
+    ]
+  },
+  {
+    "address": "0xE74c499fA461AF1844fCa84204490877787cED56",
+    "name": "Yield Clearstar USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 531333.2154693368,
+    "curators": [
+      "Clearstar"
+    ],
+    "collateral": [
+      {
+        "asset": "cbBTC",
+        "usd": 1049.5301895008668
+      },
+      {
+        "asset": "mBASIS",
+        "usd": 4572.027860034812
+      },
+      {
+        "asset": "cbADA",
+        "usd": 147954.80544466747
+      },
+      {
+        "asset": "cbETH",
+        "usd": 2019.0013736266098
+      },
+      {
+        "asset": "cbDOGE",
+        "usd": 185600.41055530554
+      },
+      {
+        "asset": "cbLTC",
+        "usd": 65550.45781272919
+      },
+      {
+        "asset": "cbXRP",
+        "usd": 75957.47906222964
+      },
+      {
+        "asset": "cbXRP",
+        "usd": 43498.344291057176
+      },
+      {
+        "asset": "cbADA",
+        "usd": 4999.807516525547
+      }
+    ]
+  },
+  {
+    "address": "0x2C25f6C25770fFEC5959D34B94Bf898865e5D6b1",
+    "name": "Flagship USDT",
+    "listed": true,
+    "depositAsset": "USDT",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 506921.35558922164,
+    "curators": [
+      "B.Protocol",
+      "Block Analitica"
+    ],
+    "collateral": []
+  },
+  {
+    "address": "0xBeEF086b8807Dc5E5A1740C5E3a7C4c366eA6ab5",
+    "name": "Steakhouse EURC",
+    "listed": true,
+    "depositAsset": "EURC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 485848.8605322186,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "cbBTC",
+        "usd": 76781.65411859703
+      },
+      {
+        "asset": "wstETH",
+        "usd": 14926.737924170986
+      },
+      {
+        "asset": "WETH",
+        "usd": 101363.459993096
+      },
+      {
+        "asset": "cbETH",
+        "usd": 27517.387058370383
+      }
+    ]
+  },
+  {
+    "address": "0x5A32099837D89E3a794a44fb131CBbAD41f87a8C",
+    "name": "Extrafi XLend WETH",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 464260.1585120849,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "cbETH",
+        "usd": 36177.437833556
+      },
+      {
+        "asset": "cbETH",
+        "usd": 424.9832598947032
+      },
+      {
+        "asset": "wstETH",
+        "usd": 106394.29394872581
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 113495.0667557521
+      },
+      {
+        "asset": "wstETH",
+        "usd": 207516.35505993542
+      }
+    ]
+  },
+  {
+    "address": "0x09832347586E238841F49149C84d121Bc2191C53",
+    "name": "Clearstar ETH Reactor",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 458770.9341736821,
+    "curators": [
+      "Clearstar"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 300054.6510689807
+      },
+      {
+        "asset": "yoETH",
+        "usd": 108810.24312431923
+      },
+      {
+        "asset": "USDC",
+        "usd": 2638.4700198705596
+      },
+      {
+        "asset": "weETH",
+        "usd": 47267.56996051163
+      }
+    ]
+  },
+  {
+    "address": "0x34eCe536d2ae03192B06c0A67030D1Faf4c0Ba43",
+    "name": "EURCV Prime",
+    "listed": true,
+    "depositAsset": "EURCV",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 428501.2529136442,
+    "curators": [
+      "MEV Capital"
+    ],
+    "collateral": [
+      {
+        "asset": "WBTC",
+        "usd": 191120.87741247148
+      },
+      {
+        "asset": "LBTC",
+        "usd": 226892.80004614987
+      },
+      {
+        "asset": "USDC",
+        "usd": 8.140773027775213
+      }
+    ]
+  },
+  {
+    "address": "0x207ccaE51Ad2E1C240C4Ab4c94b670D438d2201C",
+    "name": "Felix USDH",
+    "listed": true,
+    "depositAsset": "USDH",
+    "chainId": 999,
+    "chain": "HyperEVM",
+    "tvlUsd": 350053.8233839636,
+    "curators": [
+      "Felix"
+    ],
+    "collateral": [
+      {
+        "asset": "UBTC",
+        "usd": 175845.09492276196
+      },
+      {
+        "asset": "kHYPE",
+        "usd": 143212.15167052072
+      },
+      {
+        "asset": "WHYPE",
+        "usd": 30996.576790680912
+      }
+    ]
+  },
+  {
+    "address": "0xbEEf050a7485865A7a8d8Ca0CC5f7536b7a3443e",
+    "name": "Steakhouse ETH",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 331674.46947375237,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 681.578417114025
+      },
+      {
+        "asset": "cbETH",
+        "usd": 11706.883905066965
+      },
+      {
+        "asset": "cbETH",
+        "usd": 106134.09452066831
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 135377.56081966634
+      },
+      {
+        "asset": "wstETH",
+        "usd": 77774.35181123673
+      }
+    ]
+  },
+  {
+    "address": "0x53A333e51E96FE288bC9aDd7cdC4B1EAD2CD2FfA",
+    "name": "Gauntlet USDT0 Vault",
+    "listed": true,
+    "depositAsset": "USD₮0",
+    "chainId": 999,
+    "chain": "HyperEVM",
+    "tvlUsd": 272696.9251956007,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "kHYPE",
+        "usd": 103052.89182291312
+      },
+      {
+        "asset": "UBTC",
+        "usd": 169641.99163424026
+      }
+    ]
+  },
+  {
+    "address": "0x6e6fcac197ee06d0164c0fBA218c7BcB878f9B5C",
+    "name": "Apostro VNX Swiss Franc VCHF",
+    "listed": true,
+    "depositAsset": "VCHF",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 264250.25370197,
+    "curators": [
+      "Apostro"
+    ],
+    "collateral": [
+      {
+        "asset": "WETH",
+        "usd": 46322.86227448872
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 12158.20185164276
+      },
+      {
+        "asset": "cbETH",
+        "usd": 162211.79219735338
+      }
+    ]
+  },
+  {
+    "address": "0xbb819D845b573B5D7C538F5b85057160cfb5f313",
+    "name": "Morpho eUSD",
+    "listed": true,
+    "depositAsset": "eUSD",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 253550.68821606424,
+    "curators": [
+      "RE7 Labs"
+    ],
+    "collateral": [
+      {
+        "asset": "cbBTC",
+        "usd": 190324.12675737578
+      }
+    ]
+  },
+  {
+    "address": "0x250CF7c82bAc7cB6cf899b6052979d4B5BA1f9ca",
+    "name": "Steakhouse Prime USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 42161,
+    "chain": "Arbitrum One",
+    "tvlUsd": 235815.4154473292,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 99091.60572032779
+      },
+      {
+        "asset": "WBTC",
+        "usd": 99218.12002319515
+      },
+      {
+        "asset": "WETH",
+        "usd": 37505.68969380787
+      }
+    ]
+  },
+  {
+    "address": "0x6770216aC60F634483Ec073cBABC4011c94307Cb",
+    "name": "Gauntlet cbBTC Core",
+    "listed": true,
+    "depositAsset": "cbBTC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 227833.585157887,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "LBTC",
+        "usd": 227833.585157887
+      }
+    ]
+  },
+  {
+    "address": "0xB7c9988D3922F25a336a469F3bB26CA61FE79e24",
+    "name": "Steakhouse High Yield USDT0",
+    "listed": true,
+    "depositAsset": "USDT0",
+    "chainId": 137,
+    "chain": "Polygon",
+    "tvlUsd": 209648.6894208191,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "MaticX",
+        "usd": 187711.97710016006
+      },
+      {
+        "asset": "WBTC",
+        "usd": 21853.414537508594
+      },
+      {
+        "asset": "WETH",
+        "usd": 83.29778315044292
+      }
+    ]
+  },
+  {
+    "address": "0xfD06859A671C21497a2EB8C5E3fEA48De924D6c8",
+    "name": "Compound USDT",
+    "listed": true,
+    "depositAsset": "USDT0",
+    "chainId": 137,
+    "chain": "Polygon",
+    "tvlUsd": 202577.13438867798,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "compWETH",
+        "usd": 117.59977445705623
+      },
+      {
+        "asset": "WBTC",
+        "usd": 18681.61148031666
+      },
+      {
+        "asset": "WETH",
+        "usd": 1306.6322830166218
+      },
+      {
+        "asset": "WPOL",
+        "usd": 40009.819592788066
+      }
+    ]
+  },
+  {
+    "address": "0x4fd2FDDC8973077B95D614980Fd298B120f3148B",
+    "name": "d3nity dUSD",
+    "listed": true,
+    "depositAsset": "dUSD",
+    "chainId": 747474,
+    "chain": "Katana",
+    "tvlUsd": 200211.64457650023,
+    "curators": [
+      "Yearn"
+    ],
+    "collateral": [
+      {
+        "asset": "yvvbUSDT",
+        "usd": 100107.73065984361
+      },
+      {
+        "asset": "weETH",
+        "usd": 5218.823316180672
+      }
+    ]
+  },
+  {
+    "address": "0xF5C81d25ee174d83f1FD202cA94AE6070d073cCF",
+    "name": "Compound WETH",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 137,
+    "chain": "Polygon",
+    "tvlUsd": 197074.7365511287,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 10872.882217917526
+      }
+    ]
+  },
+  {
+    "address": "0xe107cCdeb8e20E499545C813f98Cc90619b29859",
+    "name": "Yearn OG WBTC",
+    "listed": true,
+    "depositAsset": "vbWBTC",
+    "chainId": 747474,
+    "chain": "Katana",
+    "tvlUsd": 188170.43701061633,
+    "curators": [
+      "Yearn"
+    ],
+    "collateral": [
+      {
+        "asset": "LBTC",
+        "usd": 13172.146532123112
+      },
+      {
+        "asset": "yvvbUSDT",
+        "usd": 5324.494519923243
+      }
+    ]
+  },
+  {
+    "address": "0x1c155be6bC51F2c37d472d4C2Eba7a637806e122",
+    "name": "Gauntlet EURC Core",
+    "listed": true,
+    "depositAsset": "EURC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 177153.20194085425,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 29877.637345867
+      },
+      {
+        "asset": "cbETH",
+        "usd": 13645.472446343427
+      },
+      {
+        "asset": "WETH",
+        "usd": 16.71660730321148
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 133613.37554134065
+      }
+    ]
+  },
+  {
+    "address": "0x9c59a9389D8f72DE2CdAf1126F36EA4790E2275e",
+    "name": "Felix USDhl",
+    "listed": true,
+    "depositAsset": "USDHL",
+    "chainId": 999,
+    "chain": "HyperEVM",
+    "tvlUsd": 171696.88733191325,
+    "curators": [
+      "Felix"
+    ],
+    "collateral": [
+      {
+        "asset": "kHYPE",
+        "usd": 45542.335323268664
+      },
+      {
+        "asset": "wstHYPE",
+        "usd": 126154.55200864458
+      }
+    ]
+  },
+  {
+    "address": "0xf243523996ADbb273F0B237B53f30017C4364bBC",
+    "name": "Gauntlet WBTC",
+    "listed": true,
+    "depositAsset": "vbWBTC",
+    "chainId": 747474,
+    "chain": "Katana",
+    "tvlUsd": 168259.14087026997,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "LBTC",
+        "usd": 117.9877354907945
+      }
+    ]
+  },
+  {
+    "address": "0xbEEF02e5E13584ab96848af90261f0C8Ee04722a",
+    "name": "Steakhouse PYUSD",
+    "listed": true,
+    "depositAsset": "PYUSD",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 157050.70043391117,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": []
+  },
+  {
+    "address": "0x236919F11ff9eA9550A4287696C2FC9e18E6e890",
+    "name": "Gauntlet USDC Frontier",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 146402.47922316348,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "cbETH",
+        "usd": 140607.9817624117
+      },
+      {
+        "asset": "cbETH",
+        "usd": 5727.715802317187
+      },
+      {
+        "asset": "SOL",
+        "usd": 64.027044010258
+      }
+    ]
+  },
+  {
+    "address": "0x0571362ba5EA9784a97605f57483f865A37dBEAA",
+    "name": "Gauntlet uETH Vault",
+    "listed": true,
+    "depositAsset": "UETH",
+    "chainId": 999,
+    "chain": "HyperEVM",
+    "tvlUsd": 137656.35627089124,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "cmETH",
+        "usd": 84754.31082519049
+      }
+    ]
+  },
+  {
+    "address": "0x4F460bb11cf958606C69A963B4A17f9DaEEea8b6",
+    "name": "f(x) Protocol Morpho USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 128146.41560251624,
+    "curators": [
+      "RE7 Labs"
+    ],
+    "collateral": []
+  },
+  {
+    "address": "0xE0C98605f279e4D7946d25B75869c69802823763",
+    "name": "Re7 WBTC",
+    "listed": true,
+    "depositAsset": "WBTC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 118251.21967983131,
+    "curators": [
+      "RE7 Labs"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 435.4031679143223
+      }
+    ]
+  },
+  {
+    "address": "0x888883f0eDDF69Ca4BfD00Af93714Ff97F188888",
+    "name": "Hyperithm USDT Core",
+    "listed": true,
+    "depositAsset": "USDT",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 111415.89264687806,
+    "curators": [
+      "Hyperithm"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 40083.1369628354
+      },
+      {
+        "asset": "sUSDe",
+        "usd": 53285.44564710407
+      },
+      {
+        "asset": "WBTC",
+        "usd": 18039.177617660127
+      }
+    ]
+  },
+  {
+    "address": "0x0B2d98BBF3E38Df1D1B7Be7343732E32e8B1F818",
+    "name": "Cap Ecosystem USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 102707.44562970765,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "stcUSD",
+        "usd": 102707.44562870788
+      }
+    ]
+  },
+  {
+    "address": "0x2D91466BCC6946B58869fE2ae521A856737C3f6e",
+    "name": "UltraYield USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 42161,
+    "chain": "Arbitrum One",
+    "tvlUsd": 102175.906769487,
+    "curators": [
+      "UltraYield"
+    ],
+    "collateral": [
+      {
+        "asset": "sUSDS",
+        "usd": 17369.51539192952
+      },
+      {
+        "asset": "WBTC",
+        "usd": 64371.01325678856
+      },
+      {
+        "asset": "wstETH",
+        "usd": 20435.378120768914
+      }
+    ]
+  },
+  {
+    "address": "0x48921e52f70CEC7D3425Cf5103Caace27Fc0b2Fe",
+    "name": "UltraYield USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 10,
+    "chain": "OP Mainnet",
+    "tvlUsd": 102002.8229895628,
+    "curators": [
+      "UltraYield"
+    ],
+    "collateral": [
+      {
+        "asset": "WBTC",
+        "usd": 86345.6241708665
+      },
+      {
+        "asset": "wstETH",
+        "usd": 1063.6732951694567
+      },
+      {
+        "asset": "WETH",
+        "usd": 14593.52552352684
+      }
+    ]
+  },
+  {
+    "address": "0xB7890CEE6CF4792cdCC13489D36D9d42726ab863",
+    "name": "Universal USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 99160.156527332,
+    "curators": [
+      "RE7 Labs"
+    ],
+    "collateral": []
+  },
+  {
+    "address": "0x66c71204B70aE27BE6dC3eb41F9aF5868E68fDb6",
+    "name": "USDhl (Frontier)",
+    "listed": true,
+    "depositAsset": "USDHL",
+    "chainId": 999,
+    "chain": "HyperEVM",
+    "tvlUsd": 97996.00924576157,
+    "curators": [
+      "Felix"
+    ],
+    "collateral": [
+      {
+        "asset": "hwHLP",
+        "usd": 39897.43461784088
+      },
+      {
+        "asset": "UETH",
+        "usd": 1720.1557248276356
+      },
+      {
+        "asset": "WHLP",
+        "usd": 56378.41890309306
+      }
+    ]
+  },
+  {
+    "address": "0x6C26793c7F1e2785c09b460676e797b716f0Bc8E",
+    "name": "Keyrock USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 95939.81752281035,
+    "curators": [
+      "Keyrock"
+    ],
+    "collateral": []
+  },
+  {
+    "address": "0xE1bA476304255353aEF290e6474A417D06e7b773",
+    "name": "Moonwell Ecosystem USDC Vault",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 74896.02813883527,
+    "curators": [
+      "Anthias Labs"
+    ],
+    "collateral": [
+      {
+        "asset": "stkWELL",
+        "usd": 65337.01006269866
+      },
+      {
+        "asset": "MAMO",
+        "usd": 0.1978517748038274
+      },
+      {
+        "asset": "WELL",
+        "usd": 9557.820460942023
+      }
+    ]
+  },
+  {
+    "address": "0xAcB0DCe4b0FF400AD8F6917f3ca13E434C9ed6bC",
+    "name": "Steakhouse High Yield USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 137,
+    "chain": "Polygon",
+    "tvlUsd": 72960.09211387906,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "WETH",
+        "usd": 64698.108313940815
+      },
+      {
+        "asset": "WPOL",
+        "usd": 8184.743729812404
+      },
+      {
+        "asset": "MaticX",
+        "usd": 77.24007012583843
+      }
+    ]
+  },
+  {
+    "address": "0xdC94785959B73F7A168452b3654E44fEc6A750e4",
+    "name": "Gauntlet LBTC Core",
+    "listed": true,
+    "depositAsset": "LBTC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 66100.19206777775,
+    "curators": [
+      "Gauntlet"
+    ],
+    "collateral": [
+      {
+        "asset": "cbBTC",
+        "usd": 0.003774781076960057
+      },
+      {
+        "asset": "WBTC",
+        "usd": 66100.18829299667
+      }
+    ]
+  },
+  {
+    "address": "0x1D795E29044A62Da42D927c4b179269139A28A6B",
+    "name": "Yearn OG WETH",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 64930.65807761682,
+    "curators": [
+      "Yearn"
+    ],
+    "collateral": [
+      {
+        "asset": "weETH",
+        "usd": 6169.361104211226
+      },
+      {
+        "asset": "cbBTC",
+        "usd": 2775.114775045173
+      },
+      {
+        "asset": "wstETH",
+        "usd": 30993.24268362581
+      },
+      {
+        "asset": "wstETH",
+        "usd": 2348.6754502783574
+      },
+      {
+        "asset": "cbETH",
+        "usd": 17730.591217847366
+      },
+      {
+        "asset": "wsuperOETHb",
+        "usd": 4913.6728466088925
+      }
+    ]
+  },
+  {
+    "address": "0x64CA76e2525fc6Ab2179300c15e343d73e42f958",
+    "name": "Clearstar High Yield USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 42161,
+    "chain": "Arbitrum One",
+    "tvlUsd": 60298.587929069545,
+    "curators": [
+      "Clearstar"
+    ],
+    "collateral": [
+      {
+        "asset": "sUSDai",
+        "usd": 60298.587929069545
+      }
+    ]
+  },
+  {
+    "address": "0xe5ADd96840F0B908ddeB3Bd144C0283Ac5ca7cA0",
+    "name": "Hyperithm USDT0",
+    "listed": true,
+    "depositAsset": "USD₮0",
+    "chainId": 999,
+    "chain": "HyperEVM",
+    "tvlUsd": 59494.872689575226,
+    "curators": [
+      "Hyperithm"
+    ],
+    "collateral": [
+      {
+        "asset": "WHYPE",
+        "usd": 4669.680381837083
+      },
+      {
+        "asset": "beHYPE",
+        "usd": 25.645947175376794
+      }
+    ]
+  },
+  {
+    "address": "0xCBeeF01994E24a60f7DCB8De98e75AD8BD4Ad60d",
+    "name": "Steakhouse High Yield USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 57827.33931429683,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "LBTC",
+        "usd": 312.0699563831118
+      },
+      {
+        "asset": "cbETH",
+        "usd": 37424.04413914402
+      },
+      {
+        "asset": "AERO",
+        "usd": 16987.03399600424
+      },
+      {
+        "asset": "cUSDO",
+        "usd": 82.18635635043796
+      },
+      {
+        "asset": "cbETH",
+        "usd": 3022.004866415018
+      }
+    ]
+  },
+  {
+    "address": "0xA2Cac0023a4797b4729Db94783405189a4203AFc",
+    "name": "Re7 WETH",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 8453,
+    "chain": "Base",
+    "tvlUsd": 56798.36474984067,
+    "curators": [
+      "RE7 Labs"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 30918.481285858375
+      },
+      {
+        "asset": "wstETH",
+        "usd": 25879.883463982296
+      }
+    ]
+  },
+  {
+    "address": "0xd41830d88dfD08678b0B886E0122193d54b02Acc",
+    "name": "MEV Capital PTs USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 56685.64191232773,
+    "curators": [
+      "MEV Capital"
+    ],
+    "collateral": [
+      {
+        "asset": "PT-cUSD-29JAN2026",
+        "usd": 8011.246710456623
+      },
+      {
+        "asset": "PT-stcUSD-23JUL2026",
+        "usd": 24530.365628029067
+      },
+      {
+        "asset": "PT-srUSDe-15JAN2026",
+        "usd": 24144.029573842035
+      }
+    ]
+  },
+  {
+    "address": "0xbdd4859050468fBc11Dec07113a6e633608A1372",
+    "name": "SingularV USDT",
+    "listed": true,
+    "depositAsset": "USDT",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 32673.522128945642,
+    "curators": [
+      "SingularV"
+    ],
+    "collateral": [
+      {
+        "asset": "sUSDe",
+        "usd": 32673.522128945642
+      }
+    ]
+  },
+  {
+    "address": "0x36b69949d60d06ECcC14DE0Ae63f4E00cc2cd8B9",
+    "name": "Yearn Degen USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 42161,
+    "chain": "Arbitrum One",
+    "tvlUsd": 32218.295125932724,
+    "curators": [
+      "Yearn"
+    ],
+    "collateral": [
+      {
+        "asset": "syrupUSDC",
+        "usd": 32218.295125932724
+      }
+    ]
+  },
+  {
+    "address": "0x965Ec3552427B8258BD0a0c7baA234618fc98D01",
+    "name": "UltraYield USDT",
+    "listed": true,
+    "depositAsset": "USDT",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 31027.587506996224,
+    "curators": [
+      "UltraYield"
+    ],
+    "collateral": [
+      {
+        "asset": "WETH",
+        "usd": 0.214261471745661
+      },
+      {
+        "asset": "sUSDe",
+        "usd": 31027.37324552448
+      }
+    ]
+  },
+  {
+    "address": "0xfA355999c12C63c465c591daf9C462e14ACf470b",
+    "name": "K3 Capital ETH Maxi",
+    "listed": true,
+    "depositAsset": "WETH",
+    "chainId": 130,
+    "chain": "Unichain",
+    "tvlUsd": 24996.168439871493,
+    "curators": [
+      "K3 Capital"
+    ],
+    "collateral": [
+      {
+        "asset": "weETH",
+        "usd": 24996.168439871493
+      }
+    ]
+  },
+  {
+    "address": "0x71cb2F8038B2C5D65ddc740B2F3268890CD2A89C",
+    "name": "Sentora RLUSD",
+    "listed": true,
+    "depositAsset": "RLUSD",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 23145.581157587363,
+    "curators": [
+      "Sentora"
+    ],
+    "collateral": [
+      {
+        "asset": "cbBTC",
+        "usd": 4116.189822491902
+      },
+      {
+        "asset": "wstETH",
+        "usd": 0.0007548806973298546
+      },
+      {
+        "asset": "sUSDe",
+        "usd": 19029.390580214764
+      }
+    ]
+  },
+  {
+    "address": "0x95EeF579155cd2C5510F312c8fA39208c3Be01a8",
+    "name": "Re7 USDT",
+    "listed": true,
+    "depositAsset": "USDT",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 22340.77597072328,
+    "curators": [
+      "RE7 Labs"
+    ],
+    "collateral": [
+      {
+        "asset": "USDe",
+        "usd": 328.7077379865787
+      }
+    ]
+  },
+  {
+    "address": "0xCdaea3dde6cE5969aA1414A82A3A681cEd51Ce72",
+    "name": "Hyperithm USDC Core",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 1,
+    "chain": "Ethereum",
+    "tvlUsd": 16566.933753329904,
+    "curators": [
+      "Hyperithm"
+    ],
+    "collateral": [
+      {
+        "asset": "wstETH",
+        "usd": 14559.42034570674
+      },
+      {
+        "asset": "syrupUSDC",
+        "usd": 2007.5134076231657
+      }
+    ]
+  },
+  {
+    "address": "0xBC03E505EE65f9fAa68a2D7e5A74452858C16D29",
+    "name": "Steakhouse High Yield AUSD",
+    "listed": true,
+    "depositAsset": "AUSD",
+    "chainId": 143,
+    "chain": "Monad",
+    "tvlUsd": 12942.667740399604,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "WETH",
+        "usd": 0.00014793525900210936
+      },
+      {
+        "asset": "wsrUSD",
+        "usd": 12942.667588466093
+      }
+    ]
+  },
+  {
+    "address": "0x802c91d807A8DaCA257c4708ab264B6520964e44",
+    "name": "Steakhouse High Yield USDC",
+    "listed": true,
+    "depositAsset": "USDC",
+    "chainId": 143,
+    "chain": "Monad",
+    "tvlUsd": 11812.273835625208,
+    "curators": [
+      "Steakhouse Financial"
+    ],
+    "collateral": [
+      {
+        "asset": "WBTC",
+        "usd": 11591.106267218225
+      },
+      {
+        "asset": "SOL",
+        "usd": 221.16756840698554
+      }
+    ]
+  }
+]

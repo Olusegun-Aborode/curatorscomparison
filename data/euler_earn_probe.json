@@ -1,0 +1,122 @@
+[
+  {
+    "chain": "ethereum",
+    "name": "TelosC Earn WBTC",
+    "manager": "0x7d07bfdd01422d7b655b333157eb551b9712dcd8",
+    "managerRole": "owner",
+    "asset": "WBTC",
+    "usd": 3465562.9762650253
+  },
+  {
+    "chain": "ethereum",
+    "name": "Earn USDC",
+    "manager": "0x7054b25d47b9342da3517ad41a4bd083de8d3f70",
+    "managerRole": "curator",
+    "asset": "USDC",
+    "usd": 3146557.3002513265
+  },
+  {
+    "chain": "ethereum",
+    "name": "TelosC Earn WETH",
+    "manager": "0x7d07bfdd01422d7b655b333157eb551b9712dcd8",
+    "managerRole": "owner",
+    "asset": "WETH",
+    "usd": 2286085.6927414457
+  },
+  {
+    "chain": "ethereum",
+    "name": "Cassa RWAs, Equities & Commodities",
+    "manager": "0x7d07bfdd01422d7b655b333157eb551b9712dcd8",
+    "managerRole": "curator",
+    "asset": "AUSD",
+    "usd": 1607897.8616198653
+  },
+  {
+    "chain": "ethereum",
+    "name": "kpk RWA Euler USDC",
+    "manager": "0x1572063377a9a4f8065bd7ba0d7fa135cd13051f",
+    "managerRole": "curator",
+    "asset": "USDC",
+    "usd": 1012374.5399898747
+  },
+  {
+    "chain": "arbitrum",
+    "name": "Euler Earn USDC",
+    "manager": "0xe55798d71193baa789031415b668a992f2e566ee",
+    "managerRole": "owner",
+    "asset": "USDC",
+    "usd": 560012.5612603555
+  },
+  {
+    "chain": "ethereum",
+    "name": "Infinifi USDC",
+    "manager": "0x7d07bfdd01422d7b655b333157eb551b9712dcd8",
+    "managerRole": "curator",
+    "asset": "USDC",
+    "usd": 380682.9230826275
+  },
+  {
+    "chain": "ethereum",
+    "name": "Euler Earn USDT",
+    "manager": "0x060db084bf41872861f175d83f3cb1b5566dfea3",
+    "managerRole": "owner",
+    "asset": "USDT",
+    "usd": 156242.73698820663
+  },
+  {
+    "chain": "ethereum",
+    "name": "Euler Earn USDC",
+    "manager": "0x060db084bf41872861f175d83f3cb1b5566dfea3",
+    "managerRole": "owner",
+    "asset": "USDC",
+    "usd": 101192.10495138976
+  },
+  {
+    "chain": "ethereum",
+    "name": "Euler Earn WETH",
+    "manager": "0x060db084bf41872861f175d83f3cb1b5566dfea3",
+    "managerRole": "owner",
+    "asset": "WETH",
+    "usd": 38928.460827107345
+  },
+  {
+    "chain": "ethereum",
+    "name": "TiD Capital Ethereum ETH Yield",
+    "manager": "0x0945435528775df3e1f170446ff45afc00e26ed0",
+    "managerRole": "curator",
+    "asset": "WETH",
+    "usd": 32809.936609247874
+  },
+  {
+    "chain": "ethereum",
+    "name": "TID Capital USDC",
+    "manager": "0x0945435528775df3e1f170446ff45afc00e26ed0",
+    "managerRole": "curator",
+    "asset": "USDC",
+    "usd": 27086.008538961723
+  },
+  {
+    "chain": "ethereum",
+    "name": "Hyperithm Euler USDC",
+    "manager": "0x75178137d3b4b9a0f771e0e149b00fb8167ba325",
+    "managerRole": "curator",
+    "asset": "USDC",
+    "usd": 10966.94463101363
+  },
+  {
+    "chain": "base",
+    "name": "Clearstar RWA Earn USDC",
+    "manager": "0x72882eb5d27c7088dfa6dde941dd42e5d184f0ef",
+    "managerRole": "curator",
+    "asset": "USDC",
+    "usd": 5432.091508501699
+  },
+  {
+    "chain": "base",
+    "name": "Euler Earn USDC",
+    "manager": "0x1e13b0847808045854ddd908f2d770dc902dcfb8",
+    "managerRole": "owner",
+    "asset": "USDC",
+    "usd": 4732.864872302134
+  }
+]

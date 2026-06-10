@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lending Curators — AUM & Asset Type</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Deterministic shell placement: topbar(row1) / sidebar+main(row2) / statusbar(row3) */
+    .shell > .sidebar { grid-column: 1; grid-row: 2; }
+    .shell > .main { grid-column: 2; grid-row: 2; }
+  </style>
+</head>
+<body data-theme="dark" data-aesthetic="evolved" data-density="cozy">
+  <script>
+  (function () {
+    try {
+      var t = localStorage.getItem('theme'), a = localStorage.getItem('aesthetic'), d = localStorage.getItem('density');
+      if (t) document.body.setAttribute('data-theme', t);
+      if (a) document.body.setAttribute('data-aesthetic', a);
+      if (d) document.body.setAttribute('data-density', d);
+    } catch (e) {}
+  })();
+  </script>
+  <div id="root" class="shell"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+  <script src="lending_curators.data.js"></script>
+  <script type="text/babel" src="charts.jsx"></script>
+  <script type="text/babel" src="widgets.jsx"></script>
+
+  <script type="text/babel" data-presets="env,react">
+    const { useState, useMemo } = React;
+    const D = window.CURATOR_DATA;
+    const AC = D.assetColors;
+
+    const fmtUSD = (v) => {
+      if (v >= 1e9) return '$' + (v / 1e9).toFixed(2) + 'B';
+      if (v >= 1e6) return '$' + (v / 1e6).toFixed(1) + 'M';
+      if (v >= 1e3) return '$' + (v / 1e3).toFixed(0) + 'K';
+      return '$' + v.toFixed(0);
+    };
+    const pct = (v) => (v * 100).toFixed(0) + '%';
+    const ASSET_TYPES = Object.keys(AC);
+    const TIERS = ["Mega (>$500M)", "Large ($100M–500M)", "Mid ($25M–100M)", "Small ($5M–25M)", "Emerging (<$5M)"];
+
+    // ── mini stacked bar for a curator's asset profile ──
+    function AssetBar({ byAssetType, width = 160 }) {
+      const total = Object.values(byAssetType).reduce((a, b) => a + b, 0) || 1;
+      const segs = ASSET_TYPES.filter(t => byAssetType[t] > 0).map(t => ({ t, w: byAssetType[t] / total }));
+      return (
+        <div style={{ display: 'flex', width, height: 10, borderRadius: 3, overflow: 'hidden', background: 'var(--bg-elev)' }} title={Object.entries(byAssetType).map(([k,v])=>`${k} ${pct(v/total)}`).join(' · ')}>
+          {segs.map(s => <div key={s.t} style={{ width: pct(s.w), background: AC[s.t] }} />)}
+        </div>
+      );
+    }
+
+    function Legend({ keys }) {
+      return (
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginTop: 10 }}>
+          {keys.map(k => (
+            <div key={k} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11, color: 'var(--fg-muted)' }}>
+              <span style={{ width: 10, height: 10, borderRadius: 2, background: AC[k] }} />{k}
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    // ═══════════════ OVERVIEW ═══════════════
+    function Overview() {
+      const cur = D.curators;
+      const btcShare = (D.agg.byAssetType['BTC'] || 0) / D.meta.totalAumUsd;
+      const top = cur[0];
+      const kpis = [
+        { l: 'Total Curated AUM', v: fmtUSD(D.meta.totalAumUsd), d: 'Morpho + Euler Earn' },
+        { l: 'Curators', v: String(D.meta.curatorCount), d: D.meta.protocols.join(' · ') },
+        { l: 'Largest Curator', v: top.name, d: fmtUSD(top.aumUsd) + ' · ' + top.protocol },
+        { l: 'BTC Collateral Share', v: pct(btcShare), d: 'of all curated AUM' },
+      ];
+      // disambiguate same-name curators across protocols (Treemap keys by name)
+      const nameCount = {};
+      cur.forEach(c => { nameCount[c.name] = (nameCount[c.name] || 0) + 1; });
+      const treeItems = cur.filter(c => c.aumUsd > 0).map(c => ({
+        id: c.protocol + ':' + c.name,
+        name: nameCount[c.name] > 1 ? `${c.name} (${c.protocol})` : c.name,
+        value: c.aumUsd, color: AC[c.dominantAssetType] || 'var(--fg-muted)',
+      }));
+      const assetDonut = Object.entries(D.agg.byAssetType).map(([k, v]) => ({ name: k, value: v, color: AC[k] }));
+      const chainDonut = Object.entries(D.agg.byChain).sort((a,b)=>b[1]-a[1]).map(([k, v], i) => ({ name: k, value: v, color: ['var(--orange)','var(--blue)','var(--green)','var(--purple)','var(--yellow)','var(--red)'][i] || 'var(--fg-muted)' }));
+      // stacked bar: tiers x asset types
+      const barData = TIERS.map(t => {
+        const row = { label: t.split(' ')[0] };
+        for (const at of ASSET_TYPES) row[at] = 0;
+        for (const c of cur.filter(c => c.sizeTier === t)) for (const [at, v] of Object.entries(c.byAssetType)) row[at] += v;
+        return row;
+      });
+      return (
+        <section style={{ padding: 24 }}>
+          <h1 className="h1">Lending Protocol Curators</h1>
+          <p className="sub" style={{ marginTop: 6 }}>
+            Asset managers allocating depositor capital on permissionless lending protocols, by AUM and collateral type. Ethereum-first, all chains.
+          </p>
+
+          <div className="grid grid-4" style={{ marginTop: 22, gap: 16 }}>
+            {kpis.map(k => (
+              <div key={k.l} className="panel kpi-panel">
+                <div className="metric-label">{k.l}</div>
+                <div className="metric-value" style={{ fontSize: k.v.length > 10 ? 20 : undefined }}>{k.v}</div>
+                <div className="metric-delta">{k.d}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid" style={{ gridTemplateColumns: '1.6fr 1fr', gap: 16, marginTop: 16 }}>
+            <div className="panel" style={{ padding: 18 }}>
+              <div className="panel-header"><div className="panel-title">Curators by AUM — colored by dominant asset type</div></div>
+              <Treemap items={treeItems} width={620} height={320} />
+              <Legend keys={ASSET_TYPES.filter(t => (D.agg.byAssetType[t]||0) > 0)} />
+            </div>
+            <div className="panel" style={{ padding: 18 }}>
+              <div className="panel-header"><div className="panel-title">AUM by Asset Type</div></div>
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <Donut items={assetDonut} size={210} thickness={34} centerLabel={fmtUSD(D.meta.totalAumUsd)} />
+              </div>
+            </div>
+          </div>
+
+          <div className="grid" style={{ gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 16 }}>
+            <div className="panel" style={{ padding: 18 }}>
+              <div className="panel-header"><div className="panel-title">AUM by Size Tier × Asset Type</div></div>
+              <StackedBarChart data={barData} keys={ASSET_TYPES} colors={ASSET_TYPES.map(t => AC[t])} labels width={560} height={240} />
+            </div>
+            <div className="panel" style={{ padding: 18 }}>
+              <div className="panel-header"><div className="panel-title">AUM by Chain (Ethereum-first)</div></div>
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <Donut items={chainDonut} size={210} thickness={34} centerLabel={String(Object.keys(D.agg.byChain).length) + ' chains'} />
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // ═══════════════ CURATORS TABLE ═══════════════
+    function Curators() {
+      const [protocols, setProtocols] = useState([]);
+      const [assets, setAssets] = useState([]);
+      const [tiers, setTiers] = useState([]);
+      const [sort, setSort] = useState('aum');
+      const [ethFirst, setEthFirst] = useState(false);
+
+      let rows = D.curators.filter(c =>
+        (!protocols.length || protocols.includes(c.protocol)) &&
+        (!assets.length || assets.includes(c.dominantAssetType)) &&
+        (!tiers.length || tiers.includes(c.sizeTier))
+      );
+      rows = rows.map(c => ({ ...c, sortAum: ethFirst ? (c.byChain['Ethereum'] || 0) : c.aumUsd }));
+      rows.sort((a, b) => sort === 'name' ? a.name.localeCompare(b.name) : b.sortAum - a.sortAum);
+
+      const th = { textAlign: 'left', padding: '8px 10px', fontSize: 11, color: 'var(--fg-muted)', textTransform: 'uppercase', letterSpacing: '.04em', borderBottom: '1px solid var(--border)', cursor: 'pointer' };
+      const td = { padding: '9px 10px', fontSize: 13, borderBottom: '1px solid var(--border-subtle, var(--border))' };
+
+      return (
+        <section style={{ padding: 24 }}>
+          <h1 className="h1">Curators</h1>
+          <p className="sub" style={{ marginTop: 6 }}>{rows.length} curators · sort and filter by protocol, asset type, and size.</p>
+
+          <div style={{ display: 'flex', gap: 10, marginTop: 16, flexWrap: 'wrap', alignItems: 'center' }}>
+            <Dropdown label="Protocol" multi selected={protocols} items={D.meta.protocols.filter(p=>p!=='Aave').map(p => ({ value: p, label: p }))} onChange={setProtocols} />
+            <Dropdown label="Asset Type" multi selected={assets} items={ASSET_TYPES.map(a => ({ value: a, label: a }))} onChange={setAssets} />
+            <Dropdown label="Size Tier" multi selected={tiers} items={TIERS.map(t => ({ value: t, label: t }))} onChange={setTiers} />
+            <button className={`chip ${ethFirst ? 'active' : ''}`} onClick={() => setEthFirst(v => !v)}
+              style={{ cursor: 'pointer', background: ethFirst ? 'var(--orange)' : 'var(--bg-elev)', color: ethFirst ? '#000' : 'var(--fg-muted)', border: '1px solid var(--border)', borderRadius: 6, padding: '7px 12px', fontSize: 12 }}>
+              {ethFirst ? '◉' : '○'} Rank by Ethereum AUM
+            </button>
+          </div>
+
+          <div className="panel" style={{ marginTop: 16, padding: 0, overflow: 'hidden' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+              <thead><tr>
+                <th style={th}>#</th>
+                <th style={th} onClick={() => setSort('name')}>Curator</th>
+                <th style={th}>Protocol</th>
+                <th style={{ ...th, textAlign: 'right' }} onClick={() => setSort('aum')}>{ethFirst ? 'ETH AUM' : 'AUM'} ▾</th>
+                <th style={th}>Size Tier</th>
+                <th style={th}>Asset Profile</th>
+                <th style={{ ...th, textAlign: 'right' }}>Vaults</th>
+                <th style={{ ...th, textAlign: 'right' }}>Chains</th>
+              </tr></thead>
+              <tbody>
+                {rows.map((c, i) => (
+                  <tr key={c.protocol + c.name} style={{ transition: 'background .1s' }}
+                    onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-elev)'}
+                    onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
+                    <td style={{ ...td, fontFamily: 'var(--font-mono)', color: 'var(--fg-dim)' }}>{String(i + 1).padStart(2, '0')}</td>
+                    <td style={{ ...td, fontWeight: 600 }}>{c.name}{c.verified && <span title="Verified" style={{ color: 'var(--blue)', marginLeft: 6, fontSize: 11 }}>✓</span>}</td>
+                    <td style={td}><span style={{ fontSize: 11, padding: '2px 7px', borderRadius: 4, background: c.protocol === 'Morpho' ? 'rgba(99,102,241,.15)' : 'rgba(34,197,94,.15)', color: c.protocol === 'Morpho' ? 'var(--blue)' : 'var(--green)' }}>{c.protocol}</span></td>
+                    <td style={{ ...td, textAlign: 'right', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>{fmtUSD(c.sortAum)}</td>
+                    <td style={{ ...td, color: 'var(--fg-muted)', fontSize: 12 }}>{c.sizeTier.split(' (')[0]}</td>
+                    <td style={td}><div style={{ display: 'flex', alignItems: 'center', gap: 8 }}><AssetBar byAssetType={c.byAssetType} /><span style={{ fontSize: 11, color: 'var(--fg-muted)' }}>{c.dominantAssetType.split(' ')[0]}</span></div></td>
+                    <td style={{ ...td, textAlign: 'right', fontFamily: 'var(--font-mono)', color: 'var(--fg-muted)' }}>{c.vaultCount}</td>
+                    <td style={{ ...td, textAlign: 'right', fontFamily: 'var(--font-mono)', color: 'var(--fg-muted)' }}>{c.chains.length}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Aave risk managers — separate category */}
+          <h2 className="h2" style={{ marginTop: 32, fontSize: 16 }}>Risk Service Providers <span style={{ fontSize: 12, fontWeight: 400, color: 'var(--fg-muted)' }}>— advisory, not capital allocation (excluded from AUM ranking)</span></h2>
+          <div className="grid grid-2" style={{ gap: 16, marginTop: 12 }}>
+            {D.riskManagers.map(m => (
+              <div key={m.name} className="panel" style={{ padding: 16 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                  <div style={{ fontWeight: 600, fontSize: 15 }}>{m.name}<span style={{ color: 'var(--blue)', marginLeft: 6, fontSize: 11 }}>✓</span></div>
+                  <span style={{ fontSize: 11, padding: '2px 7px', borderRadius: 4, background: 'rgba(168,85,247,.15)', color: 'var(--purple)' }}>{m.protocol} · risk manager</span>
+                </div>
+                <div style={{ fontSize: 12, color: 'var(--fg-muted)', marginTop: 8 }}>{m.scope}</div>
+                <div style={{ fontSize: 12, marginTop: 10, fontFamily: 'var(--font-mono)' }}>Oversees ≈ {fmtUSD(m.overseesUsd)} <span style={{ color: 'var(--fg-dim)' }}>Aave v3 TVL (shared advisory scope)</span></div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    // ═══════════════ METHODOLOGY ═══════════════
+    function Method() {
+      const Row = ({ k, v }) => (
+        <div style={{ display: 'flex', gap: 16, padding: '10px 0', borderBottom: '1px solid var(--border)' }}>
+          <div style={{ width: 200, color: 'var(--fg-muted)', fontSize: 13, flexShrink: 0 }}>{k}</div>
+          <div style={{ fontSize: 13, lineHeight: 1.6 }}>{v}</div>
+        </div>
+      );
+      return (
+        <section style={{ padding: 24, maxWidth: 860 }}>
+          <h1 className="h1">Methodology & Sources</h1>
+          <div className="panel" style={{ padding: 20, marginTop: 16 }}>
+            <Row k="What is a curator?" v="A third party that allocates depositor capital across lending markets and sets risk parameters, in exchange for a performance/management fee. Called 'curators' on Morpho, 'vault managers' on Euler Earn." />
+            <Row k="Curator vs risk manager" v={<span><b>Curator</b> = allocates capital (Morpho, Euler). <b>Risk manager</b> = advises DAO-governed markets on parameters but does NOT allocate (Gauntlet/Chaos Labs on Aave). Risk managers are shown separately and excluded from AUM rankings.</span>} />
+            <Row k="Morpho source" v="blue-api.morpho.org GraphQL — top-level curators query (identity, verification) joined to all MetaMorpho vaults (TVL, chain, collateral allocation). Registered-curator universe; addr-only vaults (~5% of TVL) excluded." />
+            <Row k="Euler source" v="Euler v2 subgraphs (Goldsky) — eulerEarnVaults. Raw balances priced via DefiLlama coins API. Manager brand derived from vault name. Euler Earn is nascent (~$13M)." />
+            <Row k="Aave source" v="Aave entries are risk service providers under DAO contract. Oversight anchored to live Aave v3 TVL (api.llama.fi). Advisory scope is shared, not split per firm." />
+            <Row k="Asset-type buckets" v="Each vault's collateral (Morpho) or deposit asset (Euler) is mapped by symbol into: BTC, ETH/LST/LRT, Stablecoin, RWA/Credit, Pendle/Fixed-term, Altcoin/L1, Other. Rules are editorial (see classify.mjs) and auditable." />
+            <Row k="Size tiers" v="Mega >$500M · Large $100–500M · Mid $25–100M · Small $5–25M · Emerging <$5M." />
+            <Row k="Caveats" v="Co-curated vaults split TVL evenly. Asset-type classification is symbol-based and approximate. Snapshot, not live-streaming. AUM moves with token prices." />
+          </div>
+          <div style={{ marginTop: 16 }}>
+            <DataSourceBadge source="Morpho · Euler · DefiLlama" lastUpdated={D.meta.generated} tone="green" />
+          </div>
+        </section>
+      );
+    }
+
+    const NAV = [
+      { id: 'overview', label: 'Overview', C: Overview },
+      { id: 'curators', label: 'Curators', C: Curators },
+      { id: 'method', label: 'Methodology', C: Method },
+    ];
+
+    function App() {
+      const [active, setActive] = useState('overview');
+      const Page = NAV.find(n => n.id === active).C;
+      return (
+        <>
+          <aside className="sidebar">
+            <div className="brand">
+              <div className="brand-logo"></div>
+              <div className="brand-name">curator index</div>
+            </div>
+            <nav className="nav">
+              {NAV.map(n => (
+                <a key={n.id} href="#" className={`nav-item ${active === n.id ? 'active' : ''}`}
+                  onClick={e => { e.preventDefault(); setActive(n.id); }}>{n.label}</a>
+              ))}
+            </nav>
+          </aside>
+          <header className="topbar">
+            <div className="breadcrumb"><span>Lending Curators</span><span className="sep">/</span><span style={{ color: 'var(--fg)' }}>{NAV.find(n => n.id === active).label}</span></div>
+          </header>
+          <main className="main"><Page /></main>
+          <footer className="statusbar"><span>CURATOR INDEX</span><span>· {fmtUSD(D.meta.totalAumUsd)} AUM · {D.meta.curatorCount} curators · {D.meta.generated.slice(0,10)}</span></footer>
+        </>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

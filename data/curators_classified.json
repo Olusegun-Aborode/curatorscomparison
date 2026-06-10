@@ -1,0 +1,514 @@
+[
+  {
+    "name": "Steakhouse Financial",
+    "verified": true,
+    "aumUsd": 1047739796.3117322,
+    "sizeTier": "Mega (>$500M)",
+    "vaultCount": 29,
+    "chains": [
+      "Base",
+      "Ethereum",
+      "Katana",
+      "Monad",
+      "Arbitrum One",
+      "Polygon"
+    ],
+    "ethShare": 0.37879290078062655,
+    "dominantAssetType": "BTC",
+    "assetProfile": "BTC 69%, ETH / LST / LRT 16%, Stablecoin 12%, Pendle / Fixed-term 1%, RWA / Credit 1%, Altcoin / L1 0%",
+    "byAssetType": {
+      "ETH / LST / LRT": 169478051.85198507,
+      "BTC": 726566093.2462698,
+      "Stablecoin": 128382427.96940057,
+      "RWA / Credit": 6664192.842890743,
+      "Pendle / Fixed-term": 12999414.561907455,
+      "Altcoin / L1": 3492565.1388444225
+    },
+    "byChain": {
+      "Base": 620563802.626641,
+      "Ethereum": 396876396.7082238,
+      "Katana": 24913973.927930605,
+      "Monad": 2539079.6353452513,
+      "Arbitrum One": 2563934.6320567373,
+      "Polygon": 282608.78153469815
+    },
+    "description": null
+  },
+  {
+    "name": "Gauntlet",
+    "verified": true,
+    "aumUsd": 698991420.98399,
+    "sizeTier": "Mega (>$500M)",
+    "vaultCount": 43,
+    "chains": [
+      "Base",
+      "Ethereum",
+      "Katana",
+      "OP Mainnet",
+      "Arbitrum One",
+      "Polygon",
+      "HyperEVM"
+    ],
+    "ethShare": 0.30658964792383,
+    "dominantAssetType": "BTC",
+    "assetProfile": "BTC 76%, ETH / LST / LRT 17%, Stablecoin 4%, RWA / Credit 2%, Altcoin / L1 1%, Pendle / Fixed-term 0%",
+    "byAssetType": {
+      "ETH / LST / LRT": 117442143.48230751,
+      "BTC": 530709064.485454,
+      "Stablecoin": 28088483.552376546,
+      "RWA / Credit": 15317908.500198798,
+      "Pendle / Fixed-term": 3278604.8720886074,
+      "Altcoin / L1": 4155216.0915644574
+    },
+    "byChain": {
+      "Base": 451370730.4296647,
+      "Ethereum": 214303533.66125908,
+      "Katana": 17922933.08233222,
+      "OP Mainnet": 4210379.09340128,
+      "Arbitrum One": 4233851.1598206945,
+      "Polygon": 4366053.805732826,
+      "HyperEVM": 2583939.7517789607
+    },
+    "description": null
+  },
+  {
+    "name": "Sentora",
+    "verified": true,
+    "aumUsd": 289875914.2733289,
+    "sizeTier": "Large ($100M–500M)",
+    "vaultCount": 2,
+    "chains": [
+      "Ethereum"
+    ],
+    "ethShare": 1,
+    "dominantAssetType": "BTC",
+    "assetProfile": "BTC 41%, Stablecoin 41%, ETH / LST / LRT 18%, Pendle / Fixed-term 0%",
+    "byAssetType": {
+      "BTC": 119026510.86994055,
+      "ETH / LST / LRT": 52163966.63344777,
+      "Pendle / Fixed-term": 25.18933394474774,
+      "Stablecoin": 118685411.58060668
+    },
+    "byChain": {
+      "Ethereum": 289875914.2733289
+    },
+    "description": null
+  },
+  {
+    "name": "Felix",
+    "verified": true,
+    "aumUsd": 49940548.30815263,
+    "sizeTier": "Mid ($25M–100M)",
+    "vaultCount": 7,
+    "chains": [
+      "HyperEVM"
+    ],
+    "ethShare": 0,
+    "dominantAssetType": "Altcoin / L1",
+    "assetProfile": "Altcoin / L1 96%, BTC 3%, RWA / Credit 1%, Stablecoin 0%, ETH / LST / LRT 0%, Pendle / Fixed-term 0%",
+    "byAssetType": {
+      "Pendle / Fixed-term": 38905.80492664557,
+      "Altcoin / L1": 47948684.34269448,
+      "BTC": 1273377.1977064789,
+      "RWA / Credit": 416683.58641347155,
+      "Stablecoin": 170579.35512284434,
+      "ETH / LST / LRT": 92318.02128871022
+    },
+    "byChain": {
+      "HyperEVM": 49940548.30815263
+    },
+    "description": null
+  },
+  {
+    "name": "Yearn",
+    "verified": true,
+    "aumUsd": 31347193.306066252,
+    "sizeTier": "Mid ($25M–100M)",
+    "vaultCount": 11,
+    "chains": [
+      "Katana",
+      "Ethereum",
+      "Base",
+      "Arbitrum One"
+    ],
+    "ethShare": 0.35835187281624953,
+    "dominantAssetType": "ETH / LST / LRT",
+    "assetProfile": "ETH / LST / LRT 56%, BTC 20%, Stablecoin 17%, Altcoin / L1 7%, Pendle / Fixed-term 1%",
+    "byAssetType": {
+      "ETH / LST / LRT": 17483734.311148413,
+      "BTC": 6125379.379212617,
+      "Altcoin / L1": 2083476.7243333342,
+      "Stablecoin": 5477919.711792333,
+      "Pendle / Fixed-term": 176683.17957955477
+    },
+    "byChain": {
+      "Katana": 17881222.935128685,
+      "Ethereum": 11233325.428761842,
+      "Base": 2200426.6470497944,
+      "Arbitrum One": 32218.295125932724
+    },
+    "description": null
+  },
+  {
+    "name": "Pangolins",
+    "verified": true,
+    "aumUsd": 27927592.14911528,
+    "sizeTier": "Mid ($25M–100M)",
+    "vaultCount": 1,
+    "chains": [
+      "Base"
+    ],
+    "ethShare": 0,
+    "dominantAssetType": "BTC",
+    "assetProfile": "BTC 100%",
+    "byAssetType": {
+      "BTC": 27927592.14911528
+    },
+    "byChain": {
+      "Base": 27927592.14911528
+    },
+    "description": null
+  },
+  {
+    "name": "Hakutora",
+    "verified": true,
+    "aumUsd": 27603921.48010356,
+    "sizeTier": "Mid ($25M–100M)",
+    "vaultCount": 2,
+    "chains": [
+      "Ethereum"
+    ],
+    "ethShare": 1,
+    "dominantAssetType": "BTC",
+    "assetProfile": "BTC 73%, ETH / LST / LRT 27%",
+    "byAssetType": {
+      "BTC": 20071404.32459834,
+      "ETH / LST / LRT": 7532517.155505225
+    },
+    "byChain": {
+      "Ethereum": 27603921.48010356
+    },
+    "description": null
+  },
+  {
+    "name": "Anthias Labs",
+    "verified": true,
+    "aumUsd": 18618975.18865401,
+    "sizeTier": "Small ($5M–25M)",
+    "vaultCount": 5,
+    "chains": [
+      "Base"
+    ],
+    "ethShare": 0,
+    "dominantAssetType": "ETH / LST / LRT",
+    "assetProfile": "ETH / LST / LRT 59%, BTC 40%, Altcoin / L1 0%, Stablecoin 0%",
+    "byAssetType": {
+      "BTC": 7455917.935130857,
+      "ETH / LST / LRT": 11060571.013316307,
+      "Stablecoin": 27590.212068012384,
+      "Altcoin / L1": 74896.02813883527
+    },
+    "byChain": {
+      "Base": 18618975.18865401
+    },
+    "description": null
+  },
+  {
+    "name": "Clearstar",
+    "verified": true,
+    "aumUsd": 10465772.173115103,
+    "sizeTier": "Small ($5M–25M)",
+    "vaultCount": 5,
+    "chains": [
+      "Ethereum",
+      "Base",
+      "Arbitrum One"
+    ],
+    "ethShare": 0.6767070929325846,
+    "dominantAssetType": "Stablecoin",
+    "assetProfile": "Stablecoin 70%, BTC 15%, ETH / LST / LRT 8%, Altcoin / L1 5%, RWA / Credit 2%",
+    "byAssetType": {
+      "Stablecoin": 7308737.903798622,
+      "RWA / Credit": 258177.96208044817,
+      "BTC": 1571869.6309173189,
+      "ETH / LST / LRT": 803295.9095691838,
+      "Altcoin / L1": 523690.7667495302
+    },
+    "byChain": {
+      "Ethereum": 7082262.26256346,
+      "Base": 3323211.3226225725,
+      "Arbitrum One": 60298.587929069545
+    },
+    "description": null
+  },
+  {
+    "name": "MEV Capital",
+    "verified": true,
+    "aumUsd": 8955775.705791045,
+    "sizeTier": "Small ($5M–25M)",
+    "vaultCount": 5,
+    "chains": [
+      "Ethereum",
+      "HyperEVM"
+    ],
+    "ethShare": 0.9148139972286203,
+    "dominantAssetType": "ETH / LST / LRT",
+    "assetProfile": "ETH / LST / LRT 44%, Stablecoin 28%, RWA / Credit 14%, Altcoin / L1 9%, BTC 5%, Pendle / Fixed-term 1%",
+    "byAssetType": {
+      "Stablecoin": 2511271.8568531107,
+      "ETH / LST / LRT": 3913790.09330235,
+      "BTC": 429606.91316402727,
+      "RWA / Credit": 1281514.466465858,
+      "Altcoin / L1": 762906.7340933713,
+      "Pendle / Fixed-term": 56685.64191232773
+    },
+    "byChain": {
+      "Ethereum": 8192868.971697674,
+      "HyperEVM": 762906.7340933713
+    },
+    "description": null
+  },
+  {
+    "name": "SparkDAO",
+    "verified": true,
+    "aumUsd": 8733919.310007378,
+    "sizeTier": "Small ($5M–25M)",
+    "vaultCount": 2,
+    "chains": [
+      "Base",
+      "Ethereum"
+    ],
+    "ethShare": 0.1144757105171027,
+    "dominantAssetType": "ETH / LST / LRT",
+    "assetProfile": "ETH / LST / LRT 94%, BTC 6%",
+    "byAssetType": {
+      "BTC": 500792.21330831386,
+      "ETH / LST / LRT": 8233127.096699065
+    },
+    "byChain": {
+      "Base": 7734097.691395241,
+      "Ethereum": 999821.618612138
+    },
+    "description": null
+  },
+  {
+    "name": "Hyperithm",
+    "verified": true,
+    "aumUsd": 3770606.4615250495,
+    "sizeTier": "Emerging (<$5M)",
+    "vaultCount": 5,
+    "chains": [
+      "Ethereum",
+      "Arbitrum One",
+      "HyperEVM"
+    ],
+    "ethShare": 0.7978066474851122,
+    "dominantAssetType": "RWA / Credit",
+    "assetProfile": "RWA / Credit 75%, ETH / LST / LRT 9%, Pendle / Fixed-term 7%, BTC 6%, Stablecoin 2%, Altcoin / L1 2%",
+    "byAssetType": {
+      "ETH / LST / LRT": 354598.7672700731,
+      "RWA / Credit": 2827810.04612296,
+      "Pendle / Fixed-term": 255346.51901975163,
+      "BTC": 213019.38217145554,
+      "Stablecoin": 60336.8742512338,
+      "Altcoin / L1": 59494.87268957522
+    },
+    "byChain": {
+      "Ethereum": 3008214.9000550015,
+      "Arbitrum One": 702896.6887804727,
+      "HyperEVM": 59494.872689575226
+    },
+    "description": null
+  },
+  {
+    "name": "AlphaPing",
+    "verified": true,
+    "aumUsd": 3198176.5939038727,
+    "sizeTier": "Emerging (<$5M)",
+    "vaultCount": 2,
+    "chains": [
+      "Ethereum"
+    ],
+    "ethShare": 1,
+    "dominantAssetType": "Stablecoin",
+    "assetProfile": "Stablecoin 64%, ETH / LST / LRT 36%",
+    "byAssetType": {
+      "Stablecoin": 2046504.5013759069,
+      "ETH / LST / LRT": 1151672.0925279658
+    },
+    "byChain": {
+      "Ethereum": 3198176.5939038727
+    },
+    "description": null
+  },
+  {
+    "name": "RE7 Labs",
+    "verified": true,
+    "aumUsd": 1244938.563451907,
+    "sizeTier": "Emerging (<$5M)",
+    "vaultCount": 7,
+    "chains": [
+      "Ethereum",
+      "Base"
+    ],
+    "ethShare": 0.671060708122199,
+    "dominantAssetType": "ETH / LST / LRT",
+    "assetProfile": "ETH / LST / LRT 73%, BTC 25%, Stablecoin 2%",
+    "byAssetType": {
+      "ETH / LST / LRT": 741740.527135271,
+      "BTC": 253550.68821606424,
+      "Stablecoin": 22340.77597072328
+    },
+    "byChain": {
+      "Ethereum": 835429.3539586698,
+      "Base": 409509.20949323697
+    },
+    "description": null
+  },
+  {
+    "name": "SingularV",
+    "verified": true,
+    "aumUsd": 977840.676715851,
+    "sizeTier": "Emerging (<$5M)",
+    "vaultCount": 2,
+    "chains": [
+      "Ethereum"
+    ],
+    "ethShare": 1,
+    "dominantAssetType": "ETH / LST / LRT",
+    "assetProfile": "ETH / LST / LRT 97%, Stablecoin 3%, BTC 0%",
+    "byAssetType": {
+      "ETH / LST / LRT": 943921.520472699,
+      "BTC": 1245.6341142061874,
+      "Stablecoin": 32673.522128945642
+    },
+    "byChain": {
+      "Ethereum": 977840.676715851
+    },
+    "description": null
+  },
+  {
+    "name": "UltraYield",
+    "verified": true,
+    "aumUsd": 878487.3888462683,
+    "sizeTier": "Emerging (<$5M)",
+    "vaultCount": 4,
+    "chains": [
+      "Base",
+      "Arbitrum One",
+      "OP Mainnet",
+      "Ethereum"
+    ],
+    "ethShare": 0.03531933172967373,
+    "dominantAssetType": "BTC",
+    "assetProfile": "BTC 80%, ETH / LST / LRT 13%, Stablecoin 6%, RWA / Credit 1%",
+    "byAssetType": {
+      "BTC": 701511.4606047566,
+      "ETH / LST / LRT": 115918.47162504954,
+      "RWA / Credit": 12660.567979008132,
+      "Stablecoin": 48396.888637454
+    },
+    "byChain": {
+      "Base": 643281.0715802223,
+      "Arbitrum One": 102175.906769487,
+      "OP Mainnet": 102002.8229895628,
+      "Ethereum": 31027.587506996224
+    },
+    "description": null
+  },
+  {
+    "name": "Apostro",
+    "verified": true,
+    "aumUsd": 264250.25370197,
+    "sizeTier": "Emerging (<$5M)",
+    "vaultCount": 1,
+    "chains": [
+      "Base"
+    ],
+    "ethShare": 0,
+    "dominantAssetType": "ETH / LST / LRT",
+    "assetProfile": "ETH / LST / LRT 94%, BTC 6%",
+    "byAssetType": {
+      "ETH / LST / LRT": 249692.42896138513,
+      "BTC": 14557.824740584827
+    },
+    "byChain": {
+      "Base": 264250.25370197
+    },
+    "description": null
+  },
+  {
+    "name": "B.Protocol",
+    "verified": true,
+    "aumUsd": 253460.67779461082,
+    "sizeTier": "Emerging (<$5M)",
+    "vaultCount": 1,
+    "chains": [
+      "Ethereum"
+    ],
+    "ethShare": 1,
+    "dominantAssetType": "Other / Long-tail",
+    "assetProfile": "",
+    "byAssetType": {},
+    "byChain": {
+      "Ethereum": 253460.67779461082
+    },
+    "description": null
+  },
+  {
+    "name": "Block Analitica",
+    "verified": true,
+    "aumUsd": 253460.67779461082,
+    "sizeTier": "Emerging (<$5M)",
+    "vaultCount": 1,
+    "chains": [
+      "Ethereum"
+    ],
+    "ethShare": 1,
+    "dominantAssetType": "Other / Long-tail",
+    "assetProfile": "",
+    "byAssetType": {},
+    "byChain": {
+      "Ethereum": 253460.67779461082
+    },
+    "description": null
+  },
+  {
+    "name": "Keyrock",
+    "verified": true,
+    "aumUsd": 95939.81752281035,
+    "sizeTier": "Emerging (<$5M)",
+    "vaultCount": 1,
+    "chains": [
+      "Ethereum"
+    ],
+    "ethShare": 1,
+    "dominantAssetType": "Other / Long-tail",
+    "assetProfile": "",
+    "byAssetType": {},
+    "byChain": {
+      "Ethereum": 95939.81752281035
+    },
+    "description": null
+  },
+  {
+    "name": "K3 Capital",
+    "verified": true,
+    "aumUsd": 24996.168439871493,
+    "sizeTier": "Emerging (<$5M)",
+    "vaultCount": 1,
+    "chains": [
+      "Unichain"
+    ],
+    "ethShare": 0,
+    "dominantAssetType": "ETH / LST / LRT",
+    "assetProfile": "ETH / LST / LRT 100%",
+    "byAssetType": {
+      "ETH / LST / LRT": 24996.168439871493
+    },
+    "byChain": {
+      "Unichain": 24996.168439871493
+    },
+    "description": null
+  }
+]
