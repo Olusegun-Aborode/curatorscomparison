@@ -19,8 +19,8 @@
     "byAssetType": {
       "ETH / LST / LRT": 169478051.85198507,
       "BTC": 726566093.2462698,
-      "Stablecoin": 128382427.96940057,
-      "RWA / Credit": 6664192.842890743,
+      "Stablecoin": 128375224.34965464,
+      "RWA / Credit": 6671396.462636671,
       "Pendle / Fixed-term": 12999414.561907455,
       "Altcoin / L1": 3492565.1388444225
     },
@@ -55,8 +55,8 @@
     "byAssetType": {
       "ETH / LST / LRT": 117442143.48230751,
       "BTC": 530709064.485454,
-      "Stablecoin": 28088483.552376546,
-      "RWA / Credit": 15317908.500198798,
+      "Stablecoin": 28073273.489821173,
+      "RWA / Credit": 15333118.562754173,
       "Pendle / Fixed-term": 3278604.8720886074,
       "Altcoin / L1": 4155216.0915644574
     },
@@ -82,12 +82,13 @@
     ],
     "ethShare": 1,
     "dominantAssetType": "BTC",
-    "assetProfile": "BTC 41%, Stablecoin 41%, ETH / LST / LRT 18%, Pendle / Fixed-term 0%",
+    "assetProfile": "BTC 41%, RWA / Credit 26%, ETH / LST / LRT 18%, Stablecoin 15%, Pendle / Fixed-term 0%",
     "byAssetType": {
       "BTC": 119026510.86994055,
       "ETH / LST / LRT": 52163966.63344777,
       "Pendle / Fixed-term": 25.18933394474774,
-      "Stablecoin": 118685411.58060668
+      "Stablecoin": 42506363.659500524,
+      "RWA / Credit": 76179047.92110616
     },
     "byChain": {
       "Ethereum": 289875914.2733289
@@ -133,13 +134,14 @@
     ],
     "ethShare": 0.35835187281624953,
     "dominantAssetType": "ETH / LST / LRT",
-    "assetProfile": "ETH / LST / LRT 56%, BTC 20%, Stablecoin 17%, Altcoin / L1 7%, Pendle / Fixed-term 1%",
+    "assetProfile": "ETH / LST / LRT 56%, BTC 20%, Stablecoin 17%, Altcoin / L1 7%, Pendle / Fixed-term 1%, RWA / Credit 0%",
     "byAssetType": {
       "ETH / LST / LRT": 17483734.311148413,
       "BTC": 6125379.379212617,
       "Altcoin / L1": 2083476.7243333342,
-      "Stablecoin": 5477919.711792333,
-      "Pendle / Fixed-term": 176683.17957955477
+      "Stablecoin": 5445701.416666401,
+      "Pendle / Fixed-term": 176683.17957955477,
+      "RWA / Credit": 32218.295125932724
     },
     "byChain": {
       "Katana": 17881222.935128685,
@@ -304,13 +306,13 @@
     ],
     "ethShare": 0.7978066474851122,
     "dominantAssetType": "RWA / Credit",
-    "assetProfile": "RWA / Credit 75%, ETH / LST / LRT 9%, Pendle / Fixed-term 7%, BTC 6%, Stablecoin 2%, Altcoin / L1 2%",
+    "assetProfile": "RWA / Credit 75%, ETH / LST / LRT 9%, Pendle / Fixed-term 7%, BTC 6%, Altcoin / L1 2%, Stablecoin 2%",
     "byAssetType": {
       "ETH / LST / LRT": 354598.7672700731,
-      "RWA / Credit": 2827810.04612296,
+      "RWA / Credit": 2829817.559530583,
       "Pendle / Fixed-term": 255346.51901975163,
       "BTC": 213019.38217145554,
-      "Stablecoin": 60336.8742512338,
+      "Stablecoin": 58329.36084361064,
       "Altcoin / L1": 59494.87268957522
     },
     "byChain": {

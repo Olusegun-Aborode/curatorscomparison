@@ -13,10 +13,10 @@ const DIR = new URL("../data", import.meta.url).pathname;
 // ---- shared asset-type classifier (same buckets as classify.mjs) ----
 const RULES = [
   { b: "Pendle / Fixed-term", t: (s) => /^PT[-_]/i.test(s) },
-  { b: "RWA / Credit", t: (s) => /(usual|USDtb|buidl|ustb|FalconX|midas|mF-|mBASIS|mHYPER|hgT|backed|bC3M|RWA|treasur|tbill|thBILL|EUTBL|USCC|XAU|SPYon|QQQon|SPXA|FLHYon|deSPX|AUSD)/i.test(s) },
+  { b: "RWA / Credit", t: (s) => /(usual|USDtb|buidl|ustb|FalconX|midas|mF-|mBASIS|mHYPER|hgT|backed|bC3M|RWA|treasur|tbill|thBILL|EUTBL|USCC|XAU|SPYon|QQQon|SPXA|FLHYon|deSPX|AUSD|syrup|Maple)/i.test(s) },
   { b: "BTC", t: (s) => /BTC/i.test(s) },
   { b: "ETH / LST / LRT", t: (s) => /(ETH|stETH|weETH|rETH|ezETH|cbETH|osETH|OETH|mETH)/i.test(s) },
-  { b: "Stablecoin", t: (s) => /(USD|USN|USDe|DAI|EUR|GHO|crvUSD|FRAX|sDAI|reUSD|deUSD|rlUSD|syrup|HLP|fxSAVE|PYUSD)/i.test(s) },
+  { b: "Stablecoin", t: (s) => /(USD|USN|USDe|DAI|EUR|GHO|crvUSD|FRAX|sDAI|reUSD|deUSD|rlUSD|HLP|fxSAVE|PYUSD)/i.test(s) },
   { b: "Altcoin / L1", t: (s) => /(SOL|DOGE|ADA|LTC|XRP|AERO|POL|MATIC|MON|YFI|WELL|HYPE|KAT|MAMO|SPX)/i.test(s) },
 ];
 const classify = (s) => (RULES.find((r) => r.t(s || "")) || { b: "Other / Long-tail" }).b;

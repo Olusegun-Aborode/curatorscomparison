@@ -12,16 +12,18 @@ const RULES = [
   // Pendle principal tokens & fixed-term — check BEFORE the underlying, since
   // a PT-USDe should land in "Pendle/Fixed-term", not "Stablecoin".
   { bucket: "Pendle / Fixed-term", test: (s) => /^PT[-_]/i.test(s) },
-  // RWA / off-chain: tokenized treasuries, credit, gold, and equities.
+  // RWA / off-chain + on-chain private credit: tokenized treasuries, credit,
+  // gold, equities, and institutional credit (Maple/syrup, FalconX).
   // Tokenized equities use the Ondo "...on" suffix (SPYon, QQQon) and the
   // de-/Superstate families; Midas issues mF-ONE/mBASIS/mHYPER; XAU* = gold.
-  { bucket: "RWA / Credit", test: (s) => /(usual|USDtb|buidl|ustb|FalconX|midas|mF-|mBASIS|mHYPER|hgT|backed|bC3M|RWA|treasur|tbill|thBILL|EUTBL|USCC|XAU|SPYon|QQQon|SPXA|FLHYon|deSPX)/i.test(s) },
+  // syrupUSDC/syrupUSDT = Maple private credit (checked here before Stablecoin).
+  { bucket: "RWA / Credit", test: (s) => /(usual|USDtb|buidl|ustb|FalconX|midas|mF-|mBASIS|mHYPER|hgT|backed|bC3M|RWA|treasur|tbill|thBILL|EUTBL|USCC|XAU|SPYon|QQQon|SPXA|FLHYon|deSPX|syrup|Maple)/i.test(s) },
   // BTC and BTC-LSTs/wrappers
   { bucket: "BTC", test: (s) => /(BTC)/i.test(s) },
   // ETH, LSTs, LRTs
   { bucket: "ETH / LST / LRT", test: (s) => /(ETH|stETH|weETH|rETH|ezETH|cbETH|osETH|OETH|mETH)/i.test(s) },
   // Yield-bearing & plain stablecoins
-  { bucket: "Stablecoin", test: (s) => /(USD|USN|USDe|DAI|EUR|GHO|crvUSD|FRAX|sDAI|reUSD|deUSD|rlUSD|USDtb|syrup|HLP|fxSAVE)/i.test(s) },
+  { bucket: "Stablecoin", test: (s) => /(USD|USN|USDe|DAI|EUR|GHO|crvUSD|FRAX|sDAI|reUSD|deUSD|rlUSD|USDtb|HLP|fxSAVE)/i.test(s) },
   // Altcoin / L1 majors & app-chain ecosystems (SOL, XRP, DOGE, HYPE, etc.)
   { bucket: "Altcoin / L1", test: (s) => /(SOL|JitoSOL|cbDOGE|cbADA|cbLTC|cbXRP|AERO|WPOL|MaticX|MATIC|WMON|MON|YFI|WELL|HYPE|KAT|MAMO|SPX)/i.test(s) },
 ];
