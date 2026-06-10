@@ -78,7 +78,7 @@
       const kpis = [
         { l: 'Total Curated AUM', v: fmtUSD(D.meta.totalAumUsd), d: 'Morpho + Euler Earn' },
         { l: 'Curators', v: String(D.meta.curatorCount), d: D.meta.protocols.join(' · ') },
-        { l: 'Largest Curator', v: top.name, d: fmtUSD(top.aumUsd) + ' · ' + top.protocol },
+        { l: 'Largest Curator', v: fmtUSD(top.aumUsd), d: top.name + ' · ' + top.protocol },
         { l: 'BTC Collateral Share', v: pct(btcShare), d: 'of all curated AUM' },
       ];
       // disambiguate same-name curators across protocols (Treemap keys by name)
@@ -109,8 +109,8 @@
             {kpis.map(k => (
               <div key={k.l} className="panel kpi-panel">
                 <div className="metric-label">{k.l}</div>
-                <div className="metric-value" style={{ fontSize: k.v.length > 10 ? 20 : undefined }}>{k.v}</div>
-                <div className="metric-delta">{k.d}</div>
+                <div className="metric-value">{k.v}</div>
+                <div className="metric-delta" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{k.d}</div>
               </div>
             ))}
           </div>
@@ -151,11 +151,17 @@
 
       let rows = D.curators.filter(c =>
         (!protocols.length || c.protocols.some(p => protocols.includes(p.protocol))) &&
-        (!assets.length || assets.includes(c.dominantAssetType)) &&
+        (!assets.length || assets.some(a => (c.byAssetType[a] || 0) > 0)) &&
         (!tiers.length || tiers.includes(c.sizeTier))
       );
-      rows = rows.map(c => ({ ...c, sortAum: ethFirst ? (c.byChain['Ethereum'] || 0) : c.aumUsd }));
-      rows.sort((a, b) => sort === 'name' ? a.name.localeCompare(b.name) : b.sortAum - a.sortAum);
+      // exposure to the selected asset type(s) — used to annotate + sort when filtering
+      const selExposure = (c) => assets.reduce((s, a) => s + (c.byAssetType[a] || 0), 0);
+      rows = rows.map(c => ({ ...c, sortAum: ethFirst ? (c.byChain['Ethereum'] || 0) : c.aumUsd, sel: selExposure(c) }));
+      rows.sort((a, b) =>
+        sort === 'name' ? a.name.localeCompare(b.name)
+        : assets.length ? b.sel - a.sel          // when filtering by asset, rank by that exposure
+        : b.sortAum - a.sortAum);
+      const selTotal = rows.reduce((s, c) => s + c.sel, 0);
 
       const th = { textAlign: 'left', padding: '8px 10px', fontSize: 11, color: 'var(--fg-muted)', textTransform: 'uppercase', letterSpacing: '.04em', borderBottom: '1px solid var(--border)', cursor: 'pointer' };
       const td = { padding: '9px 10px', fontSize: 13, borderBottom: '1px solid var(--border-subtle, var(--border))' };
@@ -163,16 +169,26 @@
       return (
         <section style={{ padding: 24 }}>
           <h1 className="h1">Curators</h1>
-          <p className="sub" style={{ marginTop: 6 }}>{rows.length} curators · sort and filter by protocol, asset type, and size.</p>
+          <p className="sub" style={{ marginTop: 6 }}>{
+            assets.length
+              ? `${rows.length} curators with ${assets.join(' / ')} exposure · ${fmtUSD(selTotal)} allocated to ${assets.length > 1 ? 'these types' : 'this type'}`
+              : `${rows.length} curators · sort and filter by protocol, asset type, and size.`
+          }</p>
 
           <div style={{ display: 'flex', gap: 10, marginTop: 16, flexWrap: 'wrap', alignItems: 'center' }}>
-            <Dropdown label="Protocol" multi selected={protocols} items={D.meta.protocols.filter(p=>p!=='Aave').map(p => ({ value: p, label: p }))} onChange={setProtocols} />
-            <Dropdown label="Asset Type" multi selected={assets} items={ASSET_TYPES.map(a => ({ value: a, label: a }))} onChange={setAssets} />
-            <Dropdown label="Size Tier" multi selected={tiers} items={TIERS.map(t => ({ value: t, label: t }))} onChange={setTiers} />
+            <Dropdown label="Protocol" multi selected={protocols} items={D.meta.protocols.filter(p=>p!=='Aave').map(p => ({ id: p, label: p }))} onChange={setProtocols} />
+            <Dropdown label="Asset Type" multi selected={assets} items={ASSET_TYPES.map(a => ({ id: a, label: a }))} onChange={setAssets} />
+            <Dropdown label="Size Tier" multi selected={tiers} items={TIERS.map(t => ({ id: t, label: t }))} onChange={setTiers} />
             <button className={`chip ${ethFirst ? 'active' : ''}`} onClick={() => setEthFirst(v => !v)}
               style={{ cursor: 'pointer', background: ethFirst ? 'var(--orange)' : 'var(--bg-elev)', color: ethFirst ? '#000' : 'var(--fg-muted)', border: '1px solid var(--border)', borderRadius: 6, padding: '7px 12px', fontSize: 12 }}>
               {ethFirst ? '◉' : '○'} Rank by Ethereum AUM
             </button>
+            {(protocols.length || assets.length || tiers.length) ? (
+              <button onClick={() => { setProtocols([]); setAssets([]); setTiers([]); }}
+                style={{ cursor: 'pointer', background: 'transparent', color: 'var(--fg-muted)', border: '1px solid var(--border)', borderRadius: 6, padding: '7px 12px', fontSize: 12 }}>
+                ✕ Clear filters
+              </button>
+            ) : null}
           </div>
 
           <div className="panel" style={{ marginTop: 16, padding: 0, overflow: 'hidden' }}>
@@ -199,7 +215,7 @@
                     ))}</div></td>
                     <td style={{ ...td, textAlign: 'right', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>{fmtUSD(c.sortAum)}</td>
                     <td style={{ ...td, color: 'var(--fg-muted)', fontSize: 12 }}>{c.sizeTier.split(' (')[0]}</td>
-                    <td style={td}><div style={{ display: 'flex', alignItems: 'center', gap: 8 }}><AssetBar byAssetType={c.byAssetType} /><span style={{ fontSize: 11, color: 'var(--fg-muted)' }}>{c.dominantAssetType.split(' ')[0]}</span></div></td>
+                    <td style={td}><div style={{ display: 'flex', alignItems: 'center', gap: 8 }}><AssetBar byAssetType={c.byAssetType} /><span style={{ fontSize: 11, color: 'var(--fg-muted)', fontFamily: assets.length ? 'var(--font-mono)' : undefined }}>{assets.length ? `${fmtUSD(c.sel)} (${pct(c.sel / c.aumUsd)})` : c.dominantAssetType.split(' ')[0]}</span></div></td>
                     <td style={{ ...td, textAlign: 'right', fontFamily: 'var(--font-mono)', color: 'var(--fg-muted)' }}>{c.vaultCount}</td>
                     <td style={{ ...td, textAlign: 'right', fontFamily: 'var(--font-mono)', color: 'var(--fg-muted)' }}>{c.chains.length}</td>
                   </tr>
