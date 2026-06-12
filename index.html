@@ -39,7 +39,7 @@
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
   <script src="lending_curators.data.js?v=20260610183500"></script>
-  <script src="goldfish.data.js?v=20260611130000"></script>
+  <script src="goldfish.data.js?v=20260611140000"></script>
   <script type="text/babel" src="charts.jsx"></script>
   <script type="text/babel" src="widgets.jsx"></script>
 
@@ -495,6 +495,71 @@
       );
     }
 
+    function GFRwaPartners() {
+      const P = GF.rwaPartners || { curators: [], funds: [] };
+      const gtd = { padding: '9px 10px', fontSize: 13, borderBottom: '1px solid var(--border)', verticalAlign: 'top' };
+      const gth = { textAlign: 'left', padding: '8px 10px', fontSize: 11, color: 'var(--fg-muted)', textTransform: 'uppercase', letterSpacing: '.04em', borderBottom: '1px solid var(--border)' };
+      const A = ({ href, children }) => href ? <a href={href} target="_blank" rel="noopener" style={{ color: GC.blue, textDecoration: 'none' }}>{children}</a> : <span style={{ color: 'var(--fg-dim)' }}>—</span>;
+      const fitColor = (f) => f === 'High' ? GC.live : f.startsWith('Med-High') ? GC.gold : GC.accent;
+      const totalRwa = P.curators.reduce((s, c) => s + c.rwaUsd, 0);
+      const totalAum = P.curators.reduce((s, c) => s + c.aumUsd, 0);
+      return (
+        <section style={{ padding: 24 }}>
+          <h1 className="h1">GoldFish · RWA partners for a GGBR/USDC vault</h1>
+          <p className="sub" style={{ marginTop: 6 }}>GGBR is credit-like RWA (in-situ gold claim), not vaulted gold — so the realistic partners are RWA/credit specialists, not blue-chip gold curators. Two groups: curators who can <b>run</b> the vault, and credit structurers who can <b>co-build</b> it.</p>
+          <div style={{ marginTop: 20 }}>
+            <GKpiRow items={[
+              { l: 'RWA Curators', v: String(P.curators.length), d: 'can run a GGBR vault', c: GC.blue },
+              { l: 'Their RWA AUM', v: fmtUSD(totalRwa), d: 'live RWA allocations', c: GC.live },
+              { l: 'Credit Structurers', v: String(P.funds.length), d: 'could co-build / tranche', c: GC.gold },
+              { l: 'High-Fit Partners', v: String(P.funds.filter(f=>f.fit==='High').length), d: '3jane · Centrifuge · Maple', c: GC.accent },
+            ]} />
+          </div>
+
+          <div style={{ marginTop: 16 }}>
+            <GPanel title="RWA curators — can run a GGBR/USDC vault on Morpho" sub="ranked by live RWA appetite · contacts actionable">
+              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <thead><tr><th style={gth}>Curator</th><th style={{...gth,textAlign:'right'}}>RWA $</th><th style={{...gth,textAlign:'right'}}>Total AUM</th><th style={gth}>RWA they hold</th><th style={gth}>Contact</th></tr></thead>
+                <tbody>
+                  {P.curators.map(c => (
+                    <tr key={c.name}>
+                      <td style={{...gtd, fontWeight:600, whiteSpace:'nowrap'}}>{c.name}{c.verified && <span style={{ color: GC.blue, marginLeft:5, fontSize:11 }}>✓</span>}</td>
+                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)'}}>{fmtUSD(c.rwaUsd)}</td>
+                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color:'var(--fg-muted)'}}>{fmtUSD(c.aumUsd)}</td>
+                      <td style={{...gtd, fontSize:11, color:'var(--fg-muted)'}}>{c.holds.slice(0,5).join(', ')}</td>
+                      <td style={{...gtd, fontSize:12, whiteSpace:'nowrap'}}><A href={c.twitter}>X</A> · <A href={c.site}>site</A>{c.forum && <> · <A href={c.forum}>forum</A></>}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </GPanel>
+          </div>
+
+          <div style={{ marginTop: 16 }}>
+            <GPanel title="RWA credit structurers & funds — could co-build / tranche GGBR" sub="best fit for credit-like collateral · researched, verify before outreach">
+              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <thead><tr><th style={gth}>Fund</th><th style={gth}>What they do</th><th style={gth}>Collateral</th><th style={{...gth,textAlign:'center'}}>Fit</th><th style={gth}>Why / contact</th></tr></thead>
+                <tbody>
+                  {P.funds.map(f => (
+                    <tr key={f.name}>
+                      <td style={{...gtd, fontWeight:600, whiteSpace:'nowrap'}}>{f.name}{f.name==='3jane' && <span title="CLO/credit tranching thread" style={{ color: GC.gold, marginLeft:6 }}>◆</span>}</td>
+                      <td style={{...gtd, fontSize:12}}>{f.what}</td>
+                      <td style={{...gtd, fontSize:11, color:'var(--fg-muted)'}}>{f.collateral}</td>
+                      <td style={{...gtd, textAlign:'center', fontSize:12, fontWeight:600, color: fitColor(f.fit)}}>{f.fit}</td>
+                      <td style={{...gtd, fontSize:11, color:'var(--fg-muted)'}}>{f.note}<div style={{marginTop:4}}><A href={f.twitter}>X</A> · <A href={f.site}>site</A></div></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </GPanel>
+          </div>
+          <div className="panel" style={{ marginTop: 16, padding: 16, fontSize: 13, color: 'var(--fg-muted)', lineHeight: 1.6 }}>
+            <b style={{ color:'var(--fg)' }}>Thread to pull:</b> <b style={{color:GC.gold}}>◆ 3jane</b> (Paradigm/Wintermute-backed) tranches credit pools into senior/leveraged tokens — the same structure that turns a novel asset like GGBR into a vault-ready product. Centrifuge already tokenized the Janus Henderson AAA CLO ($27B ETF mirror). These credit-structurers, not gold curators, are the realistic path to a GGBR/USDC product.
+          </div>
+        </section>
+      );
+    }
+
     const NAV = [
       { id: 'overview', label: 'Overview', C: Overview },
       { id: 'curators', label: 'Curators', C: Curators },
@@ -502,6 +567,7 @@
       { id: 'gf-activation', label: 'Activation Gap', C: GFActivation, section: 'GoldFish' },
       { id: 'gf-demand', label: 'Gold Demand', C: GFDemand, section: 'GoldFish' },
       { id: 'gf-leads', label: 'Warm Leads', C: GFLeads, section: 'GoldFish' },
+      { id: 'gf-rwa', label: 'RWA Partners', C: GFRwaPartners, section: 'GoldFish' },
     ];
 
     function App() {

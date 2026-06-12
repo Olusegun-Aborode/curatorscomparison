@@ -143,10 +143,34 @@ const leads = cur.map((c) => {
   };
 }).filter((l) => l.rwaUsd > 0).sort((a, b) => b.rwaUsd - a.rwaUsd);
 
+// ---------- 4. RWA PARTNERS for a GGBR/USDC vault ----------
+// (a) RWA-comfortable Morpho curators who could RUN the vault — with contact data.
+const social = (c, t) => (c.socials || []).find((s) => s.type === t)?.url || null;
+const rwaCurators = cur.map((c) => {
+  const rwa = Object.entries(c.byCollateral || {}).filter(([s]) => rwaRe.test(s));
+  return {
+    name: c.name, rwaUsd: rwa.reduce((s, [, v]) => s + v, 0), aumUsd: c.aumUsd, verified: c.verified,
+    holds: rwa.map(([s]) => s), site: social(c, "url"), twitter: social(c, "twitter"), forum: social(c, "forum"),
+  };
+}).filter((c) => c.rwaUsd > 0).sort((a, b) => b.rwaUsd - a.rwaUsd);
+
+// (b) RWA credit structurers / funds who could CO-BUILD or tranche a GGBR product.
+// GGBR is credit-like (in-situ gold claim) → private-credit-comfortable players fit best.
+// Researched (Jun 2026); links are starting points to verify before outreach.
+const rwaFunds = [
+  { name: "3jane", what: "Credit yieldcoin (USD3 / sUSD3) — senior + leveraged tranching of credit pools", collateral: "Fintech receivables, consumer/SMB loans, warehouse facilities", backers: "Paradigm, Wintermute, Coinbase Ventures", fit: "High", site: "https://3jane.xyz", twitter: "https://x.com/3janexyz", note: "Tranching expertise — could structure a GGBR senior/junior split" },
+  { name: "Centrifuge", what: "RWA tokenization platform — tokenized Janus Henderson AAA CLO (JAAA)", collateral: "AAA CLOs ($27B ETF mirror, $1B Sky-seeded), institutional credit", backers: "—", fit: "High", site: "https://centrifuge.io", twitter: "https://x.com/centrifuge", note: "Already tokenizes institutional credit — natural structurer for GGBR" },
+  { name: "Maple Finance", what: "Institutional private credit — syrupUSDC / syrupUSDT", collateral: "Overcollateralized institutional loans", backers: "—", fit: "High", site: "https://maple.finance", twitter: "https://x.com/maplefinance", note: "Largest on-chain private credit (~$76M on Morpho via Sentora)" },
+  { name: "Midas", what: "Tokenized RWA issuer — mF-ONE, mBASIS, mHYPER, mTBILL", collateral: "Treasuries, structured credit", backers: "—", fit: "Med-High", site: "https://midas.app", twitter: "https://x.com/MidasRWA", note: "Already in MEV Capital / Clearstar / Hyperithm vaults" },
+  { name: "Superstate", what: "Tokenized treasuries & credit — USTB, USCC", collateral: "T-bills, carry/credit", backers: "—", fit: "Med", site: "https://superstate.co", twitter: "https://x.com/superstatefunds", note: "Institutional RWA, held by Steakhouse" },
+  { name: "Ondo Finance", what: "Tokenized treasuries & equities — USDY, SPYon, QQQon", collateral: "T-bills, tokenized stocks", backers: "—", fit: "Med", site: "https://ondo.finance", twitter: "https://x.com/OndoFinance", note: "Tokenized-RWA issuer, held by Gauntlet" },
+];
+
 // ---------- assemble ----------
 const out = {
   meta: { generated: process.env.BUILD_TS || new Date().toISOString() },
   ggbr: GGBR,
+  rwaPartners: { curators: rwaCurators, funds: rwaFunds },
   activation: {
     backingUsd: GGBR.backingUsd, defiTvlUsd: GGBR.defiTvlUsd,
     dormantUsd: GGBR.backingUsd - GGBR.defiTvlUsd,
