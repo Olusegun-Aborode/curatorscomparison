@@ -78,20 +78,40 @@ const goldCollateralTotal = goldPools.reduce((s, p) => s + p.tvlUsd, 0) || realG
 // ---------- 2d. WHO CURATES gold? (vault-level: which fund supplies gold markets) ----------
 // Honest check: the $62M gold collateral is borrower-POSTED into protocol/DAO markets.
 // Almost none is supplied by a discretionary curator vault. Pull vault->gold allocations.
-const vq = (await gql(`{ vaults(first: 1000, orderBy: TotalAssetsUsd, orderDirection: Desc) { items { name state { curators { name } allocation { supplyAssetsUsd market { collateralAsset { symbol } } } } } } }`)).vaults.items;
+const vq = (await gql(`{ vaults(first: 1000, orderBy: TotalAssetsUsd, orderDirection: Desc) { items { name state { curators { name } allocation { supplyAssetsUsd supplyCapUsd enabled market { collateralAsset { symbol } loanAsset { symbol } } } } } } }`)).vaults.items;
 const goldVaultByCurator = {};
 let goldVaultSupplyTotal = 0;
+// distinguish DEPLOYED (capital actually supplied) from ENABLED CAPACITY (caps a curator
+// pre-approved). Steakhouse rated ~$45M of gold markets but deployed only dust — the
+// curator is gold-READY; demand/deployment is the gap.
+let goldCuratorCapacityUsd = 0, goldCuratorDeployedUsd = 0;
+const goldEnabledMarkets = [];
 for (const v of vq) {
   const st = v.state || {};
+  const named = (st.curators || []).length;
   for (const a of (st.allocation || [])) {
     const sym = a.market?.collateralAsset?.symbol || "";
-    if (/XAU|PAXG|gold/i.test(sym) && (a.supplyAssetsUsd || 0) > 0) {
-      const who = (st.curators || []).length ? st.curators.map((c) => c.name).join("/") : "Direct / unregistered";
+    if (!/XAU|PAXG|gold/i.test(sym)) continue;
+    const who = named ? st.curators.map((c) => c.name).join("/") : "Direct / unregistered";
+    if ((a.supplyAssetsUsd || 0) > 0) {
       goldVaultByCurator[who] = (goldVaultByCurator[who] || 0) + a.supplyAssetsUsd;
       goldVaultSupplyTotal += a.supplyAssetsUsd;
     }
+    if (named && a.enabled) {
+      goldCuratorCapacityUsd += a.supplyCapUsd || 0;
+      goldCuratorDeployedUsd += a.supplyAssetsUsd || 0;
+      goldEnabledMarkets.push({ curator: who, vault: v.name, market: `${sym}/${a.market?.loanAsset?.symbol ?? "?"}`, capUsd: a.supplyCapUsd || 0, deployedUsd: a.supplyAssetsUsd || 0 });
+    }
   }
 }
+goldEnabledMarkets.sort((a, b) => b.capUsd - a.capUsd);
+// group enabled capacity by curator (3 curators are gold-ready, not just Steakhouse)
+const goldReadyMap = {};
+for (const m of goldEnabledMarkets) {
+  if (!goldReadyMap[m.curator]) goldReadyMap[m.curator] = { curator: m.curator, capUsd: 0, deployedUsd: 0, markets: 0 };
+  goldReadyMap[m.curator].capUsd += m.capUsd; goldReadyMap[m.curator].deployedUsd += m.deployedUsd; goldReadyMap[m.curator].markets += 1;
+}
+const goldReadyCurators = Object.values(goldReadyMap).filter((c) => c.capUsd > 0).sort((a, b) => b.capUsd - a.capUsd);
 const NAMED = new Set(cur0Names());
 function cur0Names() { try { return JSON.parse(fs.readFileSync(here("../data/morpho_curators.json"), "utf8")).map((c) => c.name); } catch { return []; } }
 const goldFundCuratedUsd = Object.entries(goldVaultByCurator)
@@ -147,6 +167,11 @@ const out = {
     vaultCuration: goldVaultCuration,
     vaultSupplyTotalUsd: goldVaultSupplyTotal,
     fundCuratedUsd: goldFundCuratedUsd,
+    // curator readiness: caps pre-approved by named curators vs capital deployed
+    curatorCapacityUsd: goldCuratorCapacityUsd,
+    curatorDeployedUsd: goldCuratorDeployedUsd,
+    enabledMarkets: goldEnabledMarkets,
+    readyCurators: goldReadyCurators,
     // Morpho market-level detail (utilization story)
     morphoProductiveUsd: realGoldSupply, morphoBorrowUsd: realGoldBorrow,
     markets: goldMarkets,
@@ -170,5 +195,6 @@ console.log("GoldFish dataset built:");
 console.log(`  1. Activation: backing $${(out.activation.backingUsd/1e6).toFixed(1)}M, DeFi TVL $${(out.activation.defiTvlUsd/1e6).toFixed(1)}M (${out.activation.activatedPct.toFixed(1)}% activated)`);
 console.log(`  2. Demand (cross-protocol): tokenized gold $${(tokGoldTotal/1e9).toFixed(2)}B, gold-as-collateral $${(goldCollateralTotal/1e6).toFixed(1)}M (${out.demand.categoryActivationPct.toFixed(2)}% of category)`);
 console.log(`     by protocol: ${Object.entries(goldByProtocol).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`${k} $${(v/1e6).toFixed(1)}M`).join(", ")}`);
-console.log(`     gold is borrower-posted; only $${(goldVaultSupplyTotal/1e3).toFixed(0)}K supplied via vaults ($${(goldFundCuratedUsd/1e3).toFixed(1)}K by named curators). Top: ${goldVaultCuration.slice(0,3).map(v=>`${v.curator} $${(v.usd/1e3).toFixed(0)}K`).join(", ")}`);
+console.log(`     gold is borrower-posted; only $${(goldVaultSupplyTotal/1e3).toFixed(0)}K supplied via vaults ($${(goldFundCuratedUsd/1e3).toFixed(1)}K by named curators).`);
+console.log(`     curator readiness: named curators ENABLED $${(goldCuratorCapacityUsd/1e6).toFixed(1)}M of gold caps but DEPLOYED only $${(goldCuratorDeployedUsd/1e3).toFixed(1)}K (gold-ready, demand-gated). ${goldEnabledMarkets.length} enabled markets.`);
 console.log(`  3. Warm leads: ${leads.length} RWA-comfortable curators; gold-active: ${leads.filter(l=>l.goldActive).map(l=>l.name).join(", ")||"none"}`);

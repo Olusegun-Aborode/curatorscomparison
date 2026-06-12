@@ -39,7 +39,7 @@
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
   <script src="lending_curators.data.js?v=20260610183500"></script>
-  <script src="goldfish.data.js?v=20260611120000"></script>
+  <script src="goldfish.data.js?v=20260611130000"></script>
   <script type="text/babel" src="charts.jsx"></script>
   <script type="text/babel" src="widgets.jsx"></script>
 
@@ -397,24 +397,55 @@
                 </tbody>
               </table>
             </GPanel>
-            <GPanel title="Is any fund curating gold?" sub="vault supply into gold markets">
-              <div style={{ fontSize: 13, lineHeight: 1.7 }}>
-                <div style={{ fontFamily:'var(--font-mono)', fontSize: 22, color: GC.accent }}>{fmtUSD(d.fundCuratedUsd)}</div>
-                <div style={{ color:'var(--fg-muted)', marginBottom: 12 }}>run by a named curator fund</div>
-                <div style={{ color:'var(--fg-muted)' }}>Of <b style={{color:'var(--fg)'}}>{fmtUSD(d.goldCollateralUsd)}</b> gold collateral, only <b style={{color:'var(--fg)'}}>{fmtUSD(d.vaultSupplyTotalUsd)}</b> is supplied through curated vaults — and most of that is <b style={{color:'var(--fg)'}}>unregistered</b>:</div>
-                <div style={{ marginTop: 10 }}>
-                  {(d.vaultCuration||[]).slice(0,4).map(v => (
-                    <div key={v.curator} style={{ display:'flex', justifyContent:'space-between', fontSize:12, padding:'3px 0' }}>
-                      <span style={{ color: v.named ? GC.gold : 'var(--fg-muted)' }}>{v.curator}{v.named && ' ◆'}</span>
-                      <span style={{ fontFamily:'var(--font-mono)', color:'var(--fg-muted)' }}>{fmtUSD(v.usd)}</span>
-                    </div>
-                  ))}
+            <GPanel title="Curator gold-readiness" sub="caps enabled vs capital deployed">
+              <div style={{ fontSize: 13, lineHeight: 1.6 }}>
+                <div style={{ display:'flex', justifyContent:'space-between', alignItems:'baseline' }}>
+                  <span style={{ fontFamily:'var(--font-mono)', fontSize: 22, color: GC.gold }}>{fmtUSD(d.curatorCapacityUsd)}</span>
+                  <span style={{ fontSize: 11, color:'var(--fg-muted)' }}>caps ENABLED</span>
                 </div>
+                <div className="cmp-track" style={{ margin:'6px 0 2px' }}><div className="cmp-fill" style={{ width:'100%', background: GC.gold }} /></div>
+                <div style={{ display:'flex', justifyContent:'space-between', alignItems:'baseline', marginTop: 12 }}>
+                  <span style={{ fontFamily:'var(--font-mono)', fontSize: 18, color: GC.accent }}>{fmtUSD(d.curatorDeployedUsd)}</span>
+                  <span style={{ fontSize: 11, color:'var(--fg-muted)' }}>DEPLOYED</span>
+                </div>
+                <div className="cmp-track" style={{ margin:'6px 0 2px' }}><div className="cmp-fill" style={{ width: Math.max(0.4,(d.curatorDeployedUsd/d.curatorCapacityUsd)*100)+'%', background: GC.accent }} /></div>
+                <div style={{ marginTop: 12, color:'var(--fg-muted)' }}><b style={{color:'var(--fg)'}}>{d.readyCurators?.length} curators</b> have <b style={{color:'var(--fg)'}}>rated & pre-approved</b> gold markets — but deployed almost nothing. <b style={{color:'var(--fg)'}}>Gold-ready; demand-gated.</b></div>
               </div>
             </GPanel>
           </div>
-          <div className="panel" style={{ marginTop: 16, padding: 16, fontSize: 13, color: 'var(--fg-muted)', lineHeight: 1.6 }}>
-            <b style={{ color:'var(--fg)' }}>The opening:</b> no discretionary fund runs a curated gold vault on any protocol — Steakhouse's gold is ~$1K of incidental dust. The $62M of gold collateral is borrowers posting gold directly into DAO/permissionless markets. A curated tokenized-gold product is greenfield everywhere — and where gold IS borrowed (Morpho), it runs <b style={{color:'var(--fg)'}}>{fmtPct(avgUtil,0)}</b> utilized.
+          <div className="grid" style={{ gridTemplateColumns: '1fr 1.5fr', gap: 16, marginTop: 16 }}>
+            <GPanel title="Curators that are gold-ready" sub="caps enabled · not deployed">
+              <table style={{ width:'100%', borderCollapse:'collapse' }}>
+                <thead><tr><th style={gth}>Curator</th><th style={{...gth,textAlign:'right'}}>Cap enabled</th><th style={{...gth,textAlign:'right'}}>Deployed</th></tr></thead>
+                <tbody>
+                  {(d.readyCurators||[]).map((c,i) => (
+                    <tr key={i}>
+                      <td style={{...gtd, fontWeight:600, whiteSpace:'nowrap'}}>{c.curator}{i===0 && <span title="largest gold capacity" style={{color:GC.gold, marginLeft:6}}>◆</span>}</td>
+                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color:GC.gold}}>{fmtUSD(c.capUsd)}</td>
+                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color:'var(--fg-muted)'}}>{fmtUSD(c.deployedUsd)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </GPanel>
+            <GPanel title="Gold markets these curators have rated & enabled" sub="cap pre-approved · deployed">
+              <table style={{ width:'100%', borderCollapse:'collapse' }}>
+                <thead><tr><th style={gth}>Curator</th><th style={gth}>Market</th><th style={{...gth,textAlign:'right'}}>Cap</th><th style={{...gth,textAlign:'right'}}>Depl.</th></tr></thead>
+                <tbody>
+                  {(d.enabledMarkets||[]).filter(m=>m.capUsd>0).slice(0,7).map((m,i) => (
+                    <tr key={i}>
+                      <td style={{...gtd, fontSize:11, color:'var(--fg-muted)', whiteSpace:'nowrap'}}>{m.curator}</td>
+                      <td style={{...gtd, fontWeight:600, whiteSpace:'nowrap'}}>{m.market}</td>
+                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color:GC.gold}}>{fmtUSD(m.capUsd)}</td>
+                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color:'var(--fg-muted)'}}>{fmtUSD(m.deployedUsd)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </GPanel>
+            <div className="panel" style={{ padding: 16, fontSize: 13, color: 'var(--fg-muted)', lineHeight: 1.6 }}>
+              <b style={{ color:'var(--fg)' }}>The opening:</b> no fund has <i>deployed</i> capital into a gold vault — but <b style={{color:GC.gold}}>{d.readyCurators?.length} curators</b> (led by Steakhouse) have already <b style={{color:GC.gold}}>rated & enabled ~{fmtUSD(d.curatorCapacityUsd)}</b> of gold capacity. The curators are ready; the missing piece is <b style={{color:'var(--fg)'}}>borrow demand</b>. Where gold IS borrowed (Morpho), it runs <b style={{color:'var(--fg)'}}>{fmtPct(avgUtil,0)}</b> utilized.
+            </div>
           </div>
         </section>
       );
@@ -428,19 +459,19 @@
       return (
         <section style={{ padding: 24 }}>
           <h1 className="h1">GoldFish · Warm leads — funds that already touch gold/RWA</h1>
-          <p className="sub" style={{ marginTop: 6 }}>Curators already allocating to tokenized RWA. No fund runs a curated gold vault yet — Steakhouse is the only curator to have even touched gold (~$1K), making it the warmest lead to run the first one.</p>
+          <p className="sub" style={{ marginTop: 6 }}>Curators already allocating to tokenized RWA. {GF.demand.readyCurators?.length} curators (Steakhouse, August Digital, SingularV) have rated & enabled ~{fmtUSD(GF.demand.curatorCapacityUsd)} of gold capacity but deployed ~$1K — gold-ready leads to seed GoldFish.</p>
           <div style={{ marginTop: 20 }}>
             <GKpiRow items={[
               { l: 'RWA-Comfortable Curators', v: String(L.length), d: 'on Morpho', c: GC.blue },
               { l: 'Combined AUM', v: fmtUSD(totalAum), d: 'addressable supply', c: GC.gold },
               { l: 'Already in RWA', v: fmtUSD(totalRwa), d: 'live RWA allocations', c: GC.live },
-              { l: 'Touched Gold (any)', v: String(L.filter(l=>l.goldActive).length), d: 'Steakhouse only · ~$1K dust', c: GC.accent },
+              { l: 'Gold-Ready Curators', v: String(GF.demand.readyCurators?.length || 0), d: fmtUSD(GF.demand.curatorCapacityUsd) + ' caps · $1K deployed', c: GC.gold },
             ]} />
           </div>
           <div style={{ marginTop: 16 }}>
             <GPanel title="Curators by current RWA allocation" sub="◆ = already runs tokenized-gold markets">
               <Leaderboard format={fmtUSD}
-                items={L.map(l => ({ name: l.name + (l.goldActive ? '  ◆ only one to touch gold (dust)' : ''), value: l.rwaUsd, dot: l.goldActive ? GC.gold : GC.blue }))} />
+                items={L.map(l => ({ name: l.name + (l.goldActive ? '  ◆ gold-ready (caps enabled)' : ''), value: l.rwaUsd, dot: l.goldActive ? GC.gold : GC.blue }))} />
             </GPanel>
           </div>
           <div style={{ marginTop: 16 }}>
@@ -450,7 +481,7 @@
                 <tbody>
                   {L.map(l => (
                     <tr key={l.name}>
-                      <td style={{...gtd, fontWeight: 600, whiteSpace: 'nowrap'}}>{l.name}{l.goldActive && <span title="only curator with any gold exposure (~$1K dust)" style={{ color: GC.gold, marginLeft: 6 }}>◆</span>}{l.verified && <span style={{ color: GC.blue, marginLeft: 5, fontSize: 11 }}>✓</span>}</td>
+                      <td style={{...gtd, fontWeight: 600, whiteSpace: 'nowrap'}}>{l.name}{l.goldActive && <span title="rated & enabled gold market caps; deployed ~$1K" style={{ color: GC.gold, marginLeft: 6 }}>◆</span>}{l.verified && <span style={{ color: GC.blue, marginLeft: 5, fontSize: 11 }}>✓</span>}</td>
                       <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)'}}>{fmtUSD(l.rwaUsd)}</td>
                       <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color:'var(--fg-muted)'}}>{fmtUSD(l.aumUsd)}</td>
                       <td style={{...gtd, fontSize: 11, color:'var(--fg-muted)'}}>{l.holds.join(', ')}</td>
