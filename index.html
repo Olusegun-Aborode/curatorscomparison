@@ -39,7 +39,7 @@
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
   <script src="lending_curators.data.js?v=20260610183500"></script>
-  <script src="goldfish.data.js?v=20260611110000"></script>
+  <script src="goldfish.data.js?v=20260611120000"></script>
   <script type="text/babel" src="charts.jsx"></script>
   <script type="text/babel" src="widgets.jsx"></script>
 
@@ -381,24 +381,40 @@
                 rows={byProto.map(([p,v]) => ({ label: p, value: v, color: protoColor[p] || GC.idle }))} />
             </GPanel>
           </div>
-          <div style={{ marginTop: 16 }}>
-            <GPanel title="Who runs tokenized-gold markets today?" sub="discretionary fund vs protocol / DAO governance">
+          <div className="grid" style={{ gridTemplateColumns: '1.5fr 1fr', gap: 16, marginTop: 16 }}>
+            <GPanel title="Where gold collateral sits — and who governs it" sub="borrower-posted, not fund-curated">
               <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                <thead><tr><th style={gth}>Manager</th><th style={gth}>Venue</th><th style={gth}>Type</th><th style={{...gth, textAlign:'right'}}>Gold $</th><th style={gth}>Note</th></tr></thead>
+                <thead><tr><th style={gth}>Venue</th><th style={gth}>Governance</th><th style={{...gth, textAlign:'right'}}>Gold $</th><th style={{...gth, textAlign:'center'}}>Fund?</th></tr></thead>
                 <tbody>
-                  {(d.managers||[]).map(m => (
-                    <tr key={m.name}>
-                      <td style={{...gtd, fontWeight: 600, whiteSpace:'nowrap'}}>{m.name}{m.type.includes('fund') && <span title="discretionary fund" style={{ color: GC.gold, marginLeft: 6 }}>◆</span>}</td>
-                      <td style={{...gtd, color:'var(--fg-muted)'}}>{m.venue}</td>
-                      <td style={{...gtd, fontSize: 12, color: m.type.includes('fund') ? GC.gold : 'var(--fg-muted)'}}>{m.type}</td>
+                  {(d.venues||[]).map(m => (
+                    <tr key={m.venue}>
+                      <td style={{...gtd, fontWeight: 600, whiteSpace:'nowrap'}}>{m.venue}</td>
+                      <td style={{...gtd, fontSize: 12, color:'var(--fg-muted)'}}>{m.governance}</td>
                       <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)'}}>{fmtUSD(m.usd)}</td>
-                      <td style={{...gtd, fontSize: 11, color:'var(--fg-muted)'}}>{m.note}</td>
+                      <td style={{...gtd, textAlign:'center', color: GC.accent, fontSize: 12}}>No</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
-              <div style={{ marginTop: 12, fontSize: 12, color: 'var(--fg-muted)' }}>Only <b style={{color:GC.gold}}>◆ Steakhouse</b> is a discretionary fund — the rest is DAO/protocol-governed. Where gold IS borrowed (Morpho), it runs <b style={{color:'var(--fg)'}}>{fmtPct(avgUtil,0)}</b> utilized.</div>
             </GPanel>
+            <GPanel title="Is any fund curating gold?" sub="vault supply into gold markets">
+              <div style={{ fontSize: 13, lineHeight: 1.7 }}>
+                <div style={{ fontFamily:'var(--font-mono)', fontSize: 22, color: GC.accent }}>{fmtUSD(d.fundCuratedUsd)}</div>
+                <div style={{ color:'var(--fg-muted)', marginBottom: 12 }}>run by a named curator fund</div>
+                <div style={{ color:'var(--fg-muted)' }}>Of <b style={{color:'var(--fg)'}}>{fmtUSD(d.goldCollateralUsd)}</b> gold collateral, only <b style={{color:'var(--fg)'}}>{fmtUSD(d.vaultSupplyTotalUsd)}</b> is supplied through curated vaults — and most of that is <b style={{color:'var(--fg)'}}>unregistered</b>:</div>
+                <div style={{ marginTop: 10 }}>
+                  {(d.vaultCuration||[]).slice(0,4).map(v => (
+                    <div key={v.curator} style={{ display:'flex', justifyContent:'space-between', fontSize:12, padding:'3px 0' }}>
+                      <span style={{ color: v.named ? GC.gold : 'var(--fg-muted)' }}>{v.curator}{v.named && ' ◆'}</span>
+                      <span style={{ fontFamily:'var(--font-mono)', color:'var(--fg-muted)' }}>{fmtUSD(v.usd)}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </GPanel>
+          </div>
+          <div className="panel" style={{ marginTop: 16, padding: 16, fontSize: 13, color: 'var(--fg-muted)', lineHeight: 1.6 }}>
+            <b style={{ color:'var(--fg)' }}>The opening:</b> no discretionary fund runs a curated gold vault on any protocol — Steakhouse's gold is ~$1K of incidental dust. The $62M of gold collateral is borrowers posting gold directly into DAO/permissionless markets. A curated tokenized-gold product is greenfield everywhere — and where gold IS borrowed (Morpho), it runs <b style={{color:'var(--fg)'}}>{fmtPct(avgUtil,0)}</b> utilized.
           </div>
         </section>
       );
@@ -412,19 +428,19 @@
       return (
         <section style={{ padding: 24 }}>
           <h1 className="h1">GoldFish · Warm leads — funds that already touch gold/RWA</h1>
-          <p className="sub" style={{ marginTop: 6 }}>Curators already allocating to tokenized RWA. Steakhouse is the only one running tokenized-gold markets today.</p>
+          <p className="sub" style={{ marginTop: 6 }}>Curators already allocating to tokenized RWA. No fund runs a curated gold vault yet — Steakhouse is the only curator to have even touched gold (~$1K), making it the warmest lead to run the first one.</p>
           <div style={{ marginTop: 20 }}>
             <GKpiRow items={[
               { l: 'RWA-Comfortable Curators', v: String(L.length), d: 'on Morpho', c: GC.blue },
               { l: 'Combined AUM', v: fmtUSD(totalAum), d: 'addressable supply', c: GC.gold },
               { l: 'Already in RWA', v: fmtUSD(totalRwa), d: 'live RWA allocations', c: GC.live },
-              { l: 'Gold-Active Today', v: String(L.filter(l=>l.goldActive).length), d: 'Steakhouse only', c: GC.accent },
+              { l: 'Touched Gold (any)', v: String(L.filter(l=>l.goldActive).length), d: 'Steakhouse only · ~$1K dust', c: GC.accent },
             ]} />
           </div>
           <div style={{ marginTop: 16 }}>
             <GPanel title="Curators by current RWA allocation" sub="◆ = already runs tokenized-gold markets">
               <Leaderboard format={fmtUSD}
-                items={L.map(l => ({ name: l.name + (l.goldActive ? '  ◆ gold-active' : ''), value: l.rwaUsd, dot: l.goldActive ? GC.gold : GC.blue }))} />
+                items={L.map(l => ({ name: l.name + (l.goldActive ? '  ◆ only one to touch gold (dust)' : ''), value: l.rwaUsd, dot: l.goldActive ? GC.gold : GC.blue }))} />
             </GPanel>
           </div>
           <div style={{ marginTop: 16 }}>
@@ -434,7 +450,7 @@
                 <tbody>
                   {L.map(l => (
                     <tr key={l.name}>
-                      <td style={{...gtd, fontWeight: 600, whiteSpace: 'nowrap'}}>{l.name}{l.goldActive && <span title="already runs gold markets" style={{ color: GC.gold, marginLeft: 6 }}>◆</span>}{l.verified && <span style={{ color: GC.blue, marginLeft: 5, fontSize: 11 }}>✓</span>}</td>
+                      <td style={{...gtd, fontWeight: 600, whiteSpace: 'nowrap'}}>{l.name}{l.goldActive && <span title="only curator with any gold exposure (~$1K dust)" style={{ color: GC.gold, marginLeft: 6 }}>◆</span>}{l.verified && <span style={{ color: GC.blue, marginLeft: 5, fontSize: 11 }}>✓</span>}</td>
                       <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)'}}>{fmtUSD(l.rwaUsd)}</td>
                       <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color:'var(--fg-muted)'}}>{fmtUSD(l.aumUsd)}</td>
                       <td style={{...gtd, fontSize: 11, color:'var(--fg-muted)'}}>{l.holds.join(', ')}</td>

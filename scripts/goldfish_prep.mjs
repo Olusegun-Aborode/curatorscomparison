@@ -75,12 +75,37 @@ const goldByProtocol = {};
 for (const p of goldPools) goldByProtocol[p.protocol] = (goldByProtocol[p.protocol] || 0) + p.tvlUsd;
 const goldCollateralTotal = goldPools.reduce((s, p) => s + p.tvlUsd, 0) || realGoldSupply;
 
-// who actually "runs" tokenized-gold markets: discretionary fund vs protocol/DAO governance
-const goldManagers = [
-  { name: "Steakhouse Financial", venue: "Morpho", type: "Curator (fund)", note: "only fund running gold vaults", usd: goldByProtocol["Morpho"] || realGoldSupply },
-  { name: "Aave DAO", venue: "Aave v3 / v4", type: "DAO-governed", note: "risk: Gauntlet + Chaos Labs", usd: goldByProtocol["Aave"] || 0 },
-  { name: "Fluid", venue: "Fluid", type: "Protocol-governed", note: "PAXG/XAUt vaults", usd: goldByProtocol["Fluid"] || 0 },
-  { name: "Compound", venue: "Compound v3", type: "Protocol-governed", note: "XAUt collateral", usd: goldByProtocol["Compound"] || 0 },
+// ---------- 2d. WHO CURATES gold? (vault-level: which fund supplies gold markets) ----------
+// Honest check: the $62M gold collateral is borrower-POSTED into protocol/DAO markets.
+// Almost none is supplied by a discretionary curator vault. Pull vault->gold allocations.
+const vq = (await gql(`{ vaults(first: 1000, orderBy: TotalAssetsUsd, orderDirection: Desc) { items { name state { curators { name } allocation { supplyAssetsUsd market { collateralAsset { symbol } } } } } } }`)).vaults.items;
+const goldVaultByCurator = {};
+let goldVaultSupplyTotal = 0;
+for (const v of vq) {
+  const st = v.state || {};
+  for (const a of (st.allocation || [])) {
+    const sym = a.market?.collateralAsset?.symbol || "";
+    if (/XAU|PAXG|gold/i.test(sym) && (a.supplyAssetsUsd || 0) > 0) {
+      const who = (st.curators || []).length ? st.curators.map((c) => c.name).join("/") : "Direct / unregistered";
+      goldVaultByCurator[who] = (goldVaultByCurator[who] || 0) + a.supplyAssetsUsd;
+      goldVaultSupplyTotal += a.supplyAssetsUsd;
+    }
+  }
+}
+const NAMED = new Set(cur0Names());
+function cur0Names() { try { return JSON.parse(fs.readFileSync(here("../data/morpho_curators.json"), "utf8")).map((c) => c.name); } catch { return []; } }
+const goldFundCuratedUsd = Object.entries(goldVaultByCurator)
+  .filter(([k]) => NAMED.has(k)).reduce((s, [, v]) => s + v, 0);
+const goldVaultCuration = Object.entries(goldVaultByCurator)
+  .map(([curator, usd]) => ({ curator, usd, named: NAMED.has(curator) }))
+  .sort((a, b) => b.usd - a.usd);
+
+// venues where gold collateral SITS (borrower-posted) — governance, NOT fund-curation
+const goldVenues = [
+  { venue: "Aave v3 / v4", governance: "DAO-governed (risk: Gauntlet, Chaos Labs)", usd: goldByProtocol["Aave"] || 0 },
+  { venue: "Morpho", governance: "Permissionless markets — borrower-posted", usd: goldByProtocol["Morpho"] || 0 },
+  { venue: "Fluid", governance: "Protocol-governed", usd: goldByProtocol["Fluid"] || 0 },
+  { venue: "Compound v3", governance: "Protocol-governed", usd: goldByProtocol["Compound"] || 0 },
 ].filter((m) => m.usd > 0).sort((a, b) => b.usd - a.usd);
 
 // ---------- 3. Warm leads: curators with RWA / tokenized-gold collateral ----------
@@ -116,8 +141,12 @@ const out = {
     categoryActivationPct: goldCollateralTotal / tokGoldTotal * 100,
     byProtocol: goldByProtocol,
     pools: goldPools,
-    managers: goldManagers,
+    venues: goldVenues,
     venueCount: Object.keys(goldByProtocol).length,
+    // honest curation finding: how much gold collateral is run by a discretionary fund vault
+    vaultCuration: goldVaultCuration,
+    vaultSupplyTotalUsd: goldVaultSupplyTotal,
+    fundCuratedUsd: goldFundCuratedUsd,
     // Morpho market-level detail (utilization story)
     morphoProductiveUsd: realGoldSupply, morphoBorrowUsd: realGoldBorrow,
     markets: goldMarkets,
@@ -141,5 +170,5 @@ console.log("GoldFish dataset built:");
 console.log(`  1. Activation: backing $${(out.activation.backingUsd/1e6).toFixed(1)}M, DeFi TVL $${(out.activation.defiTvlUsd/1e6).toFixed(1)}M (${out.activation.activatedPct.toFixed(1)}% activated)`);
 console.log(`  2. Demand (cross-protocol): tokenized gold $${(tokGoldTotal/1e9).toFixed(2)}B, gold-as-collateral $${(goldCollateralTotal/1e6).toFixed(1)}M (${out.demand.categoryActivationPct.toFixed(2)}% of category)`);
 console.log(`     by protocol: ${Object.entries(goldByProtocol).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`${k} $${(v/1e6).toFixed(1)}M`).join(", ")}`);
-console.log(`     who runs gold: ${goldManagers.map(m=>`${m.name} (${m.type})`).join(", ")}`);
+console.log(`     gold is borrower-posted; only $${(goldVaultSupplyTotal/1e3).toFixed(0)}K supplied via vaults ($${(goldFundCuratedUsd/1e3).toFixed(1)}K by named curators). Top: ${goldVaultCuration.slice(0,3).map(v=>`${v.curator} $${(v.usd/1e3).toFixed(0)}K`).join(", ")}`);
 console.log(`  3. Warm leads: ${leads.length} RWA-comfortable curators; gold-active: ${leads.filter(l=>l.goldActive).map(l=>l.name).join(", ")||"none"}`);
