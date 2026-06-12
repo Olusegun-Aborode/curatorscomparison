@@ -39,7 +39,7 @@
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
   <script src="lending_curators.data.js?v=20260610183500"></script>
-  <script src="goldfish.data.js?v=20260611100000"></script>
+  <script src="goldfish.data.js?v=20260611110000"></script>
   <script type="text/babel" src="charts.jsx"></script>
   <script type="text/babel" src="widgets.jsx"></script>
 
@@ -352,30 +352,52 @@
 
     function GFDemand() {
       const d = GF.demand;
-      const active = d.markets.filter(m => !m.ghost && m.supplyUsd > 0);
-      const borrowing = active.filter(m => m.borrowUsd > 0);
+      const protoColor = { Aave: GC.accent, Morpho: GC.blue, Fluid: 'var(--purple)', Compound: GC.live, Euler: GC.gold };
+      const byProto = Object.entries(d.byProtocol || {}).sort((a,b)=>b[1]-a[1]);
+      // Morpho market utilization (where gold is borrowed, it's heavily used)
+      const borrowing = (d.markets||[]).filter(m => !m.ghost && m.borrowUsd > 0 && m.supplyUsd > 0);
       const avgUtil = borrowing.reduce((s,m)=>s+m.util*m.supplyUsd,0) / (borrowing.reduce((s,m)=>s+m.supplyUsd,0)||1);
-      const lead = [...active].sort((a,b)=>b.supplyUsd-a.supplyUsd);
+      const gtd = { padding: '9px 10px', fontSize: 13, borderBottom: '1px solid var(--border)' };
+      const gth = { textAlign: 'left', padding: '8px 10px', fontSize: 11, color: 'var(--fg-muted)', textTransform: 'uppercase', letterSpacing: '.04em', borderBottom: '1px solid var(--border)' };
       return (
         <section style={{ padding: 24 }}>
           <h1 className="h1">GoldFish · Is there demand to lend against gold?</h1>
-          <p className="sub" style={{ marginTop: 6 }}>$4.5B of tokenized gold exists, but ~0.1% is productively lent — a greenfield where the little that exists runs ~90% utilized.</p>
+          <p className="sub" style={{ marginTop: 6 }}>$4.5B of tokenized gold exists; ~$62M (~1.4%) is posted as DeFi collateral — led by Aave, not curator vaults. Greenfield, but real and growing.</p>
           <div style={{ marginTop: 20 }}>
             <GKpiRow items={[
               { l: 'Tokenized Gold Mcap', v: fmtUSD(d.tokGoldTotalUsd), d: 'XAUt + PAXG', c: GC.gold },
-              { l: 'Productively Lent', v: fmtUSD(d.productiveDefiUsd), d: 'gold-collateral DeFi', c: GC.live },
-              { l: 'Category Activation', v: fmtPct(d.categoryActivationPct,2), d: 'of tokenized gold', c: GC.accent },
-              { l: 'Active-Market Util', v: fmtPct(avgUtil,0), d: 'demand is saturated', c: GC.live },
+              { l: 'Gold as DeFi Collateral', v: fmtUSD(d.goldCollateralUsd), d: 'across all lending protocols', c: GC.live },
+              { l: 'Category Activation', v: fmtPct(d.categoryActivationPct,1), d: 'of tokenized gold', c: GC.accent },
+              { l: 'Venues', v: String(d.venueCount), d: 'Aave leads · Euler lists none', c: GC.blue },
             ]} />
           </div>
           <div className="grid" style={{ gridTemplateColumns: '1fr 1.3fr', gap: 16, marginTop: 16 }}>
-            <GPanel title="Idle vs productive tokenized gold">
+            <GPanel title="Idle vs collateralized tokenized gold">
               <Donut size={190} thickness={32} centerLabel={fmtUSD(d.tokGoldTotalUsd)}
-                items={[{ name: 'Idle (not in DeFi)', value: d.idleUsd, color: GC.idle }, { name: 'Productively lent', value: d.productiveDefiUsd, color: GC.live }]} />
+                items={[{ name: 'Idle (not in DeFi)', value: d.idleUsd, color: GC.idle }, { name: 'Posted as collateral', value: d.goldCollateralUsd, color: GC.live }]} />
             </GPanel>
-            <GPanel title="Gold-collateral lending markets (Morpho)" sub="supply $ · utilization">
-              <Leaderboard format={fmtUSD}
-                items={lead.map(m => ({ name: `${m.market} · ${m.chain} · ${m.util.toFixed(0)}% util`, value: m.supplyUsd, dot: m.util >= 80 ? GC.live : GC.accent }))} />
+            <GPanel title="Gold collateral by protocol" sub="Aave is ~77% of all DeFi gold">
+              <GCmpBar fmt={fmtUSD} max={byProto[0] ? byProto[0][1] : 1}
+                rows={byProto.map(([p,v]) => ({ label: p, value: v, color: protoColor[p] || GC.idle }))} />
+            </GPanel>
+          </div>
+          <div style={{ marginTop: 16 }}>
+            <GPanel title="Who runs tokenized-gold markets today?" sub="discretionary fund vs protocol / DAO governance">
+              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <thead><tr><th style={gth}>Manager</th><th style={gth}>Venue</th><th style={gth}>Type</th><th style={{...gth, textAlign:'right'}}>Gold $</th><th style={gth}>Note</th></tr></thead>
+                <tbody>
+                  {(d.managers||[]).map(m => (
+                    <tr key={m.name}>
+                      <td style={{...gtd, fontWeight: 600, whiteSpace:'nowrap'}}>{m.name}{m.type.includes('fund') && <span title="discretionary fund" style={{ color: GC.gold, marginLeft: 6 }}>◆</span>}</td>
+                      <td style={{...gtd, color:'var(--fg-muted)'}}>{m.venue}</td>
+                      <td style={{...gtd, fontSize: 12, color: m.type.includes('fund') ? GC.gold : 'var(--fg-muted)'}}>{m.type}</td>
+                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)'}}>{fmtUSD(m.usd)}</td>
+                      <td style={{...gtd, fontSize: 11, color:'var(--fg-muted)'}}>{m.note}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <div style={{ marginTop: 12, fontSize: 12, color: 'var(--fg-muted)' }}>Only <b style={{color:GC.gold}}>◆ Steakhouse</b> is a discretionary fund — the rest is DAO/protocol-governed. Where gold IS borrowed (Morpho), it runs <b style={{color:'var(--fg)'}}>{fmtPct(avgUtil,0)}</b> utilized.</div>
             </GPanel>
           </div>
         </section>

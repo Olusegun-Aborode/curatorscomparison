@@ -36,7 +36,7 @@ try {
 } catch { /* keep fallback */ }
 const tokGoldTotal = tokGold.XAUt + tokGold.PAXG;
 
-// ---------- 2b. Gold-collateral DeFi markets on Morpho (real demand) ----------
+// ---------- 2b. Gold-collateral DeFi markets on Morpho (utilization detail) ----------
 const mk = (await gql(`{ markets(first: 1000, orderBy: SupplyAssetsUsd, orderDirection: Desc) {
   items { collateralAsset { symbol } loanAsset { symbol } chain { network }
     state { supplyAssetsUsd borrowAssetsUsd collateralAssetsUsd utilization } } } }`)).markets.items;
@@ -45,22 +45,43 @@ const goldMarkets = mk
   .filter((m) => m.collateralAsset && /XAU|PAXG|gold/i.test(m.collateralAsset.symbol || ""))
   .map((m) => ({
     market: `${m.collateralAsset.symbol}/${m.loanAsset?.symbol ?? "?"}`,
-    collateral: m.collateralAsset.symbol,
-    chain: m.chain.network,
-    supplyUsd: m.state.supplyAssetsUsd || 0,
-    borrowUsd: m.state.borrowAssetsUsd || 0,
-    collateralUsd: m.state.collateralAssetsUsd || 0,
-    util: (m.state.utilization || 0) * 100,
+    collateral: m.collateralAsset.symbol, chain: m.chain.network,
+    supplyUsd: m.state.supplyAssetsUsd || 0, borrowUsd: m.state.borrowAssetsUsd || 0,
+    collateralUsd: m.state.collateralAssetsUsd || 0, util: (m.state.utilization || 0) * 100,
   }))
-  // exclude data ghosts: a real overcollateralized market has collateral value
-  // exceeding its borrows. If collateralUsd << borrowUsd, it's a glitch (e.g. the
-  // PAXG/USDC market reporting $1.2B supply/borrow against $0 posted collateral).
+  // exclude data ghosts: a real overcollateralized market has collateral exceeding
+  // its borrows; if collateralUsd << borrowUsd it's a glitch (PAXG/USDC $1.2B / $0 coll).
   .map((m) => ({ ...m, ghost: m.borrowUsd > 1e6 && m.collateralUsd < m.borrowUsd * 0.5 }))
   .sort((a, b) => b.supplyUsd - a.supplyUsd);
-
 const realGold = goldMarkets.filter((m) => !m.ghost);
 const realGoldSupply = realGold.reduce((s, m) => s + m.supplyUsd, 0);
 const realGoldBorrow = realGold.reduce((s, m) => s + m.borrowUsd, 0);
+
+// ---------- 2c. CROSS-PROTOCOL: tokenized gold posted as DeFi collateral ----------
+// Aave is the biggest gold venue, not Morpho. Euler lists no gold. Source: DefiLlama yields.
+const LEND = ["aave", "euler", "morpho", "compound", "fluid", "spark", "sky", "maker", "radiant", "silo"];
+const norm = (p) => p.startsWith("aave") ? "Aave" : p.startsWith("fluid") ? "Fluid"
+  : p.startsWith("morpho") ? "Morpho" : p.startsWith("compound") ? "Compound"
+  : p.startsWith("euler") ? "Euler" : p.startsWith("spark") ? "Spark" : p.replace(/-.*/, "");
+let goldPools = [];
+try {
+  const yd = (await (await fetch("https://yields.llama.fi/pools")).json()).data;
+  goldPools = yd
+    .filter((p) => /XAU|PAXG|GOLD/i.test(p.symbol || "") && LEND.some((x) => (p.project || "").startsWith(x)))
+    .map((p) => ({ protocol: norm(p.project), symbol: p.symbol, chain: p.chain, tvlUsd: p.tvlUsd || 0 }))
+    .sort((a, b) => b.tvlUsd - a.tvlUsd);
+} catch { /* fallback: morpho-only below */ }
+const goldByProtocol = {};
+for (const p of goldPools) goldByProtocol[p.protocol] = (goldByProtocol[p.protocol] || 0) + p.tvlUsd;
+const goldCollateralTotal = goldPools.reduce((s, p) => s + p.tvlUsd, 0) || realGoldSupply;
+
+// who actually "runs" tokenized-gold markets: discretionary fund vs protocol/DAO governance
+const goldManagers = [
+  { name: "Steakhouse Financial", venue: "Morpho", type: "Curator (fund)", note: "only fund running gold vaults", usd: goldByProtocol["Morpho"] || realGoldSupply },
+  { name: "Aave DAO", venue: "Aave v3 / v4", type: "DAO-governed", note: "risk: Gauntlet + Chaos Labs", usd: goldByProtocol["Aave"] || 0 },
+  { name: "Fluid", venue: "Fluid", type: "Protocol-governed", note: "PAXG/XAUt vaults", usd: goldByProtocol["Fluid"] || 0 },
+  { name: "Compound", venue: "Compound v3", type: "Protocol-governed", note: "XAUt collateral", usd: goldByProtocol["Compound"] || 0 },
+].filter((m) => m.usd > 0).sort((a, b) => b.usd - a.usd);
 
 // ---------- 3. Warm leads: curators with RWA / tokenized-gold collateral ----------
 const cur = JSON.parse(fs.readFileSync(here("../data/morpho_curators.json"), "utf8"));
@@ -89,10 +110,16 @@ const out = {
   },
   demand: {
     tokGold, tokGoldTotalUsd: tokGoldTotal,
-    productiveDefiUsd: realGoldSupply, productiveBorrowUsd: realGoldBorrow,
-    idleUsd: tokGoldTotal - realGoldSupply,
-    categoryActivationPct: realGoldSupply / tokGoldTotal * 100,
-    avgUtilPct: realGold.length ? realGold.reduce((s, m) => s + m.util, 0) / realGold.length : 0,
+    // headline = tokenized gold posted as collateral across ALL lending protocols
+    goldCollateralUsd: goldCollateralTotal,
+    idleUsd: tokGoldTotal - goldCollateralTotal,
+    categoryActivationPct: goldCollateralTotal / tokGoldTotal * 100,
+    byProtocol: goldByProtocol,
+    pools: goldPools,
+    managers: goldManagers,
+    venueCount: Object.keys(goldByProtocol).length,
+    // Morpho market-level detail (utilization story)
+    morphoProductiveUsd: realGoldSupply, morphoBorrowUsd: realGoldBorrow,
     markets: goldMarkets,
   },
   leads,
@@ -112,6 +139,7 @@ try {
 
 console.log("GoldFish dataset built:");
 console.log(`  1. Activation: backing $${(out.activation.backingUsd/1e6).toFixed(1)}M, DeFi TVL $${(out.activation.defiTvlUsd/1e6).toFixed(1)}M (${out.activation.activatedPct.toFixed(1)}% activated)`);
-console.log(`  2. Demand: tokenized gold $${(tokGoldTotal/1e9).toFixed(2)}B, productive DeFi $${(realGoldSupply/1e6).toFixed(2)}M (${out.demand.categoryActivationPct.toFixed(3)}% of category), avg util ${out.demand.avgUtilPct.toFixed(0)}%`);
-console.log(`     gold markets: ${goldMarkets.length} (${goldMarkets.filter(m=>m.ghost).length} ghost excluded)`);
+console.log(`  2. Demand (cross-protocol): tokenized gold $${(tokGoldTotal/1e9).toFixed(2)}B, gold-as-collateral $${(goldCollateralTotal/1e6).toFixed(1)}M (${out.demand.categoryActivationPct.toFixed(2)}% of category)`);
+console.log(`     by protocol: ${Object.entries(goldByProtocol).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`${k} $${(v/1e6).toFixed(1)}M`).join(", ")}`);
+console.log(`     who runs gold: ${goldManagers.map(m=>`${m.name} (${m.type})`).join(", ")}`);
 console.log(`  3. Warm leads: ${leads.length} RWA-comfortable curators; gold-active: ${leads.filter(l=>l.goldActive).map(l=>l.name).join(", ")||"none"}`);
