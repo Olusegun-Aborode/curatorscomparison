@@ -39,7 +39,7 @@
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
   <script src="lending_curators.data.js?v=20260610183500"></script>
-  <script src="goldfish.data.js?v=20260611140000"></script>
+  <script src="goldfish.data.js?v=20260611150000"></script>
   <script type="text/babel" src="charts.jsx"></script>
   <script type="text/babel" src="widgets.jsx"></script>
 
@@ -511,8 +511,8 @@
             <GKpiRow items={[
               { l: 'RWA Curators', v: String(P.curators.length), d: 'can run a GGBR vault', c: GC.blue },
               { l: 'Their RWA AUM', v: fmtUSD(totalRwa), d: 'live RWA allocations', c: GC.live },
-              { l: 'Credit Structurers', v: String(P.funds.length), d: 'could co-build / tranche', c: GC.gold },
-              { l: 'High-Fit Partners', v: String(P.funds.filter(f=>f.fit==='High').length), d: '3jane · Centrifuge · Maple', c: GC.accent },
+              { l: 'Tranching Protocols', v: String((P.tranchers||[]).filter(t=>t.status.startsWith('Active')).length), d: 'active · could structure GGBR', c: GC.gold },
+              { l: 'High-Fit & Active', v: String((P.tranchers||[]).filter(t=>t.fit==='High'&&t.status.startsWith('Active')).length), d: '3jane · Centrifuge', c: GC.accent },
             ]} />
           </div>
 
@@ -536,25 +536,33 @@
           </div>
 
           <div style={{ marginTop: 16 }}>
-            <GPanel title="RWA credit structurers & funds — could co-build / tranche GGBR" sub="best fit for credit-like collateral · researched, verify before outreach">
-              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                <thead><tr><th style={gth}>Fund</th><th style={gth}>What they do</th><th style={gth}>Collateral</th><th style={{...gth,textAlign:'center'}}>Fit</th><th style={gth}>Why / contact</th></tr></thead>
+            <GPanel title="Credit-tranching protocols — could structure GGBR senior/junior" sub="TVL live (DefiLlama) · ranked by size · status flags wound-down ones">
+              <div style={{ overflowX: 'auto' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 640 }}>
+                <thead><tr><th style={gth}>Protocol</th><th style={gth}>Chain</th><th style={gth}>Tranche model</th><th style={{...gth,textAlign:'right'}}>TVL</th><th style={{...gth,textAlign:'center'}}>Status</th><th style={{...gth,textAlign:'center'}}>Fit</th><th style={gth}>Contact</th></tr></thead>
                 <tbody>
-                  {P.funds.map(f => (
-                    <tr key={f.name}>
-                      <td style={{...gtd, fontWeight:600, whiteSpace:'nowrap'}}>{f.name}{f.name==='3jane' && <span title="CLO/credit tranching thread" style={{ color: GC.gold, marginLeft:6 }}>◆</span>}</td>
-                      <td style={{...gtd, fontSize:12}}>{f.what}</td>
-                      <td style={{...gtd, fontSize:11, color:'var(--fg-muted)'}}>{f.collateral}</td>
+                  {(P.tranchers||[]).map(f => {
+                    const dim = f.status==='Dormant' || f.status==='Winding down';
+                    const stColor = f.status.startsWith('Active') ? GC.live : f.status==='Winding down' ? GC.accent : f.status==='Dormant' ? GC.danger : 'var(--fg-muted)';
+                    return (
+                    <tr key={f.name} style={{ opacity: dim ? 0.55 : 1 }}>
+                      <td style={{...gtd, fontWeight:600, whiteSpace:'nowrap'}}>{f.name}{f.name==='3jane' && <span title="your thread" style={{ color: GC.gold, marginLeft:6 }}>◆</span>}<div style={{fontSize:11, fontWeight:400, color:'var(--fg-dim)'}}>{f.focus}</div></td>
+                      <td style={{...gtd, fontSize:11, color:'var(--fg-muted)', whiteSpace:'nowrap'}}>{f.chain}</td>
+                      <td style={{...gtd, fontSize:12}}>{f.model}</td>
+                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)'}}>{f.tvlUsd==null ? '—' : fmtUSD(f.tvlUsd)}</td>
+                      <td style={{...gtd, textAlign:'center', fontSize:11, color: stColor, whiteSpace:'nowrap'}}>{f.status}</td>
                       <td style={{...gtd, textAlign:'center', fontSize:12, fontWeight:600, color: fitColor(f.fit)}}>{f.fit}</td>
-                      <td style={{...gtd, fontSize:11, color:'var(--fg-muted)'}}>{f.note}<div style={{marginTop:4}}><A href={f.twitter}>X</A> · <A href={f.site}>site</A></div></td>
+                      <td style={{...gtd, fontSize:12, whiteSpace:'nowrap'}}><A href={f.twitter}>X</A> · <A href={f.site}>site</A></td>
                     </tr>
-                  ))}
+                  );})}
                 </tbody>
               </table>
+              </div>
+              <div style={{ marginTop: 10, fontSize: 11, color: 'var(--fg-dim)' }}>RWA collateral issuers (source, not tranchers): {(P.issuers||[]).map((s,i)=>(<span key={s.name}>{i>0 && ' · '}<A href={s.site}>{s.name}</A> ({s.what})</span>))}</div>
             </GPanel>
           </div>
           <div className="panel" style={{ marginTop: 16, padding: 16, fontSize: 13, color: 'var(--fg-muted)', lineHeight: 1.6 }}>
-            <b style={{ color:'var(--fg)' }}>Thread to pull:</b> <b style={{color:GC.gold}}>◆ 3jane</b> (Paradigm/Wintermute-backed) tranches credit pools into senior/leveraged tokens — the same structure that turns a novel asset like GGBR into a vault-ready product. Centrifuge already tokenized the Janus Henderson AAA CLO ($27B ETF mirror). These credit-structurers, not gold curators, are the realistic path to a GGBR/USDC product.
+            <b style={{ color:'var(--fg)' }}>Thread to pull:</b> the realistic structurers are the <b style={{color:GC.live}}>active</b> ones — <b style={{color:GC.gold}}>◆ 3jane</b> (crypto-native senior/leveraged tranching, Paradigm-backed) and <b style={{color:'var(--fg)'}}>Centrifuge</b> (already tokenized the $27B Janus Henderson AAA CLO via DROP/TIN tranching). <b style={{color:GC.danger}}>Skip Goldfinch / TrueFi / Credix</b> — the research lists them, but live TVL shows they've wound down. Maple has the scale ($2B) if a more institutional route is preferred.
           </div>
         </section>
       );

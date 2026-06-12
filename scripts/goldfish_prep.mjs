@@ -154,23 +154,42 @@ const rwaCurators = cur.map((c) => {
   };
 }).filter((c) => c.rwaUsd > 0).sort((a, b) => b.rwaUsd - a.rwaUsd);
 
-// (b) RWA credit structurers / funds who could CO-BUILD or tranche a GGBR product.
-// GGBR is credit-like (in-situ gold claim) → private-credit-comfortable players fit best.
-// Researched (Jun 2026); links are starting points to verify before outreach.
-const rwaFunds = [
-  { name: "3jane", what: "Credit yieldcoin (USD3 / sUSD3) — senior + leveraged tranching of credit pools", collateral: "Fintech receivables, consumer/SMB loans, warehouse facilities", backers: "Paradigm, Wintermute, Coinbase Ventures", fit: "High", site: "https://3jane.xyz", twitter: "https://x.com/3janexyz", note: "Tranching expertise — could structure a GGBR senior/junior split" },
-  { name: "Centrifuge", what: "RWA tokenization platform — tokenized Janus Henderson AAA CLO (JAAA)", collateral: "AAA CLOs ($27B ETF mirror, $1B Sky-seeded), institutional credit", backers: "—", fit: "High", site: "https://centrifuge.io", twitter: "https://x.com/centrifuge", note: "Already tokenizes institutional credit — natural structurer for GGBR" },
-  { name: "Maple Finance", what: "Institutional private credit — syrupUSDC / syrupUSDT", collateral: "Overcollateralized institutional loans", backers: "—", fit: "High", site: "https://maple.finance", twitter: "https://x.com/maplefinance", note: "Largest on-chain private credit (~$76M on Morpho via Sentora)" },
-  { name: "Midas", what: "Tokenized RWA issuer — mF-ONE, mBASIS, mHYPER, mTBILL", collateral: "Treasuries, structured credit", backers: "—", fit: "Med-High", site: "https://midas.app", twitter: "https://x.com/MidasRWA", note: "Already in MEV Capital / Clearstar / Hyperithm vaults" },
-  { name: "Superstate", what: "Tokenized treasuries & credit — USTB, USCC", collateral: "T-bills, carry/credit", backers: "—", fit: "Med", site: "https://superstate.co", twitter: "https://x.com/superstatefunds", note: "Institutional RWA, held by Steakhouse" },
-  { name: "Ondo Finance", what: "Tokenized treasuries & equities — USDY, SPYon, QQQon", collateral: "T-bills, tokenized stocks", backers: "—", fit: "Med", site: "https://ondo.finance", twitter: "https://x.com/OndoFinance", note: "Tokenized-RWA issuer, held by Gauntlet" },
+// (b) CREDIT-TRANCHING protocols that could structure a GGBR senior/junior product.
+// Metadata is curated; TVL + status are pulled LIVE from DefiLlama (research corrected:
+// Goldfinch/TrueFi/Credix have wound down — flag them so outreach doesn't chase ghosts).
+let llamaTvl = {};
+try {
+  const protos = await (await fetch("https://api.llama.fi/protocols")).json();
+  for (const p of protos) llamaTvl[(p.name || "").toLowerCase()] = p.tvl || 0;
+} catch { /* tvl stays unknown */ }
+const tvlOf = (names) => { for (const n of names) { const v = llamaTvl[n.toLowerCase()]; if (v != null) return v; } return null; };
+const statusOf = (tvl) => tvl == null ? "Untracked (new)" : tvl >= 100e6 ? "Active · large" : tvl >= 3e6 ? "Active" : tvl >= 0.5e6 ? "Winding down" : "Dormant";
+
+const tranchers = [
+  { name: "Centrifuge", chain: "Ethereum + multi", model: "DROP (senior) / TIN (junior)", focus: "Structured RWA credit; tokenized JH AAA CLO (JAAA)", fit: "High", site: "https://centrifuge.io", twitter: "https://x.com/centrifuge", note: "Best structured-finance tranching; already did JAAA", llama: ["Centrifuge Protocol", "Centrifuge"] },
+  { name: "3jane", chain: "Ethereum", model: "USD3 (senior) / sUSD3 (leveraged)", focus: "Fintech/SMB credit; zkTLS underwriting", fit: "High", site: "https://3jane.xyz", twitter: "https://x.com/3janexyz", note: "Crypto-native tranching, Paradigm-backed — the thread", llama: ["3Jane Lending", "3Jane"] },
+  { name: "Maple Finance", chain: "Ethereum, Solana, Arbitrum", model: "Pool-Delegate first-loss (junior buffer)", focus: "Institutional credit; syrupUSDC", fit: "Med-High", site: "https://maple.finance", twitter: "https://x.com/maplefinance", note: "Largest TVL but more permissioned / OC-leaning", llama: ["Maple"] },
+  { name: "Clearpool", chain: "Ethereum + multi", model: "Pool first-loss elements", focus: "Permissioned institutional credit", fit: "Med", site: "https://clearpool.finance", twitter: "https://x.com/ClearpoolFin", note: "Unsecured lending to trading firms/fintechs", llama: ["Clearpool TPOOL", "Clearpool Lending", "Clearpool"] },
+  { name: "Wildcat", chain: "Ethereum", model: "Configurable undercollateralized lines", focus: "Build-your-own credit vaults", fit: "Med", site: "https://wildcat.finance", twitter: "https://x.com/WildcatFi", note: "Highly configurable — flexible GGBR structuring", llama: ["Wildcat Protocol", "Wildcat"] },
+  { name: "Qiro Finance", chain: "Aptos + Plume", model: "Senior / Junior (underwriter first-loss)", focus: "EM fintech/SME credit", fit: "Med", site: "https://qiro.fi", twitter: "https://x.com/QiroFinance", note: "Newer; tranche-level underwriting w/ skin-in-the-game", llama: ["Qiro", "Qiro Finance"] },
+  { name: "Goldfinch", chain: "Ethereum", model: "Senior Pool / Backers (junior first-loss)", focus: "Uncollateralized biz / EM loans", fit: "Low", site: "https://goldfinch.finance", twitter: "https://x.com/goldfinch_fi", note: "Longest-running but TVL collapsed — largely wound down", llama: ["Goldfinch"] },
+  { name: "TrueFi", chain: "Ethereum, Arbitrum", model: "Up to 3 tranches (Sr / Mezz / Jr)", focus: "Uncollateralized institutional", fit: "Low", site: "https://truefi.io", twitter: "https://x.com/TrueFiDAO", note: "Most flexible multi-tranche, but near-empty now", llama: ["TrueFi"] },
+  { name: "Credix", chain: "Solana", model: "Deal-level tranching (up to 10)", focus: "EM private credit / receivables", fit: "Low", site: "https://credix.finance", twitter: "https://x.com/credixfinance", note: "Solana, institutional — but dormant", llama: ["Credix"] },
+].map((t) => { const tvl = tvlOf(t.llama); return { ...t, tvlUsd: tvl, status: statusOf(tvl) }; })
+ .sort((a, b) => (b.tvlUsd ?? -1) - (a.tvlUsd ?? -1));
+
+// (c) RWA collateral ISSUERS (source the gold/credit collateral, not tranchers) — secondary.
+const issuers = [
+  { name: "Midas", what: "mF-ONE / mBASIS / mHYPER / mTBILL", site: "https://midas.app" },
+  { name: "Superstate", what: "USTB / USCC", site: "https://superstate.co" },
+  { name: "Ondo Finance", what: "USDY / SPYon / QQQon", site: "https://ondo.finance" },
 ];
 
 // ---------- assemble ----------
 const out = {
   meta: { generated: process.env.BUILD_TS || new Date().toISOString() },
   ggbr: GGBR,
-  rwaPartners: { curators: rwaCurators, funds: rwaFunds },
+  rwaPartners: { curators: rwaCurators, tranchers, issuers },
   activation: {
     backingUsd: GGBR.backingUsd, defiTvlUsd: GGBR.defiTvlUsd,
     dormantUsd: GGBR.backingUsd - GGBR.defiTvlUsd,
