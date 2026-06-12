@@ -17,29 +17,29 @@
     "defiTvlUsd": 6200000,
     "dormantUsd": 98011250,
     "activatedPct": 5.949453633844715,
-    "tokGoldTotalUsd": 4500529578,
-    "ggbrSharePct": 2.3155330543635855
+    "tokGoldTotalUsd": 4501570752,
+    "ggbrSharePct": 2.3149974917910607
   },
   "demand": {
     "tokGold": {
-      "XAUt": 2576159738,
-      "PAXG": 1924369840,
-      "goldOz": 4216.37
+      "XAUt": 2576802754,
+      "PAXG": 1924767998,
+      "goldOz": 4211.86
     },
-    "tokGoldTotalUsd": 4500529578,
-    "productiveDefiUsd": 3730701.3527548215,
-    "productiveBorrowUsd": 3314706.898621467,
-    "idleUsd": 4496798876.647245,
-    "categoryActivationPct": 0.08289471912353737,
-    "avgUtilPct": 58.95861360222712,
+    "tokGoldTotalUsd": 4501570752,
+    "productiveDefiUsd": 3732438.3412443106,
+    "productiveBorrowUsd": 3314624.3599134996,
+    "idleUsd": 4497838313.658755,
+    "categoryActivationPct": 0.08291413257441368,
+    "avgUtilPct": 59.99793061894705,
     "markets": [
       {
         "market": "PAXG/USDC",
         "collateral": "PAXG",
         "chain": "Ethereum",
-        "supplyUsd": 1214712643.865395,
-        "borrowUsd": 1214712643.865395,
-        "collateralUsd": 245.9453295632341,
+        "supplyUsd": 1214694997.686442,
+        "borrowUsd": 1214694997.686442,
+        "collateralUsd": 246.09388786673455,
         "util": 100,
         "ghost": true
       },
@@ -47,19 +47,19 @@
         "market": "XAUt/USDT",
         "collateral": "XAUt",
         "chain": "Ethereum",
-        "supplyUsd": 3099832.974683906,
-        "borrowUsd": 2797648.461564981,
-        "collateralUsd": 7187098.126428429,
-        "util": 90.25158724399532,
+        "supplyUsd": 3102024.1694913446,
+        "borrowUsd": 2797730.6287094094,
+        "collateralUsd": 7188931.150479871,
+        "util": 90.19048453024038,
         "ghost": false
       },
       {
         "market": "PAXG/PYUSD",
         "collateral": "PAXG",
         "chain": "Ethereum",
-        "supplyUsd": 327473.46647289384,
-        "borrowUsd": 295296.4826164633,
-        "collateralUsd": 528718.7031408678,
+        "supplyUsd": 327279.77807007916,
+        "borrowUsd": 295121.8257055056,
+        "collateralUsd": 529038.0649832212,
         "util": 90.17417068839258,
         "ghost": false
       },
@@ -67,18 +67,18 @@
         "market": "XAUt0/USDC",
         "collateral": "XAUt0",
         "chain": "Monad",
-        "supplyUsd": 180501.32133736927,
-        "borrowUsd": 162063.47947320886,
+        "supplyUsd": 180666.0956735643,
+        "borrowUsd": 162076.47882916653,
         "collateralUsd": 296076.16167344776,
-        "util": 89.7852039378156,
+        "util": 89.71051166236175,
         "ghost": false
       },
       {
         "market": "XAUt0/USDT0",
         "collateral": "XAUt0",
         "chain": "Monad",
-        "supplyUsd": 61943.35162537528,
-        "borrowUsd": 36535.06341766135,
+        "supplyUsd": 61936.90482483093,
+        "borrowUsd": 36531.261003672626,
         "collateralUsd": 68936.9525034504,
         "util": 58.98141198206436,
         "ghost": false
@@ -89,7 +89,7 @@
         "chain": "Ethereum",
         "supplyUsd": 18713.243998749076,
         "borrowUsd": 1.2564950998399513,
-        "collateralUsd": 42058.28664650254,
+        "collateralUsd": 42069.013347269574,
         "util": 0.0067144697088540005,
         "ghost": false
       },
@@ -99,7 +99,7 @@
         "chain": "Ethereum",
         "supplyUsd": 15040.712579327801,
         "borrowUsd": 0.9164992327002103,
-        "collateralUsd": 3.4764491865108695,
+        "collateralUsd": 3.4785490653508973,
         "util": 0.0060934561967486,
         "ghost": false
       },
@@ -107,8 +107,8 @@
         "market": "XAUt0/USDT0",
         "collateral": "XAUt0",
         "chain": "Arbitrum One",
-        "supplyUsd": 12937.12354233499,
-        "borrowUsd": 10658.528200995219,
+        "supplyUsd": 12938.16074297903,
+        "borrowUsd": 10659.382721111566,
         "collateralUsd": 25017.732236667653,
         "util": 82.38715635756762,
         "ghost": false
@@ -117,30 +117,30 @@
         "market": "XAUt0/USDC",
         "collateral": "XAUt0",
         "chain": "Arbitrum One",
-        "supplyUsd": 10187.500158966717,
-        "borrowUsd": 9178.057926542468,
+        "supplyUsd": 10187.354482237177,
+        "borrowUsd": 9177.926914020438,
         "collateralUsd": 18529.72158117265,
-        "util": 90.09136474431591,
+        "util": 90.0913669984019,
         "ghost": false
       },
       {
         "market": "XAUt0/AUSD",
         "collateral": "XAUt0",
         "chain": "Monad",
-        "supplyUsd": 3854.6537753341327,
-        "borrowUsd": 3320.853464939285,
+        "supplyUsd": 3434.894840651188,
+        "borrowUsd": 3320.8837760304964,
         "collateralUsd": 7854.42835128921,
-        "util": 86.1517962051319,
+        "util": 96.68079897901394,
         "ghost": false
       },
       {
         "market": "rXAUt/USDC",
         "collateral": "rXAUt",
         "chain": "World Chain",
-        "supplyUsd": 217.004580564488,
-        "borrowUsd": 3.79896234252248,
+        "supplyUsd": 217.02654054718303,
+        "borrowUsd": 3.799260250223944,
         "collateralUsd": 0,
-        "util": 1.7506369370823158,
+        "util": 1.7505970655224812,
         "ghost": false
       }
     ]
