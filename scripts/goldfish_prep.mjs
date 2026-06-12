@@ -1,0 +1,117 @@
+// GoldFish TVL-growth analysis — assembles 3 datasets into goldfish.data.js:
+//  1. Holder-activation gap (GGBR backing vs DeFi TVL)   [GoldFish Dune figures]
+//  2. Demand proof: tokenized-gold DeFi usage             [Morpho markets + CoinGecko]
+//  3. Warm leads: RWA/gold-comfortable curators           [local morpho_curators.json]
+// Charts-only dashboard consumes window.GOLDFISH_DATA.
+
+import fs from "node:fs";
+const here = (p) => new URL(p, import.meta.url).pathname;
+
+async function gql(q) {
+  const r = await fetch("https://blue-api.morpho.org/graphql", {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ query: q }),
+  });
+  const j = await r.json(); if (j.errors) throw new Error(JSON.stringify(j.errors)); return j.data;
+}
+
+// ---------- 1. GoldFish / GGBR (from the Dune dashboard, dune.com/goldfishgold_main) ----------
+const GGBR = {
+  supply: 25_000_000,
+  backingUsd: 104_211_250,   // Collateral Pledged (USD)
+  price: 4.1720,
+  marketCapUsd: 104_301_211,
+  ionAuCollateralOz: 25_000,
+  defiTvlUsd: 6_200_000,     // Goldfish TVL (USD) from TVL chart (~$6.2M)
+  stakedUsd: 1_300_000,      // Cum_Staked GGB (~$1.3M)
+  source: "dune.com/goldfishgold_main/goldfishgold-protocol-analysis",
+};
+
+// ---------- 2. Tokenized-gold market caps (CoinGecko, with fallback) ----------
+let tokGold = { XAUt: 2576e6, PAXG: 1924e6, goldOz: 4208 }; // fallback = last observed
+try {
+  const r = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=pax-gold,tether-gold");
+  const d = await r.json();
+  const byS = Object.fromEntries(d.map((c) => [c.symbol.toUpperCase(), c]));
+  if (byS.XAUT && byS.PAXG) tokGold = { XAUt: byS.XAUT.market_cap, PAXG: byS.PAXG.market_cap, goldOz: byS.PAXG.current_price };
+} catch { /* keep fallback */ }
+const tokGoldTotal = tokGold.XAUt + tokGold.PAXG;
+
+// ---------- 2b. Gold-collateral DeFi markets on Morpho (real demand) ----------
+const mk = (await gql(`{ markets(first: 1000, orderBy: SupplyAssetsUsd, orderDirection: Desc) {
+  items { collateralAsset { symbol } loanAsset { symbol } chain { network }
+    state { supplyAssetsUsd borrowAssetsUsd collateralAssetsUsd utilization } } } }`)).markets.items;
+
+const goldMarkets = mk
+  .filter((m) => m.collateralAsset && /XAU|PAXG|gold/i.test(m.collateralAsset.symbol || ""))
+  .map((m) => ({
+    market: `${m.collateralAsset.symbol}/${m.loanAsset?.symbol ?? "?"}`,
+    collateral: m.collateralAsset.symbol,
+    chain: m.chain.network,
+    supplyUsd: m.state.supplyAssetsUsd || 0,
+    borrowUsd: m.state.borrowAssetsUsd || 0,
+    collateralUsd: m.state.collateralAssetsUsd || 0,
+    util: (m.state.utilization || 0) * 100,
+  }))
+  // exclude data ghosts: a real overcollateralized market has collateral value
+  // exceeding its borrows. If collateralUsd << borrowUsd, it's a glitch (e.g. the
+  // PAXG/USDC market reporting $1.2B supply/borrow against $0 posted collateral).
+  .map((m) => ({ ...m, ghost: m.borrowUsd > 1e6 && m.collateralUsd < m.borrowUsd * 0.5 }))
+  .sort((a, b) => b.supplyUsd - a.supplyUsd);
+
+const realGold = goldMarkets.filter((m) => !m.ghost);
+const realGoldSupply = realGold.reduce((s, m) => s + m.supplyUsd, 0);
+const realGoldBorrow = realGold.reduce((s, m) => s + m.borrowUsd, 0);
+
+// ---------- 3. Warm leads: curators with RWA / tokenized-gold collateral ----------
+const cur = JSON.parse(fs.readFileSync(here("../data/morpho_curators.json"), "utf8"));
+const goldRe = /XAU|PAXG|gold/i;
+const rwaRe = /XAU|PAXG|buidl|ustb|usual|midas|mF-|mBASIS|mHYPER|thBILL|EUTBL|USCC|FalconX|treasur|tbill|SPYon|QQQon|backed|deSPX|FLHY/i;
+const leads = cur.map((c) => {
+  const rwa = Object.entries(c.byCollateral || {}).filter(([s]) => rwaRe.test(s));
+  const gold = Object.entries(c.byCollateral || {}).filter(([s]) => goldRe.test(s));
+  return {
+    name: c.name, aumUsd: c.aumUsd, verified: c.verified,
+    rwaUsd: rwa.reduce((s, [, v]) => s + v, 0),
+    holds: rwa.map(([s]) => s),
+    goldActive: gold.length > 0,
+  };
+}).filter((l) => l.rwaUsd > 0).sort((a, b) => b.rwaUsd - a.rwaUsd);
+
+// ---------- assemble ----------
+const out = {
+  meta: { generated: process.env.BUILD_TS || new Date().toISOString() },
+  ggbr: GGBR,
+  activation: {
+    backingUsd: GGBR.backingUsd, defiTvlUsd: GGBR.defiTvlUsd,
+    dormantUsd: GGBR.backingUsd - GGBR.defiTvlUsd,
+    activatedPct: GGBR.defiTvlUsd / GGBR.backingUsd * 100,
+    tokGoldTotalUsd: tokGoldTotal, ggbrSharePct: GGBR.backingUsd / tokGoldTotal * 100,
+  },
+  demand: {
+    tokGold, tokGoldTotalUsd: tokGoldTotal,
+    productiveDefiUsd: realGoldSupply, productiveBorrowUsd: realGoldBorrow,
+    idleUsd: tokGoldTotal - realGoldSupply,
+    categoryActivationPct: realGoldSupply / tokGoldTotal * 100,
+    avgUtilPct: realGold.length ? realGold.reduce((s, m) => s + m.util, 0) / realGold.length : 0,
+    markets: goldMarkets,
+  },
+  leads,
+};
+
+fs.writeFileSync(here("../goldfish.data.js"),
+  `// AUTO-GENERATED by goldfish_prep.mjs\nwindow.GOLDFISH_DATA = ${JSON.stringify(out, null, 2)};\n`);
+fs.writeFileSync(here("../data/goldfish.json"), JSON.stringify(out, null, 2));
+
+// version-stamp goldfish.html if present
+try {
+  const hp = here("../goldfish.html"); let h = fs.readFileSync(hp, "utf8");
+  const v = out.meta.generated.replace(/\D/g, "");
+  const nh = h.replace(/(<script src="goldfish\.data\.js)(\?v=\d+)?(">)/, `$1?v=${v}$3`);
+  if (nh !== h) fs.writeFileSync(hp, nh);
+} catch { /* html not created yet */ }
+
+console.log("GoldFish dataset built:");
+console.log(`  1. Activation: backing $${(out.activation.backingUsd/1e6).toFixed(1)}M, DeFi TVL $${(out.activation.defiTvlUsd/1e6).toFixed(1)}M (${out.activation.activatedPct.toFixed(1)}% activated)`);
+console.log(`  2. Demand: tokenized gold $${(tokGoldTotal/1e9).toFixed(2)}B, productive DeFi $${(realGoldSupply/1e6).toFixed(2)}M (${out.demand.categoryActivationPct.toFixed(3)}% of category), avg util ${out.demand.avgUtilPct.toFixed(0)}%`);
+console.log(`     gold markets: ${goldMarkets.length} (${goldMarkets.filter(m=>m.ghost).length} ghost excluded)`);
+console.log(`  3. Warm leads: ${leads.length} RWA-comfortable curators; gold-active: ${leads.filter(l=>l.goldActive).map(l=>l.name).join(", ")||"none"}`);

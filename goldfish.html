@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoldFish — TVL Growth Analysis</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .shell > .sidebar { grid-column: 1; grid-row: 2; }
+    .shell > .main { grid-column: 2; grid-row: 2; }
+    .panel { min-width: 0; }
+    .fluid-svg svg { width: 100%; height: auto; display: block; }
+    .metric:last-child { border-right: none; }
+    .metric-footer { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    /* comparison bar */
+    .cmp-row { display: flex; align-items: center; gap: 12px; margin: 10px 0; }
+    .cmp-label { width: 200px; font-size: 12px; color: var(--fg-muted); flex-shrink: 0; }
+    .cmp-track { flex: 1; height: 22px; background: var(--bg-elev); border-radius: 4px; overflow: hidden; position: relative; }
+    .cmp-fill { height: 100%; border-radius: 4px; }
+    .cmp-val { width: 92px; text-align: right; font-family: var(--font-mono); font-size: 12px; flex-shrink: 0; }
+  </style>
+</head>
+<body data-theme="dark" data-aesthetic="evolved" data-density="cozy">
+  <script>
+  (function () { try { var t=localStorage.getItem('theme'),a=localStorage.getItem('aesthetic'),d=localStorage.getItem('density'); if(t)document.body.setAttribute('data-theme',t); if(a)document.body.setAttribute('data-aesthetic',a); if(d)document.body.setAttribute('data-density',d); } catch(e){} })();
+  </script>
+  <div id="root" class="shell"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+  <script src="goldfish.data.js?v=20260611100000"></script>
+  <script type="text/babel" src="charts.jsx"></script>
+  <script type="text/babel" src="widgets.jsx"></script>
+
+  <script type="text/babel" data-presets="env,react">
+    const { useState } = React;
+    const D = window.GOLDFISH_DATA;
+
+    const fmtUSD = (v) => v >= 1e9 ? '$'+(v/1e9).toFixed(2)+'B' : v >= 1e6 ? '$'+(v/1e6).toFixed(1)+'M' : v >= 1e3 ? '$'+(v/1e3).toFixed(0)+'K' : '$'+v.toFixed(0);
+    const fmtPct = (v, d=1) => v.toFixed(d) + '%';
+    const C = { gold: 'var(--yellow)', live: 'var(--green)', idle: 'var(--fg-muted)', accent: 'var(--orange)', blue: 'var(--blue)', danger: 'var(--red)' };
+
+    const Panel = ({ title, sub, children, span }) => (
+      <div className="panel" style={span ? { gridColumn: `span ${span}` } : undefined}>
+        <div className="panel-header"><div className="panel-title">{title}</div>{sub && <div style={{ fontSize: 11, color: 'var(--fg-muted)', fontFamily: 'var(--font-mono)' }}>{sub}</div>}</div>
+        <div className="panel-body">{children}</div>
+      </div>
+    );
+    const KpiRow = ({ items }) => (
+      <div className="panel">
+        <div className="grid grid-4" style={{ gap: 0 }}>
+          {items.map(k => (
+            <div key={k.l} className="metric" style={{ cursor: 'default' }}>
+              <div className="metric-label">{k.l}</div>
+              <div className="metric-value" style={{ color: k.c }}>{k.v}</div>
+              <div className="metric-footer">{k.d}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+    const CmpBar = ({ rows, max, fmt }) => (
+      <div>{rows.map(r => (
+        <div key={r.label} style={{ margin: '14px 0' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 5 }}>
+            <span style={{ color: 'var(--fg-muted)' }}>{r.label}</span>
+            <span style={{ fontFamily: 'var(--font-mono)', color: r.color }}>{fmt(r.value)}</span>
+          </div>
+          <div className="cmp-track"><div className="cmp-fill" style={{ width: Math.max(0.5, (r.value/max)*100)+'%', background: r.color }} /></div>
+        </div>
+      ))}</div>
+    );
+
+    // ════════ 1. ACTIVATION GAP ════════
+    function Activation() {
+      const a = D.activation;
+      return (
+        <section style={{ padding: 24 }}>
+          <h1 className="h1">Holder-Activation Gap</h1>
+          <p className="sub" style={{ marginTop: 6 }}>GoldFish backs $104M of gold but only ~6% is working on-chain — the biggest liquidity pool is its own holders.</p>
+          <div style={{ marginTop: 20 }}>
+            <KpiRow items={[
+              { l: 'GGBR Backing', v: fmtUSD(a.backingUsd), d: '25M GGBR · 1:1 collateralized', c: C.gold },
+              { l: 'DeFi TVL (working)', v: fmtUSD(a.defiTvlUsd), d: 'staked + LP on-chain', c: C.live },
+              { l: 'Activated', v: fmtPct(a.activatedPct), d: 'of backing in DeFi', c: C.live },
+              { l: 'Dormant Backing', v: fmtUSD(a.dormantUsd), d: 'idle, not earning', c: C.accent },
+            ]} />
+          </div>
+          <div className="grid" style={{ gridTemplateColumns: '1fr 1.3fr', gap: 16, marginTop: 16 }}>
+            <Panel title="GGBR backing — working vs dormant">
+              <Donut size={190} thickness={32} centerLabel={fmtUSD(a.backingUsd)}
+                items={[{ name: 'Working in DeFi', value: a.defiTvlUsd, color: C.live }, { name: 'Dormant', value: a.dormantUsd, color: C.idle }]} />
+            </Panel>
+            <Panel title="GoldFish is already ahead of the gold category on activation" sub="% of gold backing put to work on-chain">
+              <CmpBar fmt={(v)=>fmtPct(v,2)} max={Math.max(a.activatedPct, D.demand.categoryActivationPct)}
+                rows={[
+                  { label: 'GoldFish (GGBR)', value: a.activatedPct, color: C.live },
+                  { label: 'Tokenized-gold category', value: D.demand.categoryActivationPct, color: C.idle },
+                ]} />
+              <div style={{ marginTop: 14, fontSize: 12, color: 'var(--fg-muted)' }}>GoldFish share of all tokenized gold: <b style={{color:'var(--fg)'}}>{fmtPct(a.ggbrSharePct,2)}</b> ({fmtUSD(a.backingUsd)} of {fmtUSD(a.tokGoldTotalUsd)})</div>
+            </Panel>
+          </div>
+        </section>
+      );
+    }
+
+    // ════════ 2. GOLD DEMAND ════════
+    function Demand() {
+      const d = D.demand;
+      const active = d.markets.filter(m => !m.ghost && m.supplyUsd > 0);
+      const borrowing = active.filter(m => m.borrowUsd > 0);
+      // supply-weighted utilization — reflects the markets that actually hold liquidity
+      const avgUtil = borrowing.reduce((s,m)=>s+m.util*m.supplyUsd,0) / (borrowing.reduce((s,m)=>s+m.supplyUsd,0)||1);
+      const lead = [...active].sort((a,b)=>b.supplyUsd-a.supplyUsd);
+      return (
+        <section style={{ padding: 24 }}>
+          <h1 className="h1">Is there demand to lend against gold?</h1>
+          <p className="sub" style={{ marginTop: 6 }}>$4.5B of tokenized gold exists, but ~0.1% is productively lent — a greenfield where the little that exists runs ~90% utilized.</p>
+          <div style={{ marginTop: 20 }}>
+            <KpiRow items={[
+              { l: 'Tokenized Gold Mcap', v: fmtUSD(d.tokGoldTotalUsd), d: 'XAUt + PAXG', c: C.gold },
+              { l: 'Productively Lent', v: fmtUSD(d.productiveDefiUsd), d: 'gold-collateral DeFi', c: C.live },
+              { l: 'Category Activation', v: fmtPct(d.categoryActivationPct,2), d: 'of tokenized gold', c: C.accent },
+              { l: 'Active-Market Util', v: fmtPct(avgUtil,0), d: 'demand is saturated', c: C.live },
+            ]} />
+          </div>
+          <div className="grid" style={{ gridTemplateColumns: '1fr 1.3fr', gap: 16, marginTop: 16 }}>
+            <Panel title="Idle vs productive tokenized gold">
+              <Donut size={190} thickness={32} centerLabel={fmtUSD(d.tokGoldTotalUsd)}
+                items={[{ name: 'Idle (not in DeFi)', value: d.idleUsd, color: C.idle }, { name: 'Productively lent', value: d.productiveDefiUsd, color: C.live }]} />
+            </Panel>
+            <Panel title="Gold-collateral lending markets (Morpho)" sub="supply $ · utilization">
+              <Leaderboard format={fmtUSD}
+                items={lead.map(m => ({ name: `${m.market} · ${m.chain} · ${m.util.toFixed(0)}% util`, value: m.supplyUsd, dot: m.util >= 80 ? C.live : C.accent }))} />
+            </Panel>
+          </div>
+        </section>
+      );
+    }
+
+    // ════════ 3. WARM LEADS ════════
+    function Leads() {
+      const L = D.leads;
+      const td = { padding: '9px 10px', fontSize: 13, borderBottom: '1px solid var(--border)' };
+      const th = { textAlign: 'left', padding: '8px 10px', fontSize: 11, color: 'var(--fg-muted)', textTransform: 'uppercase', letterSpacing: '.04em', borderBottom: '1px solid var(--border)' };
+      const totalRwa = L.reduce((s,l)=>s+l.rwaUsd,0);
+      const totalAum = L.reduce((s,l)=>s+l.aumUsd,0);
+      return (
+        <section style={{ padding: 24 }}>
+          <h1 className="h1">Warm leads — funds that already touch gold/RWA</h1>
+          <p className="sub" style={{ marginTop: 6 }}>Curators already allocating to tokenized RWA. Steakhouse is the only one running tokenized-gold markets today.</p>
+          <div style={{ marginTop: 20 }}>
+            <KpiRow items={[
+              { l: 'RWA-Comfortable Curators', v: String(L.length), d: 'on Morpho', c: C.blue },
+              { l: 'Combined AUM', v: fmtUSD(totalAum), d: 'addressable supply', c: C.gold },
+              { l: 'Already in RWA', v: fmtUSD(totalRwa), d: 'live RWA allocations', c: C.live },
+              { l: 'Gold-Active Today', v: String(L.filter(l=>l.goldActive).length), d: 'Steakhouse only', c: C.accent },
+            ]} />
+          </div>
+          <div style={{ marginTop: 16 }}>
+            <Panel title="Curators by current RWA allocation" sub="◆ = already runs tokenized-gold markets">
+              <Leaderboard format={fmtUSD}
+                items={L.map(l => ({ name: l.name + (l.goldActive ? '  ◆ gold-active' : ''), value: l.rwaUsd, dot: l.goldActive ? C.gold : C.blue }))} />
+            </Panel>
+          </div>
+          <div style={{ marginTop: 16 }}>
+            <Panel title="Outreach list" sub="ranked by RWA appetite">
+              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <thead><tr><th style={th}>Curator</th><th style={{...th, textAlign:'right'}}>RWA $</th><th style={{...th, textAlign:'right'}}>Total AUM</th><th style={th}>Holds (RWA collateral)</th></tr></thead>
+                <tbody>
+                  {L.map(l => (
+                    <tr key={l.name}>
+                      <td style={{...td, fontWeight: 600, whiteSpace: 'nowrap'}}>{l.name}{l.goldActive && <span title="already runs gold markets" style={{ color: C.gold, marginLeft: 6 }}>◆</span>}{l.verified && <span style={{ color: C.blue, marginLeft: 5, fontSize: 11 }}>✓</span>}</td>
+                      <td style={{...td, textAlign:'right', fontFamily:'var(--font-mono)'}}>{fmtUSD(l.rwaUsd)}</td>
+                      <td style={{...td, textAlign:'right', fontFamily:'var(--font-mono)', color:'var(--fg-muted)'}}>{fmtUSD(l.aumUsd)}</td>
+                      <td style={{...td, fontSize: 11, color:'var(--fg-muted)'}}>{l.holds.join(', ')}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </Panel>
+          </div>
+        </section>
+      );
+    }
+
+    const NAV = [
+      { id: 'activation', label: 'Activation Gap', C: Activation },
+      { id: 'demand', label: 'Gold Demand', C: Demand },
+      { id: 'leads', label: 'Warm Leads', C: Leads },
+    ];
+    function App() {
+      const [active, setActive] = useState('activation');
+      const Page = NAV.find(n => n.id === active).C;
+      return (
+        <>
+          <aside className="sidebar">
+            <div className="brand"><div className="brand-logo" style={{ background: 'var(--yellow)' }}></div><div className="brand-name">goldfish · growth</div></div>
+            <nav className="nav">{NAV.map(n => (
+              <a key={n.id} href="#" className={`nav-item ${active===n.id?'active':''}`} onClick={e=>{e.preventDefault();setActive(n.id);}}>{n.label}</a>
+            ))}</nav>
+          </aside>
+          <header className="topbar"><div className="breadcrumb"><span>GoldFish TVL Growth</span><span className="sep">/</span><span style={{ color: 'var(--fg)' }}>{NAV.find(n=>n.id===active).label}</span></div></header>
+          <main className="main"><Page /></main>
+          <footer className="statusbar"><span>GOLDFISH GROWTH</span><span>· sources: Morpho · CoinGecko · Dune (goldfishgold) · {D.meta.generated.slice(0,10)}</span></footer>
+        </>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
