@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-06-11T15:00:00Z"
+    "generated": "2026-06-11T16:00:00Z"
   },
   "ggbr": {
     "supply": 25000000,
@@ -114,145 +114,162 @@
     ],
     "tranchers": [
       {
-        "name": "Maple Finance",
-        "chain": "Ethereum, Solana, Arbitrum",
-        "model": "Pool-Delegate first-loss (junior buffer)",
-        "focus": "Institutional credit; syrupUSDC",
-        "fit": "Med-High",
+        "name": "Maple",
+        "star": false,
+        "x": "https://x.com/maplefinance",
         "site": "https://maple.finance",
-        "twitter": "https://x.com/maplefinance",
-        "note": "Largest TVL but more permissioned / OC-leaning",
-        "llama": [
-          "Maple"
+        "tvlUsd": 3999478474,
+        "poolCount": 2,
+        "seniorSym": "USDT",
+        "seniorApy": 4.38252,
+        "juniorSym": "USDC",
+        "juniorApy": 4.75759,
+        "spreadPct": 0.37507,
+        "chains": [
+          "Ethereum"
         ],
-        "tvlUsd": 2013768669.7860332,
-        "status": "Active · large"
+        "fees30dUsd": 9086547
       },
       {
         "name": "Centrifuge",
-        "chain": "Ethereum + multi",
-        "model": "DROP (senior) / TIN (junior)",
-        "focus": "Structured RWA credit; tokenized JH AAA CLO (JAAA)",
-        "fit": "High",
+        "star": false,
+        "x": "https://x.com/centrifuge",
         "site": "https://centrifuge.io",
-        "twitter": "https://x.com/centrifuge",
-        "note": "Best structured-finance tranching; already did JAAA",
-        "llama": [
-          "Centrifuge Protocol",
-          "Centrifuge"
+        "tvlUsd": 1627894861,
+        "poolCount": 19,
+        "seniorSym": "USDC",
+        "seniorApy": 0,
+        "juniorSym": "USDC",
+        "juniorApy": 4.09362,
+        "spreadPct": 4.09362,
+        "chains": [
+          "Ethereum",
+          "Avalanche",
+          "Base",
+          "Plume Mainnet",
+          "Pharos",
+          "Monad",
+          "BSC",
+          "OP Mainnet"
         ],
-        "tvlUsd": 1633956040.310366,
-        "status": "Active · large"
-      },
-      {
-        "name": "Clearpool",
-        "chain": "Ethereum + multi",
-        "model": "Pool first-loss elements",
-        "focus": "Permissioned institutional credit",
-        "fit": "Med",
-        "site": "https://clearpool.finance",
-        "twitter": "https://x.com/ClearpoolFin",
-        "note": "Unsecured lending to trading firms/fintechs",
-        "llama": [
-          "Clearpool TPOOL",
-          "Clearpool Lending",
-          "Clearpool"
-        ],
-        "tvlUsd": 26323046.04046864,
-        "status": "Active"
+        "fees30dUsd": 4349273
       },
       {
         "name": "3jane",
-        "chain": "Ethereum",
-        "model": "USD3 (senior) / sUSD3 (leveraged)",
-        "focus": "Fintech/SMB credit; zkTLS underwriting",
-        "fit": "High",
+        "star": true,
+        "x": "https://x.com/3janexyz",
         "site": "https://3jane.xyz",
-        "twitter": "https://x.com/3janexyz",
-        "note": "Crypto-native tranching, Paradigm-backed — the thread",
-        "llama": [
-          "3Jane Lending",
-          "3Jane"
+        "tvlUsd": 37120781,
+        "poolCount": 2,
+        "seniorSym": "USD3",
+        "seniorApy": 3.27096,
+        "juniorSym": "SUSD3",
+        "juniorApy": 18.75617,
+        "spreadPct": 15.48521,
+        "chains": [
+          "Ethereum"
         ],
-        "tvlUsd": 9724237.632953098,
-        "status": "Active"
-      },
-      {
-        "name": "Wildcat",
-        "chain": "Ethereum",
-        "model": "Configurable undercollateralized lines",
-        "focus": "Build-your-own credit vaults",
-        "fit": "Med",
-        "site": "https://wildcat.finance",
-        "twitter": "https://x.com/WildcatFi",
-        "note": "Highly configurable — flexible GGBR structuring",
-        "llama": [
-          "Wildcat Protocol",
-          "Wildcat"
-        ],
-        "tvlUsd": 7624946.920464179,
-        "status": "Active"
+        "fees30dUsd": 22848
       },
       {
         "name": "Goldfinch",
-        "chain": "Ethereum",
-        "model": "Senior Pool / Backers (junior first-loss)",
-        "focus": "Uncollateralized biz / EM loans",
-        "fit": "Low",
+        "star": false,
+        "x": "https://x.com/goldfinch_fi",
         "site": "https://goldfinch.finance",
-        "twitter": "https://x.com/goldfinch_fi",
-        "note": "Longest-running but TVL collapsed — largely wound down",
-        "llama": [
-          "Goldfinch"
+        "tvlUsd": 36719601,
+        "poolCount": 1,
+        "seniorSym": "USDC",
+        "seniorApy": 10.1233,
+        "juniorSym": "USDC",
+        "juniorApy": 10.1233,
+        "spreadPct": 0,
+        "chains": [
+          "Ethereum"
         ],
-        "tvlUsd": 1659898.8871675765,
-        "status": "Winding down"
+        "fees30dUsd": 97339
       },
       {
-        "name": "TrueFi",
-        "chain": "Ethereum, Arbitrum",
-        "model": "Up to 3 tranches (Sr / Mezz / Jr)",
-        "focus": "Uncollateralized institutional",
-        "fit": "Low",
-        "site": "https://truefi.io",
-        "twitter": "https://x.com/TrueFiDAO",
-        "note": "Most flexible multi-tranche, but near-empty now",
-        "llama": [
-          "TrueFi"
+        "name": "Clearpool",
+        "star": false,
+        "x": "https://x.com/ClearpoolFin",
+        "site": "https://clearpool.finance",
+        "tvlUsd": 28255279,
+        "poolCount": 4,
+        "seniorSym": "USDC",
+        "seniorApy": 0,
+        "juniorSym": "USDT",
+        "juniorApy": 12.5638,
+        "spreadPct": 12.5638,
+        "chains": [
+          "Flare",
+          "Ethereum",
+          "Mantle"
         ],
-        "tvlUsd": 21733.45255982603,
-        "status": "Dormant"
+        "fees30dUsd": 79513
       },
       {
         "name": "Credix",
-        "chain": "Solana",
-        "model": "Deal-level tranching (up to 10)",
-        "focus": "EM private credit / receivables",
-        "fit": "Low",
+        "star": false,
+        "x": "https://x.com/credixfinance",
         "site": "https://credix.finance",
-        "twitter": "https://x.com/credixfinance",
-        "note": "Solana, institutional — but dormant",
-        "llama": [
-          "Credix"
+        "tvlUsd": 13529316,
+        "poolCount": 1,
+        "seniorSym": "USDC",
+        "seniorApy": 0.11494,
+        "juniorSym": "USDC",
+        "juniorApy": 0.11494,
+        "spreadPct": 0,
+        "chains": [
+          "Solana"
         ],
-        "tvlUsd": 1.0001207466875015,
-        "status": "Dormant"
+        "fees30dUsd": 0
       },
       {
-        "name": "Qiro Finance",
-        "chain": "Aptos + Plume",
-        "model": "Senior / Junior (underwriter first-loss)",
-        "focus": "EM fintech/SME credit",
-        "fit": "Med",
-        "site": "https://qiro.fi",
-        "twitter": "https://x.com/QiroFinance",
-        "note": "Newer; tranche-level underwriting w/ skin-in-the-game",
-        "llama": [
-          "Qiro",
-          "Qiro Finance"
+        "name": "Wildcat",
+        "star": false,
+        "x": "https://x.com/WildcatFi",
+        "site": "https://wildcat.finance",
+        "tvlUsd": 6742205,
+        "poolCount": 32,
+        "seniorSym": "WMTWETH",
+        "seniorApy": 3.75,
+        "juniorSym": "KPHOENIXUSDC",
+        "juniorApy": 50,
+        "spreadPct": 46.25,
+        "chains": [
+          "Ethereum"
         ],
+        "fees30dUsd": 1645420
+      },
+      {
+        "name": "TrueFi",
+        "star": false,
+        "x": "https://x.com/TrueFiDAO",
+        "site": "https://truefi.io",
+        "tvlUsd": 21733.45255982603,
+        "poolCount": 0,
+        "seniorSym": null,
+        "seniorApy": null,
+        "juniorSym": null,
+        "juniorApy": null,
+        "spreadPct": null,
+        "chains": [],
+        "fees30dUsd": 0
+      },
+      {
+        "name": "Qiro",
+        "star": false,
+        "x": "https://x.com/QiroFinance",
+        "site": "https://qiro.fi",
         "tvlUsd": null,
-        "status": "Untracked (new)"
+        "poolCount": 0,
+        "seniorSym": null,
+        "seniorApy": null,
+        "juniorSym": null,
+        "juniorApy": null,
+        "spreadPct": null,
+        "chains": [],
+        "fees30dUsd": 0
       }
     ],
     "issuers": [
@@ -278,19 +295,19 @@
     "defiTvlUsd": 6200000,
     "dormantUsd": 98011250,
     "activatedPct": 5.949453633844715,
-    "tokGoldTotalUsd": 4496857413,
-    "ggbrSharePct": 2.3174239347401784
+    "tokGoldTotalUsd": 4497835305,
+    "ggbrSharePct": 2.3169200945208908
   },
   "demand": {
     "tokGold": {
-      "XAUt": 2574007712,
-      "PAXG": 1922849701,
-      "goldOz": 4209.05
+      "XAUt": 2574444349,
+      "PAXG": 1923390956,
+      "goldOz": 4209.7
     },
-    "tokGoldTotalUsd": 4496857413,
+    "tokGoldTotalUsd": 4497835305,
     "goldCollateralUsd": 62476376,
-    "idleUsd": 4434381037,
-    "categoryActivationPct": 1.389334156324071,
+    "idleUsd": 4435358929,
+    "categoryActivationPct": 1.389032095740553,
     "byProtocol": {
       "Aave": 47511414,
       "Morpho": 8153629,
@@ -445,26 +462,26 @@
     "vaultCuration": [
       {
         "curator": "Direct / unregistered",
-        "usd": 104651.11405011533,
+        "usd": 104650.8293554264,
         "named": false
       },
       {
         "curator": "Steakhouse Financial",
-        "usd": 960.5751066580074,
+        "usd": 960.5717327730441,
         "named": true
       }
     ],
-    "vaultSupplyTotalUsd": 105611.68915677333,
-    "fundCuratedUsd": 960.5751066580074,
-    "curatorCapacityUsd": 65482583.24044913,
-    "curatorDeployedUsd": 960.5751066580074,
+    "vaultSupplyTotalUsd": 105611.40108819943,
+    "fundCuratedUsd": 960.5717327730441,
+    "curatorCapacityUsd": 65482445.63738218,
+    "curatorDeployedUsd": 960.5717327730441,
     "enabledMarkets": [
       {
         "curator": "Steakhouse Financial",
         "vault": "Steakhouse High Yield USDC",
         "market": "XAUt0/USDC",
-        "capUsd": 19996897.11296028,
-        "deployedUsd": 745.3153565896239
+        "capUsd": 19996788.057560097,
+        "deployedUsd": 745.3119818149785
       },
       {
         "curator": "August Digital",
@@ -477,8 +494,8 @@
         "curator": "Steakhouse Financial",
         "vault": "Steakhouse USDT",
         "market": "XAUt/USDT",
-        "capUsd": 9994132.800604817,
-        "deployedUsd": 1.1424553051824182
+        "capUsd": 9994105.612350758,
+        "deployedUsd": 1.142456194864652
       },
       {
         "curator": "Steakhouse Financial",
@@ -505,7 +522,7 @@
         "curator": "SingularV",
         "vault": "SingularV USDT",
         "market": "XAUt/USDT",
-        "capUsd": 499706.6400302409,
+        "capUsd": 499705.2806175379,
         "deployedUsd": 0
       },
       {
@@ -519,8 +536,8 @@
     "readyCurators": [
       {
         "curator": "Steakhouse Financial",
-        "capUsd": 44986267.29315235,
-        "deployedUsd": 960.5751066580074,
+        "capUsd": 44986131.04949811,
+        "deployedUsd": 960.5717327730441,
         "markets": 6
       },
       {
@@ -531,21 +548,21 @@
       },
       {
         "curator": "SingularV",
-        "capUsd": 499706.6400302409,
+        "capUsd": 499705.2806175379,
         "deployedUsd": 0,
         "markets": 1
       }
     ],
-    "morphoProductiveUsd": 3737838.3966845227,
-    "morphoBorrowUsd": 3314916.8556430377,
+    "morphoProductiveUsd": 3737842.544227937,
+    "morphoBorrowUsd": 3314920.5736323628,
     "markets": [
       {
         "market": "PAXG/USDC",
         "collateral": "PAXG",
         "chain": "Ethereum",
-        "supplyUsd": 1220329563.6971462,
-        "borrowUsd": 1220329563.6971462,
-        "collateralUsd": 245.57188081371328,
+        "supplyUsd": 1220322908.488182,
+        "borrowUsd": 1220322908.488182,
+        "collateralUsd": 245.67598999312315,
         "util": 100,
         "ghost": true
       },
@@ -553,9 +570,9 @@
         "market": "XAUt/USDT",
         "collateral": "XAUt",
         "chain": "Ethereum",
-        "supplyUsd": 3107557.8491540775,
-        "borrowUsd": 2797972.746516002,
-        "collateralUsd": 7175458.810087644,
+        "supplyUsd": 3107549.3952867943,
+        "borrowUsd": 2797965.1348506976,
+        "collateralUsd": 7178356.445690951,
         "util": 90.03767209925476,
         "ghost": false
       },
@@ -563,9 +580,9 @@
         "market": "PAXG/PYUSD",
         "collateral": "PAXG",
         "chain": "Ethereum",
-        "supplyUsd": 327323.080814386,
-        "borrowUsd": 295162.03603148676,
-        "collateralUsd": 527915.8851370175,
+        "supplyUsd": 327335.3058704142,
+        "borrowUsd": 295173.0599177917,
+        "collateralUsd": 528139.6928849443,
         "util": 90.17452582235205,
         "ghost": false
       },
@@ -595,7 +612,7 @@
         "chain": "Ethereum",
         "supplyUsd": 18704.754679263515,
         "borrowUsd": 1.2559287131055095,
-        "collateralUsd": 41990.17435772914,
+        "collateralUsd": 42007.131074704084,
         "util": 0.0067144890945715,
         "ghost": false
       },
@@ -605,7 +622,7 @@
         "chain": "Ethereum",
         "supplyUsd": 15033.889314489319,
         "borrowUsd": 0.9160860851825211,
-        "collateralUsd": 3.471170470286492,
+        "collateralUsd": 3.4726420585972377,
         "util": 0.0060934736582077,
         "ghost": false
       },
@@ -613,8 +630,8 @@
         "market": "XAUt0/USDT0",
         "collateral": "XAUt0",
         "chain": "Arbitrum One",
-        "supplyUsd": 12938.014132853095,
-        "borrowUsd": 10659.293601269532,
+        "supplyUsd": 12938.446026382986,
+        "borrowUsd": 10659.649427124436,
         "collateralUsd": 24948.522929545696,
         "util": 82.38740112520607,
         "ghost": false
@@ -623,8 +640,8 @@
         "market": "XAUt0/USDC",
         "collateral": "XAUt0",
         "chain": "Arbitrum One",
-        "supplyUsd": 10183.85965753152,
-        "borrowUsd": 9178.777821497508,
+        "supplyUsd": 10183.804118670463,
+        "borrowUsd": 9178.72776396694,
         "collateralUsd": 18478.46077225264,
         "util": 90.13063936627701,
         "ghost": false

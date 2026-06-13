@@ -157,28 +157,49 @@ const rwaCurators = cur.map((c) => {
 // (b) CREDIT-TRANCHING protocols that could structure a GGBR senior/junior product.
 // Metadata is curated; TVL + status are pulled LIVE from DefiLlama (research corrected:
 // Goldfinch/TrueFi/Credix have wound down — flag them so outreach doesn't chase ghosts).
-let llamaTvl = {};
+// All metrics pulled LIVE on-chain (DefiLlama): yields pools (tranche-level TVL + APY),
+// protocol TVL, and 30d fees (interest actually flowing). No editorial ratings.
+let yieldsAll = [], protosAll = [], feesByName = {};
+try { yieldsAll = (await (await fetch("https://yields.llama.fi/pools")).json()).data || []; } catch {}
+try { protosAll = await (await fetch("https://api.llama.fi/protocols")).json(); } catch {}
 try {
-  const protos = await (await fetch("https://api.llama.fi/protocols")).json();
-  for (const p of protos) llamaTvl[(p.name || "").toLowerCase()] = p.tvl || 0;
-} catch { /* tvl stays unknown */ }
-const tvlOf = (names) => { for (const n of names) { const v = llamaTvl[n.toLowerCase()]; if (v != null) return v; } return null; };
-const statusOf = (tvl) => tvl == null ? "Untracked (new)" : tvl >= 100e6 ? "Active · large" : tvl >= 3e6 ? "Active" : tvl >= 0.5e6 ? "Winding down" : "Dormant";
+  const fd = await (await fetch("https://api.llama.fi/overview/fees?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true")).json();
+  for (const p of (fd.protocols || [])) feesByName[(p.name || "").toLowerCase()] = p.total30d || 0;
+} catch {}
 
-const tranchers = [
-  { name: "Centrifuge", chain: "Ethereum + multi", model: "DROP (senior) / TIN (junior)", focus: "Structured RWA credit; tokenized JH AAA CLO (JAAA)", fit: "High", site: "https://centrifuge.io", twitter: "https://x.com/centrifuge", note: "Best structured-finance tranching; already did JAAA", llama: ["Centrifuge Protocol", "Centrifuge"] },
-  { name: "3jane", chain: "Ethereum", model: "USD3 (senior) / sUSD3 (leveraged)", focus: "Fintech/SMB credit; zkTLS underwriting", fit: "High", site: "https://3jane.xyz", twitter: "https://x.com/3janexyz", note: "Crypto-native tranching, Paradigm-backed — the thread", llama: ["3Jane Lending", "3Jane"] },
-  { name: "Maple Finance", chain: "Ethereum, Solana, Arbitrum", model: "Pool-Delegate first-loss (junior buffer)", focus: "Institutional credit; syrupUSDC", fit: "Med-High", site: "https://maple.finance", twitter: "https://x.com/maplefinance", note: "Largest TVL but more permissioned / OC-leaning", llama: ["Maple"] },
-  { name: "Clearpool", chain: "Ethereum + multi", model: "Pool first-loss elements", focus: "Permissioned institutional credit", fit: "Med", site: "https://clearpool.finance", twitter: "https://x.com/ClearpoolFin", note: "Unsecured lending to trading firms/fintechs", llama: ["Clearpool TPOOL", "Clearpool Lending", "Clearpool"] },
-  { name: "Wildcat", chain: "Ethereum", model: "Configurable undercollateralized lines", focus: "Build-your-own credit vaults", fit: "Med", site: "https://wildcat.finance", twitter: "https://x.com/WildcatFi", note: "Highly configurable — flexible GGBR structuring", llama: ["Wildcat Protocol", "Wildcat"] },
-  { name: "Qiro Finance", chain: "Aptos + Plume", model: "Senior / Junior (underwriter first-loss)", focus: "EM fintech/SME credit", fit: "Med", site: "https://qiro.fi", twitter: "https://x.com/QiroFinance", note: "Newer; tranche-level underwriting w/ skin-in-the-game", llama: ["Qiro", "Qiro Finance"] },
-  { name: "Goldfinch", chain: "Ethereum", model: "Senior Pool / Backers (junior first-loss)", focus: "Uncollateralized biz / EM loans", fit: "Low", site: "https://goldfinch.finance", twitter: "https://x.com/goldfinch_fi", note: "Longest-running but TVL collapsed — largely wound down", llama: ["Goldfinch"] },
-  { name: "TrueFi", chain: "Ethereum, Arbitrum", model: "Up to 3 tranches (Sr / Mezz / Jr)", focus: "Uncollateralized institutional", fit: "Low", site: "https://truefi.io", twitter: "https://x.com/TrueFiDAO", note: "Most flexible multi-tranche, but near-empty now", llama: ["TrueFi"] },
-  { name: "Credix", chain: "Solana", model: "Deal-level tranching (up to 10)", focus: "EM private credit / receivables", fit: "Low", site: "https://credix.finance", twitter: "https://x.com/credixfinance", note: "Solana, institutional — but dormant", llama: ["Credix"] },
-].map((t) => { const tvl = tvlOf(t.llama); return { ...t, tvlUsd: tvl, status: statusOf(tvl) }; })
- .sort((a, b) => (b.tvlUsd ?? -1) - (a.tvlUsd ?? -1));
+const REG = [
+  { name: "Maple", slugs: ["maple"], x: "https://x.com/maplefinance", site: "https://maple.finance" },
+  { name: "Centrifuge", slugs: ["centrifuge"], x: "https://x.com/centrifuge", site: "https://centrifuge.io" },
+  { name: "3jane", slugs: ["3jane-lending", "3jane"], star: true, x: "https://x.com/3janexyz", site: "https://3jane.xyz" },
+  { name: "Goldfinch", slugs: ["goldfinch"], x: "https://x.com/goldfinch_fi", site: "https://goldfinch.finance" },
+  { name: "Clearpool", slugs: ["clearpool"], x: "https://x.com/ClearpoolFin", site: "https://clearpool.finance" },
+  { name: "Credix", slugs: ["credix"], x: "https://x.com/credixfinance", site: "https://credix.finance" },
+  { name: "Wildcat", slugs: ["wildcat"], x: "https://x.com/WildcatFi", site: "https://wildcat.finance" },
+  { name: "TrueFi", slugs: ["truefi"], x: "https://x.com/TrueFiDAO", site: "https://truefi.io" },
+  { name: "Qiro", slugs: ["qiro"], x: "https://x.com/QiroFinance", site: "https://qiro.fi" },
+];
+const tranchers = REG.map((r) => {
+  const pools = yieldsAll.filter((p) => {
+    const pj = (p.project || "").toLowerCase();
+    return r.slugs.some((s) => pj.startsWith(s)) && !pj.includes("options");
+  });
+  const poolTvl = pools.reduce((s, p) => s + (p.tvlUsd || 0), 0);
+  const withApy = pools.filter((p) => p.apy != null).sort((a, b) => a.apy - b.apy);
+  const senior = withApy[0] || null, junior = withApy[withApy.length - 1] || null;
+  const chains = [...new Set(pools.map((p) => p.chain))];
+  let fees30d = 0; for (const k in feesByName) if (r.slugs.some((s) => k.startsWith(s))) fees30d += feesByName[k];
+  let protoTvl = null;
+  if (!pools.length) { const pp = protosAll.find((p) => r.slugs.some((s) => (p.name || "").toLowerCase().startsWith(s))); protoTvl = pp ? pp.tvl : null; }
+  return {
+    name: r.name, star: !!r.star, x: r.x, site: r.site,
+    tvlUsd: pools.length ? poolTvl : protoTvl, poolCount: pools.length,
+    seniorSym: senior ? senior.symbol : null, seniorApy: senior ? senior.apy : null,
+    juniorSym: junior ? junior.symbol : null, juniorApy: junior ? junior.apy : null,
+    spreadPct: (senior && junior) ? junior.apy - senior.apy : null,
+    chains, fees30dUsd: fees30d,
+  };
+}).sort((a, b) => (b.tvlUsd ?? -1) - (a.tvlUsd ?? -1));
 
-// (c) RWA collateral ISSUERS (source the gold/credit collateral, not tranchers) — secondary.
 const issuers = [
   { name: "Midas", what: "mF-ONE / mBASIS / mHYPER / mTBILL", site: "https://midas.app" },
   { name: "Superstate", what: "USTB / USCC", site: "https://superstate.co" },

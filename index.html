@@ -39,7 +39,7 @@
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
   <script src="lending_curators.data.js?v=20260610183500"></script>
-  <script src="goldfish.data.js?v=20260611150000"></script>
+  <script src="goldfish.data.js?v=20260611160000"></script>
   <script type="text/babel" src="charts.jsx"></script>
   <script type="text/babel" src="widgets.jsx"></script>
 
@@ -502,22 +502,61 @@
       const A = ({ href, children }) => href ? <a href={href} target="_blank" rel="noopener" style={{ color: GC.blue, textDecoration: 'none' }}>{children}</a> : <span style={{ color: 'var(--fg-dim)' }}>—</span>;
       const fitColor = (f) => f === 'High' ? GC.live : f.startsWith('Med-High') ? GC.gold : GC.accent;
       const totalRwa = P.curators.reduce((s, c) => s + c.rwaUsd, 0);
-      const totalAum = P.curators.reduce((s, c) => s + c.aumUsd, 0);
+      const T = P.tranchers || [];
+      const activeT = T.filter(t => t.poolCount > 0);
+      const creditTvl = T.reduce((s, t) => s + (t.tvlUsd || 0), 0);
+      const apyFmt = (v) => v == null ? '—' : v.toFixed(1) + '%';
       return (
         <section style={{ padding: 24 }}>
-          <h1 className="h1">GoldFish · RWA partners for a GGBR/USDC vault</h1>
-          <p className="sub" style={{ marginTop: 6 }}>GGBR is credit-like RWA (in-situ gold claim), not vaulted gold — so the realistic partners are RWA/credit specialists, not blue-chip gold curators. Two groups: curators who can <b>run</b> the vault, and credit structurers who can <b>co-build</b> it.</p>
+          <h1 className="h1">GoldFish · RWA partners — on-chain data</h1>
+          <p className="sub" style={{ marginTop: 6 }}>Live on-chain metrics (DefiLlama). Credit-tranching protocols that could structure a GGBR senior/junior product, and RWA curators that could run the vault.</p>
           <div style={{ marginTop: 20 }}>
             <GKpiRow items={[
-              { l: 'RWA Curators', v: String(P.curators.length), d: 'can run a GGBR vault', c: GC.blue },
-              { l: 'Their RWA AUM', v: fmtUSD(totalRwa), d: 'live RWA allocations', c: GC.live },
-              { l: 'Tranching Protocols', v: String((P.tranchers||[]).filter(t=>t.status.startsWith('Active')).length), d: 'active · could structure GGBR', c: GC.gold },
-              { l: 'High-Fit & Active', v: String((P.tranchers||[]).filter(t=>t.fit==='High'&&t.status.startsWith('Active')).length), d: '3jane · Centrifuge', c: GC.accent },
+              { l: 'RWA Curators', v: String(P.curators.length), d: 'hold RWA · can run a vault', c: GC.blue },
+              { l: 'Curator RWA AUM', v: fmtUSD(totalRwa), d: 'live RWA allocations', c: GC.live },
+              { l: 'Credit-Tranching Protocols', v: String(activeT.length) + '/' + String(T.length), d: 'active / listed', c: GC.gold },
+              { l: 'Combined Credit TVL', v: fmtUSD(creditTvl), d: 'on-chain, all protocols', c: GC.accent },
             ]} />
           </div>
 
           <div style={{ marginTop: 16 }}>
-            <GPanel title="RWA curators — can run a GGBR/USDC vault on Morpho" sub="ranked by live RWA appetite · contacts actionable">
+            <GPanel title="Credit-tranching protocols — on-chain metrics" sub="DefiLlama live · TVL · tranche APY (senior→junior) · 30d fees">
+              <div style={{ overflowX: 'auto' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 720 }}>
+                <thead><tr>
+                  <th style={gth}>Protocol</th>
+                  <th style={{...gth,textAlign:'right'}}>TVL</th>
+                  <th style={{...gth,textAlign:'right'}}>Pools</th>
+                  <th style={{...gth,textAlign:'right'}}>Senior APY</th>
+                  <th style={{...gth,textAlign:'right'}}>Junior APY</th>
+                  <th style={{...gth,textAlign:'right'}}>Spread</th>
+                  <th style={{...gth,textAlign:'right'}}>Fees 30d</th>
+                  <th style={gth}>Contact</th>
+                </tr></thead>
+                <tbody>
+                  {T.map(f => {
+                    const dead = !f.poolCount;
+                    return (
+                    <tr key={f.name} style={{ opacity: dead ? 0.5 : 1 }}>
+                      <td style={{...gtd, fontWeight:600, whiteSpace:'nowrap'}}>{f.name}{f.star && <span title="your thread" style={{ color: GC.gold, marginLeft:6 }}>◆</span>}<div style={{fontSize:11, fontWeight:400, color:'var(--fg-dim)'}}>{(f.chains||[]).slice(0,3).join(', ') || '—'}</div></td>
+                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)'}}>{f.tvlUsd==null ? '—' : fmtUSD(f.tvlUsd)}</td>
+                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color:'var(--fg-muted)'}}>{f.poolCount||'—'}</td>
+                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)'}}>{apyFmt(f.seniorApy)}{f.seniorSym && <div style={{fontSize:10, color:'var(--fg-dim)'}}>{f.seniorSym}</div>}</td>
+                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)'}}>{apyFmt(f.juniorApy)}{f.juniorSym && f.juniorSym!==f.seniorSym && <div style={{fontSize:10, color:'var(--fg-dim)'}}>{f.juniorSym}</div>}</td>
+                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color: f.spreadPct>=3 ? GC.gold : 'var(--fg-muted)', fontWeight: f.spreadPct>=3?600:400}}>{f.spreadPct==null ? '—' : f.spreadPct.toFixed(1)+'%'}</td>
+                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color:'var(--fg-muted)'}}>{fmtUSD(f.fees30dUsd||0)}</td>
+                      <td style={{...gtd, fontSize:12, whiteSpace:'nowrap'}}><A href={f.x}>X</A> · <A href={f.site}>site</A></td>
+                    </tr>
+                  );})}
+                </tbody>
+              </table>
+              </div>
+              <div style={{ marginTop: 10, fontSize: 11, color: 'var(--fg-dim)' }}>Spread = junior APY − senior APY (genuine tranching). 0 pools = no live on-chain pools. RWA collateral issuers: {(P.issuers||[]).map((s,i)=>(<span key={s.name}>{i>0 && ' · '}<A href={s.site}>{s.name}</A></span>))}</div>
+            </GPanel>
+          </div>
+
+          <div style={{ marginTop: 16 }}>
+            <GPanel title="RWA curators — can run a GGBR/USDC vault on Morpho" sub="on-chain RWA allocation · total AUM · contacts">
               <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead><tr><th style={gth}>Curator</th><th style={{...gth,textAlign:'right'}}>RWA $</th><th style={{...gth,textAlign:'right'}}>Total AUM</th><th style={gth}>RWA they hold</th><th style={gth}>Contact</th></tr></thead>
                 <tbody>
@@ -533,36 +572,6 @@
                 </tbody>
               </table>
             </GPanel>
-          </div>
-
-          <div style={{ marginTop: 16 }}>
-            <GPanel title="Credit-tranching protocols — could structure GGBR senior/junior" sub="TVL live (DefiLlama) · ranked by size · status flags wound-down ones">
-              <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 640 }}>
-                <thead><tr><th style={gth}>Protocol</th><th style={gth}>Chain</th><th style={gth}>Tranche model</th><th style={{...gth,textAlign:'right'}}>TVL</th><th style={{...gth,textAlign:'center'}}>Status</th><th style={{...gth,textAlign:'center'}}>Fit</th><th style={gth}>Contact</th></tr></thead>
-                <tbody>
-                  {(P.tranchers||[]).map(f => {
-                    const dim = f.status==='Dormant' || f.status==='Winding down';
-                    const stColor = f.status.startsWith('Active') ? GC.live : f.status==='Winding down' ? GC.accent : f.status==='Dormant' ? GC.danger : 'var(--fg-muted)';
-                    return (
-                    <tr key={f.name} style={{ opacity: dim ? 0.55 : 1 }}>
-                      <td style={{...gtd, fontWeight:600, whiteSpace:'nowrap'}}>{f.name}{f.name==='3jane' && <span title="your thread" style={{ color: GC.gold, marginLeft:6 }}>◆</span>}<div style={{fontSize:11, fontWeight:400, color:'var(--fg-dim)'}}>{f.focus}</div></td>
-                      <td style={{...gtd, fontSize:11, color:'var(--fg-muted)', whiteSpace:'nowrap'}}>{f.chain}</td>
-                      <td style={{...gtd, fontSize:12}}>{f.model}</td>
-                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)'}}>{f.tvlUsd==null ? '—' : fmtUSD(f.tvlUsd)}</td>
-                      <td style={{...gtd, textAlign:'center', fontSize:11, color: stColor, whiteSpace:'nowrap'}}>{f.status}</td>
-                      <td style={{...gtd, textAlign:'center', fontSize:12, fontWeight:600, color: fitColor(f.fit)}}>{f.fit}</td>
-                      <td style={{...gtd, fontSize:12, whiteSpace:'nowrap'}}><A href={f.twitter}>X</A> · <A href={f.site}>site</A></td>
-                    </tr>
-                  );})}
-                </tbody>
-              </table>
-              </div>
-              <div style={{ marginTop: 10, fontSize: 11, color: 'var(--fg-dim)' }}>RWA collateral issuers (source, not tranchers): {(P.issuers||[]).map((s,i)=>(<span key={s.name}>{i>0 && ' · '}<A href={s.site}>{s.name}</A> ({s.what})</span>))}</div>
-            </GPanel>
-          </div>
-          <div className="panel" style={{ marginTop: 16, padding: 16, fontSize: 13, color: 'var(--fg-muted)', lineHeight: 1.6 }}>
-            <b style={{ color:'var(--fg)' }}>Thread to pull:</b> the realistic structurers are the <b style={{color:GC.live}}>active</b> ones — <b style={{color:GC.gold}}>◆ 3jane</b> (crypto-native senior/leveraged tranching, Paradigm-backed) and <b style={{color:'var(--fg)'}}>Centrifuge</b> (already tokenized the $27B Janus Henderson AAA CLO via DROP/TIN tranching). <b style={{color:GC.danger}}>Skip Goldfinch / TrueFi / Credix</b> — the research lists them, but live TVL shows they've wound down. Maple has the scale ($2B) if a more institutional route is preferred.
           </div>
         </section>
       );
