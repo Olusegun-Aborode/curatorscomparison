@@ -379,45 +379,6 @@
       ))}</div>
     );
 
-    function GFActivation() {
-      const a = GF.activation;
-      return (
-        <section style={{ padding: 24 }}>
-          <h1 className="h1">GoldFish · GGBR supply & on-chain TVL</h1>
-          <p className="sub" style={{ marginTop: 6 }}>Price, supply and mcap live (CoinGecko + DefiLlama). On-chain TVL is GoldFish-reported (Dune) — its composition (staking / LP / lending) is not independently tracked here.</p>
-          <div style={{ marginTop: 20 }}>
-            <GKpiRow items={[
-              { l: 'Circulating Mcap', v: fmtUSD(a.circMcapUsd), d: (a.circSupply/1e6).toFixed(1)+'M GGBR · $'+a.priceUsd.toFixed(2), c: GC.gold },
-              { l: 'On-chain TVL', v: fmtUSD(a.defiTvlUsd), d: 'GoldFish-reported (Dune)', c: GC.live },
-              { l: 'TVL / Circ Mcap', v: fmtPct(a.activatedPct,0), d: 'reported TVL ÷ circulating', c: GC.live },
-              { l: 'FDV', v: fmtUSD(a.fdvUsd), d: (a.totalSupply/1e6).toFixed(0)+'M total · '+fmtUSD(a.unissuedUsd)+' un-issued', c: GC.accent },
-            ]} />
-          </div>
-          <div className="grid" style={{ gridTemplateColumns: '1fr 1.3fr', gap: 16, marginTop: 16 }}>
-            <GPanel title="Circulating mcap split" sub={fmtUSD(a.circMcapUsd)+' circulating'}>
-              <Donut size={190} thickness={32} centerLabel={fmtUSD(a.circMcapUsd)}
-                items={[{ name: 'On-chain TVL (reported)', value: a.defiTvlUsd, color: GC.live }, { name: 'Rest of circulating', value: a.idleCircUsd, color: GC.idle }]} />
-            </GPanel>
-            <GPanel title="GGBR supply & valuation" sub="live market data">
-              <table style={{ width:'100%', borderCollapse:'collapse', fontSize:13 }}><tbody>
-                {[
-                  ['Price', '$'+a.priceUsd.toFixed(2)],
-                  ['Circulating supply', (a.circSupply/1e6).toFixed(2)+'M GGBR'],
-                  ['Circulating mcap', fmtUSD(a.circMcapUsd)],
-                  ['Total supply', (a.totalSupply/1e6).toFixed(0)+'M GGBR'],
-                  ['FDV', fmtUSD(a.fdvUsd)],
-                  ['Un-issued (FDV − circ)', fmtUSD(a.unissuedUsd)],
-                  ['On-chain TVL (reported)', fmtUSD(a.defiTvlUsd)],
-                ].map(([k,v]) => (
-                  <tr key={k}><td style={{padding:'7px 0', color:'var(--fg-muted)', borderBottom:'1px solid var(--border)'}}>{k}</td><td style={{padding:'7px 0', textAlign:'right', fontFamily:'var(--font-mono)', borderBottom:'1px solid var(--border)'}}>{v}</td></tr>
-                ))}
-              </tbody></table>
-            </GPanel>
-          </div>
-        </section>
-      );
-    }
-
     function GFDemand() {
       const d = GF.demand;
       const protoColor = { Aave: GC.accent, Morpho: GC.blue, Fluid: 'var(--purple)', Compound: GC.live, Euler: GC.gold };
@@ -605,7 +566,6 @@
       { id: 'overview', label: 'Overview', C: Overview },
       { id: 'curators', label: 'Curators', C: Curators },
       { id: 'method', label: 'Methodology', C: Method },
-      { id: 'gf-activation', label: 'Activation Gap', C: GFActivation, section: 'GoldFish' },
       { id: 'gf-demand', label: 'Gold Demand', C: GFDemand, section: 'GoldFish' },
       { id: 'gf-rwa', label: 'RWA Partners', C: GFRwaPartners, section: 'GoldFish' },
     ];
