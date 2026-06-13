@@ -39,7 +39,7 @@
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
   <script src="lending_curators.data.js?v=20260611190000"></script>
-  <script src="goldfish.data.js?v=20260611190000"></script>
+  <script src="goldfish.data.js?v=20260611200000"></script>
   <script type="text/babel" src="charts.jsx"></script>
   <script type="text/babel" src="widgets.jsx"></script>
 
@@ -498,6 +498,8 @@
 
     function GFRwaPartners() {
       const P = GF.rwaPartners || { curators: [], funds: [] };
+      const [open, setOpen] = useState(() => new Set());
+      const toggle = (n) => setOpen(s => { const x = new Set(s); x.has(n) ? x.delete(n) : x.add(n); return x; });
       const gtd = { padding: '9px 10px', fontSize: 13, borderBottom: '1px solid var(--border)', verticalAlign: 'top' };
       const gth = { textAlign: 'left', padding: '8px 10px', fontSize: 11, color: 'var(--fg-muted)', textTransform: 'uppercase', letterSpacing: '.04em', borderBottom: '1px solid var(--border)' };
       const A = ({ href, children }) => href ? <a href={href} target="_blank" rel="noopener" style={{ color: GC.blue, textDecoration: 'none' }}>{children}</a> : <span style={{ color: 'var(--fg-dim)' }}>-</span>;
@@ -537,22 +539,49 @@
                 <tbody>
                   {T.map(f => {
                     const dead = !f.poolCount;
+                    const has = (f.pools||[]).length > 0;
+                    const isOpen = open.has(f.name);
+                    const sth = { textAlign:'left', padding:'5px 8px', fontSize:10, color:'var(--fg-dim)', textTransform:'uppercase', letterSpacing:'.04em' };
+                    const std = { padding:'5px 8px', fontSize:12, borderTop:'1px solid var(--border)' };
                     return (
-                    <tr key={f.name} style={{ opacity: dead ? 0.5 : 1 }}>
-                      <td style={{...gtd, fontWeight:600, whiteSpace:'nowrap'}}>{f.name}{f.star && <span title="credit tranching (USD3/sUSD3)" style={{ color: GC.gold, marginLeft:6 }}>◆</span>}<div style={{fontSize:11, fontWeight:400, color:'var(--fg-dim)'}}>{(f.chains||[]).slice(0,3).join(', ') || '-'}</div></td>
+                    <React.Fragment key={f.name}>
+                    <tr onClick={() => has && toggle(f.name)} style={{ opacity: dead ? 0.5 : 1, cursor: has ? 'pointer' : 'default', background: isOpen ? 'var(--bg-elev)' : 'transparent' }}>
+                      <td style={{...gtd, fontWeight:600, whiteSpace:'nowrap'}}><span style={{ color:'var(--fg-dim)', marginRight:6, fontSize:10, display:'inline-block', width:8 }}>{has ? (isOpen ? '▾' : '▸') : ''}</span>{f.name}{f.star && <span title="credit tranching (USD3/sUSD3)" style={{ color: GC.gold, marginLeft:6 }}>◆</span>}<div style={{fontSize:11, fontWeight:400, color:'var(--fg-dim)', marginLeft:14}}>{(f.chains||[]).slice(0,3).join(', ') || '-'}</div></td>
                       <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)'}}>{f.tvlUsd==null ? '-' : fmtUSD(f.tvlUsd)}</td>
-                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color:'var(--fg-muted)'}}>{f.poolCount||'-'}</td>
+                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color: has ? GC.blue : 'var(--fg-muted)'}}>{f.poolCount||'-'}</td>
                       <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)'}}>{apyFmt(f.seniorApy)}{f.seniorSym && <div style={{fontSize:10, color:'var(--fg-dim)'}}>{f.seniorSym}</div>}</td>
                       <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)'}}>{apyFmt(f.juniorApy)}{f.juniorSym && f.juniorSym!==f.seniorSym && <div style={{fontSize:10, color:'var(--fg-dim)'}}>{f.juniorSym}</div>}</td>
                       <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color: f.spreadPct>=3 ? GC.gold : 'var(--fg-muted)', fontWeight: f.spreadPct>=3?600:400}}>{f.spreadPct==null ? '-' : f.spreadPct.toFixed(1)+'%'}</td>
                       <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color:'var(--fg-muted)'}}>{fmtUSD(f.fees30dUsd||0)}</td>
-                      <td style={{...gtd, fontSize:12, whiteSpace:'nowrap'}}><A href={f.x}>X</A> · <A href={f.site}>site</A></td>
+                      <td style={{...gtd, fontSize:12, whiteSpace:'nowrap'}} onClick={e=>e.stopPropagation()}><A href={f.x}>X</A> · <A href={f.site}>site</A></td>
                     </tr>
+                    {isOpen && has && (
+                      <tr key={f.name+'-pools'}>
+                        <td colSpan={8} style={{ padding:'0 10px 12px 28px', background:'var(--bg-elev)' }}>
+                          <div style={{ fontSize:11, color:'var(--fg-muted)', padding:'8px 0 2px' }}>{f.pools.length} pools (each = a deposit market / tranche). Click "view" for full DefiLlama composition.</div>
+                          <table style={{ width:'100%', borderCollapse:'collapse' }}>
+                            <thead><tr><th style={sth}>Pool / tranche</th><th style={sth}>Chain</th><th style={{...sth,textAlign:'right'}}>TVL</th><th style={{...sth,textAlign:'right'}}>APY</th><th style={{...sth,textAlign:'right'}}>DefiLlama</th></tr></thead>
+                            <tbody>
+                              {f.pools.map((p,i) => (
+                                <tr key={i}>
+                                  <td style={{...std, fontWeight:600, fontFamily:'var(--font-mono)'}}>{p.symbol}</td>
+                                  <td style={{...std, color:'var(--fg-muted)'}}>{p.chain}</td>
+                                  <td style={{...std, textAlign:'right', fontFamily:'var(--font-mono)'}}>{fmtUSD(p.tvlUsd)}</td>
+                                  <td style={{...std, textAlign:'right', fontFamily:'var(--font-mono)'}}>{p.apy==null?'-':p.apy.toFixed(1)+'%'}</td>
+                                  <td style={{...std, textAlign:'right'}}><a href={'https://defillama.com/yields/pool/'+p.poolId} target="_blank" rel="noopener" style={{color:GC.blue, textDecoration:'none'}}>view</a></td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    )}
+                    </React.Fragment>
                   );})}
                 </tbody>
               </table>
               </div>
-              <div style={{ marginTop: 10, fontSize: 11, color: 'var(--fg-dim)' }}>Spread = junior APY − senior APY (genuine tranching). 0 pools = no live on-chain pools. RWA collateral issuers: {(P.issuers||[]).map((s,i)=>(<span key={s.name}>{i>0 && ' · '}<A href={s.site}>{s.name}</A></span>))}</div>
+              <div style={{ marginTop: 10, fontSize: 11, color: 'var(--fg-dim)' }}>Click a protocol row to expand its pools. Spread = junior APY − senior APY (genuine tranching). 0 pools = no live on-chain pools. RWA collateral issuers: {(P.issuers||[]).map((s,i)=>(<span key={s.name}>{i>0 && ' · '}<A href={s.site}>{s.name}</A></span>))}</div>
             </GPanel>
           </div>
 

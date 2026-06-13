@@ -208,13 +208,17 @@ const tranchers = REG.map((r) => {
   let fees30d = 0; for (const k in feesByName) if (r.slugs.some((s) => k.startsWith(s))) fees30d += feesByName[k];
   let protoTvl = null;
   if (!pools.length) { const pp = protosAll.find((p) => r.slugs.some((s) => (p.name || "").toLowerCase().startsWith(s))); protoTvl = pp ? pp.tvl : null; }
+  // composition: each pool (deposit market / tranche) with TVL, APY, DefiLlama link
+  const poolList = pools
+    .map((p) => ({ symbol: p.symbol, chain: p.chain, tvlUsd: p.tvlUsd || 0, apy: p.apy, apyBase: p.apyBase, poolId: p.pool }))
+    .sort((a, b) => b.tvlUsd - a.tvlUsd);
   return {
     name: r.name, star: !!r.star, x: r.x, site: r.site,
     tvlUsd: pools.length ? poolTvl : protoTvl, poolCount: pools.length,
     seniorSym: senior ? senior.symbol : null, seniorApy: senior ? senior.apy : null,
     juniorSym: junior ? junior.symbol : null, juniorApy: junior ? junior.apy : null,
     spreadPct: (senior && junior) ? junior.apy - senior.apy : null,
-    chains, fees30dUsd: fees30d,
+    chains, fees30dUsd: fees30d, pools: poolList,
   };
 }).sort((a, b) => (b.tvlUsd ?? -1) - (a.tvlUsd ?? -1));
 

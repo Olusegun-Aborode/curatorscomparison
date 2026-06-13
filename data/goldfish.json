@@ -1,13 +1,13 @@
 {
   "meta": {
-    "generated": "2026-06-11T19:00:00Z"
+    "generated": "2026-06-11T20:00:00Z"
   },
   "ggbr": {
     "price": 4.224204510458975,
     "circSupply": 5717206.2854594765,
-    "circMcapUsd": 24188866,
+    "circMcapUsd": 24169759,
     "totalSupply": 25000000,
-    "fdvUsd": 105772230,
+    "fdvUsd": 105688677,
     "backingUsd": 104211250,
     "defiTvlUsd": 6200000,
     "stakedUsd": 1300000,
@@ -121,7 +121,25 @@
         "chains": [
           "Ethereum"
         ],
-        "fees30dUsd": 8922664
+        "fees30dUsd": 8922664,
+        "pools": [
+          {
+            "symbol": "USDC",
+            "chain": "Ethereum",
+            "tvlUsd": 3136238746,
+            "apy": 4.76901,
+            "apyBase": 4.76901,
+            "poolId": "43641cf5-a92e-416b-bce9-27113d3c0db6"
+          },
+          {
+            "symbol": "USDT",
+            "chain": "Ethereum",
+            "tvlUsd": 852074820,
+            "apy": 4.38432,
+            "apyBase": 4.38432,
+            "poolId": "8edfdf02-cdbb-43f7-bca6-954e5fe56813"
+          }
+        ]
       },
       {
         "name": "Centrifuge",
@@ -145,7 +163,161 @@
           "BSC",
           "OP Mainnet"
         ],
-        "fees30dUsd": 4384184
+        "fees30dUsd": 4384184,
+        "pools": [
+          {
+            "symbol": "USDS",
+            "chain": "Ethereum",
+            "tvlUsd": 865767703,
+            "apy": 3.48797,
+            "apyBase": 3.48797,
+            "poolId": "ff1bb959-d160-4906-bad2-d3e37a1e92e8"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "Ethereum",
+            "tvlUsd": 373940126,
+            "apy": 4.09362,
+            "apyBase": 4.09362,
+            "poolId": "325645ce-4e97-49cb-a8e8-d0100c3aea7b"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "Avalanche",
+            "tvlUsd": 259338289,
+            "apy": 4.09362,
+            "apyBase": 4.09362,
+            "poolId": "80359eae-ff65-4fa6-842d-c971dc2928de"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "Base",
+            "tvlUsd": 50008117,
+            "apy": 4.09362,
+            "apyBase": 4.09362,
+            "poolId": "82469f6f-951d-4578-b47e-fb4df326f059"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "Plume Mainnet",
+            "tvlUsd": 32861451,
+            "apy": 0,
+            "apyBase": 0,
+            "poolId": "1dee4660-d688-4800-8e0f-7af0d77bcde1"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "Pharos",
+            "tvlUsd": 15064646,
+            "apy": 3.48797,
+            "apyBase": 3.48797,
+            "poolId": "b7ce5baf-7d76-46f7-8a7b-28b7e72ed2b7"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "Monad",
+            "tvlUsd": 10002420,
+            "apy": 2.2716,
+            "apyBase": 2.2716,
+            "poolId": "e259a7bc-d2b0-41e5-b12d-a3c7b984560c"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "Ethereum",
+            "tvlUsd": 5929004,
+            "apy": 4.089,
+            "apyBase": 4.089,
+            "poolId": "5341535f-29c6-4699-af99-15170bb3dfe4"
+          },
+          {
+            "symbol": "JTRSY",
+            "chain": "Ethereum",
+            "tvlUsd": 5753392,
+            "apy": 3.48522,
+            "apyBase": 3.48522,
+            "poolId": "99181d82-5589-4ae6-b737-594aa11ded9f"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "Monad",
+            "tvlUsd": 4512197,
+            "apy": 3.48797,
+            "apyBase": 3.48797,
+            "poolId": "112f7929-e3ee-487e-a322-c7c8003b312c"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "Base",
+            "tvlUsd": 2141956,
+            "apy": 4.089,
+            "apyBase": 4.089,
+            "poolId": "61813eeb-ed26-44ee-bb0b-059f0faa1dcf"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "Plume Mainnet",
+            "tvlUsd": 547592,
+            "apy": 0,
+            "apyBase": 0,
+            "poolId": "7c4e5b30-e9ee-450d-b162-5994998afd21"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "BSC",
+            "tvlUsd": 507870,
+            "apy": 4.09362,
+            "apyBase": 4.09362,
+            "poolId": "f1624ad2-c2c9-4b9e-ad2f-b0870e94bfb7"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "BSC",
+            "tvlUsd": 506948,
+            "apy": 3.48797,
+            "apyBase": 3.48797,
+            "poolId": "2124efc3-dd88-4cb6-903f-25da0c93aa39"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "Monad",
+            "tvlUsd": 501475,
+            "apy": 4.09362,
+            "apyBase": 4.09362,
+            "poolId": "9a55e93d-a158-4282-aa6d-98a26eae0067"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "Ethereum",
+            "tvlUsd": 385228,
+            "apy": 2.2716,
+            "apyBase": 2.2716,
+            "poolId": "29f92159-0f5c-421d-9e4a-705ae75fcfff"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "OP Mainnet",
+            "tvlUsd": 99683,
+            "apy": 2.26654,
+            "apyBase": 2.26654,
+            "poolId": "0f0a9cb2-5879-4c03-8a28-c25addeaaaf7"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "OP Mainnet",
+            "tvlUsd": 99575,
+            "apy": 2.2716,
+            "apyBase": 2.2716,
+            "poolId": "35285f0e-128c-4a1f-b9cd-f06847971f31"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "Ethereum",
+            "tvlUsd": 19433,
+            "apy": 0.66222,
+            "apyBase": 0.66222,
+            "poolId": "96f04574-7bca-49cc-a0da-93bcdb31dce7"
+          }
+        ]
       },
       {
         "name": "3jane",
@@ -162,7 +334,25 @@
         "chains": [
           "Ethereum"
         ],
-        "fees30dUsd": 23080
+        "fees30dUsd": 23080,
+        "pools": [
+          {
+            "symbol": "USD3",
+            "chain": "Ethereum",
+            "tvlUsd": 29976768,
+            "apy": 3.29376,
+            "apyBase": 3.29376,
+            "poolId": "f8cd444e-d99f-4132-b234-fd3482bf8806"
+          },
+          {
+            "symbol": "SUSD3",
+            "chain": "Ethereum",
+            "tvlUsd": 7519489,
+            "apy": 19.14825,
+            "apyBase": 19.14825,
+            "poolId": "a99bb965-ebaa-4d98-9ed2-fa18de52c605"
+          }
+        ]
       },
       {
         "name": "Goldfinch",
@@ -179,7 +369,17 @@
         "chains": [
           "Ethereum"
         ],
-        "fees30dUsd": 97342
+        "fees30dUsd": 97342,
+        "pools": [
+          {
+            "symbol": "USDC",
+            "chain": "Ethereum",
+            "tvlUsd": 36719036,
+            "apy": 10.1233,
+            "apyBase": 10.1233,
+            "poolId": "c89af47f-032a-4c59-bdc9-17a7f1514a3b"
+          }
+        ]
       },
       {
         "name": "Clearpool",
@@ -198,7 +398,41 @@
           "Ethereum",
           "Mantle"
         ],
-        "fees30dUsd": 79070
+        "fees30dUsd": 79070,
+        "pools": [
+          {
+            "symbol": "USDX",
+            "chain": "Flare",
+            "tvlUsd": 28198541,
+            "apy": 3.49921,
+            "apyBase": 3.49921,
+            "poolId": "be50b874-8147-440d-b8ca-f2c202e9ed64"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "Ethereum",
+            "tvlUsd": 31318,
+            "apy": 0,
+            "apyBase": 0,
+            "poolId": "5b43a732-d2a3-4860-ae64-b14766cb85d1"
+          },
+          {
+            "symbol": "USDT",
+            "chain": "Mantle",
+            "tvlUsd": 12968,
+            "apy": 12.57015,
+            "apyBase": 10.97757,
+            "poolId": "d8733ab8-a147-4e31-a668-2c9dff24ea56"
+          },
+          {
+            "symbol": "USDC",
+            "chain": "Ethereum",
+            "tvlUsd": 12441,
+            "apy": 0,
+            "apyBase": 0,
+            "poolId": "96c80325-f7c3-40a6-a4e0-81a9b9d9dd92"
+          }
+        ]
       },
       {
         "name": "Credix",
@@ -215,7 +449,17 @@
         "chains": [
           "Solana"
         ],
-        "fees30dUsd": 0
+        "fees30dUsd": 0,
+        "pools": [
+          {
+            "symbol": "USDC",
+            "chain": "Solana",
+            "tvlUsd": 13529316,
+            "apy": 0.11494,
+            "apyBase": 0.11494,
+            "poolId": "14bd0ebc-1c70-4b61-80a9-91390179286a"
+          }
+        ]
       },
       {
         "name": "Wildcat",
@@ -232,7 +476,265 @@
         "chains": [
           "Ethereum"
         ],
-        "fees30dUsd": 1636821
+        "fees30dUsd": 1636821,
+        "pools": [
+          {
+            "symbol": "WMTUSDC",
+            "chain": "Ethereum",
+            "tvlUsd": 3231787,
+            "apy": 8.5,
+            "apyBase": 8.5,
+            "poolId": "57885844-7b3f-49b3-969b-9405b165fa78"
+          },
+          {
+            "symbol": "MNNCUSDC",
+            "chain": "Ethereum",
+            "tvlUsd": 1017277,
+            "apy": 10.5,
+            "apyBase": 10.5,
+            "poolId": "a9bf4c45-bf23-4956-bc6d-7f12b916c7b3"
+          },
+          {
+            "symbol": "0DARCXUSDC",
+            "chain": "Ethereum",
+            "tvlUsd": 409231,
+            "apy": 14,
+            "apyBase": 14,
+            "poolId": "c8fdaddc-8b7b-4082-9b5f-aa133926d20a"
+          },
+          {
+            "symbol": "WMTUSDT",
+            "chain": "Ethereum",
+            "tvlUsd": 289055,
+            "apy": 8.75,
+            "apyBase": 8.75,
+            "poolId": "1aed5946-d31b-49fd-9e50-23f87e4ae311"
+          },
+          {
+            "symbol": "SLNUSDT",
+            "chain": "Ethereum",
+            "tvlUsd": 265304,
+            "apy": 10,
+            "apyBase": 10,
+            "poolId": "4d870e8b-0674-4f21-b236-c62b88228c3b"
+          },
+          {
+            "symbol": "HYPERWILDCATUSDC",
+            "chain": "Ethereum",
+            "tvlUsd": 222805,
+            "apy": 11,
+            "apyBase": 11,
+            "poolId": "44562d01-dc23-43e2-9b08-4b8b5a8d6401"
+          },
+          {
+            "symbol": "KAPPALABUSDE",
+            "chain": "Ethereum",
+            "tvlUsd": 210052,
+            "apy": 12,
+            "apyBase": 12,
+            "poolId": "2d2d3e18-f08c-442a-985d-d9d448404bfa"
+          },
+          {
+            "symbol": "SLNUSDC",
+            "chain": "Ethereum",
+            "tvlUsd": 207104,
+            "apy": 10,
+            "apyBase": 10,
+            "poolId": "f4a1c59e-7cbf-4410-9fe7-06939d4c3508"
+          },
+          {
+            "symbol": "HYPERWILDCATFASTUSDC",
+            "chain": "Ethereum",
+            "tvlUsd": 158642,
+            "apy": 10,
+            "apyBase": 10,
+            "poolId": "470465cb-fd8b-4e8c-a080-d3c3ac52dffc"
+          },
+          {
+            "symbol": "WMTWETH",
+            "chain": "Ethereum",
+            "tvlUsd": 139283,
+            "apy": 3.75,
+            "apyBase": 3.75,
+            "poolId": "75b6c515-f06f-4408-8347-74e29be7fc62"
+          },
+          {
+            "symbol": "AUROSUSDC",
+            "chain": "Ethereum",
+            "tvlUsd": 128540,
+            "apy": 9.5,
+            "apyBase": 9.5,
+            "poolId": "929e29e2-80be-4e0f-aa4c-1f0802338801"
+          },
+          {
+            "symbol": "WMTWBTC",
+            "chain": "Ethereum",
+            "tvlUsd": 109907,
+            "apy": 4,
+            "apyBase": 4,
+            "poolId": "74cb85e6-e3d3-4bf6-b82d-2b11df48e685"
+          },
+          {
+            "symbol": "KAIUSDC",
+            "chain": "Ethereum",
+            "tvlUsd": 74408,
+            "apy": 18,
+            "apyBase": 18,
+            "poolId": "b238fbae-0d0a-46de-b911-091ae867921c"
+          },
+          {
+            "symbol": "KEYUSDC",
+            "chain": "Ethereum",
+            "tvlUsd": 74341,
+            "apy": 10,
+            "apyBase": 10,
+            "poolId": "fe368555-5718-40e7-8d47-496f59452537"
+          },
+          {
+            "symbol": "KEYEURC",
+            "chain": "Ethereum",
+            "tvlUsd": 61254,
+            "apy": 9.5,
+            "apyBase": 9.5,
+            "poolId": "7b417350-9dfb-4bea-aade-bac5d33b3fe6"
+          },
+          {
+            "symbol": "ELKUSDC",
+            "chain": "Ethereum",
+            "tvlUsd": 38632,
+            "apy": 13.14,
+            "apyBase": 13.14,
+            "poolId": "460e041d-da07-4f2b-a052-434e566f0a14"
+          },
+          {
+            "symbol": "AUROSUSST",
+            "chain": "Ethereum",
+            "tvlUsd": 33958,
+            "apy": 9,
+            "apyBase": 9,
+            "poolId": "66f52b9b-1afc-4e26-ae25-63278a76dd00"
+          },
+          {
+            "symbol": "HYPERWILDCATSOL",
+            "chain": "Ethereum",
+            "tvlUsd": 33692,
+            "apy": 14,
+            "apyBase": 14,
+            "poolId": "fdff0534-9693-4b35-98f9-97e0d5c55264"
+          },
+          {
+            "symbol": "TRVUSDC",
+            "chain": "Ethereum",
+            "tvlUsd": 17210,
+            "apy": 12,
+            "apyBase": 12,
+            "poolId": "ba2d7788-3dc0-4997-9789-77c3bf4d7725"
+          },
+          {
+            "symbol": "USDCUSDC",
+            "chain": "Ethereum",
+            "tvlUsd": 15712,
+            "apy": 17,
+            "apyBase": 17,
+            "poolId": "e252295f-d0de-4a77-949d-f3b31b5728b3"
+          },
+          {
+            "symbol": "HYPERWILDCATFASTCBBTC",
+            "chain": "Ethereum",
+            "tvlUsd": 15486,
+            "apy": 4.5,
+            "apyBase": 4.5,
+            "poolId": "de4f046e-ff4b-4fe6-a044-2e778fb99a1a"
+          },
+          {
+            "symbol": "ELKUSDT",
+            "chain": "Ethereum",
+            "tvlUsd": 14825,
+            "apy": 13.14,
+            "apyBase": 13.14,
+            "poolId": "9226d5b8-76fd-4d35-8ad8-9a8adff14b5e"
+          },
+          {
+            "symbol": "WMTCBBTC",
+            "chain": "Ethereum",
+            "tvlUsd": 6236,
+            "apy": 4,
+            "apyBase": 4,
+            "poolId": "096033a1-6925-4601-80d6-ad7a8661959e"
+          },
+          {
+            "symbol": "HYPERWILDCATUSDT",
+            "chain": "Ethereum",
+            "tvlUsd": 3099,
+            "apy": 11,
+            "apyBase": 11,
+            "poolId": "bbbb5ed1-0ec4-47bd-b3e2-120be97e3299"
+          },
+          {
+            "symbol": "AUROSUSDT",
+            "chain": "Ethereum",
+            "tvlUsd": 1560,
+            "apy": 9.5,
+            "apyBase": 9.5,
+            "poolId": "f7f37217-789d-496a-b4c6-e45f6b663065"
+          },
+          {
+            "symbol": "AUROSCBBTC",
+            "chain": "Ethereum",
+            "tvlUsd": 1358,
+            "apy": 4,
+            "apyBase": 4,
+            "poolId": "55073499-06b6-445e-b45e-0af2d84b68e6"
+          },
+          {
+            "symbol": "HYPERWILDCATUSDE",
+            "chain": "Ethereum",
+            "tvlUsd": 893,
+            "apy": 10,
+            "apyBase": 10,
+            "poolId": "c50a0e22-8376-4a64-a51f-c618243c928f"
+          },
+          {
+            "symbol": "KPHOENIXUSDC",
+            "chain": "Ethereum",
+            "tvlUsd": 164,
+            "apy": 50,
+            "apyBase": 50,
+            "poolId": "18eba884-fca7-44ce-8bac-8223502a41f9"
+          },
+          {
+            "symbol": "HALALUSDT",
+            "chain": "Ethereum",
+            "tvlUsd": 79,
+            "apy": 18.5,
+            "apyBase": 18.5,
+            "poolId": "f949c567-98ba-43f4-851f-2bdbebe9b0e9"
+          },
+          {
+            "symbol": "HALALUSDCUSDC",
+            "chain": "Ethereum",
+            "tvlUsd": 32,
+            "apy": 18.5,
+            "apyBase": 18.5,
+            "poolId": "5107fdfd-d2b4-4011-9d8b-b8802c551da1"
+          },
+          {
+            "symbol": "HALALUSDC",
+            "chain": "Ethereum",
+            "tvlUsd": 0,
+            "apy": 18.5,
+            "apyBase": 18.5,
+            "poolId": "91eca7e0-63fa-4c8f-96b2-3ad42993ceed"
+          },
+          {
+            "symbol": "HALALUSDTUSDT",
+            "chain": "Ethereum",
+            "tvlUsd": 0,
+            "apy": 18.5,
+            "apyBase": 18.5,
+            "poolId": "9dea335e-e17d-40ef-b78f-71ee8477f377"
+          }
+        ]
       },
       {
         "name": "TrueFi",
@@ -247,7 +749,8 @@
         "juniorApy": null,
         "spreadPct": null,
         "chains": [],
-        "fees30dUsd": 0
+        "fees30dUsd": 0,
+        "pools": []
       },
       {
         "name": "Qiro",
@@ -262,7 +765,8 @@
         "juniorApy": null,
         "spreadPct": null,
         "chains": [],
-        "fees30dUsd": 0
+        "fees30dUsd": 0,
+        "pools": []
       }
     ],
     "issuers": [
@@ -284,29 +788,29 @@
     ]
   },
   "activation": {
-    "circMcapUsd": 24188866,
-    "fdvUsd": 105772230,
+    "circMcapUsd": 24169759,
+    "fdvUsd": 105688677,
     "priceUsd": 4.224204510458975,
     "circSupply": 5717206.2854594765,
     "totalSupply": 25000000,
     "defiTvlUsd": 6200000,
-    "activatedPct": 25.63162737765384,
-    "idleCircUsd": 17988866,
-    "unissuedUsd": 81583364,
+    "activatedPct": 25.651890033326357,
+    "idleCircUsd": 17969759,
+    "unissuedUsd": 81518918,
     "backingUsd": 104211250,
-    "tokGoldTotalUsd": 4498810808,
-    "ggbrSharePct": 0.5376724435040968
+    "tokGoldTotalUsd": 4499451302,
+    "ggbrSharePct": 0.5371712543984325
   },
   "demand": {
     "tokGold": {
-      "XAUt": 2574473105,
-      "PAXG": 1924337703,
-      "goldOz": 4212.03
+      "XAUt": 2574890256,
+      "PAXG": 1924561046,
+      "goldOz": 4212.34
     },
-    "tokGoldTotalUsd": 4498810808,
+    "tokGoldTotalUsd": 4499451302,
     "goldCollateralUsd": 62579396,
-    "idleUsd": 4436231412,
-    "categoryActivationPct": 1.3910208424128068,
+    "idleUsd": 4436871906,
+    "categoryActivationPct": 1.3908228314902207,
     "byProtocol": {
       "Aave": 47603712,
       "Morpho": 8158979,
@@ -461,46 +965,46 @@
     "vaultCuration": [
       {
         "curator": "Direct / unregistered",
-        "usd": 104654.62166827568,
+        "usd": 104662.6469774733,
         "named": false
       },
       {
         "curator": "Steakhouse Financial",
-        "usd": 3851.116306930464,
+        "usd": 3851.3815696416295,
         "named": true
       }
     ],
-    "vaultSupplyTotalUsd": 108505.73797520614,
-    "fundCuratedUsd": 3851.116306930464,
-    "curatorCapacityUsd": 65481719.43014015,
-    "curatorDeployedUsd": 3851.116306930464,
+    "vaultSupplyTotalUsd": 108514.02854711493,
+    "fundCuratedUsd": 3851.3815696416295,
+    "curatorCapacityUsd": 65481556.28592409,
+    "curatorDeployedUsd": 3851.3815696416295,
     "enabledMarkets": [
       {
         "curator": "Steakhouse Financial",
         "vault": "Steakhouse High Yield USDC",
         "market": "XAUt0/USDC",
-        "capUsd": 19996280.60721461,
-        "deployedUsd": 717.9495073544119
+        "capUsd": 19996982.232568387,
+        "deployedUsd": 717.975776455419
       },
       {
         "curator": "August Digital",
         "vault": "August USDC",
         "market": "XAUt0/USDC",
-        "capUsd": 19996258.3767485,
+        "capUsd": 19995931.105150618,
         "deployedUsd": 0
       },
       {
         "curator": "Steakhouse Financial",
         "vault": "Steakhouse USDT",
         "market": "XAUt/USDT",
-        "capUsd": 9993940.35409481,
-        "deployedUsd": 3116.612616019841
+        "capUsd": 9994706.72713478,
+        "deployedUsd": 3116.85160963
       },
       {
         "curator": "Steakhouse Financial",
         "vault": "Steakhouse High Yield USDC",
         "market": "XAUt0/USDC",
-        "capUsd": 4999064.594187125,
+        "capUsd": 4998982.776287654,
         "deployedUsd": 0
       },
       {
@@ -514,14 +1018,14 @@
         "curator": "Steakhouse Financial",
         "vault": "Steakhouse High Yield USDT0",
         "market": "XAUt0/USDT0",
-        "capUsd": 4997612.209459502,
+        "capUsd": 4996351.837695048,
         "deployedUsd": 0
       },
       {
         "curator": "SingularV",
         "vault": "SingularV USDT",
         "market": "XAUt/USDT",
-        "capUsd": 499697.0177047406,
+        "capUsd": 499735.33635673893,
         "deployedUsd": 0
       },
       {
@@ -535,33 +1039,33 @@
     "readyCurators": [
       {
         "curator": "Steakhouse Financial",
-        "capUsd": 44985764.03568691,
-        "deployedUsd": 3851.116306930464,
+        "capUsd": 44985889.84441674,
+        "deployedUsd": 3851.3815696416295,
         "markets": 6
       },
       {
         "curator": "August Digital",
-        "capUsd": 19996258.3767485,
+        "capUsd": 19995931.105150618,
         "deployedUsd": 0,
         "markets": 1
       },
       {
         "curator": "SingularV",
-        "capUsd": 499697.0177047406,
+        "capUsd": 499735.33635673893,
         "deployedUsd": 0,
         "markets": 1
       }
     ],
-    "morphoProductiveUsd": 3735508.9198631174,
-    "morphoBorrowUsd": 3316615.4965199805,
+    "morphoProductiveUsd": 3735430.68890375,
+    "morphoBorrowUsd": 3316831.426127316,
     "markets": [
       {
         "market": "PAXG/USDC",
         "collateral": "PAXG",
         "chain": "Ethereum",
-        "supplyUsd": 1231479637.4721806,
-        "borrowUsd": 1231479637.4721806,
-        "collateralUsd": 245.77826653126127,
+        "supplyUsd": 1231522847.374726,
+        "borrowUsd": 1231522847.374726,
+        "collateralUsd": 245.83754523526864,
         "util": 100,
         "ghost": true
       },
@@ -569,19 +1073,19 @@
         "market": "XAUt/USDT",
         "collateral": "XAUt",
         "chain": "Ethereum",
-        "supplyUsd": 3104700.4548993916,
-        "borrowUsd": 2798051.508041553,
-        "collateralUsd": 7177954.492729875,
-        "util": 90.12307463111523,
+        "supplyUsd": 3104638.9700490106,
+        "borrowUsd": 2798278.016567146,
+        "collateralUsd": 7180229.944919083,
+        "util": 90.13215525420566,
         "ghost": false
       },
       {
         "market": "PAXG/PYUSD",
         "collateral": "PAXG",
         "chain": "Ethereum",
-        "supplyUsd": 327397.40147247654,
-        "borrowUsd": 295231.3813483337,
-        "collateralUsd": 528359.5609292049,
+        "supplyUsd": 327399.30845153786,
+        "borrowUsd": 295233.1009712139,
+        "collateralUsd": 528486.9947762404,
         "util": 90.17523658420149,
         "ghost": false
       },
@@ -589,8 +1093,8 @@
         "market": "XAUt0/USDC",
         "collateral": "XAUt0",
         "chain": "Monad",
-        "supplyUsd": 180513.89262905286,
-        "borrowUsd": 162128.9991508785,
+        "supplyUsd": 180510.9382228351,
+        "borrowUsd": 162126.34564362653,
         "collateralUsd": 296539.97418166866,
         "util": 89.81524734168002,
         "ghost": false
@@ -599,8 +1103,8 @@
         "market": "XAUt0/USDT0",
         "collateral": "XAUt0",
         "chain": "Monad",
-        "supplyUsd": 61832.73750244002,
-        "borrowUsd": 38041.39286146394,
+        "supplyUsd": 61817.14360815597,
+        "borrowUsd": 38031.79902035871,
         "collateralUsd": 71481.6603052607,
         "util": 61.523061080649654,
         "ghost": false
@@ -611,7 +1115,7 @@
         "chain": "Ethereum",
         "supplyUsd": 18699.46557553777,
         "borrowUsd": 1.2555807635737661,
-        "collateralUsd": 42007.28316468306,
+        "collateralUsd": 42020.59971113603,
         "util": 0.0067145275275475,
         "ghost": false
       },
@@ -621,7 +1125,7 @@
         "chain": "Ethereum",
         "supplyUsd": 15029.638212987305,
         "borrowUsd": 0.9158322483990603,
-        "collateralUsd": 3.4740877424345395,
+        "collateralUsd": 3.474925649796675,
         "util": 0.006093508276251601,
         "ghost": false
       },
@@ -629,8 +1133,8 @@
         "market": "XAUt0/USDT0",
         "collateral": "XAUt0",
         "chain": "Arbitrum One",
-        "supplyUsd": 12938.855151837588,
-        "borrowUsd": 10660.049603741205,
+        "supplyUsd": 12938.37443141005,
+        "borrowUsd": 10659.653548329583,
         "collateralUsd": 25056.923291675605,
         "util": 82.38788887150696,
         "ghost": false
@@ -639,10 +1143,10 @@
         "market": "XAUt0/USDC",
         "collateral": "XAUt0",
         "chain": "Arbitrum One",
-        "supplyUsd": 10156.679585630163,
-        "borrowUsd": 9179.006249006734,
+        "supplyUsd": 10157.058647676897,
+        "borrowUsd": 9179.351111638012,
         "collateralUsd": 18558.748965865234,
-        "util": 90.37408507001975,
+        "util": 90.37410760385337,
         "ghost": false
       },
       {
@@ -659,7 +1163,7 @@
         "market": "rXAUt/USDC",
         "collateral": "rXAUt",
         "chain": "World Chain",
-        "supplyUsd": 191.19162195625302,
+        "supplyUsd": 191.18849279146428,
         "borrowUsd": 0,
         "collateralUsd": 0,
         "util": 0,
