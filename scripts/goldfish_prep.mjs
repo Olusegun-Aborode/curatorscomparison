@@ -14,17 +14,34 @@ async function gql(q) {
   const j = await r.json(); if (j.errors) throw new Error(JSON.stringify(j.errors)); return j.data;
 }
 
-// ---------- 1. GoldFish / GGBR (from the Dune dashboard, dune.com/goldfishgold_main) ----------
+// ---------- 1. GoldFish / GGBR ----------
+// LIVE: price/supply/mcap/FDV from CoinGecko (+ DefiLlama coins for price).
+// Dune-sourced (hardcoded): DeFi TVL + staked + collateral-pledged backing.
 const GGBR = {
-  supply: 25_000_000,
-  backingUsd: 104_211_250,   // Collateral Pledged (USD)
-  price: 4.1720,
-  marketCapUsd: 104_301_211,
-  ionAuCollateralOz: 25_000,
-  defiTvlUsd: 6_200_000,     // Goldfish TVL (USD) from TVL chart (~$6.2M)
-  stakedUsd: 1_300_000,      // Cum_Staked GGB (~$1.3M)
-  source: "dune.com/goldfishgold_main/goldfishgold-protocol-analysis",
+  // --- live market data (overwritten below if fetch succeeds) ---
+  price: 4.23, circSupply: 5_717_206, circMcapUsd: 24_177_245,
+  totalSupply: 25_000_000, fdvUsd: 105_721_412,
+  // --- Dune dashboard (dune.com/goldfishgold_main) ---
+  backingUsd: 104_211_250,   // Collateral Pledged (USD) — ~FDV scale
+  defiTvlUsd: 6_200_000,     // Goldfish TVL (USD) from TVL chart
+  stakedUsd: 1_300_000,      // Cum_Staked GGB
+  source: "CoinGecko/DefiLlama (market) + Dune goldfishgold_main (TVL, backing)",
 };
+try {
+  const cg = await (await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=goldfish-gold")).json();
+  if (cg && cg[0]) {
+    GGBR.price = cg[0].current_price ?? GGBR.price;
+    GGBR.circSupply = cg[0].circulating_supply ?? GGBR.circSupply;
+    GGBR.circMcapUsd = cg[0].market_cap ?? GGBR.circMcapUsd;
+    GGBR.totalSupply = cg[0].total_supply ?? GGBR.totalSupply;
+    GGBR.fdvUsd = cg[0].fully_diluted_valuation ?? GGBR.fdvUsd;
+  }
+} catch { /* keep fallback */ }
+try {
+  const lp = await (await fetch("https://coins.llama.fi/prices/current/coingecko:goldfish-gold")).json();
+  const p = lp?.coins?.["coingecko:goldfish-gold"]?.price;
+  if (p) GGBR.price = p;
+} catch { /* keep */ }
 
 // ---------- 2. Tokenized-gold market caps (CoinGecko, with fallback) ----------
 let tokGold = { XAUt: 2576e6, PAXG: 1924e6, goldOz: 4208 }; // fallback = last observed
@@ -212,10 +229,15 @@ const out = {
   ggbr: GGBR,
   rwaPartners: { curators: rwaCurators, tranchers, issuers },
   activation: {
-    backingUsd: GGBR.backingUsd, defiTvlUsd: GGBR.defiTvlUsd,
-    dormantUsd: GGBR.backingUsd - GGBR.defiTvlUsd,
-    activatedPct: GGBR.defiTvlUsd / GGBR.backingUsd * 100,
-    tokGoldTotalUsd: tokGoldTotal, ggbrSharePct: GGBR.backingUsd / tokGoldTotal * 100,
+    // circulating is the honest denominator — un-issued tokens can't be deposited
+    circMcapUsd: GGBR.circMcapUsd, fdvUsd: GGBR.fdvUsd, priceUsd: GGBR.price,
+    circSupply: GGBR.circSupply, totalSupply: GGBR.totalSupply,
+    defiTvlUsd: GGBR.defiTvlUsd,
+    activatedPct: GGBR.defiTvlUsd / GGBR.circMcapUsd * 100,     // vs circulating (~26%)
+    idleCircUsd: Math.max(0, GGBR.circMcapUsd - GGBR.defiTvlUsd),
+    unissuedUsd: Math.max(0, GGBR.fdvUsd - GGBR.circMcapUsd),   // FDV headroom (mint/distribute lever)
+    backingUsd: GGBR.backingUsd,
+    tokGoldTotalUsd: tokGoldTotal, ggbrSharePct: GGBR.circMcapUsd / tokGoldTotal * 100,
   },
   demand: {
     tokGold, tokGoldTotalUsd: tokGoldTotal,

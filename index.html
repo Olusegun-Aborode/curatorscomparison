@@ -39,7 +39,7 @@
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
   <script src="lending_curators.data.js?v=20260610183500"></script>
-  <script src="goldfish.data.js?v=20260611160000"></script>
+  <script src="goldfish.data.js?v=20260611170000"></script>
   <script type="text/babel" src="charts.jsx"></script>
   <script type="text/babel" src="widgets.jsx"></script>
 
@@ -308,8 +308,10 @@
             <Row k="Size tiers" v="Mega >$500M · Large $100–500M · Mid $25–100M · Small $5–25M · Emerging <$5M." />
           </Sec>
 
-          <Sec n="04" title="GoldFish protocol figures (Activation Gap)" sub="The only hand-entered inputs.">
-            <Row k="GGBR" v={<span>Supply 25M, backing/collateral $104.2M, price $4.17, DeFi TVL ~$6.2M, staked ~$1.3M — read from the GoldfishGold Dune dashboard (<M>dune.com/goldfishgold_main</M>). Hardcoded in goldfish_prep (Dune API needs a key). Update there to refresh.</span>} />
+          <Sec n="04" title="GoldFish / GGBR figures (Activation Gap)" sub="Market data live; only TVL & backing are Dune-sourced.">
+            <Row k="GGBR market (live)" v={<span>Price, circulating supply, circulating mcap, total supply & FDV from <M>api.coingecko.com/api/v3/coins/markets</M> (id goldfish-gold); price cross-checked via <M>coins.llama.fi/prices/current/coingecko:goldfish-gold</M>. Live: ~$4.23, 5.7M circ ($24M mcap), 25M total ($104M FDV).</span>} />
+            <Row k="Circulating vs FDV" v={<span><b>Activation is measured against circulating mcap (~$24M), not FDV (~$104M)</b> — un-issued tokens can't be deposited. So ~26% of circulating GGBR is in DeFi (not 6% of FDV). The ~$81M un-issued is FDV headroom (mint/distribute), a separate lever.</span>} />
+            <Row k="DeFi TVL & backing (Dune)" v={<span>DeFi TVL ~$6.2M, staked ~$1.3M, collateral-pledged backing ~$104M — read from the GoldfishGold Dune dashboard (<M>dune.com/goldfishgold_main</M>); hardcoded in goldfish_prep (Dune API needs a key).</span>} />
             <Row k="Tokenized-gold mcap" v={<span>XAUt + PAXG market caps + gold price live from <M>api.coingecko.com/api/v3/coins/markets</M> (ids pax-gold, tether-gold).</span>} />
           </Sec>
 
@@ -381,27 +383,27 @@
       return (
         <section style={{ padding: 24 }}>
           <h1 className="h1">GoldFish · Holder-Activation Gap</h1>
-          <p className="sub" style={{ marginTop: 6 }}>GoldFish backs $104M of gold but only ~6% is working on-chain — the biggest liquidity pool is its own holders.</p>
+          <p className="sub" style={{ marginTop: 6 }}>Of GGBR's <b>circulating</b> supply (${(a.circMcapUsd/1e6).toFixed(0)}M, not the ${(a.fdvUsd/1e6).toFixed(0)}M FDV), ~{fmtPct(a.activatedPct,0)} is working on-chain. Price/supply/mcap live (CoinGecko + DefiLlama); DeFi TVL from Dune.</p>
           <div style={{ marginTop: 20 }}>
             <GKpiRow items={[
-              { l: 'GGBR Backing', v: fmtUSD(a.backingUsd), d: '25M GGBR · 1:1 collateralized', c: GC.gold },
+              { l: 'Circulating Mcap', v: fmtUSD(a.circMcapUsd), d: (a.circSupply/1e6).toFixed(1)+'M GGBR · $'+a.priceUsd.toFixed(2), c: GC.gold },
               { l: 'DeFi TVL (working)', v: fmtUSD(a.defiTvlUsd), d: 'staked + LP on-chain', c: GC.live },
-              { l: 'Activated', v: fmtPct(a.activatedPct), d: 'of backing in DeFi', c: GC.live },
-              { l: 'Dormant Backing', v: fmtUSD(a.dormantUsd), d: 'idle, not earning', c: GC.accent },
+              { l: 'Activated', v: fmtPct(a.activatedPct,0), d: 'of circulating GGBR', c: GC.live },
+              { l: 'FDV (total supply)', v: fmtUSD(a.fdvUsd), d: (a.totalSupply/1e6).toFixed(0)+'M total · '+fmtUSD(a.unissuedUsd)+' un-issued', c: GC.accent },
             ]} />
           </div>
           <div className="grid" style={{ gridTemplateColumns: '1fr 1.3fr', gap: 16, marginTop: 16 }}>
-            <GPanel title="GGBR backing — working vs dormant">
-              <Donut size={190} thickness={32} centerLabel={fmtUSD(a.backingUsd)}
-                items={[{ name: 'Working in DeFi', value: a.defiTvlUsd, color: GC.live }, { name: 'Dormant', value: a.dormantUsd, color: GC.idle }]} />
+            <GPanel title="Circulating GGBR — working vs idle" sub={'of '+fmtUSD(a.circMcapUsd)+' circulating'}>
+              <Donut size={190} thickness={32} centerLabel={fmtUSD(a.circMcapUsd)}
+                items={[{ name: 'Working in DeFi', value: a.defiTvlUsd, color: GC.live }, { name: 'Idle (circulating)', value: a.idleCircUsd, color: GC.idle }]} />
             </GPanel>
-            <GPanel title="GoldFish is already ahead of the gold category on activation" sub="% of gold backing put to work on-chain">
-              <GCmpBar fmt={(v)=>fmtPct(v,2)} max={Math.max(a.activatedPct, GF.demand.categoryActivationPct)}
+            <GPanel title="GoldFish vs the tokenized-gold category on activation" sub="% of supply put to work on-chain">
+              <GCmpBar fmt={(v)=>fmtPct(v,1)} max={Math.max(a.activatedPct, GF.demand.categoryActivationPct)}
                 rows={[
-                  { label: 'GoldFish (GGBR)', value: a.activatedPct, color: GC.live },
+                  { label: 'GoldFish (GGBR, circulating)', value: a.activatedPct, color: GC.live },
                   { label: 'Tokenized-gold category', value: GF.demand.categoryActivationPct, color: GC.idle },
                 ]} />
-              <div style={{ marginTop: 14, fontSize: 12, color: 'var(--fg-muted)' }}>GoldFish share of all tokenized gold: <b style={{color:'var(--fg)'}}>{fmtPct(a.ggbrSharePct,2)}</b> ({fmtUSD(a.backingUsd)} of {fmtUSD(a.tokGoldTotalUsd)})</div>
+              <div style={{ marginTop: 14, fontSize: 12, color: 'var(--fg-muted)' }}>Two distinct levers: <b style={{color:'var(--fg)'}}>{fmtUSD(a.idleCircUsd)}</b> idle circulating GGBR (activate now) + <b style={{color:'var(--fg)'}}>{fmtUSD(a.unissuedUsd)}</b> un-issued FDV headroom (mint &amp; distribute).</div>
             </GPanel>
           </div>
         </section>
