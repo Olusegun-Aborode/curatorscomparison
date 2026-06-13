@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lending Curators — AUM & Asset Type</title>
+  <title>Lending Curators, AUM & Asset Type</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
     /* Deterministic shell placement: topbar(row1) / sidebar+main(row2) / statusbar(row3) */
@@ -38,8 +38,8 @@
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
-  <script src="lending_curators.data.js?v=20260610183500"></script>
-  <script src="goldfish.data.js?v=20260611170000"></script>
+  <script src="lending_curators.data.js?v=20260611180000"></script>
+  <script src="goldfish.data.js?v=20260611180000"></script>
   <script type="text/babel" src="charts.jsx"></script>
   <script type="text/babel" src="widgets.jsx"></script>
 
@@ -130,7 +130,7 @@
 
           <div className="grid" style={{ gridTemplateColumns: '1.4fr 1fr', gap: 16, marginTop: 16 }}>
             <div className="panel">
-              <div className="panel-header"><div className="panel-title">Curators by AUM — colored by dominant asset type</div></div>
+              <div className="panel-header"><div className="panel-title">Curators by AUM, colored by dominant asset type</div></div>
               <div className="panel-body">
                 <div className="fluid-svg"><Treemap items={treeItems} width={620} height={320} /></div>
                 <Legend keys={ASSET_TYPES.filter(t => (D.agg.byAssetType[t]||0) > 0)} />
@@ -169,7 +169,7 @@
         (!assets.length || assets.some(a => (c.byAssetType[a] || 0) > 0)) &&
         (!tiers.length || tiers.includes(c.sizeTier))
       );
-      // exposure to the selected asset type(s) — used to annotate + sort when filtering
+      // exposure to the selected asset type(s), used to annotate + sort when filtering
       const selExposure = (c) => assets.reduce((s, a) => s + (c.byAssetType[a] || 0), 0);
       rows = rows.map(c => ({ ...c, sortAum: ethFirst ? (c.byChain['Ethereum'] || 0) : c.aumUsd, sel: selExposure(c) }));
       rows.sort((a, b) =>
@@ -239,8 +239,8 @@
             </table>
           </div>
 
-          {/* Aave risk managers — separate category */}
-          <h2 className="h2" style={{ marginTop: 32, fontSize: 16 }}>Risk Service Providers <span style={{ fontSize: 12, fontWeight: 400, color: 'var(--fg-muted)' }}>— advisory, not capital allocation (excluded from AUM ranking)</span></h2>
+          {/* Aave risk managers, separate category */}
+          <h2 className="h2" style={{ marginTop: 32, fontSize: 16 }}>Risk Service Providers <span style={{ fontSize: 12, fontWeight: 400, color: 'var(--fg-muted)' }}>- advisory, not capital allocation (excluded from AUM ranking)</span></h2>
           <div className="grid grid-2" style={{ gap: 16, marginTop: 12 }}>
             {D.riskManagers.map(m => (
               <div key={m.name} className="panel" style={{ padding: 16 }}>
@@ -282,27 +282,27 @@
           <h1 className="h1">Methodology & Data Sources</h1>
           <p className="sub" style={{ marginTop: 6 }}>Sources and method per dataset. GGBR TVL and backing are from the GoldfishGold Dune dashboard; all other figures are pulled live (endpoints below).</p>
 
-          <Sec n="00" title="Pipeline — how to regenerate everything" sub="Node ≥18, run from /scripts. Each writes JSON consumed by this static page (no backend).">
+          <Sec n="00" title="Pipeline, how to regenerate everything" sub="Node ≥18, run from /scripts. Each writes JSON consumed by this static page (no backend).">
             <Row k="Curator dataset" v={<span><M>pull_morpho.mjs</M> → <M>classify.mjs</M> → <M>probe_euler.mjs</M> → <M>build.mjs</M> ⟶ <M>lending_curators.data.js</M></span>} />
             <Row k="GoldFish dataset" v={<span><M>goldfish_prep.mjs</M> ⟶ <M>goldfish.data.js</M> (pulls Morpho + DefiLlama + CoinGecko live each run)</span>} />
             <Row k="Refresh" v="Re-run the scripts; both data files are versioned (?v=timestamp) so the live site picks up changes immediately. Snapshot timestamp shown in the footer." />
           </Sec>
 
-          <Sec n="01" title="Curator universe — Morpho" sub="The bulk of curated AUM. Overview + Curators pages.">
+          <Sec n="01" title="Curator universe, Morpho" sub="The bulk of curated AUM. Overview + Curators pages.">
             <Row k="Endpoint" v={<M>POST blue-api.morpho.org/graphql</M>} />
             <Row k="Identity query" v={<span><M>curators</M> → id, name, verified, socials (X/site/forum), addresses, state.aum.</span>} />
             <Row k="Vaults query" v={<span><M>vaults</M> (paginated 100/page, all chains, orderBy TotalAssetsUsd) → state.totalAssetsUsd, state.curators[].name, state.allocation[] {`{`} supplyAssetsUsd, supplyCapUsd, enabled, market.collateralAsset/loanAsset {`}`}.</span>} />
             <Row k="Roll-up" v="Vault TVL → curator. Co-curated vaults split evenly across curators. Collateral exposure distributed proportionally by each market's supplyAssetsUsd → gives the asset-type mix per curator." />
-            <Row k="Filters" v="Keep vaults ≥ $10k TVL with a named (registered) curator. Addr-only vaults (~5% of TVL) excluded — they lack a verifiable curator identity." />
+            <Row k="Filters" v="Keep vaults ≥ $10k TVL with a named (registered) curator. Addr-only vaults (~5% of TVL) excluded, they lack a verifiable curator identity." />
           </Sec>
 
-          <Sec n="02" title="Curator universe — Euler & Aave">
+          <Sec n="02" title="Curator universe, Euler & Aave">
             <Row k="Euler" v={<span>Goldsky subgraphs <M>euler-v2-{`{chain}`}</M> (mainnet/base/arbitrum/unichain), <M>eulerEarnVaults</M>. Raw balances priced via <M>coins.llama.fi/prices/current</M>. Manager brand derived from vault name. Euler Earn is nascent (~$13M).</span>} />
-            <Row k="Aave (why separate)" v={<span>Aave core markets are DAO-governed — no capital-allocating curators, only risk advisors (Gauntlet, Chaos Labs). Shown as a separate category, excluded from AUM rankings. Oversight anchored to <M>api.llama.fi/tvl/aave-v3</M>.</span>} />
+            <Row k="Aave (why separate)" v={<span>Aave core markets are DAO-governed, no capital-allocating curators, only risk advisors (Gauntlet, Chaos Labs). Shown as a separate category, excluded from AUM rankings. Oversight anchored to <M>api.llama.fi/tvl/aave-v3</M>.</span>} />
             <Row k="Identity merge" v="Same-name curators across protocols are merged into one row with a per-protocol breakdown (e.g. Clearstar, Hyperithm on Morpho + Euler)." />
           </Sec>
 
-          <Sec n="03" title="Asset-type classification" sub="classify.mjs / build.mjs — first-match regex on collateral symbol. Editorial & auditable.">
+          <Sec n="03" title="Asset-type classification" sub="classify.mjs / build.mjs, first-match regex on collateral symbol. Editorial & auditable.">
             <Row k="Buckets" v="BTC · ETH/LST/LRT · Stablecoin · RWA/Credit · Pendle/Fixed-term · Altcoin/L1 · Other." />
             <Row k="Judgment calls" v="Maple (syrupUSDC/USDT) classed as RWA/Credit (on-chain private credit), not Stablecoin. Pendle PT-* checked before the underlying. Gold/equities/treasuries → RWA/Credit." />
             <Row k="Size tiers" v="Mega >$500M · Large $100–500M · Mid $25–100M · Small $5–25M · Emerging <$5M." />
@@ -310,32 +310,32 @@
 
           <Sec n="04" title="GoldFish / GGBR figures (Activation Gap)" sub="Market data live; only TVL & backing are Dune-sourced.">
             <Row k="GGBR market (live)" v={<span>Price, circulating supply, circulating mcap, total supply & FDV from <M>api.coingecko.com/api/v3/coins/markets</M> (id goldfish-gold); price cross-checked via <M>coins.llama.fi/prices/current/coingecko:goldfish-gold</M>. Live: ~$4.23, 5.7M circ ($24M mcap), 25M total ($104M FDV).</span>} />
-            <Row k="Circulating vs FDV" v={<span><b>Activation is measured against circulating mcap (~$24M), not FDV (~$104M)</b> — un-issued tokens can't be deposited. So ~26% of circulating GGBR is in DeFi (not 6% of FDV). The ~$81M un-issued is FDV headroom (mint/distribute), a separate lever.</span>} />
-            <Row k="DeFi TVL & backing (Dune)" v={<span>DeFi TVL ~$6.2M, staked ~$1.3M, collateral-pledged backing ~$104M — read from the GoldfishGold Dune dashboard (<M>dune.com/goldfishgold_main</M>); hardcoded in goldfish_prep (Dune API needs a key).</span>} />
-            <Row k="No on-chain TVL tracking" v="The TVL figure is GoldFish-reported. This dashboard does not track the GGBR staking contract, LP mint/burn events, or lending positions — the composition of that TVL is not independently verified. To verify, supply the staking/LP contract addresses." />
+            <Row k="Circulating vs FDV" v={<span><b>Activation is measured against circulating mcap (~$24M), not FDV (~$104M)</b>, un-issued tokens can't be deposited. So ~26% of circulating GGBR is in DeFi (not 6% of FDV). The ~$81M un-issued is FDV headroom (mint/distribute), a separate lever.</span>} />
+            <Row k="DeFi TVL & backing (Dune)" v={<span>DeFi TVL ~$6.2M, staked ~$1.3M, collateral-pledged backing ~$104M, read from the GoldfishGold Dune dashboard (<M>dune.com/goldfishgold_main</M>); hardcoded in goldfish_prep (Dune API needs a key).</span>} />
+            <Row k="No on-chain TVL tracking" v="The TVL figure is GoldFish-reported. This dashboard does not track the GGBR staking contract, LP mint/burn events, or lending positions, the composition of that TVL is not independently verified. To verify, supply the staking/LP contract addresses." />
             <Row k="Tokenized-gold mcap" v={<span>XAUt + PAXG market caps + gold price live from <M>api.coingecko.com/api/v3/coins/markets</M> (ids pax-gold, tether-gold).</span>} />
           </Sec>
 
-          <Sec n="05" title="Gold demand — cross-protocol" sub="Where tokenized gold is actually used as DeFi collateral.">
+          <Sec n="05" title="Gold demand, cross-protocol" sub="Where tokenized gold is actually used as DeFi collateral.">
             <Row k="Gold collateral by protocol" v={<span><M>yields.llama.fi/pools</M> filtered to symbol XAU/PAXG and lending projects (aave, morpho, fluid, compound, euler…), aggregated by protocol. Aave is ~77% of all DeFi gold.</span>} />
-            <Row k="Morpho gold markets" v={<span><M>blue-api markets</M> query for utilization detail. <b>Excludes a $1.2B PAXG/USDC ghost market</b> (supply==borrow against $0 posted collateral — a data glitch; filter: borrow &gt; $1M &amp;&amp; collateral &lt; borrow/2).</span>} />
+            <Row k="Morpho gold markets" v={<span><M>blue-api markets</M> query for utilization detail. <b>Excludes a $1.2B PAXG/USDC ghost market</b> (supply==borrow against $0 posted collateral, a data glitch; filter: borrow &gt; $1M &amp;&amp; collateral &lt; borrow/2).</span>} />
             <Row k="Curator gold-readiness" v={<span>From Morpho vault <M>allocation[].supplyCapUsd + enabled</M> (caps pre-approved) vs <M>supplyAssetsUsd</M> (deployed). 3 curators (Steakhouse $45M, August Digital $20M, SingularV) enabled ~$65M of gold caps but deployed ~$1K.</span>} />
           </Sec>
 
-          <Sec n="06" title="RWA partners — on-chain metrics" sub="RWA Partners page. All metrics live, no editorial ratings.">
-            <Row k="RWA curators" v="From the Morpho curator dataset — curators holding RWA/credit collateral, with RWA $, total AUM, holdings, and X/site/forum contacts (from the Morpho curators query socials)." />
-            <Row k="Credit-tranching protocols" v={<span>Per protocol, live: TVL + #pools + senior/junior tranche APY (by symbol) from <M>yields.llama.fi/pools</M>; 30d fees from <M>api.llama.fi/overview/fees</M>; fallback TVL from <M>api.llama.fi/protocols</M>. Spread = junior − senior APY (genuine tranching). Verifying live TVL corrected the research — Goldfinch/TrueFi/Credix have wound down.</span>} />
+          <Sec n="06" title="RWA partners, on-chain metrics" sub="RWA Partners page. All metrics live, no editorial ratings.">
+            <Row k="RWA curators" v="From the Morpho curator dataset, curators holding RWA/credit collateral, with RWA $, total AUM, holdings, and X/site/forum contacts (from the Morpho curators query socials)." />
+            <Row k="Credit-tranching protocols" v={<span>Per protocol, live: TVL + #pools + senior/junior tranche APY (by symbol) from <M>yields.llama.fi/pools</M>; 30d fees from <M>api.llama.fi/overview/fees</M>; fallback TVL from <M>api.llama.fi/protocols</M>. Spread = junior − senior APY (genuine tranching). Verifying live TVL corrected the research, Goldfinch/TrueFi/Credix have wound down.</span>} />
           </Sec>
 
-          <Sec n="07" title="GGBR collateral — important caveat" sub="Why GGBR is treated as credit-like RWA, not vaulted gold.">
+          <Sec n="07" title="GGBR collateral, important caveat" sub="Why GGBR is treated as credit-like RWA, not vaulted gold.">
             <Row k="What backs GGBR" v={<span>IONau = a claim on <b>in-situ (in-ground) gold reserves</b> at 5:1 overcollateralization, issued by I-ON Digital Corp (<M>OTCQB: IONI</M>, ~$30M micro-cap). Verified via I-ON's site, press releases, and stockanalysis.com.</span>} />
-            <Row k="Implication" v="Not redeemable vaulted bar gold like PAXG/XAUt — it's a mining-reserve credit claim. GGBR is therefore treated as credit-like RWA, separate from the tokenized-gold peer set." />
+            <Row k="Implication" v="Not redeemable vaulted bar gold like PAXG/XAUt, it's a mining-reserve credit claim. GGBR is therefore treated as credit-like RWA, separate from the tokenized-gold peer set." />
           </Sec>
 
           <Sec n="08" title="Caveats">
             <Row k="Snapshot" v="AUM/TVL move with token prices. Figures are as of the footer timestamp; re-run scripts to refresh." />
             <Row k="Classification" v="Asset-type bucketing is symbol-based and editorial (auditable in classify.mjs)." />
-            <Row k="TVL definition" v="DefiLlama TVL = value posted/supplied. Yields pools measure deposit tranches; protocol /tvl nets differently — the two can differ for the same protocol." />
+            <Row k="TVL definition" v="DefiLlama TVL = value posted/supplied. Yields pools measure deposit tranches; protocol /tvl nets differently, the two can differ for the same protocol." />
             <Row k="GGBR figures" v="Hardcoded from the public Dune dashboard; provide Dune API access to make them live." />
           </Sec>
 
@@ -411,7 +411,7 @@
             </GPanel>
           </div>
           <div className="grid" style={{ gridTemplateColumns: '1.5fr 1fr', gap: 16, marginTop: 16 }}>
-            <GPanel title="Where gold collateral sits — and who governs it" sub="borrower-posted, not fund-curated">
+            <GPanel title="Where gold collateral sits, and who governs it" sub="borrower-posted, not fund-curated">
               <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead><tr><th style={gth}>Venue</th><th style={gth}>Governance</th><th style={{...gth, textAlign:'right'}}>Gold $</th><th style={{...gth, textAlign:'center'}}>Fund?</th></tr></thead>
                 <tbody>
@@ -438,7 +438,7 @@
                   <span style={{ fontSize: 11, color:'var(--fg-muted)' }}>DEPLOYED</span>
                 </div>
                 <div className="cmp-track" style={{ margin:'6px 0 2px' }}><div className="cmp-fill" style={{ width: Math.max(0.4,(d.curatorDeployedUsd/d.curatorCapacityUsd)*100)+'%', background: GC.accent }} /></div>
-                <div style={{ marginTop: 12, color:'var(--fg-muted)' }}><b style={{color:'var(--fg)'}}>{d.readyCurators?.length} curators</b> have <b style={{color:'var(--fg)'}}>rated & pre-approved</b> gold markets — but deployed almost nothing. <b style={{color:'var(--fg)'}}>Gold-ready; demand-gated.</b></div>
+                <div style={{ marginTop: 12, color:'var(--fg-muted)' }}><b style={{color:'var(--fg)'}}>{d.readyCurators?.length} curators</b> have <b style={{color:'var(--fg)'}}>rated & pre-approved</b> gold markets, but deployed almost nothing. <b style={{color:'var(--fg)'}}>Gold-ready; demand-gated.</b></div>
               </div>
             </GPanel>
           </div>
@@ -484,16 +484,16 @@
       const P = GF.rwaPartners || { curators: [], funds: [] };
       const gtd = { padding: '9px 10px', fontSize: 13, borderBottom: '1px solid var(--border)', verticalAlign: 'top' };
       const gth = { textAlign: 'left', padding: '8px 10px', fontSize: 11, color: 'var(--fg-muted)', textTransform: 'uppercase', letterSpacing: '.04em', borderBottom: '1px solid var(--border)' };
-      const A = ({ href, children }) => href ? <a href={href} target="_blank" rel="noopener" style={{ color: GC.blue, textDecoration: 'none' }}>{children}</a> : <span style={{ color: 'var(--fg-dim)' }}>—</span>;
+      const A = ({ href, children }) => href ? <a href={href} target="_blank" rel="noopener" style={{ color: GC.blue, textDecoration: 'none' }}>{children}</a> : <span style={{ color: 'var(--fg-dim)' }}>-</span>;
       const fitColor = (f) => f === 'High' ? GC.live : f.startsWith('Med-High') ? GC.gold : GC.accent;
       const totalRwa = P.curators.reduce((s, c) => s + c.rwaUsd, 0);
       const T = P.tranchers || [];
       const activeT = T.filter(t => t.poolCount > 0);
       const creditTvl = T.reduce((s, t) => s + (t.tvlUsd || 0), 0);
-      const apyFmt = (v) => v == null ? '—' : v.toFixed(1) + '%';
+      const apyFmt = (v) => v == null ? '-' : v.toFixed(1) + '%';
       return (
         <section style={{ padding: 24 }}>
-          <h1 className="h1">GoldFish · RWA partners — on-chain data</h1>
+          <h1 className="h1">GoldFish · RWA partners, on-chain data</h1>
           <p className="sub" style={{ marginTop: 6 }}>Live on-chain metrics (DefiLlama). Credit-tranching protocols and RWA-comfortable curators.</p>
           <div style={{ marginTop: 20 }}>
             <GKpiRow items={[
@@ -505,7 +505,7 @@
           </div>
 
           <div style={{ marginTop: 16 }}>
-            <GPanel title="Credit-tranching protocols — on-chain metrics" sub="DefiLlama live · TVL · tranche APY (senior→junior) · 30d fees">
+            <GPanel title="Credit-tranching protocols, on-chain metrics" sub="DefiLlama live · TVL · tranche APY (senior→junior) · 30d fees">
               <div style={{ overflowX: 'auto' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 720 }}>
                 <thead><tr>
@@ -523,12 +523,12 @@
                     const dead = !f.poolCount;
                     return (
                     <tr key={f.name} style={{ opacity: dead ? 0.5 : 1 }}>
-                      <td style={{...gtd, fontWeight:600, whiteSpace:'nowrap'}}>{f.name}{f.star && <span title="credit tranching (USD3/sUSD3)" style={{ color: GC.gold, marginLeft:6 }}>◆</span>}<div style={{fontSize:11, fontWeight:400, color:'var(--fg-dim)'}}>{(f.chains||[]).slice(0,3).join(', ') || '—'}</div></td>
-                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)'}}>{f.tvlUsd==null ? '—' : fmtUSD(f.tvlUsd)}</td>
-                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color:'var(--fg-muted)'}}>{f.poolCount||'—'}</td>
+                      <td style={{...gtd, fontWeight:600, whiteSpace:'nowrap'}}>{f.name}{f.star && <span title="credit tranching (USD3/sUSD3)" style={{ color: GC.gold, marginLeft:6 }}>◆</span>}<div style={{fontSize:11, fontWeight:400, color:'var(--fg-dim)'}}>{(f.chains||[]).slice(0,3).join(', ') || '-'}</div></td>
+                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)'}}>{f.tvlUsd==null ? '-' : fmtUSD(f.tvlUsd)}</td>
+                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color:'var(--fg-muted)'}}>{f.poolCount||'-'}</td>
                       <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)'}}>{apyFmt(f.seniorApy)}{f.seniorSym && <div style={{fontSize:10, color:'var(--fg-dim)'}}>{f.seniorSym}</div>}</td>
                       <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)'}}>{apyFmt(f.juniorApy)}{f.juniorSym && f.juniorSym!==f.seniorSym && <div style={{fontSize:10, color:'var(--fg-dim)'}}>{f.juniorSym}</div>}</td>
-                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color: f.spreadPct>=3 ? GC.gold : 'var(--fg-muted)', fontWeight: f.spreadPct>=3?600:400}}>{f.spreadPct==null ? '—' : f.spreadPct.toFixed(1)+'%'}</td>
+                      <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color: f.spreadPct>=3 ? GC.gold : 'var(--fg-muted)', fontWeight: f.spreadPct>=3?600:400}}>{f.spreadPct==null ? '-' : f.spreadPct.toFixed(1)+'%'}</td>
                       <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color:'var(--fg-muted)'}}>{fmtUSD(f.fees30dUsd||0)}</td>
                       <td style={{...gtd, fontSize:12, whiteSpace:'nowrap'}}><A href={f.x}>X</A> · <A href={f.site}>site</A></td>
                     </tr>
@@ -541,7 +541,7 @@
           </div>
 
           <div style={{ marginTop: 16 }}>
-            <GPanel title="RWA curators — can run a GGBR/USDC vault on Morpho" sub="on-chain RWA allocation · total AUM · contacts">
+            <GPanel title="RWA curators, can run a GGBR/USDC vault on Morpho" sub="on-chain RWA allocation · total AUM · contacts">
               <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead><tr><th style={gth}>Curator</th><th style={{...gth,textAlign:'right'}}>RWA $</th><th style={{...gth,textAlign:'right'}}>Total AUM</th><th style={gth}>RWA they hold</th><th style={gth}>Contact</th></tr></thead>
                 <tbody>
@@ -567,7 +567,7 @@
       { id: 'curators', label: 'Curators', C: Curators },
       { id: 'method', label: 'Methodology', C: Method },
       { id: 'gf-demand', label: 'Gold Demand', C: GFDemand, section: 'GoldFish' },
-      { id: 'gf-rwa', label: 'RWA Partners', C: GFRwaPartners, section: 'GoldFish' },
+      { id: 'gf-rwa', label: 'RWA partners', C: GFRwaPartners, section: 'GoldFish' },
     ];
 
     function App() {

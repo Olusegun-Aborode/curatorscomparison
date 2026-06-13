@@ -452,7 +452,7 @@ window.GOLDFISH_DATA = {
       },
       {
         "venue": "Morpho",
-        "governance": "Permissionless markets — borrower-posted",
+        "governance": "Permissionless markets, borrower-posted",
         "usd": 8169958
       },
       {

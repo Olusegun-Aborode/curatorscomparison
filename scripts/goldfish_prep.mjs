@@ -1,4 +1,4 @@
-// GoldFish TVL-growth analysis — assembles 3 datasets into goldfish.data.js:
+// GoldFish TVL-growth analysis, assembles 3 datasets into goldfish.data.js:
 //  1. Holder-activation gap (GGBR backing vs DeFi TVL)   [GoldFish Dune figures]
 //  2. Demand proof: tokenized-gold DeFi usage             [Morpho markets + CoinGecko]
 //  3. Warm leads: RWA/gold-comfortable curators           [local morpho_curators.json]
@@ -22,7 +22,7 @@ const GGBR = {
   price: 4.23, circSupply: 5_717_206, circMcapUsd: 24_177_245,
   totalSupply: 25_000_000, fdvUsd: 105_721_412,
   // --- Dune dashboard (dune.com/goldfishgold_main) ---
-  backingUsd: 104_211_250,   // Collateral Pledged (USD) — ~FDV scale
+  backingUsd: 104_211_250,   // Collateral Pledged (USD), ~FDV scale
   defiTvlUsd: 6_200_000,     // Goldfish TVL (USD) from TVL chart
   stakedUsd: 1_300_000,      // Cum_Staked GGB
   source: "CoinGecko/DefiLlama (market) + Dune goldfishgold_main (TVL, backing)",
@@ -99,7 +99,7 @@ const vq = (await gql(`{ vaults(first: 1000, orderBy: TotalAssetsUsd, orderDirec
 const goldVaultByCurator = {};
 let goldVaultSupplyTotal = 0;
 // distinguish DEPLOYED (capital actually supplied) from ENABLED CAPACITY (caps a curator
-// pre-approved). Steakhouse rated ~$45M of gold markets but deployed only dust — the
+// pre-approved). Steakhouse rated ~$45M of gold markets but deployed only dust, the
 // curator is gold-READY; demand/deployment is the gap.
 let goldCuratorCapacityUsd = 0, goldCuratorDeployedUsd = 0;
 const goldEnabledMarkets = [];
@@ -137,10 +137,10 @@ const goldVaultCuration = Object.entries(goldVaultByCurator)
   .map(([curator, usd]) => ({ curator, usd, named: NAMED.has(curator) }))
   .sort((a, b) => b.usd - a.usd);
 
-// venues where gold collateral SITS (borrower-posted) — governance, NOT fund-curation
+// venues where gold collateral SITS (borrower-posted), governance, NOT fund-curation
 const goldVenues = [
   { venue: "Aave v3 / v4", governance: "DAO-governed (risk: Gauntlet, Chaos Labs)", usd: goldByProtocol["Aave"] || 0 },
-  { venue: "Morpho", governance: "Permissionless markets — borrower-posted", usd: goldByProtocol["Morpho"] || 0 },
+  { venue: "Morpho", governance: "Permissionless markets, borrower-posted", usd: goldByProtocol["Morpho"] || 0 },
   { venue: "Fluid", governance: "Protocol-governed", usd: goldByProtocol["Fluid"] || 0 },
   { venue: "Compound v3", governance: "Protocol-governed", usd: goldByProtocol["Compound"] || 0 },
 ].filter((m) => m.usd > 0).sort((a, b) => b.usd - a.usd);
@@ -161,7 +161,7 @@ const leads = cur.map((c) => {
 }).filter((l) => l.rwaUsd > 0).sort((a, b) => b.rwaUsd - a.rwaUsd);
 
 // ---------- 4. RWA PARTNERS for a GGBR/USDC vault ----------
-// (a) RWA-comfortable Morpho curators who could RUN the vault — with contact data.
+// (a) RWA-comfortable Morpho curators who could RUN the vault, with contact data.
 const social = (c, t) => (c.socials || []).find((s) => s.type === t)?.url || null;
 const rwaCurators = cur.map((c) => {
   const rwa = Object.entries(c.byCollateral || {}).filter(([s]) => rwaRe.test(s));
@@ -173,7 +173,7 @@ const rwaCurators = cur.map((c) => {
 
 // (b) CREDIT-TRANCHING protocols that could structure a GGBR senior/junior product.
 // Metadata is curated; TVL + status are pulled LIVE from DefiLlama (research corrected:
-// Goldfinch/TrueFi/Credix have wound down — flag them so outreach doesn't chase ghosts).
+// Goldfinch/TrueFi/Credix have wound down, flag them so outreach doesn't chase ghosts).
 // All metrics pulled LIVE on-chain (DefiLlama): yields pools (tranche-level TVL + APY),
 // protocol TVL, and 30d fees (interest actually flowing). No editorial ratings.
 let yieldsAll = [], protosAll = [], feesByName = {};
@@ -229,7 +229,7 @@ const out = {
   ggbr: GGBR,
   rwaPartners: { curators: rwaCurators, tranchers, issuers },
   activation: {
-    // circulating is the honest denominator — un-issued tokens can't be deposited
+    // circulating is the honest denominator, un-issued tokens can't be deposited
     circMcapUsd: GGBR.circMcapUsd, fdvUsd: GGBR.fdvUsd, priceUsd: GGBR.price,
     circSupply: GGBR.circSupply, totalSupply: GGBR.totalSupply,
     defiTvlUsd: GGBR.defiTvlUsd,
