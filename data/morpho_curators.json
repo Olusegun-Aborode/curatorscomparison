@@ -1,254 +1,442 @@
 [
   {
     "name": "Steakhouse Financial",
-    "aumUsd": 1047739796.3117322,
+    "aumUsd": 944556270.1364113,
     "vaultCount": 29,
     "byChain": {
-      "Base": 620563802.626641,
-      "Ethereum": 396876396.7082238,
-      "Katana": 24913973.927930605,
-      "Monad": 2539079.6353452513,
-      "Arbitrum One": 2563934.6320567373,
-      "Polygon": 282608.78153469815
+      "Base": 532416673.7435155,
+      "Ethereum": 382269055.9483476,
+      "Katana": 24799440.721860986,
+      "Arbitrum One": 2742404.8146099886,
+      "Monad": 1982942.6537386514,
+      "Polygon": 345752.2543386101
     },
     "byCollateral": {
-      "wstETH": 130579392.44146195,
-      "cbBTC": 625196431.485771,
-      "WETH": 26876670.974252086,
-      "cbETH": 1811232.9714626474,
-      "WBTC": 79075380.05705467,
-      "weETH": 3506430.2624488664,
-      "sUSDe": 100829417.01445688,
-      "USDe": 64382.12706422897,
-      "XAUt": 4445.869605933486,
-      "PT-cUSD-23JUL2026": 262871.01206955424,
-      "stcUSD": 12763197.465499613,
-      "PT-reUSD-25JUN2026": 11004529.415553361,
-      "wsrUSD": 7198083.645171365,
-      "PT-srUSDe-25JUN2026": 122838.82604786736,
-      "syrupUSDT": 7203.619745927923,
-      "PT-stcUSD-23JUL2026": 12680.367341403478,
-      "reUSD": 3857766.4000281193,
-      "FLHYon": 0.0071784542665840985,
-      "vbETH": 2620500.796656194,
-      "vbWBTC": 22260764.13242855,
-      "mF-ONE": 1723505.8628008042,
-      "LBTC": 808.5721698461682,
-      "USCC": 0.023688465533769354,
-      "AA_FalconXUSDC": 3703002.820326991,
-      "ynETHx": 4083824.4057033495,
-      "SOL": 775079.8172158418,
-      "cbDOGE": 414114.27719085483,
-      "cbADA": 130144.68138788291,
-      "PT-USDai-18JUN2026-(ARB)": 444531.60322704964,
-      "cbLTC": 369325.545701983,
-      "AERO": 41625.04997312368,
-      "deSPXA": 16289.042636578255,
-      "cUSDO": 248.59656002133298,
-      "JitoSOL": 1.0973026311645333,
-      "cbXRP": 1503465.0121225435,
-      "siUSD": 3662045.438225989,
-      "iUSD": 83.66264843621447,
-      "PT-iUSD-25JUN2026": 0.003740126173792147,
-      "EUTBL": 1216183.8587609269,
-      "WMON": 62835.697049462986,
-      "PT-USDai-18JUN2026": 1151963.333928094,
-      "XAUt0": 765.3578925899283,
-      "BTC.b": 32708.998845858365,
-      "MaticX": 187789.2171702859,
-      "WPOL": 8184.743729812404
+      "cbBTC": 550191418.3481523,
+      "WETH": 21264689.466057356,
+      "cbETH": 1508539.6392152975,
+      "wstETH": 130964130.86305131,
+      "WBTC": 66187387.35999564,
+      "weETH": 1851899.7152445503,
+      "USDe": 67589.8210794619,
+      "sUSDe": 93439862.81563678,
+      "XAUt": 3116.612616019841,
+      "syrupUSDT": 13835.567253749505,
+      "PT-stcUSD-23JUL2026": 603312.6433981778,
+      "reUSD": 3900399.960332806,
+      "stcUSD": 15428925.301281922,
+      "PT-reUSD-25JUN2026": 11004028.057639353,
+      "wsrUSD": 6647752.607108074,
+      "PT-cUSD-23JUL2026": 280104.9927760763,
+      "PT-srUSDe-25JUN2026": 114146.59553133507,
+      "FLHYon": 0.0029207400853272242,
+      "vbETH": 3377654.794909941,
+      "vbWBTC": 21421785.90538866,
+      "mF-ONE": 375567.0166341041,
+      "PT-iUSD-25JUN2026": 0.010811988924320943,
+      "USCC": 0.06426804587158778,
+      "siUSD": 3641987.5775484787,
+      "LBTC": 69024.00795606796,
+      "tBTC": 43534.92233627493,
+      "AA_FalconXUSDC": 4324857.866309949,
+      "ynETHx": 4119705.104785464,
+      "cbXRP": 925265.1306812435,
+      "AERO": 69733.07959535415,
+      "cbDOGE": 16522.932908125837,
+      "cbADA": 16568.173308915444,
+      "PT-USDai-18JUN2026-(ARB)": 6218.86295020136,
+      "cbLTC": 2606.2601165966516,
+      "cUSDO": 373.44243088323446,
+      "SOL": 18244.770726432682,
+      "deSPXA": 14716.09869301866,
+      "JitoSOL": 18738.691090947555,
+      "iUSD": 62.38162975296614,
+      "EUTBL": 1107494.0527418412,
+      "XAUt0": 734.5036909173997,
+      "PT-USDai-18JUN2026": 1115993.612481558,
+      "WMON": 52838.305035632904,
+      "BTC.b": 0.02156238643348136,
+      "MaticX": 177703.65090532711,
+      "WPOL": 10137.799560394727
     },
     "byDepositAsset": {
-      "USDC": 772145865.6142476,
-      "USDtb": 100323505.54610574,
-      "USDT": 119021992.10907985,
-      "vbUSDC": 24370728.754516155,
-      "WETH": 19993019.853250846,
-      "wstETH": 4083824.4057033495,
-      "EURCV": 3343933.260426389,
-      "AUSD": 3070512.534924076,
-      "DAI": 533865.9830911967,
-      "EURC": 485848.8605322186,
-      "USDT0": 209648.6894208191,
-      "PYUSD": 157050.70043391117
+      "USDC": 682009444.0820819,
+      "USDtb": 92950306.09004863,
+      "USDT": 113638343.10013376,
+      "vbUSDC": 24410378.36464003,
+      "WETH": 20385606.608485118,
+      "wstETH": 4119705.104785464,
+      "EURCV": 3307253.1670097797,
+      "AUSD": 2360187.693869702,
+      "DAI": 534157.3921905044,
+      "EURC": 487559.3970424032,
+      "USDT0": 196268.41006202338,
+      "PYUSD": 157060.72606180544
     },
     "vaults": [
       {
         "name": "Steakhouse Prime USDC",
         "chain": "Base",
         "depositAsset": "USDC",
-        "tvlUsd": 329011564.43606544
+        "tvlUsd": 267349624.3312371
       },
       {
         "name": "Steakhouse USDC",
         "chain": "Base",
         "depositAsset": "USDC",
-        "tvlUsd": 286865900.9398472
+        "tvlUsd": 260597867.19824335
       },
       {
         "name": "Steakhouse USDC",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 101877790.20109949
+        "tvlUsd": 98057405.32406779
       },
       {
         "name": "Steakhouse Ethena USDtb",
         "chain": "Ethereum",
         "depositAsset": "USDtb",
-        "tvlUsd": 100323505.54610574
+        "tvlUsd": 92950306.09004863
       },
       {
         "name": "Steakhouse USDT",
         "chain": "Ethereum",
         "depositAsset": "USDT",
-        "tvlUsd": 93605820.16823202
+        "tvlUsd": 88285113.82682283
       },
       {
         "name": "Smokehouse USDT",
         "chain": "Ethereum",
         "depositAsset": "USDT",
-        "tvlUsd": 25416171.94084783
+        "tvlUsd": 25353229.27331093
       },
       {
         "name": "Steakhouse Prime USDC",
         "chain": "Katana",
         "depositAsset": "vbUSDC",
-        "tvlUsd": 24370728.754516155
+        "tvlUsd": 24410378.36464003
       },
       {
         "name": "Vault Bridge USDC",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 21596108.16397578
+        "tvlUsd": 23986684.44204729
       },
       {
         "name": "Steakhouse ETH",
         "chain": "Ethereum",
         "depositAsset": "WETH",
-        "tvlUsd": 19661345.383777093
+        "tvlUsd": 19940543.492492653
       },
       {
         "name": "Smokehouse USDC",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 18601853.572553694
+        "tvlUsd": 18662807.13264602
       },
       {
         "name": "Smokehouse WSTETH",
         "chain": "Ethereum",
         "depositAsset": "wstETH",
-        "tvlUsd": 4083824.4057033495
+        "tvlUsd": 4119705.104785464
       },
       {
         "name": "Steakhouse High Yield USDC v1.1",
         "chain": "Base",
         "depositAsset": "USDC",
-        "tvlUsd": 3810986.581408157
+        "tvlUsd": 3478710.454832421
       },
       {
         "name": "Steakhouse infiniFi USDC",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 3662129.1046145516
+        "tvlUsd": 3463760.413603946
       },
       {
         "name": "Steakhouse EURCV",
         "chain": "Ethereum",
         "depositAsset": "EURCV",
-        "tvlUsd": 3343933.260426389
+        "tvlUsd": 3307253.1670097797
+      },
+      {
+        "name": "Steakhouse High Yield USDC",
+        "chain": "Arbitrum One",
+        "depositAsset": "USDC",
+        "tvlUsd": 2586347.1152282613
       },
       {
         "name": "Grove x Steakhouse High Yield AUSD",
         "chain": "Monad",
         "depositAsset": "AUSD",
-        "tvlUsd": 2514324.693769227
+        "tvlUsd": 1958174.6131985888
       },
       {
         "name": "Steakhouse Reservoir USDC",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 2484965.492040908
-      },
-      {
-        "name": "Steakhouse High Yield USDC",
-        "chain": "Arbitrum One",
-        "depositAsset": "USDC",
-        "tvlUsd": 2328119.216609408
+        "tvlUsd": 1920778.9243743857
       },
       {
         "name": "Cronos USDC",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 1528032.7853218636
-      },
-      {
-        "name": "Steakhouse Prime AUSD",
-        "chain": "Katana",
-        "depositAsset": "AUSD",
-        "tvlUsd": 543245.1734144498
+        "tvlUsd": 1530250.6388855812
       },
       {
         "name": "Smokehouse DAI",
         "chain": "Ethereum",
         "depositAsset": "DAI",
-        "tvlUsd": 533865.9830911967
+        "tvlUsd": 534157.3921905044
       },
       {
         "name": "Steakhouse EURC",
         "chain": "Base",
         "depositAsset": "EURC",
-        "tvlUsd": 485848.8605322186
+        "tvlUsd": 487559.3970424032
       },
       {
         "name": "Steakhouse ETH",
         "chain": "Base",
         "depositAsset": "WETH",
-        "tvlUsd": 331674.46947375237
+        "tvlUsd": 445063.11599246354
       },
       {
-        "name": "Steakhouse Prime USDC",
-        "chain": "Arbitrum One",
-        "depositAsset": "USDC",
-        "tvlUsd": 235815.4154473292
+        "name": "Steakhouse Prime AUSD",
+        "chain": "Katana",
+        "depositAsset": "AUSD",
+        "tvlUsd": 389062.3572209552
       },
       {
         "name": "Steakhouse High Yield USDT0",
         "chain": "Polygon",
         "depositAsset": "USDT0",
-        "tvlUsd": 209648.6894208191
+        "tvlUsd": 196268.41006202338
       },
       {
         "name": "Steakhouse PYUSD",
         "chain": "Ethereum",
         "depositAsset": "PYUSD",
-        "tvlUsd": 157050.70043391117
+        "tvlUsd": 157060.72606180544
+      },
+      {
+        "name": "Steakhouse Prime USDC",
+        "chain": "Arbitrum One",
+        "depositAsset": "USDC",
+        "tvlUsd": 156057.6993817271
       },
       {
         "name": "Steakhouse High Yield USDC",
         "chain": "Polygon",
         "depositAsset": "USDC",
-        "tvlUsd": 72960.09211387906
+        "tvlUsd": 149483.84427658675
       },
       {
         "name": "Steakhouse High Yield USDC",
         "chain": "Base",
         "depositAsset": "USDC",
-        "tvlUsd": 57827.33931429683
+        "tvlUsd": 57849.24616770733
       },
       {
         "name": "Steakhouse High Yield AUSD",
         "chain": "Monad",
         "depositAsset": "AUSD",
-        "tvlUsd": 12942.667740399604
+        "tvlUsd": 12950.723450158233
       },
       {
         "name": "Steakhouse High Yield USDC",
         "chain": "Monad",
         "depositAsset": "USDC",
-        "tvlUsd": 11812.273835625208
+        "tvlUsd": 11817.31708990436
       }
     ],
-    "verified": true,
+    "morphoListed": true,
+    "address": "0x043a816DcE5478eff35d665f985dc4540E9fFD03",
+    "addresses": [
+      {
+        "address": "0x043a816DcE5478eff35d665f985dc4540E9fFD03",
+        "chainId": 1
+      },
+      {
+        "address": "0x0A0e559bc3b0950a7e448F0d4894db195b9cf8DD",
+        "chainId": 1
+      },
+      {
+        "address": "0x255c7705e8BB334DfCae438197f7C4297988085a",
+        "chainId": 1
+      },
+      {
+        "address": "0x29a08239ca7D303F02D219119a024e9773CB1486",
+        "chainId": 1
+      },
+      {
+        "address": "0x2Ab528040534e121e6AA300a99F5941396150BcD",
+        "chainId": 1
+      },
+      {
+        "address": "0x433d49211C6D5121669D643b674d4B22b0185c12",
+        "chainId": 1
+      },
+      {
+        "address": "0x4D7bd498Bb24098Ca281C05519629c605407f71d",
+        "chainId": 1
+      },
+      {
+        "address": "0x51B6FBE8Ab2501BeedB767eb1852E179D29f7a58",
+        "chainId": 1
+      },
+      {
+        "address": "0x827e86072B06674a077f592A531dcE4590aDeCdB",
+        "chainId": 1
+      },
+      {
+        "address": "0x9b359EF8133bDCa81c3a815Fd5348c8d7b41dDce",
+        "chainId": 1
+      },
+      {
+        "address": "0xa18315d7E05220795562c67964034800995eB786",
+        "chainId": 1
+      },
+      {
+        "address": "0xbC309ccda84C4Af31F40aBc06c1E87E5482192ab",
+        "chainId": 1
+      },
+      {
+        "address": "0xc01Ba42d4Bd241892B813FA8bD4589EAA4C60672",
+        "chainId": 1
+      },
+      {
+        "address": "0xD700038b3f8d2F1a8193F35d7dD25c02e7155427",
+        "chainId": 1
+      },
+      {
+        "address": "0xe3Acb3A0cC24C7b176101900715e38E8e789DAd4",
+        "chainId": 1
+      },
+      {
+        "address": "0xE67d850dE6E6Fc913fb613573dc00d3Ba863C099",
+        "chainId": 1
+      },
+      {
+        "address": "0xEB4FC6AB5323Dd245EbF26B0EcD9030c68Cb39a2",
+        "chainId": 1
+      },
+      {
+        "address": "0xFb345Ae28cCe3C55481190771e8c6D18c0f3D279",
+        "chainId": 1
+      },
+      {
+        "address": "0x0000aeB716a0DF7A9A1AAd119b772644Bc089dA8",
+        "chainId": 130
+      },
+      {
+        "address": "0x0A0e559bc3b0950a7e448F0d4894db195b9cf8DD",
+        "chainId": 130
+      },
+      {
+        "address": "0x827e86072B06674a077f592A531dcE4590aDeCdB",
+        "chainId": 130
+      },
+      {
+        "address": "0x0000aeB716a0DF7A9A1AAd119b772644Bc089dA8",
+        "chainId": 137
+      },
+      {
+        "address": "0x0A0e559bc3b0950a7e448F0d4894db195b9cf8DD",
+        "chainId": 137
+      },
+      {
+        "address": "0x827e86072B06674a077f592A531dcE4590aDeCdB",
+        "chainId": 137
+      },
+      {
+        "address": "0x975941D89F3b5ca3fA01aa91fFD325611Da59773",
+        "chainId": 137
+      },
+      {
+        "address": "0x0A0e559bc3b0950a7e448F0d4894db195b9cf8DD",
+        "chainId": 143
+      },
+      {
+        "address": "0x827e86072B06674a077f592A531dcE4590aDeCdB",
+        "chainId": 143
+      },
+      {
+        "address": "0x0000aeB716a0DF7A9A1AAd119b772644Bc089dA8",
+        "chainId": 8453
+      },
+      {
+        "address": "0x0A0e559bc3b0950a7e448F0d4894db195b9cf8DD",
+        "chainId": 8453
+      },
+      {
+        "address": "0x2f06934AfC376f41d4CCFe1D000496107bCf6e21",
+        "chainId": 8453
+      },
+      {
+        "address": "0x4e3e778bE779Cd55484A4A405f35C7d66b748e4e",
+        "chainId": 8453
+      },
+      {
+        "address": "0x59f7d7D34dB803961ce5882BbA168fD711292392",
+        "chainId": 8453
+      },
+      {
+        "address": "0x639bfA26472906Ccd40513408284a8aD292bC5D6",
+        "chainId": 8453
+      },
+      {
+        "address": "0x74E9c67ddB0Ef85D6EcC8dD03A3Cf8Ed1e0c827B",
+        "chainId": 8453
+      },
+      {
+        "address": "0x827e86072B06674a077f592A531dcE4590aDeCdB",
+        "chainId": 8453
+      },
+      {
+        "address": "0xC8661595aD2bA61B3223e053EE20F3cAb2468659",
+        "chainId": 8453
+      },
+      {
+        "address": "0xDE40458958799E8b955cc3cDDfe551a6E72DBF63",
+        "chainId": 8453
+      },
+      {
+        "address": "0x0A0e559bc3b0950a7e448F0d4894db195b9cf8DD",
+        "chainId": 42161
+      },
+      {
+        "address": "0x218fD0dfdeBB594b00bB7380843125Cc012E572a",
+        "chainId": 42161
+      },
+      {
+        "address": "0x827e86072B06674a077f592A531dcE4590aDeCdB",
+        "chainId": 42161
+      },
+      {
+        "address": "0xca9f621aAFD28d0F2decFb69Db0d9e6393A9f5ee",
+        "chainId": 42161
+      },
+      {
+        "address": "0xdb580693b031f50dEbE541371Db92490f33463b2",
+        "chainId": 42161
+      },
+      {
+        "address": "0x0A0e559bc3b0950a7e448F0d4894db195b9cf8DD",
+        "chainId": 747474
+      },
+      {
+        "address": "0x827e86072B06674a077f592A531dcE4590aDeCdB",
+        "chainId": 747474
+      },
+      {
+        "address": "0xcd849A2D15BAa0B3A85C455d527018A9a5671017",
+        "chainId": 747474
+      },
+      {
+        "address": "0xe6FC2a011153DD5a230725a9F0c89a9c81aB4887",
+        "chainId": 747474
+      }
+    ],
     "description": null,
     "socials": [
       {
@@ -264,347 +452,429 @@
         "url": "https://x.com/SteakhouseFi"
       }
     ],
-    "reportedAum": 1666390960.5067258
+    "reportedAum": 1678835136.162589
   },
   {
     "name": "Gauntlet",
-    "aumUsd": 698991420.98399,
+    "aumUsd": 663263313.3188086,
     "vaultCount": 43,
     "byChain": {
-      "Base": 451370730.4296647,
-      "Ethereum": 214303533.66125908,
-      "Katana": 17922933.08233222,
-      "OP Mainnet": 4210379.09340128,
-      "Arbitrum One": 4233851.1598206945,
-      "Polygon": 4366053.805732826,
-      "HyperEVM": 2583939.7517789607
+      "Base": 423648120.4168363,
+      "Ethereum": 207624732.51324692,
+      "Katana": 19251393.805549357,
+      "OP Mainnet": 4066896.9692014977,
+      "Arbitrum One": 4238831.214707075,
+      "HyperEVM": 2799679.819663296,
+      "Polygon": 1633658.5796039877
     },
     "byCollateral": {
-      "cbETH": 4686494.381076712,
-      "WETH": 21323440.457777057,
-      "cbBTC": 438959991.13729197,
-      "wstETH": 52807085.774624474,
-      "LBTC": 41354866.36970728,
-      "WBTC": 40755163.42125585,
-      "weETH": 30483048.542615153,
-      "sUSDe": 2124773.0329227448,
-      "siUSD": 20347924.560753014,
-      "AA_FalconXUSDC": 15315928.947447574,
-      "SPYon": 1600.3920446220486,
-      "QQQon": 379.1607066028999,
-      "wsrUSD": 522719.44241137407,
-      "PT-USDG-28MAY2026": 0.4161105327313682,
-      "stcUSD": 4896691.749291508,
-      "sUSDS": 904.4030925082732,
-      "sUSDD": 15739.976771222584,
-      "syrupUSDT": 15210.039260817312,
-      "tBTC": 723929.3820597596,
-      "syrupUSDC": 0.02329455756465037,
-      "wsuperOETHb": 3867393.059314628,
-      "ynETHx": 2152911.8957373267,
-      "rswETH": 1160667.7068381668,
-      "SolvBTC": 4276425.91449521,
-      "sUSDC": 92371.6817349577,
-      "vbWBTC": 4254981.866833123,
-      "vbETH": 815472.0514419044,
-      "PT-USDai-18JUN2026": 3209604.4474892695,
-      "MaticX": 1957750.389005122,
-      "UBTC": 383706.393810814,
-      "WHYPE": 92670.06595579558,
-      "kHYPE": 1969906.93574146,
-      "USDe": 72148.64284384131,
-      "PT-USDe-31JUL2025": 68208.28896028177,
-      "PT-sUSDE-31JUL2025": 25.850931851771215,
-      "PT-USDS-14AUG2025": 763.5278079880252,
-      "PT-sUSDE-25SEP2025": 2.3407886834139955,
-      "compWETH": 7973.256611211195,
-      "WPOL": 134824.67261335533,
-      "SOL": 64.02824872440242,
-      "cmETH": 137656.35627089124
+      "cbBTC": 416933400.65908486,
+      "wstETH": 44734587.152065635,
+      "WETH": 22429730.86954214,
+      "cbETH": 4148806.5120418076,
+      "LBTC": 35700136.38774872,
+      "WBTC": 39616918.59954255,
+      "weETH": 35469082.72357166,
+      "sUSDe": 2117553.5820120624,
+      "siUSD": 20388696.442297556,
+      "AA_FalconXUSDC": 15302017.073130608,
+      "SPYon": 1600.4892902214165,
+      "QQQon": 379.1787981394935,
+      "wsrUSD": 522.9420195161571,
+      "PT-USDG-28MAY2026": 0.41619664665224304,
+      "stcUSD": 2572549.2101619276,
+      "sUSDS": 13619.814578981077,
+      "sUSDD": 13562.27305177128,
+      "syrupUSDT": 5282.234060424688,
+      "tBTC": 724210.9919627862,
+      "syrupUSDC": 0.023301665791587187,
+      "wsuperOETHb": 3859576.420122856,
+      "ynETHx": 2171020.1065133754,
+      "rswETH": 1170589.1236917614,
+      "SolvBTC": 4387484.288170695,
+      "sUSDC": 71612.66910324268,
+      "vbWBTC": 5357001.348910667,
+      "vbETH": 10977.263867087571,
+      "PT-USDai-18JUN2026": 2798144.625434373,
+      "UBTC": 286426.347365148,
+      "WHYPE": 900104.5230099098,
+      "kHYPE": 1474268.4775040296,
+      "USDe": 67867.19436703018,
+      "PT-USDe-31JUL2025": 68228.40543670926,
+      "PT-sUSDE-31JUL2025": 25.888069013356354,
+      "PT-USDS-14AUG2025": 764.5939473285957,
+      "PT-sUSDE-25SEP2025": 2.341189527218139,
+      "compWETH": 7941.219179739411,
+      "WPOL": 134884.92185169586,
+      "cbDOGE": 22530.222407108064,
+      "cbXRP": 54795.41463896219,
+      "cbADA": 29302.248875462425,
+      "SOL": 55830.2391325679,
+      "cmETH": 138880.47178420835,
+      "MaticX": 22397.38977628168
     },
     "byDepositAsset": {
-      "USDC": 522151235.54433453,
-      "WBTC": 50672223.79198926,
-      "WETH": 47450089.19844938,
-      "msUSD": 20826055.913354397,
-      "vbETH": 11058201.0411285,
-      "USDT": 21948735.72143416,
-      "msETH": 10164940.409557056,
-      "vbUSDC": 4054987.4795553274,
-      "WPOL": 2710487.601384009,
-      "vbUSDT": 2071150.1431285616,
-      "DAI": 1787790.3316540096,
-      "EURC": 1885478.093234483,
-      "AUSD": 570335.2776495622,
-      "eUSD": 564587.1031855047,
-      "USD₮0": 272696.9251956007,
-      "cbBTC": 227833.585157887,
-      "USDT0": 202577.13438867798,
-      "vbWBTC": 168259.14087026997,
-      "UETH": 137656.35627089124,
-      "LBTC": 66100.19206777775
+      "USDC": 494076021.90397847,
+      "WBTC": 43787655.47976919,
+      "WETH": 47407268.09273786,
+      "msUSD": 20867870.23313613,
+      "vbETH": 11893738.80864145,
+      "USDT": 22461488.71671515,
+      "msETH": 10250413.076716961,
+      "vbUSDC": 3919610.765203092,
+      "vbUSDT": 2494527.5265001613,
+      "DAI": 1775268.2141830982,
+      "EURC": 1886340.9542949642,
+      "AUSD": 740316.9558386931,
+      "eUSD": 565222.9068350728,
+      "USD₮0": 283588.93081523397,
+      "cbBTC": 210884.37692586478,
+      "vbWBTC": 203199.74936596147,
+      "USDT0": 202691.4199972315,
+      "UETH": 138880.47178420835,
+      "LBTC": 67325.82693995023,
+      "WPOL": 30998.90842967383
     },
     "vaults": [
       {
         "name": "Gauntlet USDC Prime",
         "chain": "Base",
         "depositAsset": "USDC",
-        "tvlUsd": 442516319.4120951
+        "tvlUsd": 414784930.1840224
       },
       {
         "name": "Vault Bridge WBTC",
         "chain": "Ethereum",
         "depositAsset": "WBTC",
-        "tvlUsd": 46395797.87749405
+        "tvlUsd": 39400171.1915985
       },
       {
         "name": "Gauntlet USDC Prime",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 33454080.085754283
+        "tvlUsd": 33232581.365352634
       },
       {
         "name": "Vault Bridge WETH",
         "chain": "Ethereum",
         "depositAsset": "WETH",
-        "tvlUsd": 23740017.9901335
+        "tvlUsd": 23404381.09960688
       },
       {
         "name": "Metronome msUSD Vault",
         "chain": "Ethereum",
         "depositAsset": "msUSD",
-        "tvlUsd": 20826055.913354397
+        "tvlUsd": 20867870.23313613
       },
       {
         "name": "Gauntlet WETH Prime",
         "chain": "Ethereum",
         "depositAsset": "WETH",
-        "tvlUsd": 16987735.844375852
+        "tvlUsd": 17232675.468380414
       },
       {
         "name": "Gauntlet USDC RWA",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 13174591.614246711
+        "tvlUsd": 13162927.979638219
       },
       {
         "name": "Gauntlet WETH",
         "chain": "Katana",
         "depositAsset": "vbETH",
-        "tvlUsd": 11058201.0411285
+        "tvlUsd": 11893738.80864145
       },
       {
         "name": "SwissBorg Morpho USDC",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 10398026.668198857
+        "tvlUsd": 10262598.987560323
       },
       {
         "name": "Gauntlet USDT Frontier",
         "chain": "Ethereum",
         "depositAsset": "USDT",
-        "tvlUsd": 9131678.46815675
+        "tvlUsd": 8770016.232670845
       },
       {
         "name": "Gauntlet USDC Core",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 8564725.386778383
+        "tvlUsd": 8568437.715690885
       },
       {
         "name": "Vault Bridge USDT",
         "chain": "Ethereum",
         "depositAsset": "USDT",
-        "tvlUsd": 7622783.421848621
+        "tvlUsd": 8355004.442994894
       },
       {
         "name": "Metronome msETH Vault",
         "chain": "Base",
         "depositAsset": "msETH",
-        "tvlUsd": 5384767.091613382
+        "tvlUsd": 5430001.063660328
       },
       {
         "name": "Gauntlet USDT Prime",
         "chain": "Ethereum",
         "depositAsset": "USDT",
-        "tvlUsd": 5194273.831428792
+        "tvlUsd": 5336468.041049409
       },
       {
         "name": "Metronome msETH Vault",
         "chain": "Ethereum",
         "depositAsset": "msETH",
-        "tvlUsd": 4780173.3179436745
+        "tvlUsd": 4820412.013056633
       },
       {
         "name": "Gauntlet WBTC Core",
         "chain": "Ethereum",
         "depositAsset": "WBTC",
-        "tvlUsd": 4276425.91449521
+        "tvlUsd": 4387484.288170695
       },
       {
         "name": "Gauntlet USDC Prime",
         "chain": "OP Mainnet",
         "depositAsset": "USDC",
-        "tvlUsd": 4210379.09340128
+        "tvlUsd": 4066896.9692014977
       },
       {
         "name": "Gauntlet USDC",
         "chain": "Katana",
         "depositAsset": "vbUSDC",
-        "tvlUsd": 4054987.4795553274
+        "tvlUsd": 3919610.765203092
       },
       {
         "name": "Gauntlet USDC Core",
         "chain": "Arbitrum One",
         "depositAsset": "USDC",
-        "tvlUsd": 3230822.8000977784
+        "tvlUsd": 3300454.591666677
       },
       {
         "name": "Gauntlet LRT Core",
         "chain": "Ethereum",
         "depositAsset": "WETH",
-        "tvlUsd": 3053062.6539874785
-      },
-      {
-        "name": "Compound POL",
-        "chain": "Polygon",
-        "depositAsset": "WPOL",
-        "tvlUsd": 2710487.601384009
+        "tvlUsd": 3094813.7231703796
       },
       {
         "name": "Index Coop hyETH",
         "chain": "Ethereum",
         "depositAsset": "WETH",
-        "tvlUsd": 2474594.7092319275
-      },
-      {
-        "name": "Gauntlet USDC",
-        "chain": "HyperEVM",
-        "depositAsset": "USDC",
-        "tvlUsd": 2173586.4703124687
+        "tvlUsd": 2508419.7886940115
       },
       {
         "name": "Gauntlet USDT",
         "chain": "Katana",
         "depositAsset": "vbUSDT",
-        "tvlUsd": 2071150.1431285616
+        "tvlUsd": 2494527.5265001613
+      },
+      {
+        "name": "Gauntlet USDC",
+        "chain": "HyperEVM",
+        "depositAsset": "USDC",
+        "tvlUsd": 2377210.4170638537
       },
       {
         "name": "Gauntlet USDC Core",
         "chain": "Base",
         "depositAsset": "USDC",
-        "tvlUsd": 1920651.3954648592
+        "tvlUsd": 1911765.9751086966
       },
       {
         "name": "Gauntlet DAI Core",
         "chain": "Ethereum",
         "depositAsset": "DAI",
-        "tvlUsd": 1787790.3316540096
+        "tvlUsd": 1775268.2141830982
       },
       {
         "name": "Gauntlet EURC Core",
         "chain": "Ethereum",
         "depositAsset": "EURC",
-        "tvlUsd": 1708324.8912936286
+        "tvlUsd": 1709896.162922333
       },
       {
         "name": "Compound USDC",
         "chain": "Polygon",
         "depositAsset": "USDC",
-        "tvlUsd": 1255914.333409011
+        "tvlUsd": 1201036.9609023945
       },
       {
         "name": "Gauntlet USDC Prime",
         "chain": "Arbitrum One",
         "depositAsset": "USDC",
-        "tvlUsd": 1003028.3597229159
+        "tvlUsd": 938376.6230403975
       },
       {
         "name": "Gauntlet AUSD",
         "chain": "Katana",
         "depositAsset": "AUSD",
-        "tvlUsd": 570335.2776495622
+        "tvlUsd": 740316.9558386931
       },
       {
         "name": "Gauntlet eUSD Core",
         "chain": "Ethereum",
         "depositAsset": "eUSD",
-        "tvlUsd": 564587.1031855047
+        "tvlUsd": 565222.9068350728
       },
       {
         "name": "Gauntlet WETH Core",
         "chain": "Base",
         "depositAsset": "WETH",
-        "tvlUsd": 533343.105657398
+        "tvlUsd": 499975.1073833215
       },
       {
         "name": "Extrafi XLend WETH",
         "chain": "Base",
         "depositAsset": "WETH",
-        "tvlUsd": 464260.1585120849
+        "tvlUsd": 468071.61522817495
       },
       {
         "name": "Gauntlet USDT0 Vault",
         "chain": "HyperEVM",
         "depositAsset": "USD₮0",
-        "tvlUsd": 272696.9251956007
+        "tvlUsd": 283588.93081523397
       },
       {
         "name": "Gauntlet cbBTC Core",
         "chain": "Base",
         "depositAsset": "cbBTC",
-        "tvlUsd": 227833.585157887
-      },
-      {
-        "name": "Compound USDT",
-        "chain": "Polygon",
-        "depositAsset": "USDT0",
-        "tvlUsd": 202577.13438867798
-      },
-      {
-        "name": "Compound WETH",
-        "chain": "Polygon",
-        "depositAsset": "WETH",
-        "tvlUsd": 197074.7365511287
-      },
-      {
-        "name": "Gauntlet EURC Core",
-        "chain": "Base",
-        "depositAsset": "EURC",
-        "tvlUsd": 177153.20194085425
+        "tvlUsd": 210884.37692586478
       },
       {
         "name": "Gauntlet WBTC",
         "chain": "Katana",
         "depositAsset": "vbWBTC",
-        "tvlUsd": 168259.14087026997
+        "tvlUsd": 203199.74936596147
+      },
+      {
+        "name": "Compound USDT",
+        "chain": "Polygon",
+        "depositAsset": "USDT0",
+        "tvlUsd": 202691.4199972315
+      },
+      {
+        "name": "Compound WETH",
+        "chain": "Polygon",
+        "depositAsset": "WETH",
+        "tvlUsd": 198931.29027468772
+      },
+      {
+        "name": "Gauntlet EURC Core",
+        "chain": "Base",
+        "depositAsset": "EURC",
+        "tvlUsd": 176444.79137263124
       },
       {
         "name": "Gauntlet USDC Frontier",
         "chain": "Base",
         "depositAsset": "USDC",
-        "tvlUsd": 146402.47922316348
+        "tvlUsd": 166047.30313485008
       },
       {
         "name": "Gauntlet uETH Vault",
         "chain": "HyperEVM",
         "depositAsset": "UETH",
-        "tvlUsd": 137656.35627089124
+        "tvlUsd": 138880.47178420835
       },
       {
         "name": "Cap Ecosystem USDC",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 102707.44562970765
+        "tvlUsd": 102756.83159561979
       },
       {
         "name": "Gauntlet LBTC Core",
         "chain": "Ethereum",
         "depositAsset": "LBTC",
-        "tvlUsd": 66100.19206777775
+        "tvlUsd": 67325.82693995023
+      },
+      {
+        "name": "Compound POL",
+        "chain": "Polygon",
+        "depositAsset": "WPOL",
+        "tvlUsd": 30998.90842967383
       }
     ],
-    "verified": true,
+    "morphoListed": true,
+    "address": "0x9E33faAE38ff641094fa68c65c2cE600b3410585",
+    "addresses": [
+      {
+        "address": "0x9E33faAE38ff641094fa68c65c2cE600b3410585",
+        "chainId": 1
+      },
+      {
+        "address": "0xC684c6587712e5E7BDf9fD64415F23Bd2b05fAec",
+        "chainId": 1
+      },
+      {
+        "address": "0x5a4E19842e09000a582c20A4f524C26Fb48Dd4D0",
+        "chainId": 10
+      },
+      {
+        "address": "0x9E33faAE38ff641094fa68c65c2cE600b3410585",
+        "chainId": 10
+      },
+      {
+        "address": "0x9E33faAE38ff641094fa68c65c2cE600b3410585",
+        "chainId": 130
+      },
+      {
+        "address": "0x9E33faAE38ff641094fa68c65c2cE600b3410585",
+        "chainId": 137
+      },
+      {
+        "address": "0x5a4E19842e09000a582c20A4f524C26Fb48Dd4D0",
+        "chainId": 988
+      },
+      {
+        "address": "0x9E33faAE38ff641094fa68c65c2cE600b3410585",
+        "chainId": 988
+      },
+      {
+        "address": "0x09346F40e324458A8E211C5317981C78FAcDEc57",
+        "chainId": 999
+      },
+      {
+        "address": "0xe3ea927a0f41B4a84fA9900812E52F8BcB84f396",
+        "chainId": 999
+      },
+      {
+        "address": "0x5a4E19842e09000a582c20A4f524C26Fb48Dd4D0",
+        "chainId": 4217
+      },
+      {
+        "address": "0x9E33faAE38ff641094fa68c65c2cE600b3410585",
+        "chainId": 4217
+      },
+      {
+        "address": "0x5a4E19842e09000a582c20A4f524C26Fb48Dd4D0",
+        "chainId": 8453
+      },
+      {
+        "address": "0x9E33faAE38ff641094fa68c65c2cE600b3410585",
+        "chainId": 8453
+      },
+      {
+        "address": "0xCe3b5E1f18951054FA0A7e48aDb3A18A5E957F30",
+        "chainId": 8453
+      },
+      {
+        "address": "0x5a4E19842e09000a582c20A4f524C26Fb48Dd4D0",
+        "chainId": 42161
+      },
+      {
+        "address": "0x9E33faAE38ff641094fa68c65c2cE600b3410585",
+        "chainId": 42161
+      },
+      {
+        "address": "0x5D8C96b76A342c640d9605187daB780f8365F69f",
+        "chainId": 747474
+      },
+      {
+        "address": "0xb5c5b5D7a64d43bb91Dab63Ff3095F7FcB869b4e",
+        "chainId": 747474
+      }
+    ],
     "description": null,
     "socials": [
       {
@@ -620,46 +890,66 @@
         "url": "https://x.com/gauntlet_xyz"
       }
     ],
-    "reportedAum": 919741700.8127408
+    "reportedAum": 914602860.4707394
   },
   {
     "name": "Sentora",
-    "aumUsd": 289875914.2733289,
+    "aumUsd": 292880433.5397914,
     "vaultCount": 2,
     "byChain": {
-      "Ethereum": 289875914.2733289
+      "Ethereum": 292880433.5397914
     },
     "byCollateral": {
-      "kBTC": 68480076.41631187,
-      "weETH": 49982534.64065261,
-      "PT-sUSDE-7MAY2026": 25.18933394474774,
-      "WBTC": 4322665.792789407,
-      "LBTC": 40424632.025613956,
-      "cbBTC": 5799136.635225294,
-      "wstETH": 2181431.992795154,
-      "sUSDe": 42484903.58511246,
-      "sUSDS": 21460.0743880624,
-      "syrupUSDC": 76179047.92110616
+      "cbBTC": 5751843.548432135,
+      "sUSDS": 21409.178156722428,
+      "syrupUSDC": 75878918.16125457,
+      "weETH": 50302116.95531337,
+      "kBTC": 70436679.70684293,
+      "PT-sUSDE-13AUG2026": 0.23198937206248973,
+      "wstETH": 2163025.211712562,
+      "sUSDe": 42211263.432924815,
+      "PT-sUSDE-7MAY2026": 25.279487736473744,
+      "WBTC": 4317361.953265332,
+      "LBTC": 41797789.88041185
     },
     "byDepositAsset": {
-      "PYUSD": 289852768.69217134,
-      "RLUSD": 23145.581157587363
+      "PYUSD": 292857258.3726007,
+      "RLUSD": 23175.16719070125
     },
     "vaults": [
       {
         "name": "Sentora PYUSD",
         "chain": "Ethereum",
         "depositAsset": "PYUSD",
-        "tvlUsd": 289852768.69217134
+        "tvlUsd": 292857258.3726007
       },
       {
         "name": "Sentora RLUSD",
         "chain": "Ethereum",
         "depositAsset": "RLUSD",
-        "tvlUsd": 23145.581157587363
+        "tvlUsd": 23175.16719070125
       }
     ],
-    "verified": true,
+    "morphoListed": true,
+    "address": "0x9e396dE3312D373b87F9BD8763fb48184b42aac0",
+    "addresses": [
+      {
+        "address": "0x9e396dE3312D373b87F9BD8763fb48184b42aac0",
+        "chainId": 1
+      },
+      {
+        "address": "0xe8C9C99EcaD0686A14A00d8521c572281E938008",
+        "chainId": 1
+      },
+      {
+        "address": "0x9e396dE3312D373b87F9BD8763fb48184b42aac0",
+        "chainId": 4217
+      },
+      {
+        "address": "0xe8C9C99EcaD0686A14A00d8521c572281E938008",
+        "chainId": 4217
+      }
+    ],
     "description": null,
     "socials": [
       {
@@ -675,81 +965,92 @@
         "url": "https://x.com/SentoraHQ"
       }
     ],
-    "reportedAum": 577456377.1396791
+    "reportedAum": 609631677.2709184
   },
   {
     "name": "Felix",
-    "aumUsd": 49940548.30815263,
+    "aumUsd": 67245426.67604329,
     "vaultCount": 7,
     "byChain": {
-      "HyperEVM": 49940548.30815263
+      "HyperEVM": 67245426.67604329
     },
     "byCollateral": {
-      "PT-kHYPE-24SEP2026": 29971.83930600699,
-      "kHYPE": 44315224.34412154,
-      "wstHYPE": 563182.1948141183,
-      "PT-kHYPE-19MAR2026": 8611.116176392024,
-      "UBTC": 1273377.1977064789,
-      "WHYPE": 3070277.8037588317,
-      "thBILL": 416683.58641347155,
-      "hwHLP": 91919.79717994569,
-      "WHLP": 66119.35847604141,
-      "UETH": 92318.02128871022,
-      "hbUSDT": 12540.199466857255,
-      "PT-hbUSDT-18DEC2025": 322.84944424655146
+      "PT-kHYPE-24SEP2026": 598972.3033059909,
+      "kHYPE": 61636781.539248765,
+      "wstHYPE": 684013.8800963557,
+      "UBTC": 1290359.2662116608,
+      "WHYPE": 2365544.8899131925,
+      "PT-kHYPE-19MAR2026": 8611.00650136333,
+      "thBILL": 408416.82759412396,
+      "hbUSDT": 12580.264466260622,
+      "hwHLP": 82865.50780159928,
+      "WHLP": 71898.86527907467,
+      "UETH": 85039.55073960587,
+      "PT-hbUSDT-18DEC2025": 342.774885281762
     },
     "byDepositAsset": {
-      "WHYPE": 29520249.339763544,
-      "USDC": 10492085.745089853,
-      "USD₮0": 9308466.5033376,
-      "USDH": 350053.8233839636,
-      "USDHL": 269692.89657767484
+      "WHYPE": 46187941.78238844,
+      "USDC": 12939347.166423313,
+      "USD₮0": 7514234.287301285,
+      "USDH": 345959.746025985,
+      "USDHL": 257943.69390425616
     },
     "vaults": [
       {
         "name": "Felix HYPE",
         "chain": "HyperEVM",
         "depositAsset": "WHYPE",
-        "tvlUsd": 29520249.339763544
+        "tvlUsd": 46187941.78238844
       },
       {
         "name": "Felix USDC",
         "chain": "HyperEVM",
         "depositAsset": "USDC",
-        "tvlUsd": 10492085.745089853
+        "tvlUsd": 12939347.166423313
       },
       {
         "name": "Felix USDT0",
         "chain": "HyperEVM",
         "depositAsset": "USD₮0",
-        "tvlUsd": 8293258.493877718
+        "tvlUsd": 6496656.485723195
       },
       {
         "name": "Felix USDT0 (Frontier)",
         "chain": "HyperEVM",
         "depositAsset": "USD₮0",
-        "tvlUsd": 1015208.0094598813
+        "tvlUsd": 1017577.8015780906
       },
       {
         "name": "Felix USDH",
         "chain": "HyperEVM",
         "depositAsset": "USDH",
-        "tvlUsd": 350053.8233839636
+        "tvlUsd": 345959.746025985
       },
       {
         "name": "Felix USDhl",
         "chain": "HyperEVM",
         "depositAsset": "USDHL",
-        "tvlUsd": 171696.88733191325
+        "tvlUsd": 166540.62580738674
       },
       {
         "name": "USDhl (Frontier)",
         "chain": "HyperEVM",
         "depositAsset": "USDHL",
-        "tvlUsd": 97996.00924576157
+        "tvlUsd": 91403.06809686942
       }
     ],
-    "verified": true,
+    "morphoListed": true,
+    "address": "0x18e4961454B3E487B3f47c70b703684D894Ff979",
+    "addresses": [
+      {
+        "address": "0x18e4961454B3E487B3f47c70b703684D894Ff979",
+        "chainId": 999
+      },
+      {
+        "address": "0x4A827418D632C415E19825fd011283A4ba020B3A",
+        "chainId": 999
+      }
+    ],
     "description": null,
     "socials": [
       {
@@ -761,129 +1062,161 @@
         "url": "https://x.com/felixprotocol"
       }
     ],
-    "reportedAum": 49940548.30815263
+    "reportedAum": 67245426.67604329
   },
   {
     "name": "Yearn",
-    "aumUsd": 31347193.306066252,
+    "aumUsd": 31349040.325524468,
     "vaultCount": 11,
     "byChain": {
-      "Katana": 17881222.935128685,
-      "Ethereum": 11233325.428761842,
-      "Base": 2200426.6470497944,
-      "Arbitrum One": 32218.295125932724
+      "Katana": 18625532.639902964,
+      "Ethereum": 10526556.988382874,
+      "Base": 2164729.4685684764,
+      "Arbitrum One": 32221.228670158373
     },
     "byCollateral": {
-      "vbETH": 1002220.6572987079,
-      "vbWBTC": 3005504.0657322938,
-      "LBTC": 423114.2350147588,
-      "weETH": 7464260.311097783,
-      "avKAT": 35936.104450984276,
-      "yvAUSD": 90117.0067615324,
-      "KAT": 1885.7869658622192,
-      "yvvbUSDT": 2076635.324923451,
-      "yvvbWBTC": 103440.89030792248,
-      "yvvbETH": 2693318.864025006,
-      "siUSD": 521026.8881552789,
-      "wstETH": 3732088.041986621,
-      "yvvbUSDC": 2282857.875503198,
-      "PT-yvvbUSDC(vbUSDC)-2026/08/02": 9453.361373920783,
-      "BTC.b": 1423.7886881305838,
-      "YFI": 48228.64270547803,
-      "tBTC": 60928.07290888694,
-      "PT-stcUSD-23JUL2026": 86301.01523809634,
-      "OETH": 2559481.696098129,
-      "stcUSD": 441539.7134071078,
-      "PT-cUSD-23JUL2026": 80928.80296753763,
-      "WOUSD": 33524.60791583321,
-      "cbBTC": 1657002.9971827967,
-      "WBTC": 873965.3293778274,
-      "cbLTC": 17790.927595946512,
-      "cbXRP": 1862556.625120686,
-      "superOETHb": 9720.476577709735,
-      "cbDOGE": 117078.63749437727,
-      "cbETH": 17730.591217847366,
-      "wsuperOETHb": 4913.6728466088925,
-      "syrupUSDC": 32218.295125932724
+      "vbETH": 2179921.484241835,
+      "vbWBTC": 2718662.7083389265,
+      "weETH": 6945207.349723639,
+      "avKAT": 38558.93972815049,
+      "yvAUSD": 71375.32196219549,
+      "KAT": 5715.966422600991,
+      "yvvbUSDT": 2059154.5016493658,
+      "yvvbWBTC": 103455.15901828738,
+      "yvvbETH": 2746031.956707225,
+      "PT-yvvbUSDC(vbUSDC)-2026/08/02": 9696.49106052458,
+      "yvvbUSDC": 2205393.7098685927,
+      "BTC.b": 50300.29375290222,
+      "LBTC": 137903.6932056676,
+      "wstETH": 3028012.491425475,
+      "cbBTC": 2785490.5060131447,
+      "WBTC": 1167845.5086669237,
+      "YFI": 44105.57428072435,
+      "siUSD": 315040.35009013367,
+      "tBTC": 16489.26441606228,
+      "PT-stcUSD-23JUL2026": 1170.9792489059823,
+      "OETH": 1974370.5999890068,
+      "stcUSD": 571109.0701249317,
+      "PT-cUSD-23JUL2026": 41149.39661815025,
+      "cbXRP": 1931510.3844253165,
+      "cbDOGE": 146193.76060479842,
+      "cbETH": 17972.81867938654,
+      "wsuperOETHb": 4980.816591443255,
+      "syrupUSDC": 32221.228670158373
     },
     "byDepositAsset": {
-      "vbUSDC": 7033258.721944958,
-      "vbETH": 5513948.494578175,
-      "vbUSDT": 4945633.637018433,
-      "WETH": 4474752.612165038,
-      "USDC": 8991217.758772533,
-      "dUSD": 200211.64457650023,
-      "vbWBTC": 188170.43701061633
+      "vbUSDC": 7039281.4026922835,
+      "vbUSDT": 5623864.596305984,
+      "vbETH": 5570761.606434913,
+      "USDC": 9088822.813541338,
+      "WETH": 3634684.872080171,
+      "dUSD": 200120.6813947411,
+      "vbWBTC": 191504.35307504406
     },
     "vaults": [
       {
         "name": "Yearn OG USDC",
         "chain": "Katana",
         "depositAsset": "vbUSDC",
-        "tvlUsd": 7033258.721944958
-      },
-      {
-        "name": "Yearn OG ETH",
-        "chain": "Katana",
-        "depositAsset": "vbETH",
-        "tvlUsd": 5513948.494578175
+        "tvlUsd": 7039281.4026922835
       },
       {
         "name": "Yearn OG USDT",
         "chain": "Katana",
         "depositAsset": "vbUSDT",
-        "tvlUsd": 4945633.637018433
+        "tvlUsd": 5623864.596305984
       },
       {
-        "name": "Yearn OG WETH",
-        "chain": "Ethereum",
-        "depositAsset": "WETH",
-        "tvlUsd": 4409821.95408742
-      },
-      {
-        "name": "Yearn OG USDC",
-        "chain": "Ethereum",
-        "depositAsset": "USDC",
-        "tvlUsd": 4190319.113830419
+        "name": "Yearn OG ETH",
+        "chain": "Katana",
+        "depositAsset": "vbETH",
+        "tvlUsd": 5570761.606434913
       },
       {
         "name": "Yearn USDC",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 2633184.3608440035
+        "tvlUsd": 3964021.193498578
+      },
+      {
+        "name": "Yearn OG WETH",
+        "chain": "Ethereum",
+        "depositAsset": "WETH",
+        "tvlUsd": 3568867.1633722
+      },
+      {
+        "name": "Yearn OG USDC",
+        "chain": "Ethereum",
+        "depositAsset": "USDC",
+        "tvlUsd": 2993668.6315120957
       },
       {
         "name": "Yearn OG USDC",
         "chain": "Base",
         "depositAsset": "USDC",
-        "tvlUsd": 2135495.9889721777
+        "tvlUsd": 2098911.7598605053
       },
       {
         "name": "d3nity dUSD",
         "chain": "Katana",
         "depositAsset": "dUSD",
-        "tvlUsd": 200211.64457650023
+        "tvlUsd": 200120.6813947411
       },
       {
         "name": "Yearn OG WBTC",
         "chain": "Katana",
         "depositAsset": "vbWBTC",
-        "tvlUsd": 188170.43701061633
+        "tvlUsd": 191504.35307504406
       },
       {
         "name": "Yearn OG WETH",
         "chain": "Base",
         "depositAsset": "WETH",
-        "tvlUsd": 64930.65807761682
+        "tvlUsd": 65817.70870797093
       },
       {
         "name": "Yearn Degen USDC",
         "chain": "Arbitrum One",
         "depositAsset": "USDC",
-        "tvlUsd": 32218.295125932724
+        "tvlUsd": 32221.228670158373
       }
     ],
-    "verified": true,
+    "morphoListed": true,
+    "address": "0x90D0f26025571295D18a6c041E47450B81886B51",
+    "addresses": [
+      {
+        "address": "0x90D0f26025571295D18a6c041E47450B81886B51",
+        "chainId": 1
+      },
+      {
+        "address": "0xe5e2Baf96198c56380dDD5E992D7d1ADa0e989c0",
+        "chainId": 1
+      },
+      {
+        "address": "0x90D0f26025571295D18a6c041E47450B81886B51",
+        "chainId": 8453
+      },
+      {
+        "address": "0xFEaE2F855250c36A77b8C68dB07C4dD9711fE36F",
+        "chainId": 8453
+      },
+      {
+        "address": "0x90D0f26025571295D18a6c041E47450B81886B51",
+        "chainId": 42161
+      },
+      {
+        "address": "0xfd99a19Fcf577Be92fDAB4ef162c1644BB056885",
+        "chainId": 42161
+      },
+      {
+        "address": "0x518C21DC88D9780c0A1Be566433c571461A70149",
+        "chainId": 747474
+      },
+      {
+        "address": "0x90D0f26025571295D18a6c041E47450B81886B51",
+        "chainId": 747474
+      }
+    ],
     "description": null,
     "socials": [
       {
@@ -899,30 +1232,53 @@
         "url": "https://x.com/yearnfi"
       }
     ],
-    "reportedAum": 32742792.12241895
+    "reportedAum": 32862470.917899407
   },
   {
     "name": "Pangolins",
-    "aumUsd": 27927592.14911528,
+    "aumUsd": 30720911.063117485,
     "vaultCount": 1,
     "byChain": {
-      "Base": 27927592.14911528
+      "Base": 30720911.063117485
     },
     "byCollateral": {
-      "cbBTC": 27927592.14911528
+      "cbBTC": 30720911.063117485
     },
     "byDepositAsset": {
-      "USDC": 27927592.14911528
+      "USDC": 30720911.063117485
     },
     "vaults": [
       {
         "name": "Pangolins USDC",
         "chain": "Base",
         "depositAsset": "USDC",
-        "tvlUsd": 27927592.14911528
+        "tvlUsd": 30720911.063117485
       }
     ],
-    "verified": true,
+    "morphoListed": true,
+    "address": "0x9855475778aa3B492C14E4E12ca0d44c253C9884",
+    "addresses": [
+      {
+        "address": "0x9855475778aa3B492C14E4E12ca0d44c253C9884",
+        "chainId": 1
+      },
+      {
+        "address": "0xF5854811ddccbf9D1767e35f6Cb28A6FEB25f9d9",
+        "chainId": 1
+      },
+      {
+        "address": "0xF5854811ddccbf9D1767e35f6Cb28A6FEB25f9d9",
+        "chainId": 130
+      },
+      {
+        "address": "0x9855475778aa3B492C14E4E12ca0d44c253C9884",
+        "chainId": 8453
+      },
+      {
+        "address": "0xF5854811ddccbf9D1767e35f6Cb28A6FEB25f9d9",
+        "chainId": 8453
+      }
+    ],
     "description": null,
     "socials": [
       {
@@ -938,39 +1294,50 @@
         "url": "https://x.com/PangolinsVault"
       }
     ],
-    "reportedAum": 27927592.14911528
+    "reportedAum": 30720911.063117485
   },
   {
     "name": "Hakutora",
-    "aumUsd": 27603921.48010356,
+    "aumUsd": 27354849.269517332,
     "vaultCount": 2,
     "byChain": {
-      "Ethereum": 27603921.48010356
+      "Ethereum": 27354849.269517332
     },
     "byCollateral": {
-      "cbBTC": 15013487.320129093,
-      "WBTC": 5057917.004469246,
-      "wstETH": 7532517.155505225
+      "cbBTC": 14832708.944936816,
+      "WBTC": 4936605.651215459,
+      "wstETH": 7585534.673365058
     },
     "byDepositAsset": {
-      "USDC": 15013487.320129093,
-      "USDT": 12590434.159974469
+      "USDC": 14832708.944936816,
+      "USDT": 12522140.324580519
     },
     "vaults": [
       {
         "name": "Hakutora USDC",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 15013487.320129093
+        "tvlUsd": 14832708.944936816
       },
       {
         "name": "Hakutora USDT",
         "chain": "Ethereum",
         "depositAsset": "USDT",
-        "tvlUsd": 12590434.159974469
+        "tvlUsd": 12522140.324580519
       }
     ],
-    "verified": true,
+    "morphoListed": true,
+    "address": "0x2413A57FBD695f6B13C1D8d7D30EE10fa61b1b02",
+    "addresses": [
+      {
+        "address": "0x2413A57FBD695f6B13C1D8d7D30EE10fa61b1b02",
+        "chainId": 1
+      },
+      {
+        "address": "0x345023d92f3051bB2B68DF79dFf760EccFEE80ED",
+        "chainId": 1
+      }
+    ],
     "description": null,
     "socials": [
       {
@@ -986,282 +1353,58 @@
         "url": "https://x.com/0xhakutora"
       }
     ],
-    "reportedAum": 27605011.126316935
-  },
-  {
-    "name": "Anthias Labs",
-    "aumUsd": 18618975.18865401,
-    "vaultCount": 5,
-    "byChain": {
-      "Base": 18618975.18865401
-    },
-    "byCollateral": {
-      "cbBTC": 6393464.84393524,
-      "WETH": 3084039.7986919223,
-      "cbETH": 74806.8532485955,
-      "wstETH": 6887264.485873756,
-      "rETH": 191050.087037069,
-      "USDC": 27590.212068012384,
-      "weETH": 823409.788464963,
-      "LBTC": 1062453.0911956173,
-      "stkWELL": 65337.88223744825,
-      "MAMO": 0.19785441589992256,
-      "WELL": 9557.948046971122
-    },
-    "byDepositAsset": {
-      "USDC": 9191750.816857357,
-      "WETH": 6981804.67852948,
-      "EURC": 1382966.602071556,
-      "cbBTC": 1062453.0911956173
-    },
-    "vaults": [
-      {
-        "name": "Moonwell Flagship USDC",
-        "chain": "Base",
-        "depositAsset": "USDC",
-        "tvlUsd": 9116854.788718522
-      },
-      {
-        "name": "Moonwell Flagship ETH",
-        "chain": "Base",
-        "depositAsset": "WETH",
-        "tvlUsd": 6981804.67852948
-      },
-      {
-        "name": "Moonwell Flagship EURC",
-        "chain": "Base",
-        "depositAsset": "EURC",
-        "tvlUsd": 1382966.602071556
-      },
-      {
-        "name": "Moonwell Frontier cbBTC",
-        "chain": "Base",
-        "depositAsset": "cbBTC",
-        "tvlUsd": 1062453.0911956173
-      },
-      {
-        "name": "Moonwell Ecosystem USDC Vault",
-        "chain": "Base",
-        "depositAsset": "USDC",
-        "tvlUsd": 74896.02813883527
-      }
-    ],
-    "verified": true,
-    "description": null,
-    "socials": [
-      {
-        "type": "url",
-        "url": "https://anthias.xyz/"
-      },
-      {
-        "type": "forum",
-        "url": "https://forum.morpho.org/c/vaults/anthias/52"
-      },
-      {
-        "type": "twitter",
-        "url": "https://x.com/anthiasxyz"
-      }
-    ],
-    "reportedAum": 18618975.204260834
-  },
-  {
-    "name": "Clearstar",
-    "aumUsd": 10465772.173115103,
-    "vaultCount": 5,
-    "byChain": {
-      "Ethereum": 7082262.26256346,
-      "Base": 3323211.3226225725,
-      "Arbitrum One": 60298.587929069545
-    },
-    "byCollateral": {
-      "n-st-liUSD4w": 354127.12146397866,
-      "mF-ONE": 203608.93721848595,
-      "AA_FalconXUSDC": 49995.866467313936,
-      "liUSD-1w": 3885.004242135987,
-      "fxSAVE": 125033.6950485759,
-      "sUSN": 5150553.924146784,
-      "srRoyUSDC": 838641.1743185453,
-      "cbBTC": 1571869.6309173189,
-      "yoUSD": 773559.9266296611,
-      "WETH": 172375.26337848642,
-      "superOETHb": 4099.91346581838,
-      "cbETH": 170688.26857106749,
-      "mBASIS": 4573.158394648275,
-      "cbADA": 152992.43435894806,
-      "cbDOGE": 185646.30434572618,
-      "cbLTC": 65566.66660754722,
-      "cbXRP": 119485.3614373088,
-      "wstETH": 300054.6510689807,
-      "yoETH": 108810.24312431923,
-      "USDC": 2638.4700198705596,
-      "weETH": 47267.56996051163,
-      "sUSDai": 60298.587929069545
-    },
-    "byDepositAsset": {
-      "USDC": 10007001.23894142,
-      "WETH": 458770.9341736821
-    },
-    "vaults": [
-      {
-        "name": "Clearstar USDC Reactor",
-        "chain": "Ethereum",
-        "depositAsset": "USDC",
-        "tvlUsd": 7082262.26256346
-      },
-      {
-        "name": "Clearstar USDC Reactor",
-        "chain": "Base",
-        "depositAsset": "USDC",
-        "tvlUsd": 2333107.1729795537
-      },
-      {
-        "name": "Yield Clearstar USDC",
-        "chain": "Base",
-        "depositAsset": "USDC",
-        "tvlUsd": 531333.2154693368
-      },
-      {
-        "name": "Clearstar ETH Reactor",
-        "chain": "Base",
-        "depositAsset": "WETH",
-        "tvlUsd": 458770.9341736821
-      },
-      {
-        "name": "Clearstar High Yield USDC",
-        "chain": "Arbitrum One",
-        "depositAsset": "USDC",
-        "tvlUsd": 60298.587929069545
-      }
-    ],
-    "verified": true,
-    "description": null,
-    "socials": [
-      {
-        "type": "url",
-        "url": "https://www.clearstar.xyz/"
-      },
-      {
-        "type": "forum",
-        "url": "https://forum.morpho.org/c/vaults/clearstar-labs/40"
-      },
-      {
-        "type": "twitter",
-        "url": "https://x.com/ClearstarLabs"
-      }
-    ],
-    "reportedAum": 20046499.44288186
-  },
-  {
-    "name": "MEV Capital",
-    "aumUsd": 8955775.705791045,
-    "vaultCount": 5,
-    "byChain": {
-      "Ethereum": 8192868.971697674,
-      "HyperEVM": 762906.7340933713
-    },
-    "byCollateral": {
-      "siUSD": 795494.9376581758,
-      "wstETH": 3227386.0750618614,
-      "WBTC": 197026.11269733246,
-      "mF-ONE": 1218487.7756495923,
-      "reUSD": 1715768.5743399777,
-      "mHYPER": 63026.69081626576,
-      "OETH": 686404.0182404887,
-      "lstHYPE": 523195.11768465664,
-      "hbHYPE": 239711.61640871462,
-      "LBTC": 232580.80046669484,
-      "USDC": 8.344854957197954,
-      "PT-cUSD-29JAN2026": 8011.246710456623,
-      "PT-stcUSD-23JUL2026": 24530.365628029067,
-      "PT-srUSDe-15JAN2026": 24144.029573842035
-    },
-    "byDepositAsset": {
-      "USDC": 4537379.280623608,
-      "WETH": 3226988.4381604213,
-      "WHYPE": 762906.7340933713,
-      "EURCV": 428501.2529136442
-    },
-    "vaults": [
-      {
-        "name": " Usual Boosted USDC",
-        "chain": "Ethereum",
-        "depositAsset": "USDC",
-        "tvlUsd": 4480693.63871128
-      },
-      {
-        "name": "MEV Capital wETH",
-        "chain": "Ethereum",
-        "depositAsset": "WETH",
-        "tvlUsd": 3226988.4381604213
-      },
-      {
-        "name": "MEV Capital HYPE",
-        "chain": "HyperEVM",
-        "depositAsset": "WHYPE",
-        "tvlUsd": 762906.7340933713
-      },
-      {
-        "name": "EURCV Prime",
-        "chain": "Ethereum",
-        "depositAsset": "EURCV",
-        "tvlUsd": 428501.2529136442
-      },
-      {
-        "name": "MEV Capital PTs USDC",
-        "chain": "Ethereum",
-        "depositAsset": "USDC",
-        "tvlUsd": 56685.64191232773
-      }
-    ],
-    "verified": true,
-    "description": null,
-    "socials": [
-      {
-        "type": "url",
-        "url": "https://mevcapital.com/"
-      },
-      {
-        "type": "forum",
-        "url": "https://forum.morpho.org/c/vaults/mev-capital/30"
-      },
-      {
-        "type": "twitter",
-        "url": "https://x.com/MEVCapital"
-      }
-    ],
-    "reportedAum": 8972066.016216356
+    "reportedAum": 27354849.269517332
   },
   {
     "name": "SparkDAO",
-    "aumUsd": 8733919.310007378,
+    "aumUsd": 26291245.098949537,
     "vaultCount": 2,
     "byChain": {
-      "Base": 7734097.691395241,
-      "Ethereum": 999821.618612138
+      "Base": 19882257.657720245,
+      "Ethereum": 6408987.441229292
     },
     "byCollateral": {
-      "cbBTC": 500792.21330831386,
-      "WETH": 7733216.445276609,
-      "wstETH": 499910.6514224562
+      "cbBTC": 16453333.900060156,
+      "WETH": 8423413.529358817,
+      "wstETH": 1414497.6695305633
     },
     "byDepositAsset": {
-      "USDC": 8733919.310007378
+      "USDC": 26291245.098949537
     },
     "vaults": [
       {
         "name": "Spark USDC Vault",
         "chain": "Base",
         "depositAsset": "USDC",
-        "tvlUsd": 7734097.691395241
+        "tvlUsd": 19882257.657720245
       },
       {
         "name": "Spark Blue Chip USDC Vault",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 999821.618612138
+        "tvlUsd": 6408987.441229292
       }
     ],
-    "verified": true,
+    "morphoListed": true,
+    "address": "0x0f963A8A8c01042B69054e787E5763ABbB0646A3",
+    "addresses": [
+      {
+        "address": "0x0f963A8A8c01042B69054e787E5763ABbB0646A3",
+        "chainId": 1
+      },
+      {
+        "address": "0x3300f198988e4C9C63F75dF86De36421f06af8c4",
+        "chainId": 1
+      },
+      {
+        "address": "0x0f963A8A8c01042B69054e787E5763ABbB0646A3",
+        "chainId": 8453
+      },
+      {
+        "address": "0xF93B7122450A50AF3e5A76E1d546e95Ac1d0F579",
+        "chainId": 8453
+      }
+    ],
     "description": null,
     "socials": [
       {
@@ -1277,71 +1420,469 @@
         "url": "https://x.com/sparkdotfi"
       }
     ],
-    "reportedAum": 8733997.982944002
+    "reportedAum": 43993727.49572739
+  },
+  {
+    "name": "Anthias Labs",
+    "aumUsd": 19136774.283202138,
+    "vaultCount": 5,
+    "byChain": {
+      "Base": 19136774.283202138
+    },
+    "byCollateral": {
+      "wstETH": 6920077.310303452,
+      "cbBTC": 6132522.360158013,
+      "WETH": 3018260.7386480523,
+      "cbETH": 109103.14848463988,
+      "rETH": 216063.18768014875,
+      "USDC": 27826.486152086647,
+      "weETH": 786979.4788421477,
+      "LBTC": 1849480.736839284,
+      "MAMO": 0.20260573898004644,
+      "stkWELL": 65370.4083969161,
+      "WELL": 11090.225091655739
+    },
+    "byDepositAsset": {
+      "USDC": 8864264.03744187,
+      "WETH": 7041057.414697889,
+      "cbBTC": 1849480.736839284,
+      "EURC": 1381972.094223093
+    },
+    "vaults": [
+      {
+        "name": "Moonwell Flagship USDC",
+        "chain": "Base",
+        "depositAsset": "USDC",
+        "tvlUsd": 8787803.20134756
+      },
+      {
+        "name": "Moonwell Flagship ETH",
+        "chain": "Base",
+        "depositAsset": "WETH",
+        "tvlUsd": 7041057.414697889
+      },
+      {
+        "name": "Moonwell Frontier cbBTC",
+        "chain": "Base",
+        "depositAsset": "cbBTC",
+        "tvlUsd": 1849480.736839284
+      },
+      {
+        "name": "Moonwell Flagship EURC",
+        "chain": "Base",
+        "depositAsset": "EURC",
+        "tvlUsd": 1381972.094223093
+      },
+      {
+        "name": "Moonwell Ecosystem USDC Vault",
+        "chain": "Base",
+        "depositAsset": "USDC",
+        "tvlUsd": 76460.83609431083
+      }
+    ],
+    "morphoListed": true,
+    "address": "0x08eDEbFFaE68970DCf751baa826182b3a4aCFC05",
+    "addresses": [
+      {
+        "address": "0x08eDEbFFaE68970DCf751baa826182b3a4aCFC05",
+        "chainId": 8453
+      }
+    ],
+    "description": null,
+    "socials": [
+      {
+        "type": "url",
+        "url": "https://anthias.xyz/"
+      },
+      {
+        "type": "forum",
+        "url": "https://forum.morpho.org/c/vaults/anthias/52"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/anthiasxyz"
+      }
+    ],
+    "reportedAum": 19136774.28651424
+  },
+  {
+    "name": "Clearstar",
+    "aumUsd": 10072552.699653212,
+    "vaultCount": 5,
+    "byChain": {
+      "Ethereum": 6706822.599813832,
+      "Base": 3306674.8024565186,
+      "Arbitrum One": 59055.29738285873
+    },
+    "byCollateral": {
+      "n-st-liUSD4w": 311633.4331662801,
+      "sUSN": 4921386.42031328,
+      "srRoyUSDC": 949832.3182661899,
+      "liUSD-1w": 1902.4230762609227,
+      "cbBTC": 1680487.8500649387,
+      "yoUSD": 774238.7846308663,
+      "cbETH": 170847.6421072471,
+      "WETH": 172536.99673682905,
+      "superOETHb": 4103.590882819884,
+      "cbXRP": 119542.42634669281,
+      "cbDOGE": 185732.68922902326,
+      "cbLTC": 65597.68577643992,
+      "cbADA": 149664.23335555472,
+      "wstETH": 389214.2454247448,
+      "yoETH": 66188.80716629463,
+      "USDC": 2674.5872458654517,
+      "weETH": 47913.26848102406,
+      "sUSDai": 59055.29738285873
+    },
+    "byDepositAsset": {
+      "USDC": 9566561.791335283,
+      "WETH": 505990.9083179289
+    },
+    "vaults": [
+      {
+        "name": "Clearstar USDC Reactor",
+        "chain": "Ethereum",
+        "depositAsset": "USDC",
+        "tvlUsd": 6706822.599813832
+      },
+      {
+        "name": "Clearstar USDC Reactor",
+        "chain": "Base",
+        "depositAsset": "USDC",
+        "tvlUsd": 2273116.457318985
+      },
+      {
+        "name": "Yield Clearstar USDC",
+        "chain": "Base",
+        "depositAsset": "USDC",
+        "tvlUsd": 527567.4368196046
+      },
+      {
+        "name": "Clearstar ETH Reactor",
+        "chain": "Base",
+        "depositAsset": "WETH",
+        "tvlUsd": 505990.9083179289
+      },
+      {
+        "name": "Clearstar High Yield USDC",
+        "chain": "Arbitrum One",
+        "depositAsset": "USDC",
+        "tvlUsd": 59055.29738285873
+      }
+    ],
+    "morphoListed": true,
+    "address": "0x30988479C2E6a03E7fB65138b94762D41a733458",
+    "addresses": [
+      {
+        "address": "0x30988479C2E6a03E7fB65138b94762D41a733458",
+        "chainId": 1
+      },
+      {
+        "address": "0x72882eb5D27C7088DFA6DDE941DD42e5d184F0ef",
+        "chainId": 1
+      },
+      {
+        "address": "0xb3CF59A5f12cA319861376C5e63Eef4790a42B44",
+        "chainId": 1
+      },
+      {
+        "address": "0x30988479C2E6a03E7fB65138b94762D41a733458",
+        "chainId": 130
+      },
+      {
+        "address": "0x72882eb5D27C7088DFA6DDE941DD42e5d184F0ef",
+        "chainId": 130
+      },
+      {
+        "address": "0x30988479C2E6a03E7fB65138b94762D41a733458",
+        "chainId": 137
+      },
+      {
+        "address": "0x72882eb5D27C7088DFA6DDE941DD42e5d184F0ef",
+        "chainId": 137
+      },
+      {
+        "address": "0xb3CF59A5f12cA319861376C5e63Eef4790a42B44",
+        "chainId": 143
+      },
+      {
+        "address": "0x30988479C2E6a03E7fB65138b94762D41a733458",
+        "chainId": 8453
+      },
+      {
+        "address": "0x72882eb5D27C7088DFA6DDE941DD42e5d184F0ef",
+        "chainId": 8453
+      },
+      {
+        "address": "0x30988479C2E6a03E7fB65138b94762D41a733458",
+        "chainId": 42161
+      },
+      {
+        "address": "0x72882eb5D27C7088DFA6DDE941DD42e5d184F0ef",
+        "chainId": 42161
+      },
+      {
+        "address": "0x30988479C2E6a03E7fB65138b94762D41a733458",
+        "chainId": 747474
+      },
+      {
+        "address": "0x72882eb5D27C7088DFA6DDE941DD42e5d184F0ef",
+        "chainId": 747474
+      }
+    ],
+    "description": null,
+    "socials": [
+      {
+        "type": "url",
+        "url": "https://www.clearstar.xyz/"
+      },
+      {
+        "type": "forum",
+        "url": "https://forum.morpho.org/c/vaults/clearstar-labs/40"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/ClearstarLabs"
+      }
+    ],
+    "reportedAum": 25991845.56403002
+  },
+  {
+    "name": "MEV Capital",
+    "aumUsd": 9080105.52730931,
+    "vaultCount": 5,
+    "byChain": {
+      "Ethereum": 8202576.371549144,
+      "HyperEVM": 877529.1557601676
+    },
+    "byCollateral": {
+      "reUSD": 1106473.3021109726,
+      "siUSD": 1219426.7619236081,
+      "mHYPER": 62322.160549489556,
+      "wstETH": 3785565.2647022144,
+      "WBTC": 155235.4770334914,
+      "mF-ONE": 864076.707880936,
+      "OETH": 686636.7837924601,
+      "lstHYPE": 474334.8996673575,
+      "kHYPE": 127624.35219699031,
+      "hbHYPE": 275569.90389581973,
+      "LBTC": 230142.40673219739,
+      "USDC": 8.36986736160778,
+      "PT-cUSD-29JAN2026": 9036.444535753644,
+      "PT-stcUSD-23JUL2026": 57565.02373696088,
+      "PT-srUSDe-15JAN2026": 26087.66868369862
+    },
+    "byDepositAsset": {
+      "USDC": 4573340.112246023,
+      "WETH": 3271097.909361443,
+      "WHYPE": 877529.1557601676,
+      "EURCV": 358138.34994167904
+    },
+    "vaults": [
+      {
+        "name": " Usual Boosted USDC",
+        "chain": "Ethereum",
+        "depositAsset": "USDC",
+        "tvlUsd": 4480650.975289609
+      },
+      {
+        "name": "MEV Capital wETH",
+        "chain": "Ethereum",
+        "depositAsset": "WETH",
+        "tvlUsd": 3271097.909361443
+      },
+      {
+        "name": "MEV Capital HYPE",
+        "chain": "HyperEVM",
+        "depositAsset": "WHYPE",
+        "tvlUsd": 877529.1557601676
+      },
+      {
+        "name": "EURCV Prime",
+        "chain": "Ethereum",
+        "depositAsset": "EURCV",
+        "tvlUsd": 358138.34994167904
+      },
+      {
+        "name": "MEV Capital PTs USDC",
+        "chain": "Ethereum",
+        "depositAsset": "USDC",
+        "tvlUsd": 92689.13695641315
+      }
+    ],
+    "morphoListed": true,
+    "address": "0x06590Fef209Ebc1f8eEF83dA05984cD4eFf0d0E3",
+    "addresses": [
+      {
+        "address": "0x06590Fef209Ebc1f8eEF83dA05984cD4eFf0d0E3",
+        "chainId": 1
+      },
+      {
+        "address": "0x38afC3aA2c76b4cA1F8e1DabA68e998e1F4782DB",
+        "chainId": 1
+      },
+      {
+        "address": "0x6fA5d361Ab8165347F636217001E22a7cEF09B48",
+        "chainId": 1
+      },
+      {
+        "address": "0xeEAa598C011A29b6713251dD0CE24DB8D80E60Eb",
+        "chainId": 130
+      },
+      {
+        "address": "0xB672Ea44A1EC692A9Baf851dC90a1Ee3DB25F1C4",
+        "chainId": 137
+      },
+      {
+        "address": "0x6293e97900aA987Cf3Cbd419e0D5Ba43ebfA91c1",
+        "chainId": 999
+      },
+      {
+        "address": "0xb830B8B1A41c38603dBC6E4b562Ff599eDB415C4",
+        "chainId": 999
+      },
+      {
+        "address": "0xB672Ea44A1EC692A9Baf851dC90a1Ee3DB25F1C4",
+        "chainId": 8453
+      },
+      {
+        "address": "0xBB4B5BdC1a77971B6C35D87D30BB30F79543a2EF",
+        "chainId": 42161
+      },
+      {
+        "address": "0x3D9403F9bC4615D6986EC31fC287cD5131Eaf9c7",
+        "chainId": 747474
+      }
+    ],
+    "description": null,
+    "socials": [
+      {
+        "type": "url",
+        "url": "https://mevcapital.com/"
+      },
+      {
+        "type": "forum",
+        "url": "https://forum.morpho.org/c/vaults/mev-capital/30"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/MEVCapital"
+      }
+    ],
+    "reportedAum": 9082595.056065315
   },
   {
     "name": "Hyperithm",
-    "aumUsd": 3770606.4615250495,
+    "aumUsd": 3709778.8048590873,
     "vaultCount": 5,
     "byChain": {
-      "Ethereum": 3008214.9000550015,
-      "Arbitrum One": 702896.6887804727,
-      "HyperEVM": 59494.872689575226
+      "Ethereum": 3015893.676982777,
+      "Arbitrum One": 634360.712492871,
+      "HyperEVM": 59524.415383438885
     },
     "byCollateral": {
-      "wstETH": 204622.62638151663,
-      "mHyperBTC": 1527546.238808469,
-      "PT-srNUSD-28MAY2026": 52421.027361159366,
-      "mHYPER": 1300263.807314491,
-      "weETH": 59990.45989805855,
-      "WBTC": 213019.38217145554,
-      "WETH": 89985.68099049793,
-      "sUSDai": 5040.02552504602,
-      "PT-USDai-18JUN2026": 119980.99824662652,
-      "PT-sUSDai-18JUN2026": 82944.49341196574,
-      "sUSDe": 53289.33531856462,
-      "WHYPE": 59169.910747574584,
-      "beHYPE": 324.96194200063763,
-      "syrupUSDC": 2007.5134076231657
+      "mHyperBTC": 1477873.9675716783,
+      "mHYPER": 1409982.9179687956,
+      "WETH": 44992.01917709842,
+      "PT-USDai-18JUN2026": 89983.28437544007,
+      "weETH": 164138.29459183378,
+      "wstETH": 189641.32934908438,
+      "WBTC": 123031.65282406837,
+      "PT-sUSDai-18JUN2026": 95290.80200470805,
+      "sUSDe": 53311.95812484576,
+      "WHYPE": 59195.64990943067,
+      "beHYPE": 328.7654740082052,
+      "syrupUSDC": 2008.1634880958609
     },
     "byDepositAsset": {
-      "USDC": 3599695.696188596,
-      "USDT": 111415.89264687806,
-      "USD₮0": 59494.872689575226
+      "USDC": 3538789.9359383867,
+      "USDT": 111464.45353726177,
+      "USD₮0": 59524.415383438885
     },
     "vaults": [
       {
         "name": "Hyperithm USDC Apex",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 2880232.0736547937
+        "tvlUsd": 2887856.8855404737
       },
       {
         "name": "Hyperithm USDC Apex",
         "chain": "Arbitrum One",
         "depositAsset": "USDC",
-        "tvlUsd": 702896.6887804727
+        "tvlUsd": 634360.712492871
       },
       {
         "name": "Hyperithm USDT Core",
         "chain": "Ethereum",
         "depositAsset": "USDT",
-        "tvlUsd": 111415.89264687806
+        "tvlUsd": 111464.45353726177
       },
       {
         "name": "Hyperithm USDT0",
         "chain": "HyperEVM",
         "depositAsset": "USD₮0",
-        "tvlUsd": 59494.872689575226
+        "tvlUsd": 59524.415383438885
       },
       {
         "name": "Hyperithm USDC Core",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 16566.933753329904
+        "tvlUsd": 16572.33790504189
       }
     ],
-    "verified": true,
+    "morphoListed": true,
+    "address": "0x75178137D3B4B9A0F771E0e149b00fB8167BA325",
+    "addresses": [
+      {
+        "address": "0x75178137D3B4B9A0F771E0e149b00fB8167BA325",
+        "chainId": 1
+      },
+      {
+        "address": "0xEe7E9bb21D5589BF657b94083dB2fA349a3918C8",
+        "chainId": 1
+      },
+      {
+        "address": "0x75178137D3B4B9A0F771E0e149b00fB8167BA325",
+        "chainId": 143
+      },
+      {
+        "address": "0xEe7E9bb21D5589BF657b94083dB2fA349a3918C8",
+        "chainId": 143
+      },
+      {
+        "address": "0x75178137D3B4B9A0F771E0e149b00fB8167BA325",
+        "chainId": 988
+      },
+      {
+        "address": "0xEe7E9bb21D5589BF657b94083dB2fA349a3918C8",
+        "chainId": 988
+      },
+      {
+        "address": "0x35e42A5cA87A4E4Fb235585B36d7c978eA72B290",
+        "chainId": 999
+      },
+      {
+        "address": "0x75178137D3B4B9A0F771E0e149b00fB8167BA325",
+        "chainId": 999
+      },
+      {
+        "address": "0x75178137D3B4B9A0F771E0e149b00fB8167BA325",
+        "chainId": 42161
+      },
+      {
+        "address": "0xEe7E9bb21D5589BF657b94083dB2fA349a3918C8",
+        "chainId": 42161
+      },
+      {
+        "address": "0x75178137D3B4B9A0F771E0e149b00fB8167BA325",
+        "chainId": 747474
+      },
+      {
+        "address": "0xEe7E9bb21D5589BF657b94083dB2fA349a3918C8",
+        "chainId": 747474
+      }
+    ],
     "description": null,
     "socials": [
       {
@@ -1357,38 +1898,77 @@
         "url": "https://x.com/hyperithm"
       }
     ],
-    "reportedAum": 40048783.51069103
+    "reportedAum": 39794222.04815085
   },
   {
     "name": "AlphaPing",
-    "aumUsd": 3198176.5939038727,
+    "aumUsd": 3019634.349907179,
     "vaultCount": 2,
     "byChain": {
-      "Ethereum": 3198176.5939038727
+      "Ethereum": 3019634.349907179
     },
     "byCollateral": {
-      "savUSD": 2046504.5013759069,
-      "savETH": 1151672.0925279658
+      "savUSD": 1834155.2017952392,
+      "savETH": 1185479.1481119397
     },
     "byDepositAsset": {
-      "USDC": 2046504.5013759069,
-      "WETH": 1151672.0925279658
+      "USDC": 1834155.2017952392,
+      "WETH": 1185479.1481119397
     },
     "vaults": [
       {
         "name": "ALPHA USDC Core",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 2046504.5013759069
+        "tvlUsd": 1834155.2017952392
       },
       {
         "name": "ALPHA wETH Core",
         "chain": "Ethereum",
         "depositAsset": "WETH",
-        "tvlUsd": 1151672.0925279658
+        "tvlUsd": 1185479.1481119397
       }
     ],
-    "verified": true,
+    "morphoListed": true,
+    "address": "0x6788c8ad65E85CCa7224a0B46D061EF7D81F9Da5",
+    "addresses": [
+      {
+        "address": "0x6788c8ad65E85CCa7224a0B46D061EF7D81F9Da5",
+        "chainId": 1
+      },
+      {
+        "address": "0xD50B9Bbf136D1BD5CD5AC6ed9b3F26c458a6d4A6",
+        "chainId": 1
+      },
+      {
+        "address": "0xEB4Af6fA3AFA08B10d593EC8fF87efB03BC04645",
+        "chainId": 1
+      },
+      {
+        "address": "0x6788c8ad65E85CCa7224a0B46D061EF7D81F9Da5",
+        "chainId": 999
+      },
+      {
+        "address": "0xEB4Af6fA3AFA08B10d593EC8fF87efB03BC04645",
+        "chainId": 999
+      },
+      {
+        "address": "0x6788c8ad65E85CCa7224a0B46D061EF7D81F9Da5",
+        "chainId": 8453
+      },
+      {
+        "address": "0xEB4Af6fA3AFA08B10d593EC8fF87efB03BC04645",
+        "chainId": 8453
+      },
+      {
+        "address": "0x6788c8ad65E85CCa7224a0B46D061EF7D81F9Da5",
+        "chainId": 42161
+      },
+      {
+        "address": "0xEB4Af6fA3AFA08B10d593EC8fF87efB03BC04645",
+        "chainId": 42161
+      }
+    ],
     "description": null,
     "socials": [
       {
@@ -1404,74 +1984,113 @@
         "url": "https://x.com/0xAlphaping"
       }
     ],
-    "reportedAum": 85019522.6599826
+    "reportedAum": 91976015.18173356
   },
   {
     "name": "RE7 Labs",
-    "aumUsd": 1244938.563451907,
+    "aumUsd": 1250516.2195213735,
     "vaultCount": 7,
     "byChain": {
-      "Ethereum": 835429.3539586698,
-      "Base": 409509.20949323697
+      "Ethereum": 840054.9640492902,
+      "Base": 410461.2554720834
     },
     "byCollateral": {
-      "ezETH": 41854.886849271934,
-      "wstETH": 699885.640285999,
-      "cbBTC": 253550.68821606424,
-      "USDe": 22340.77597072328
+      "ezETH": 42108.22690311735,
+      "wstETH": 705712.6062545051,
+      "cbBTC": 253825.49445496977,
+      "USDe": 22345.61682631892
     },
     "byDepositAsset": {
-      "WETH": 623489.3074554397,
-      "eUSD": 253550.68821606424,
-      "USDC": 227306.57212984824,
-      "WBTC": 118251.21967983131,
-      "USDT": 22340.77597072328
+      "WETH": 627167.1108890785,
+      "eUSD": 253825.49445496977,
+      "USDC": 226524.27508246235,
+      "WBTC": 120653.72226854399,
+      "USDT": 22345.61682631892
     },
     "vaults": [
       {
         "name": "Re7 WETH",
         "chain": "Ethereum",
         "depositAsset": "WETH",
-        "tvlUsd": 566690.942705599
+        "tvlUsd": 569696.1183994293
       },
       {
         "name": "Morpho eUSD",
         "chain": "Base",
         "depositAsset": "eUSD",
-        "tvlUsd": 253550.68821606424
+        "tvlUsd": 253825.49445496977
       },
       {
         "name": "f(x) Protocol Morpho USDC",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 128146.41560251624
+        "tvlUsd": 127359.50655499796
       },
       {
         "name": "Re7 WBTC",
         "chain": "Ethereum",
         "depositAsset": "WBTC",
-        "tvlUsd": 118251.21967983131
+        "tvlUsd": 120653.72226854399
       },
       {
         "name": "Universal USDC",
         "chain": "Base",
         "depositAsset": "USDC",
-        "tvlUsd": 99160.156527332
+        "tvlUsd": 99164.76852746439
       },
       {
         "name": "Re7 WETH",
         "chain": "Base",
         "depositAsset": "WETH",
-        "tvlUsd": 56798.36474984067
+        "tvlUsd": 57470.99248964927
       },
       {
         "name": "Re7 USDT",
         "chain": "Ethereum",
         "depositAsset": "USDT",
-        "tvlUsd": 22340.77597072328
+        "tvlUsd": 22345.61682631892
       }
     ],
-    "verified": true,
+    "morphoListed": true,
+    "address": "0xE86399fE6d7007FdEcb08A2ee1434Ee677a04433",
+    "addresses": [
+      {
+        "address": "0xE86399fE6d7007FdEcb08A2ee1434Ee677a04433",
+        "chainId": 1
+      },
+      {
+        "address": "0xD8B0F4e54a8dac04E0A57392f5A630cEdb99C940",
+        "chainId": 10
+      },
+      {
+        "address": "0xD8B0F4e54a8dac04E0A57392f5A630cEdb99C940",
+        "chainId": 130
+      },
+      {
+        "address": "0xD8B0F4e54a8dac04E0A57392f5A630cEdb99C940",
+        "chainId": 137
+      },
+      {
+        "address": "0xD8B0F4e54a8dac04E0A57392f5A630cEdb99C940",
+        "chainId": 480
+      },
+      {
+        "address": "0x036845F9BE6DF938Da01Abe33e056D3CcaA836a2",
+        "chainId": 999
+      },
+      {
+        "address": "0xD8B0F4e54a8dac04E0A57392f5A630cEdb99C940",
+        "chainId": 8453
+      },
+      {
+        "address": "0x8fafb5243f3787c67cAe318983a5Cc7E2E81F5bB",
+        "chainId": 42161
+      },
+      {
+        "address": "0xD8B0F4e54a8dac04E0A57392f5A630cEdb99C940",
+        "chainId": 747474
+      }
+    ],
     "description": null,
     "socials": [
       {
@@ -1487,41 +2106,56 @@
         "url": "https://x.com/Re7Labs"
       }
     ],
-    "reportedAum": 2593044.212112145
+    "reportedAum": 2597499.346206988
   },
   {
     "name": "SingularV",
-    "aumUsd": 977840.676715851,
+    "aumUsd": 976344.6766016665,
     "vaultCount": 2,
     "byChain": {
-      "Ethereum": 977840.676715851
+      "Ethereum": 976344.6766016665
     },
     "byCollateral": {
-      "wstETH": 917128.5081915703,
-      "pufETH": 865.8814728170742,
-      "ynETHx": 25927.130808311584,
-      "WBTC": 1245.6341142061874,
-      "sUSDe": 32673.522128945642
+      "wstETH": 915185.6720202123,
+      "pufETH": 878.1349773588046,
+      "ynETHx": 26330.67110556342,
+      "WBTC": 1262.8049074670637,
+      "sUSDe": 32687.393591065018
     },
     "byDepositAsset": {
-      "WETH": 945167.1545869053,
-      "USDT": 32673.522128945642
+      "WETH": 943657.2830106015,
+      "USDT": 32687.393591065018
     },
     "vaults": [
       {
         "name": "SingularV ETH",
         "chain": "Ethereum",
         "depositAsset": "WETH",
-        "tvlUsd": 945167.1545869053
+        "tvlUsd": 943657.2830106015
       },
       {
         "name": "SingularV USDT",
         "chain": "Ethereum",
         "depositAsset": "USDT",
-        "tvlUsd": 32673.522128945642
+        "tvlUsd": 32687.393591065018
       }
     ],
-    "verified": true,
+    "morphoListed": true,
+    "address": "0x46057881E0B9d190920FB823F840B837f65745d5",
+    "addresses": [
+      {
+        "address": "0x46057881E0B9d190920FB823F840B837f65745d5",
+        "chainId": 1
+      },
+      {
+        "address": "0x46057881E0B9d190920FB823F840B837f65745d5",
+        "chainId": 130
+      },
+      {
+        "address": "0x46057881E0B9d190920FB823F840B837f65745d5",
+        "chainId": 747474
+      }
+    ],
     "description": null,
     "socials": [
       {
@@ -1537,59 +2171,86 @@
         "url": "https://x.com/singularv_xyz"
       }
     ],
-    "reportedAum": 1507550.6320506036
+    "reportedAum": 1506307.173234994
   },
   {
     "name": "UltraYield",
-    "aumUsd": 878487.3888462683,
+    "aumUsd": 878778.432294301,
     "vaultCount": 4,
     "byChain": {
-      "Base": 643281.0715802223,
-      "Arbitrum One": 102175.906769487,
-      "OP Mainnet": 102002.8229895628,
-      "Ethereum": 31027.587506996224
+      "Base": 643498.613954931,
+      "Arbitrum One": 102206.02160160882,
+      "OP Mainnet": 102033.03659613318,
+      "Ethereum": 31040.760141627965
     },
     "byCollateral": {
-      "cbBTC": 63415.661824833915,
-      "wstETH": 101324.73184005095,
-      "mBASIS": 12660.567979008132,
-      "uniBTC": 487379.16135226766,
-      "sUSDS": 17369.51539192952,
-      "WBTC": 150716.63742765505,
-      "WETH": 14593.739784998586,
-      "sUSDe": 31027.37324552448
+      "cbBTC": 63435.82986557086,
+      "wstETH": 101359.49171632931,
+      "mBASIS": 12672.612890231281,
+      "uniBTC": 487535.7150539992,
+      "sUSDS": 17373.34819873867,
+      "WBTC": 150761.82734013503,
+      "WETH": 14599.06138873106,
+      "sUSDe": 31040.54584056556
     },
     "byDepositAsset": {
-      "USDC": 847459.8013392721,
-      "USDT": 31027.587506996224
+      "USDC": 847737.672152673,
+      "USDT": 31040.760141627965
     },
     "vaults": [
       {
         "name": "UltraYield USDC",
         "chain": "Base",
         "depositAsset": "USDC",
-        "tvlUsd": 643281.0715802223
+        "tvlUsd": 643498.613954931
       },
       {
         "name": "UltraYield USDC",
         "chain": "Arbitrum One",
         "depositAsset": "USDC",
-        "tvlUsd": 102175.906769487
+        "tvlUsd": 102206.02160160882
       },
       {
         "name": "UltraYield USDC",
         "chain": "OP Mainnet",
         "depositAsset": "USDC",
-        "tvlUsd": 102002.8229895628
+        "tvlUsd": 102033.03659613318
       },
       {
         "name": "UltraYield USDT",
         "chain": "Ethereum",
         "depositAsset": "USDT",
-        "tvlUsd": 31027.587506996224
+        "tvlUsd": 31040.760141627965
       }
     ],
-    "verified": true,
+    "morphoListed": true,
+    "address": "0x1280e86Cd7787FfA55d37759C0342F8CD3c7594a",
+    "addresses": [
+      {
+        "address": "0x1280e86Cd7787FfA55d37759C0342F8CD3c7594a",
+        "chainId": 1
+      },
+      {
+        "address": "0xCC217D03d9Ad82C80101B9F0579Fd5A0b141EDcc",
+        "chainId": 1
+      },
+      {
+        "address": "0x1280e86Cd7787FfA55d37759C0342F8CD3c7594a",
+        "chainId": 10
+      },
+      {
+        "address": "0x1280e86Cd7787FfA55d37759C0342F8CD3c7594a",
+        "chainId": 143
+      },
+      {
+        "address": "0x1280e86Cd7787FfA55d37759C0342F8CD3c7594a",
+        "chainId": 8453
+      },
+      {
+        "address": "0x1280e86Cd7787FfA55d37759C0342F8CD3c7594a",
+        "chainId": 42161
+      }
+    ],
     "description": null,
     "socials": [
       {
@@ -1605,32 +2266,51 @@
         "url": "https://x.com/ultrayieldapp"
       }
     ],
-    "reportedAum": 1101744.3774621082
+    "reportedAum": 1102121.0852464498
   },
   {
     "name": "Apostro",
-    "aumUsd": 264250.25370197,
+    "aumUsd": 263951.23240914964,
     "vaultCount": 1,
     "byChain": {
-      "Base": 264250.25370197
+      "Base": 263951.23240914964
     },
     "byCollateral": {
-      "WETH": 55465.44782715044,
-      "cbBTC": 14557.824740584827,
-      "cbETH": 194226.9811342347
+      "WETH": 55402.48635519843,
+      "cbBTC": 14541.340967493128,
+      "cbETH": 194007.40508645808
     },
     "byDepositAsset": {
-      "VCHF": 264250.25370197
+      "VCHF": 263951.23240914964
     },
     "vaults": [
       {
         "name": "Apostro VNX Swiss Franc VCHF",
         "chain": "Base",
         "depositAsset": "VCHF",
-        "tvlUsd": 264250.25370197
+        "tvlUsd": 263951.23240914964
       }
     ],
-    "verified": true,
+    "morphoListed": true,
+    "address": "0xC91578e51BCE35844E345CC7F733b4bBf6721734",
+    "addresses": [
+      {
+        "address": "0xC91578e51BCE35844E345CC7F733b4bBf6721734",
+        "chainId": 1
+      },
+      {
+        "address": "0xf726311F85D45a7fECfFbC94bD8508a0A39958c6",
+        "chainId": 1
+      },
+      {
+        "address": "0xC91578e51BCE35844E345CC7F733b4bBf6721734",
+        "chainId": 8453
+      },
+      {
+        "address": "0xf726311F85D45a7fECfFbC94bD8508a0A39958c6",
+        "chainId": 8453
+      }
+    ],
     "description": null,
     "socials": [
       {
@@ -1646,28 +2326,55 @@
         "url": "https://x.com/apostroxyz"
       }
     ],
-    "reportedAum": 264250.25370197
+    "reportedAum": 263951.23240914964
   },
   {
     "name": "B.Protocol",
-    "aumUsd": 253460.67779461082,
+    "aumUsd": 253502.7826462095,
     "vaultCount": 1,
     "byChain": {
-      "Ethereum": 253460.67779461082
+      "Ethereum": 253502.7826462095
     },
     "byCollateral": {},
     "byDepositAsset": {
-      "USDT": 253460.67779461082
+      "USDT": 253502.7826462095
     },
     "vaults": [
       {
         "name": "Flagship USDT",
         "chain": "Ethereum",
         "depositAsset": "USDT",
-        "tvlUsd": 506921.35558922164
+        "tvlUsd": 507005.565292419
       }
     ],
-    "verified": true,
+    "morphoListed": true,
+    "address": "0x2566f66f68ed438726AD904524FB306A03FdB80B",
+    "addresses": [
+      {
+        "address": "0x2566f66f68ed438726AD904524FB306A03FdB80B",
+        "chainId": 1
+      },
+      {
+        "address": "0x2a933dbd0D9e32593e62702028Edcab437CE3cBA",
+        "chainId": 1
+      },
+      {
+        "address": "0xD6D14E60c0DAFcB3B77B296fe718623Ec84e5eb3",
+        "chainId": 1
+      },
+      {
+        "address": "0x970d5ce29730b8e5792da0f0f0a544721B0E0b4F",
+        "chainId": 10
+      },
+      {
+        "address": "0x32f75c3ee6aD872Eb3138020885E94E2842b8433",
+        "chainId": 8453
+      },
+      {
+        "address": "0x4b8f6CADb8A2B222e8840E8aDDc32E031794A4D6",
+        "chainId": 8453
+      }
+    ],
     "description": null,
     "socials": [
       {
@@ -1683,28 +2390,47 @@
         "url": "https://x.com/bprotocoleth"
       }
     ],
-    "reportedAum": 506919.5729288582
+    "reportedAum": 507005.565292419
   },
   {
     "name": "Block Analitica",
-    "aumUsd": 253460.67779461082,
+    "aumUsd": 253502.7826462095,
     "vaultCount": 1,
     "byChain": {
-      "Ethereum": 253460.67779461082
+      "Ethereum": 253502.7826462095
     },
     "byCollateral": {},
     "byDepositAsset": {
-      "USDT": 253460.67779461082
+      "USDT": 253502.7826462095
     },
     "vaults": [
       {
         "name": "Flagship USDT",
         "chain": "Ethereum",
         "depositAsset": "USDT",
-        "tvlUsd": 506921.35558922164
+        "tvlUsd": 507005.565292419
       }
     ],
-    "verified": true,
+    "morphoListed": true,
+    "address": "0x2566f66f68ed438726AD904524FB306A03FdB80B",
+    "addresses": [
+      {
+        "address": "0x2566f66f68ed438726AD904524FB306A03FdB80B",
+        "chainId": 1
+      },
+      {
+        "address": "0x2a933dbd0D9e32593e62702028Edcab437CE3cBA",
+        "chainId": 1
+      },
+      {
+        "address": "0x970d5ce29730b8e5792da0f0f0a544721B0E0b4F",
+        "chainId": 10
+      },
+      {
+        "address": "0x4b8f6CADb8A2B222e8840E8aDDc32E031794A4D6",
+        "chainId": 8453
+      }
+    ],
     "description": null,
     "socials": [
       {
@@ -1720,28 +2446,39 @@
         "url": "https://x.com/BlockAnalitica"
       }
     ],
-    "reportedAum": 506919.5729288582
+    "reportedAum": 507005.565292419
   },
   {
     "name": "Keyrock",
-    "aumUsd": 95939.81752281035,
+    "aumUsd": 95944.38640724425,
     "vaultCount": 1,
     "byChain": {
-      "Ethereum": 95939.81752281035
+      "Ethereum": 95944.38640724425
     },
     "byCollateral": {},
     "byDepositAsset": {
-      "USDC": 95939.81752281035
+      "USDC": 95944.38640724425
     },
     "vaults": [
       {
         "name": "Keyrock USDC",
         "chain": "Ethereum",
         "depositAsset": "USDC",
-        "tvlUsd": 95939.81752281035
+        "tvlUsd": 95944.38640724425
       }
     ],
-    "verified": true,
+    "morphoListed": true,
+    "address": "0x9ea3709E1A3f0B9501DD4a66163861D9BcCe7A08",
+    "addresses": [
+      {
+        "address": "0x9ea3709E1A3f0B9501DD4a66163861D9BcCe7A08",
+        "chainId": 1
+      },
+      {
+        "address": "0xbA75546ACD56b3a9142f94F179b03970eE4283Fd",
+        "chainId": 1
+      }
+    ],
     "description": null,
     "socials": [
       {
@@ -1753,30 +2490,41 @@
         "url": "https://x.com/keyrock"
       }
     ],
-    "reportedAum": 789946.6249609863
+    "reportedAum": 1291401.231127051
   },
   {
     "name": "K3 Capital",
-    "aumUsd": 24996.168439871493,
+    "aumUsd": 22498.027329116572,
     "vaultCount": 1,
     "byChain": {
-      "Unichain": 24996.168439871493
+      "Unichain": 22498.027329116572
     },
     "byCollateral": {
-      "weETH": 24996.168439871493
+      "weETH": 22498.027329116572
     },
     "byDepositAsset": {
-      "WETH": 24996.168439871493
+      "WETH": 22498.027329116572
     },
     "vaults": [
       {
         "name": "K3 Capital ETH Maxi",
         "chain": "Unichain",
         "depositAsset": "WETH",
-        "tvlUsd": 24996.168439871493
+        "tvlUsd": 22498.027329116572
       }
     ],
-    "verified": true,
+    "morphoListed": true,
+    "address": "0xdD84A24eeddE63F10Ec3e928f1c8302A47538b6B",
+    "addresses": [
+      {
+        "address": "0xdD84A24eeddE63F10Ec3e928f1c8302A47538b6B",
+        "chainId": 1
+      },
+      {
+        "address": "0xdD84A24eeddE63F10Ec3e928f1c8302A47538b6B",
+        "chainId": 130
+      }
+    ],
     "description": null,
     "socials": [
       {
@@ -1792,6 +2540,6 @@
         "url": "https://x.com/k3_capital"
       }
     ],
-    "reportedAum": 24996.168439871493
+    "reportedAum": 22498.027329116572
   }
 ]

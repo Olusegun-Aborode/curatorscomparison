@@ -66,7 +66,8 @@ const enriched = curators.map((c) => {
     .join(", ");
   return {
     name: c.name,
-    verified: c.verified,
+    morphoListed: c.morphoListed,
+    address: c.address || null,
     aumUsd: c.aumUsd,
     sizeTier: tier(c.aumUsd),
     vaultCount: c.vaultCount,

@@ -31,7 +31,8 @@ const morpho = JSON.parse(fs.readFileSync(`${DIR}/curators_classified.json`, "ut
 for (const c of morpho) {
   records.push({
     name: c.name, protocol: "Morpho", relationshipType: "curator",
-    verified: c.verified, aumUsd: c.aumUsd, vaultCount: c.vaultCount,
+    morphoListed: c.morphoListed, address: c.address || null,
+    aumUsd: c.aumUsd, vaultCount: c.vaultCount,
     chains: c.chains, byChain: c.byChain, byAssetType: c.byAssetType,
     dominantAssetType: c.dominantAssetType, assetProfile: c.assetProfile,
     ethShare: c.ethShare,
@@ -67,7 +68,7 @@ for (const e of eMap.values()) {
   const tot = sorted.reduce((s, [, v]) => s + v, 0) || 1;
   records.push({
     name: e.name, protocol: "Euler", relationshipType: "curator",
-    verified: false, aumUsd: e.aumUsd, vaultCount: e.vaultCount,
+    morphoListed: false, address: null, aumUsd: e.aumUsd, vaultCount: e.vaultCount,
     chains: Object.keys(e.byChain), byChain: e.byChain, byAssetType: e.byAssetType,
     dominantAssetType: sorted[0]?.[0] ?? "Other / Long-tail",
     assetProfile: sorted.map(([b, v]) => `${b} ${Math.round(v / tot * 100)}%`).join(", "),
@@ -90,7 +91,8 @@ const riskManagers = [
   { name: "Chaos Labs", scope: "Risk params, oracle & listing risk across Aave v3 markets" },
 ].map((m) => ({
   name: m.name, protocol: "Aave", relationshipType: "risk_manager",
-  verified: true, aumUsd: 0, overseesUsd: aaveTvl, scope: m.scope,
+  morphoListed: false, address: null, aumUsd: 0, overseesUsd: aaveTvl, scope: m.scope,
+  govSource: "https://governance.aave.com",
   byAssetType: {}, byChain: {}, chains: [], dominantAssetType: "-",
   assetProfile: "advisory, not capital allocation",
 }));
@@ -106,14 +108,15 @@ const mergedMap = new Map();
 for (const r of perProtocol) {
   if (!mergedMap.has(r.name)) {
     mergedMap.set(r.name, {
-      name: r.name, relationshipType: "curator", verified: false,
+      name: r.name, relationshipType: "curator", morphoListed: false, address: null,
       aumUsd: 0, vaultCount: 0, byChain: {}, byAssetType: {}, protocols: [],
     });
   }
   const m = mergedMap.get(r.name);
   m.aumUsd += r.aumUsd;
   m.vaultCount += r.vaultCount || 0;
-  m.verified = m.verified || r.verified;
+  m.morphoListed = m.morphoListed || r.morphoListed;
+  if (!m.address && r.address) m.address = r.address;
   for (const [k, v] of Object.entries(r.byChain || {})) m.byChain[k] = (m.byChain[k] || 0) + v;
   for (const [k, v] of Object.entries(r.byAssetType || {})) m.byAssetType[k] = (m.byAssetType[k] || 0) + v;
   m.protocols.push({ protocol: r.protocol, aumUsd: r.aumUsd, vaultCount: r.vaultCount || 0 });

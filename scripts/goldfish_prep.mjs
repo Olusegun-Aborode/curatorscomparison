@@ -153,7 +153,7 @@ const leads = cur.map((c) => {
   const rwa = Object.entries(c.byCollateral || {}).filter(([s]) => rwaRe.test(s));
   const gold = Object.entries(c.byCollateral || {}).filter(([s]) => goldRe.test(s));
   return {
-    name: c.name, aumUsd: c.aumUsd, verified: c.verified,
+    name: c.name, aumUsd: c.aumUsd, morphoListed: c.morphoListed,
     rwaUsd: rwa.reduce((s, [, v]) => s + v, 0),
     holds: rwa.map(([s]) => s),
     goldActive: gold.length > 0,
@@ -166,7 +166,8 @@ const social = (c, t) => (c.socials || []).find((s) => s.type === t)?.url || nul
 const rwaCurators = cur.map((c) => {
   const rwa = Object.entries(c.byCollateral || {}).filter(([s]) => rwaRe.test(s));
   return {
-    name: c.name, rwaUsd: rwa.reduce((s, [, v]) => s + v, 0), aumUsd: c.aumUsd, verified: c.verified,
+    name: c.name, rwaUsd: rwa.reduce((s, [, v]) => s + v, 0), aumUsd: c.aumUsd,
+    morphoListed: c.morphoListed, address: c.address || null,
     holds: rwa.map(([s]) => s), site: social(c, "url"), twitter: social(c, "twitter"), forum: social(c, "forum"),
   };
 }).filter((c) => c.rwaUsd > 0).sort((a, b) => b.rwaUsd - a.rwaUsd);

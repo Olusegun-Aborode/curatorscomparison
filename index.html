@@ -38,8 +38,8 @@
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
-  <script src="lending_curators.data.js?v=20260611180000"></script>
-  <script src="goldfish.data.js?v=20260611180000"></script>
+  <script src="lending_curators.data.js?v=20260611190000"></script>
+  <script src="goldfish.data.js?v=20260611190000"></script>
   <script type="text/babel" src="charts.jsx"></script>
   <script type="text/babel" src="widgets.jsx"></script>
 
@@ -55,6 +55,20 @@
       return '$' + v.toFixed(0);
     };
     const pct = (v) => (v * 100).toFixed(0) + '%';
+    const shortAddr = (a) => a ? a.slice(0, 6) + '…' + a.slice(-4) : null;
+    const ethscan = (a) => 'https://etherscan.io/address/' + a;
+    // curator name cell: link to on-chain controlling address (verifiable on Etherscan)
+    function CuratorName({ name, address, morphoListed }) {
+      return (
+        <span>
+          {address ? <a href={ethscan(address)} target="_blank" rel="noopener" style={{ color: 'var(--fg)', textDecoration: 'none', borderBottom: '1px dotted var(--fg-dim)' }}>{name}</a> : name}
+          {morphoListed && <span title="Morpho curator registry listing (not independent verification)" style={{ color: 'var(--fg-dim)', marginLeft: 6, fontSize: 10, fontFamily: 'var(--font-mono)' }}>ML</span>}
+          {address
+            ? <div style={{ fontSize: 10, color: 'var(--fg-dim)', fontFamily: 'var(--font-mono)', fontWeight: 400 }}>{shortAddr(address)}</div>
+            : <div style={{ fontSize: 10, color: 'var(--fg-dim)', fontWeight: 400 }}>no registered address</div>}
+        </span>
+      );
+    }
     const ASSET_TYPES = Object.keys(AC);
     const TIERS = ["Mega (>$500M)", "Large ($100M–500M)", "Mid ($25M–100M)", "Small ($5M–25M)", "Emerging (<$5M)"];
 
@@ -224,7 +238,7 @@
                     onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-elev)'}
                     onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
                     <td style={{ ...td, fontFamily: 'var(--font-mono)', color: 'var(--fg-dim)' }}>{String(i + 1).padStart(2, '0')}</td>
-                    <td style={{ ...td, fontWeight: 600 }}>{c.name}{c.verified && <span title="Verified" style={{ color: 'var(--blue)', marginLeft: 6, fontSize: 11 }}>✓</span>}</td>
+                    <td style={{ ...td, fontWeight: 600 }}><CuratorName name={c.name} address={c.address} morphoListed={c.morphoListed} /></td>
                     <td style={td}><div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>{c.protocols.map(p => (
                       <span key={p.protocol} title={`${p.protocol}: ${fmtUSD(p.aumUsd)} · ${p.vaultCount} vaults`} style={{ fontSize: 11, padding: '2px 7px', borderRadius: 4, background: p.protocol === 'Morpho' ? 'rgba(99,102,241,.15)' : 'rgba(34,197,94,.15)', color: p.protocol === 'Morpho' ? 'var(--blue)' : 'var(--green)' }}>{p.protocol}</span>
                     ))}</div></td>
@@ -245,11 +259,12 @@
             {D.riskManagers.map(m => (
               <div key={m.name} className="panel" style={{ padding: 16 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                  <div style={{ fontWeight: 600, fontSize: 15 }}>{m.name}<span style={{ color: 'var(--blue)', marginLeft: 6, fontSize: 11 }}>✓</span></div>
+                  <div style={{ fontWeight: 600, fontSize: 15 }}>{m.name}</div>
                   <span style={{ fontSize: 11, padding: '2px 7px', borderRadius: 4, background: 'rgba(168,85,247,.15)', color: 'var(--purple)' }}>{m.protocol} · risk manager</span>
                 </div>
                 <div style={{ fontSize: 12, color: 'var(--fg-muted)', marginTop: 8 }}>{m.scope}</div>
                 <div style={{ fontSize: 12, marginTop: 10, fontFamily: 'var(--font-mono)' }}>Oversees ≈ {fmtUSD(m.overseesUsd)} <span style={{ color: 'var(--fg-dim)' }}>Aave v3 TVL (shared advisory scope)</span></div>
+                <div style={{ fontSize: 11, marginTop: 8 }}>DAO-appointed; on-chain RiskSteward/ACL roles · <a href={m.govSource || 'https://governance.aave.com'} target="_blank" rel="noopener" style={{ color: 'var(--blue)', textDecoration: 'none' }}>Aave governance</a></div>
               </div>
             ))}
           </div>
@@ -290,7 +305,7 @@
 
           <Sec n="01" title="Curator universe, Morpho" sub="The bulk of curated AUM. Overview + Curators pages.">
             <Row k="Endpoint" v={<M>POST blue-api.morpho.org/graphql</M>} />
-            <Row k="Identity query" v={<span><M>curators</M> → id, name, verified, socials (X/site/forum), addresses, state.aum.</span>} />
+            <Row k="Identity query" v={<span><M>curators</M> → name, on-chain addresses, socials, state.aum. Each curator name links to its <b>on-chain controlling address</b> (verifiable on Etherscan). The "ML" tag = Morpho registry listing, not independent verification.</span>} />
             <Row k="Vaults query" v={<span><M>vaults</M> (paginated 100/page, all chains, orderBy TotalAssetsUsd) → state.totalAssetsUsd, state.curators[].name, state.allocation[] {`{`} supplyAssetsUsd, supplyCapUsd, enabled, market.collateralAsset/loanAsset {`}`}.</span>} />
             <Row k="Roll-up" v="Vault TVL → curator. Co-curated vaults split evenly across curators. Collateral exposure distributed proportionally by each market's supplyAssetsUsd → gives the asset-type mix per curator." />
             <Row k="Filters" v="Keep vaults ≥ $10k TVL with a named (registered) curator. Addr-only vaults (~5% of TVL) excluded, they lack a verifiable curator identity." />
@@ -328,7 +343,8 @@
           </Sec>
 
           <Sec n="07" title="GGBR collateral, important caveat" sub="Why GGBR is treated as credit-like RWA, not vaulted gold.">
-            <Row k="What backs GGBR" v={<span>IONau = a claim on <b>in-situ (in-ground) gold reserves</b> at 5:1 overcollateralization, issued by I-ON Digital Corp (<M>OTCQB: IONI</M>, ~$30M micro-cap). Verified via I-ON's site, press releases, and stockanalysis.com.</span>} />
+            <Row k="What backs GGBR" v={<span>IONau = a claim on <b>in-situ (in-ground) gold reserves</b> at <b>5:1 overcollateralization</b>, issued by I-ON Digital Corp (<M>OTCQB: IONI</M>). Backing is an off-chain legal/custody arrangement (NI 43-101 reserve report, UCC liens, Fireblocks custody) — confirmed via the issuer, not verifiable on-chain.</span>} />
+            <Row k="GGBR token (on-chain)" v={<span>Contract <M>0x7e2ac793f3e692f388e66c7dc28f739d13b0b71a</M> (Ethereum). Token, supply and transfers are on-chain; the gold backing above is not.</span>} />
             <Row k="Implication" v="Not redeemable vaulted bar gold like PAXG/XAUt, it's a mining-reserve credit claim. GGBR is therefore treated as credit-like RWA, separate from the tokenized-gold peer set." />
           </Sec>
 
@@ -547,7 +563,7 @@
                 <tbody>
                   {P.curators.map(c => (
                     <tr key={c.name}>
-                      <td style={{...gtd, fontWeight:600, whiteSpace:'nowrap'}}>{c.name}{c.verified && <span style={{ color: GC.blue, marginLeft:5, fontSize:11 }}>✓</span>}</td>
+                      <td style={{...gtd, fontWeight:600}}><CuratorName name={c.name} address={c.address} morphoListed={c.morphoListed} /></td>
                       <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)'}}>{fmtUSD(c.rwaUsd)}</td>
                       <td style={{...gtd, textAlign:'right', fontFamily:'var(--font-mono)', color:'var(--fg-muted)'}}>{fmtUSD(c.aumUsd)}</td>
                       <td style={{...gtd, fontSize:11, color:'var(--fg-muted)'}}>{c.holds.slice(0,5).join(', ')}</td>

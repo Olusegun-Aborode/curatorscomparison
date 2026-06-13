@@ -150,12 +150,16 @@ function main() {
     const curators = [...byCurator.values()]
       .map((c) => {
         const e = entityByName.get(c.name.toLowerCase());
+        const addrs = e?.addresses ?? [];
+        const mainnet = addrs.find((a) => a.chainId === 1) ?? addrs[0];
         return {
           ...c,
-          verified: e?.verified ?? false,
+          morphoListed: e?.verified ?? false, // Morpho's own listing flag (NOT independent verification)
+          address: mainnet?.address ?? null,  // on-chain curator-role controller (verifiable on Etherscan)
+          addresses: addrs,
           description: e?.description ?? null,
           socials: e?.socials ?? [],
-          reportedAum: e?.state?.aum ?? null, // Morpho's own AUM figure, cross-check
+          reportedAum: e?.state?.aum ?? null,
         };
       })
       .sort((a, b) => b.aumUsd - a.aumUsd);
